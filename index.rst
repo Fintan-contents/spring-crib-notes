@@ -10,6 +10,7 @@ Welcome to keel-doc's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   web/session/session-elasticache
 
 
 Indices and tables
