@@ -14,34 +14,11 @@ redisへのセッション情報は、 `Spring Session <https://projects.spring.
 
 セッションの保存先をredisにする
 ----------------------------------------------------------------------------------------------------
-依存ライブラリ
-  ``pom.xml`` (Mavenプロジェクトの場合)に以下のライブラリを追加します。
-
-  .. code-block:: xml
-
-    <dependency>
-      <groupId>org.springframework.session</groupId>
-      <artifactId>spring-session-data-redis</artifactId>
-    </dependency>
-
-設定例
-  ``application.properties`` (propertiesを使う場合)に、セッションの保存先をredisにするための設定を追加します。
-  なお、redisのホストやポートの情報は環境にあった値を設定してください。
-
-  .. code-block:: properties
-
-    # sessionの保存先をredisにします
-    spring.session.store-type=redis
-
-    # redisの接続情報を設定します
-    spring.redis.host=localhost
-    spring.redis.port=6379
-
-    # その他は要件に合わせて設定してください。
+`Spring Session - Spring Boot <https://docs.spring.io/spring-session/docs/current/reference/html5/guides/boot-redis.html>`_ を参考にライブラリの追加と設定の追加を行います。
 
 ローカル開発環境について
 ----------------------------------------------------------------------------------------------------
-Dockerの `公式イメージ <https://hub.docker.com/_/redis/>`_ を使用することで簡単にredis環境を構築出来ます。
+Dockerの `redis公式イメージ <https://hub.docker.com/_/redis/>`_ を使用することで簡単にredis環境を構築出来ます。
 この場合は、ローカル開発環境とテストや本番環境でredisの接続先の設定が変わるので、profileで設定値を切り替える等の対応が必要となります。
 
 .. tip::
