@@ -9,6 +9,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>web/database-validation</module>
+    <module>web/doma2-optimistic-lock</module>
   </modules>
 
   <parent>
@@ -22,7 +23,18 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
+    <doma.version>1.1.1</doma.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.seasar.doma.boot</groupId>
+        <artifactId>doma-spring-boot-starter</artifactId>
+        <version>${doma.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <build>
     <plugins>
