@@ -9,3 +9,7 @@
   * `Macchinetta Server Framework (1.x) Development Guideline 1.5.1.RELEASE documentation - 4. Webアプリ開発機能 - 4.2. 入力チェック（※） <https://macchinetta.github.io/server-guideline-thymeleaf/1.5.1.RELEASE/ja/ArchitectureInDetail/WebApplicationDetail/Validation.html>`_
 
 （※） `Macchinetta Server Framework (1.x) のスタック <https://macchinetta.github.io/server-guideline-thymeleaf/1.5.1.RELEASE/ja/Overview/FrameworkStack.html>`_
+
+
+Bean Validationを使用した場合
+--------------------------------------------------
