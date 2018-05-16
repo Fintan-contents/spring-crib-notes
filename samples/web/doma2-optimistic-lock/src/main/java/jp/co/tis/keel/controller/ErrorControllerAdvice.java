@@ -14,7 +14,7 @@ public class ErrorControllerAdvice {
     private static final Logger LOGGER = LoggerFactory.getLogger(ErrorControllerAdvice.class);
 
     /**
-     * 楽観ロック例外が発生した場合は、HTTPステータスコードに409を設定。
+     * 楽観ロック例外が発生した場合は、HTTPステータスコードに409を設定します。
      *
      * @param e 楽観ロック例外
      */
