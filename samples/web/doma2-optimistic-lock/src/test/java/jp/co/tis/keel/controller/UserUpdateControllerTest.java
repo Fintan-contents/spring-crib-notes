@@ -1,9 +1,9 @@
 package jp.co.tis.keel.controller;
 
 import jp.co.tis.keel.Doma2OptimisticLockApplication;
-import jp.co.tis.keel.controller.form.UserUpdateForm;
 import jp.co.tis.keel.domain.service.UserService;
 import jp.co.tis.keel.entity.User;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.seasar.doma.jdbc.OptimisticLockException;
@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import javax.servlet.http.HttpSession;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doThrow;
@@ -41,17 +43,19 @@ public class UserUpdateControllerTest {
                 1L
         ));
 
-        final UserUpdateForm expectedForm = new UserUpdateForm();
-        expectedForm.setUserId(1L);
-        expectedForm.setUserName("太郎");
-        expectedForm.setVersionNo(1L);
-
-        mockMvc
+        final HttpSession session = mockMvc
                 .perform(get("/user/edit"))
                 .andExpect(status().isOk())
                 .andExpect(model().hasNoErrors())
-                .andExpect(model().attribute("form", expectedForm))
-                .andExpect(view().name("user/edit"));
+                .andExpect(view().name("user/edit"))
+                .andReturn()
+                .getRequest()
+                .getSession();
+
+        Assertions
+                .assertThat(session.getAttribute("form"))
+                .extracting("userId", "userName", "versionNo")
+                .containsExactly(1L, "太郎", 1L);
     }
 
     @Test
