@@ -3,7 +3,7 @@ package jp.co.tis.keel.controller;
 
 import jp.co.tis.keel.controller.form.UserUpdateForm;
 import jp.co.tis.keel.domain.service.UserService;
-import jp.co.tis.keel.domain.service.dto.PasswordUpdateDto;
+import jp.co.tis.keel.domain.service.dto.UserDto;
 import jp.co.tis.keel.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -42,7 +42,7 @@ public class UserUpdateController {
             return "user/edit";
         }
         // 画面の入力値と、セッションに格納されている情報を使用してデータを更新
-        userService.update(new PasswordUpdateDto(form.getUserId(), form.getUserName(), form.getVersionNo()));
+        userService.update(new UserDto(form.getUserId(), form.getUserName(), form.getVersionNo()));
         // データ更新に成功した場合は、初期表示にリダイレクト
         return "redirect:/user/edit?success";
     }

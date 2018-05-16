@@ -1,7 +1,7 @@
 package jp.co.tis.keel.domain.service;
 
 import jp.co.tis.keel.domain.repository.UserDao;
-import jp.co.tis.keel.domain.service.dto.PasswordUpdateDto;
+import jp.co.tis.keel.domain.service.dto.UserDto;
 import jp.co.tis.keel.domain.service.exception.UserNotFoundException;
 import jp.co.tis.keel.entity.User;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class UserService {
     }
 
     @Transactional
-    public int update(PasswordUpdateDto dto) {
+    public int update(UserDto dto) {
         return userDao
                 .update(new User(
                         dto.getUserId(),
