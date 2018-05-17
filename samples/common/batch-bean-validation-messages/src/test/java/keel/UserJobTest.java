@@ -1,5 +1,6 @@
 package keel;
 
+import ch.qos.logback.classic.Logger;
 import ch.qos.logback.core.Appender;
 import keel.processor.UserItemProcessor;
 import org.assertj.core.api.SoftAssertions;
@@ -41,7 +42,7 @@ public class UserJobTest {
     @Test
     public void ジョブが正常終了すること() throws Exception {
 
-        ch.qos.logback.classic.Logger root = (ch.qos.logback.classic.Logger) LoggerFactory.getLogger(UserItemProcessor.class);
+        Logger root = (ch.qos.logback.classic.Logger) LoggerFactory.getLogger(UserItemProcessor.class);
         root.addAppender(mockAppender);
 
         final JobExecution result = jobLauncherTestUtils.launchJob();
