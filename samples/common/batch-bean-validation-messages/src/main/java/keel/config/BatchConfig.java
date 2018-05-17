@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+// example-start
 @Configuration
 public class BatchConfig {
 
@@ -14,7 +15,6 @@ public class BatchConfig {
         this.messageSource = messageSource;
     }
 
-    // example-start
     @Bean
     public LocalValidatorFactoryBean validator() {
         LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
@@ -22,5 +22,5 @@ public class BatchConfig {
         localValidatorFactoryBean.setValidationMessageSource(messageSource);
         return localValidatorFactoryBean;
     }
-    // example-end
 }
+// example-end
