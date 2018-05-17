@@ -51,8 +51,7 @@ public class UserJobTest {
 
         SoftAssertions.assertSoftly(softly -> {
             softly
-                    .assertThat(captorLoggingEvent
-                            .getAllValues())
+                    .assertThat(captorLoggingEvent.getAllValues())
                     .extracting("message")
                     .containsExactlyInAnyOrder("column name：userId, error message：値は8文字以上 20文字以下にしてください",
                             "column name：userId, error message：値は8文字以上 20文字以下にしてください",
