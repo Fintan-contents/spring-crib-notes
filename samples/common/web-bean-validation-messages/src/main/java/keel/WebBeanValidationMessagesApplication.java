@@ -1,11 +1,11 @@
-package jp.co.tis.keel;
+package keel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MessagePropertiesApplication {
+public class WebBeanValidationMessagesApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MessagePropertiesApplication.class, args);
+        SpringApplication.run(WebBeanValidationMessagesApplication.class, args);
     }
 }
