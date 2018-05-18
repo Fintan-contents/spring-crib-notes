@@ -9,7 +9,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 @Configuration
 public class BatchConfig {
 
-    final MessageSource messageSource;
+    private final MessageSource messageSource;
 
     public BatchConfig(MessageSource messageSource) {
         this.messageSource = messageSource;
@@ -18,7 +18,7 @@ public class BatchConfig {
     @Bean
     public LocalValidatorFactoryBean validator() {
         LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
-        // 精査エラー時のメッセージを、MessageSourceから取得するように設定
+        // 精査エラー時のメッセージを、MessageSourceから取得するように設定します
         localValidatorFactoryBean.setValidationMessageSource(messageSource);
         return localValidatorFactoryBean;
     }
