@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class ErrorControllerAdvice {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ErrorControllerAdvice.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(ErrorControllerAdvice.class);
 
     /**
      * 楽観ロック例外が発生した場合は、HTTPステータスコードに409を設定します。
