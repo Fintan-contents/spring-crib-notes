@@ -17,10 +17,9 @@ import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 
 import javax.sql.DataSource;
-import java.io.File;
 
 @Configuration
 public class UserJobConfig {
@@ -35,10 +34,10 @@ public class UserJobConfig {
     }
 
     @Bean
-    public FlatFileItemReader<User> reader(@Value("${input.user.data.path}") File file) {
+    public FlatFileItemReader<User> reader(@Value("${input.user.data.path}") Resource resource) {
         return new FlatFileItemReaderBuilder<User>()
                 .name("userItemReader")
-                .resource(new FileSystemResource(file))
+                .resource(resource)
                 .delimited()
                 .names(new String[]{"userId", "userName"})
                 .fieldSetMapper(new BeanWrapperFieldSetMapper<User>() {{
