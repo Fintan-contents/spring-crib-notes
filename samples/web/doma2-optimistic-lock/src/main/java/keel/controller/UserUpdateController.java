@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 // example-start
 @Controller
 @RequestMapping("user")
-@SessionAttributes(names = "form") // Formクラスをセッションに格納
+@SessionAttributes(names = "form") // Formクラスをセッションに格納します
 public class UserUpdateController {
 
     private final UserService userService;
@@ -30,7 +30,7 @@ public class UserUpdateController {
     @GetMapping("/edit")
     public String edit(@ModelAttribute(name = "form") UserUpdateForm form) {
         User user = userService.find();
-        // セッションに格納されているFormクラスに取得した情報を設定
+        // セッションに格納されているFormクラスに取得した情報を設定します
         form.setUserId(user.userId);
         form.setUserName(user.userName);
         form.setVersionNo(user.versionNo);
@@ -42,9 +42,9 @@ public class UserUpdateController {
         if (bindingResult.hasErrors()) {
             return "user/edit";
         }
-        // 画面の入力値と、セッションに格納されている情報を使用してデータを更新
+        // 画面の入力値と、セッションに格納されている情報を使用してデータを更新します
         userService.update(new UserDto(form.getUserId(), form.getUserName(), form.getVersionNo()));
-        // データ更新に成功した場合は、初期表示にリダイレクト
+        // データ更新に成功した場合は、初期表示にリダイレクトします
         return "redirect:/user/edit?success";
     }
 }
