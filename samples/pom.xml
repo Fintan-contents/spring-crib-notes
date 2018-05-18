@@ -13,6 +13,7 @@
     <module>common/web-bean-validation-messages</module>
     <module>common/batch-bean-validation-messages</module>
     <module>web/tomcat-access-log</module>
+    <module>common/doma2</module>
   </modules>
 
   <parent>
