@@ -14,7 +14,7 @@ import java.util.Set;
 public class UserItemProcessor implements ItemProcessor<User, User> {
 
     private final Validator validator;
-    private Logger logger = LoggerFactory.getLogger(UserItemProcessor.class);
+    private final Logger logger = LoggerFactory.getLogger(UserItemProcessor.class);
 
     public UserItemProcessor(Validator validator) {
         this.validator = validator;
