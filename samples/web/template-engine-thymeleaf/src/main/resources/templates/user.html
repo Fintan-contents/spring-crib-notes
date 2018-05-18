@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/head :: head_fragment(title = 'サンプルアプリケーション', scripts = ~{::script}, links = ~{::link})">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/user.css}"/>
+  <script type="text/javascript" th:src="@{/scripts/user.js}"></script>
+</head>
+<body>
+  <div th:replace="common/header :: header_fragment"></div>
+  <div id="contents">
+    ここに各画面のコンテンツを記載します。
+    <br/>
+    <button type="button" onclick="hello()">hello</button>
+    <button type="button" onclick="thanks()">thanks</button>
+  </div>
+  <div th:replace="common/footer :: footer_fragment"></div>
+</body>
+</html>

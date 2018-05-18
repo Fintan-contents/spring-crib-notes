@@ -10,6 +10,7 @@
   <modules>
     <module>web/database-validation</module>
     <module>web/doma2-optimistic-lock</module>
+    <module>web/template-engine-thymeleaf</module>
   </modules>
 
   <parent>
