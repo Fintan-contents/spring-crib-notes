@@ -16,6 +16,14 @@ public interface UserDao {
     Optional<User> find();
 
     // example-start
+    /**
+     * 楽観ロックエラーが発生した場合は、{@link org.seasar.doma.jdbc.OptimisticLockException}が送出されます。
+     * 呼出し元で例外を補足してハンドリングしてください。
+     * <p/>
+     * なお、サンプルアプリケーションでは{@link org.springframework.web.bind.annotation.ControllerAdvice}を使用して、
+     * 全てのControllerを横断したエラーハンドリングを実施しています。
+     * @see keel.controller.ErrorControllerAdvice
+     */
     @Update
     Result<User> update(User user);
     // example-end
