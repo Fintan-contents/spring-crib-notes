@@ -1,8 +1,8 @@
 Bean Validationのエラーメッセージをmessages.propertiesに定義する方法
 ====================================================================================================
 
-Spring Bootでは、入力値のチェックとして ``Bean Validation`` をサポートしており、実装ライブラリとして ``Hibernate Validator`` を採用しています。
-デフォルトでは、 ``Hibernate Validator`` で定義されている ``ValidationMessages.properties`` からエラーメッセージが生成されます。
+Spring Bootでは、入力値のチェックとして ``Bean Validation`` をサポートしており、実装ライブラリとして `Hibernate Validator <https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/>`_ を採用しています。
+デフォルトでは、 `Hibernate Validator <https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/>`_ で定義されている ``ValidationMessages.properties`` からエラーメッセージが生成されます。
 
 本節では、エラーメッセージを ``ValidationMessages.properties`` ではなく、Spring Bootの ``MessageSource`` がロードする ``messages.properties`` から取得する方法を記載します。
 メッセージの定義を ``messages.properties`` に集約する事で、開発者はメッセージをどのファイルに定義するべきかを意識する必要がなくなります。
@@ -32,7 +32,7 @@ Configuration
   ``messages.properties`` に集約した場合も、 ``ValidationMessages.properties`` はロードされています。
 
   そのため、 ``Hibernate Validator`` が必要としているメッセージキーが ``messages.properties`` に定義されていなくても、
-  ``ValidationMessages.properties`` に定義されているメッセージが取得できます。
+  `Hibernate Validator <https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/>`_ に定義されているメッセージが取得できます。
 
   例えば、 ``@NotEmpty`` が付与された項目の入力値がブランクの場合は ``javax.validation.constraints.NotEmpty.message`` というキーでメッセージを定義する必要がありますが、
   ``messages.properties`` に定義していなくても、 ``ValidationMessages.properties`` に定義されている ``must not be empty`` がメッセージとして取得できます。
