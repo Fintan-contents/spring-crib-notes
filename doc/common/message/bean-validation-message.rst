@@ -34,11 +34,8 @@ Configuration
   そのため、 ``Hibernate Validator`` が必要としているメッセージキーが ``messages.properties`` に定義されていなくても、
   ``ValidationMessages.properties`` に定義されているメッセージが取得できます。
 
-  例えば、
-
-    ``@NotEmpty`` が付与された項目の入力値がブランクの場合は ``javax.validation.constraints.NotEmpty.message`` というキーでメッセージを定義する必要がありますが、
-
-    ``messages.properties`` に定義していなくても、 ``ValidationMessages.properties`` に定義されている ``must not be empty`` がメッセージとして取得できます。
+  例えば、 ``@NotEmpty`` が付与された項目の入力値がブランクの場合は ``javax.validation.constraints.NotEmpty.message`` というキーでメッセージを定義する必要がありますが、
+  ``messages.properties`` に定義していなくても、 ``ValidationMessages.properties`` に定義されている ``must not be empty`` がメッセージとして取得できます。
 
   なお、デフォルトで定義されているメッセージは以下を参照して下さい。
 
