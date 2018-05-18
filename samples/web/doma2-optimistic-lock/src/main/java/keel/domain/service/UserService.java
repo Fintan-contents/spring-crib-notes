@@ -1,9 +1,9 @@
-package jp.co.tis.keel.domain.service;
+package keel.domain.service;
 
-import jp.co.tis.keel.domain.repository.UserDao;
-import jp.co.tis.keel.domain.service.dto.UserDto;
-import jp.co.tis.keel.domain.service.exception.UserNotFoundException;
-import jp.co.tis.keel.entity.User;
+import keel.domain.repository.UserDao;
+import keel.domain.service.dto.UserDto;
+import keel.domain.service.exception.UserNotFoundException;
+import keel.entity.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

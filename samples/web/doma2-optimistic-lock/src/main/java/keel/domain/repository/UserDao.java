@@ -1,6 +1,6 @@
-package jp.co.tis.keel.domain.repository;
+package keel.domain.repository;
 
-import jp.co.tis.keel.entity.User;
+import keel.entity.User;
 import org.seasar.doma.*;
 import org.seasar.doma.boot.ConfigAutowireable;
 import org.seasar.doma.jdbc.Result;
@@ -15,6 +15,8 @@ public interface UserDao {
     @Select
     Optional<User> find();
 
+    // example-start
     @Update
     Result<User> update(User user);
+    // example-end
 }

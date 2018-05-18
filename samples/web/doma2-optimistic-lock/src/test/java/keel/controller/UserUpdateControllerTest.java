@@ -1,8 +1,8 @@
-package jp.co.tis.keel.controller;
+package keel.controller;
 
-import jp.co.tis.keel.Doma2OptimisticLockApplication;
-import jp.co.tis.keel.domain.service.UserService;
-import jp.co.tis.keel.entity.User;
+import keel.Doma2OptimisticLockApplication;
+import keel.domain.service.UserService;
+import keel.entity.User;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -27,20 +27,32 @@ Doma2の `@Version` を使用した楽観ロック方式で実現します。
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Controller
-  .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/jp/co/tis/keel/controller/UserUpdateController.java
+  .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/keel/controller/UserUpdateController.java
     :language: java
+    :linenos:
+    :start-after: example-start
+    :end-before: example-end
 
 
 Dao
-  .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/jp/co/tis/keel/domain/repository/UserDao.java
+  .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/keel/domain/repository/UserDao.java
     :language: java
+    :linenos:
+    :start-after: example-start
+    :end-before: example-end
 
 
 Entity
-  .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/jp/co/tis/keel/entity/User.java
+  .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/keel/entity/User.java
     :language: java
+    :linenos:
+    :start-after: example-start
+    :end-before: example-end
 
 
 ControllerAdvice
-  .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/jp/co/tis/keel/controller/ErrorControllerAdvice.java
+  .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/keel/controller/ErrorControllerAdvice.java
     :language: java
+    :linenos:
+    :start-after: example-start
+    :end-before: example-end

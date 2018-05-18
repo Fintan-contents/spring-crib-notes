@@ -1,4 +1,4 @@
-package jp.co.tis.keel.domain.service.dto;
+package keel.domain.service.dto;
 
 import lombok.Value;
 

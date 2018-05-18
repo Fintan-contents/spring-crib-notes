@@ -1,15 +1,16 @@
-package jp.co.tis.keel.controller;
+package keel.controller;
 
 
-import jp.co.tis.keel.controller.form.UserUpdateForm;
-import jp.co.tis.keel.domain.service.UserService;
-import jp.co.tis.keel.domain.service.dto.UserDto;
-import jp.co.tis.keel.entity.User;
+import keel.controller.form.UserUpdateForm;
+import keel.domain.service.UserService;
+import keel.domain.service.dto.UserDto;
+import keel.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+// example-start
 @Controller
 @RequestMapping("user")
 @SessionAttributes(names = "form") // Formクラスをセッションに格納
@@ -47,3 +48,4 @@ public class UserUpdateController {
         return "redirect:/user/edit?success";
     }
 }
+// example-end

@@ -1,4 +1,4 @@
-package jp.co.tis.keel.domain.service.exception;
+package keel.domain.service.exception;
 
 public class UserNotFoundException extends RuntimeException {
 
