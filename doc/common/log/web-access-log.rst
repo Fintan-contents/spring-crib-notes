@@ -17,3 +17,11 @@ pom.xml
 .. tip::
   ログのフォーマットの変更(例えば、ログの可視化用にLTSV形式への変更)などを行う場合には、
   `logback-access-spring-boot-starter <https://github.com/akihyro/logback-access-spring-boot-starter>`_ を参考にしてください。
+
+  例えば、LTSVでログを出力する場合は下の内容をもつ ``logback-access.xml`` を作成して ``src/main/resources`` 配下に配置します。
+
+  .. literalinclude:: ../../../samples/web/tomcat-access-log/src/main/resources/logback-access.xml
+    :language: xml
+    :linenos:
+    :start-after: ltsv-start
+    :end-before: ltsv-end

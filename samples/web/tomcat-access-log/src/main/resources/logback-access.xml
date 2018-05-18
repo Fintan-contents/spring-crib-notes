@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- ltsv-start -->
 <configuration>
   <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>common</pattern>
+      <pattern>host:%h&#9;time:%t&#9;ident:%l&#9;user:%u&#9;method:%m&#9;uri:%U%q&#9;protocol:%H&#9;status:%s&#9;size:%B&#9;msec:%D&#9;thread:%I</pattern>
     </encoder>
   </appender>
   <appender-ref ref="CONSOLE" />
 </configuration>
+<!-- ltsv-end -->
