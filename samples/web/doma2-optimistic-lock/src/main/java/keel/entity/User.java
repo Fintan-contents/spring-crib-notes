@@ -19,6 +19,7 @@ public class User {
     public final Long userId;
     public final String userName;
     // example-start
+    // 楽観ロック用のバージョンカラムには、@Versionを付与します。
     @Version
     public final Long versionNo;
     // example-end
