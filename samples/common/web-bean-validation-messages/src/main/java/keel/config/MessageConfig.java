@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MessageConfig implements WebMvcConfigurer {
 
-    final MessageSource messageSource;
+    private final MessageSource messageSource;
 
     public MessageConfig(MessageSource messageSource) {
         this.messageSource = messageSource;
@@ -25,7 +25,7 @@ public class MessageConfig implements WebMvcConfigurer {
     @Bean
     public LocalValidatorFactoryBean validator() {
         LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
-        // 精査エラー時のメッセージを、MessageSourceから取得するように設定
+        // 精査エラー時のメッセージを、MessageSourceから取得するように設定します
         localValidatorFactoryBean.setValidationMessageSource(messageSource);
         return localValidatorFactoryBean;
     }
