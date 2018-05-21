@@ -16,4 +16,5 @@ public class HttpResponseHeaderApplication {
     public String get() {
         return "index";
     }
+
 }
