@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 // example-start
 @Controller
-@RequestMapping("user")
+@RequestMapping("/user")
 @SessionAttributes(names = "form") // Formクラスをセッションに格納します
 public class UserUpdateController {
 
@@ -37,7 +37,7 @@ public class UserUpdateController {
         return "user/edit";
     }
 
-    @PostMapping("update")
+    @PostMapping("/update")
     public String update(@ModelAttribute(name = "form") @Validated UserUpdateForm form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "user/edit";
