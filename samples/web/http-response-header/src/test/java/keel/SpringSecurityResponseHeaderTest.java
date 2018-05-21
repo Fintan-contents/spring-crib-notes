@@ -24,7 +24,7 @@ public class SpringSecurityResponseHeaderTest {
 
     @WithMockUser
     @Test
-    public void SpringSecurityがデフォルトで設定するヘッダの値を検証します() throws Exception {
+    public void SpringSecurityを使用した場合の動的コンテンツに設定されているヘッダの値を検証します() throws Exception {
 
         MockHttpServletResponse response = mvc
                 .perform(
@@ -52,6 +52,52 @@ public class SpringSecurityResponseHeaderTest {
                     softly
                             .assertThat(response.getHeader("Expires"))
                             .isEqualTo("0");
+                    softly
+                            .assertThat(response.getHeader("X-Content-Type-Options"))
+                            .isEqualTo("nosniff");
+                    // HTTPSのみ付与される
+                    softly
+                            .assertThat(response.getHeader("Strict-Transport-Security"))
+                            .isEqualTo("max-age=31536000 ; includeSubDomains");
+                    softly
+                            .assertThat(response.getHeader("X-Frame-Options"))
+                            .isEqualTo("DENY");
+                    softly
+                            .assertThat(response.getHeader("X-XSS-Protection"))
+                            .isEqualTo("1; mode=block");
+                });
+    }
+
+    @WithMockUser
+    @Test
+    public void SpringSecurityを使用した場合の静的コンテンツに設定されているヘッダの値を検証します() throws Exception {
+
+        MockHttpServletResponse response = mvc
+                .perform(
+                        get("/css/base.css")
+                                .secure(true) // モックの動作をhttpsリクエストに設定します
+                )
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse();
+
+        System.out.println("◆設定されているヘッダー名出力 start◆");
+        response
+                .getHeaderNames()
+                .forEach(System.out::println);
+        System.out.println("◆設定されているヘッダー名出力 end◆");
+
+        SoftAssertions
+                .assertSoftly(softly -> {
+                    softly
+                            .assertThat(response.getHeader("Cache-Control"))
+                            .isEqualTo("max-age=86400");
+                    softly
+                            .assertThat(response.getHeader("Pragma"))
+                            .isNull();
+                    softly
+                            .assertThat(response.getHeader("Expires"))
+                            .isNull();
                     softly
                             .assertThat(response.getHeader("X-Content-Type-Options"))
                             .isEqualTo("nosniff");
