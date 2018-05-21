@@ -11,6 +11,7 @@
     <module>web/database-validation</module>
     <module>web/doma2-optimistic-lock</module>
     <module>web/tomcat-access-log</module>
+    <module>web/http-response-header</module>
   </modules>
 
   <parent>
