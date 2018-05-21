@@ -1,4 +1,4 @@
-package jp.co.tis.keel.entity;
+package keel.entity;
 
 import org.seasar.doma.Entity;
 import org.seasar.doma.Id;
@@ -18,7 +18,10 @@ public class User {
     @Id
     public final Long userId;
     public final String userName;
+    // example-start
+    // 楽観ロック用のバージョンカラムには、@Versionを付与します。
     @Version
     public final Long versionNo;
+    // example-end
 
 }

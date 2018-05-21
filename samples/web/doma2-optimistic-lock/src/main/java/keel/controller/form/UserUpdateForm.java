@@ -1,4 +1,4 @@
-package jp.co.tis.keel.controller.form;
+package keel.controller.form;
 
 import lombok.Data;
 

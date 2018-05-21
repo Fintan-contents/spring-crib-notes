@@ -1,4 +1,4 @@
-package jp.co.tis.keel.controller;
+package keel.controller;
 
 import org.seasar.doma.jdbc.OptimisticLockException;
 import org.slf4j.Logger;
@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+// example-start
 @ControllerAdvice
 public class ErrorControllerAdvice {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ErrorControllerAdvice.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(ErrorControllerAdvice.class);
 
     /**
      * 楽観ロック例外が発生した場合は、HTTPステータスコードに409を設定します。
@@ -24,3 +25,4 @@ public class ErrorControllerAdvice {
         LOGGER.debug("排他制御エラーが発生しました", e);
     }
 }
+// example-end
