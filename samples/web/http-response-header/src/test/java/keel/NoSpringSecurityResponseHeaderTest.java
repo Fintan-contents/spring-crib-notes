@@ -29,17 +29,11 @@ public class NoSpringSecurityResponseHeaderTest {
         MockHttpServletResponse response = mvc
                 .perform(
                         get("/")
-                                .secure(true) // モックの動作をhttpsリクエストに設定します
+                                .secure(true) // モックの動作をhttps通信にします
                 )
                 .andExpect(status().isOk())
                 .andReturn()
                 .getResponse();
-
-        System.out.println("◆設定されているヘッダー名出力 start◆");
-        response
-                .getHeaderNames()
-                .forEach(System.out::println);
-        System.out.println("◆設定されているヘッダー名出力 end◆");
 
         SoftAssertions
                 .assertSoftly(softly -> {
@@ -73,17 +67,11 @@ public class NoSpringSecurityResponseHeaderTest {
         MockHttpServletResponse response = mvc
                 .perform(
                         get("/css/base.css")
-                                .secure(true) // モックの動作をhttpsリクエストに設定します
+                                .secure(true) // モックの動作をhttps通信にします
                 )
                 .andExpect(status().isOk())
                 .andReturn()
                 .getResponse();
-
-        System.out.println("◆設定されているヘッダー名出力 start◆");
-        response
-                .getHeaderNames()
-                .forEach(System.out::println);
-        System.out.println("◆設定されているヘッダー名出力 end◆");
 
         SoftAssertions
                 .assertSoftly(softly -> {

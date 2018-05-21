@@ -29,17 +29,11 @@ public class SpringSecurityResponseHeaderTest {
         MockHttpServletResponse response = mvc
                 .perform(
                         get("/")
-                                .secure(true) // モックの動作をhttpsリクエストに設定します
+                                .secure(true) // モックの動作をhttps通信にします
                 )
                 .andExpect(status().isOk())
                 .andReturn()
                 .getResponse();
-
-        System.out.println("◆設定されているヘッダー名出力 start◆");
-        response
-                .getHeaderNames()
-                .forEach(System.out::println);
-        System.out.println("◆設定されているヘッダー名出力 end◆");
 
         SoftAssertions
                 .assertSoftly(softly -> {
@@ -55,7 +49,7 @@ public class SpringSecurityResponseHeaderTest {
                     softly
                             .assertThat(response.getHeader("X-Content-Type-Options"))
                             .isEqualTo("nosniff");
-                    // HTTPSのみ付与される
+                    // HTTPS通信の場合に付与されます
                     softly
                             .assertThat(response.getHeader("Strict-Transport-Security"))
                             .isEqualTo("max-age=31536000 ; includeSubDomains");
@@ -75,17 +69,11 @@ public class SpringSecurityResponseHeaderTest {
         MockHttpServletResponse response = mvc
                 .perform(
                         get("/css/base.css")
-                                .secure(true) // モックの動作をhttpsリクエストに設定します
+                                .secure(true) // モックの動作をhttps通信にします
                 )
                 .andExpect(status().isOk())
                 .andReturn()
                 .getResponse();
-
-        System.out.println("◆設定されているヘッダー名出力 start◆");
-        response
-                .getHeaderNames()
-                .forEach(System.out::println);
-        System.out.println("◆設定されているヘッダー名出力 end◆");
 
         SoftAssertions
                 .assertSoftly(softly -> {
@@ -101,7 +89,7 @@ public class SpringSecurityResponseHeaderTest {
                     softly
                             .assertThat(response.getHeader("X-Content-Type-Options"))
                             .isEqualTo("nosniff");
-                    // HTTPSのみ付与される
+                    // HTTPS通信の場合に付与されます
                     softly
                             .assertThat(response.getHeader("Strict-Transport-Security"))
                             .isEqualTo("max-age=31536000 ; includeSubDomains");
