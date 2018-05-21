@@ -12,19 +12,19 @@
 
 このドキュメントは、ソフトウェア開発経験のあるアーキテクトやプログラマ向けに書かれています。
 
-特に、Spring Frameworkについて、次のような知識・能力を持っていることを前提としています。
+特に、Springについて、次のような知識・能力を持っていることを前提としています。
 
 * Spring Bootを利用して、Webアプリケーションを開発したことがあり、基本的な仕組みについて理解している。
 * Spring Frameworkを利用したアプリケーションの基本的なアーキテクチャについて理解している。
-* Spring BootやSpring Frameworkの公式ドキュメントから適切な情報を検索できる。
+* Springの公式ドキュメントから適切な情報を検索できる。
 * その他、次にあげるような技術要素について、基本的な知識を持っている。
     * SQL
     * Maven
     * Amazon Web Services
 
-これからSpring BootやAmazon Web Servicesを初めて利用するという人に向けたドキュメントとはなっていません。一般的な書籍やサイトを活用して学習してください。
+これからSpringやAmazon Web Servicesを初めて利用するという人に向けたドキュメントとはなっていません。一般的な書籍やサイトを活用して学習してください。
 
-特に、Spring Framework/Spring Bootについては、次のような書籍・サイトがあります。
+特に、Springについては、次のような書籍・サイトがあります。
 
 * `Getting Started · Building an Application with Spring Boot <https://spring.io/guides/gs/spring-boot/>`_
 * `はじめての Spring Boot[改訂版] <https://www.kohgakusha.co.jp/books/detail/978-4-7775-1969-9>`_
@@ -42,11 +42,11 @@
 
 .. image:: ./how-to-use-this-document.png
 
-:ref:`target-user` に記載している通り、このドキュメントではSpring Framework/Spring Bootを利用したアプリケーションの実装方法について解説することを目的にはしていません。
+:ref:`target-user` に記載している通り、このドキュメントではSpringを利用したアプリケーションの実装方法について解説することを目的にはしていません。
 
 実装方法については、Springの公式ドキュメントを参照してください。
 
-また、実装を進める中でSpring Frameworkを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず `Macchinetta Framework <https://macchinetta.github.io>`_ を参照することをおすすめします。
+また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず `Macchinetta Framework <https://macchinetta.github.io>`_ を参照することをおすすめします。
 ただし、このドキュメントとMacchinettaでは、利用しているSpring Frameworkのバージョンが異なり、設定の記載方法も異なるため（MacchinettaはXML, このドキュメントではAutoConfigurationとJavaConfig）、具体的な実装例や設定例はそのままでは利用できないと考えてください。
 
 * `Macchinetta Server Framework Development Guideline <https://macchinetta.github.io/server-guideline-thymeleaf/current/ja/>`_
