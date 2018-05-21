@@ -13,7 +13,7 @@ public class TemplateEngineThymeleafApplication {
     }
 
     @Configuration
-    public class WebConfig implements WebMvcConfigurer {
+    public static class WebConfig implements WebMvcConfigurer {
 
         @Override
         public void addViewControllers(ViewControllerRegistry registry) {
