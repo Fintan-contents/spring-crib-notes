@@ -41,6 +41,7 @@ release = u'1.0.0'
 extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
+    'sphinx.ext.extlinks',
     'sphinx.ext.mathjax',
 ]
 
@@ -185,3 +186,5 @@ epub_exclude_files = ['search.html']
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+extlinks = {'sample': ('https://ci.keel-dev.net/gitbucket/keel/crib-notes/blob/develop/%s', '')}
