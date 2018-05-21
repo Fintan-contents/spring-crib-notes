@@ -24,7 +24,7 @@ application.properties
 
 Doma2用のEntityを生成するための設定例
 --------------------------------------------------
-`Doma-Gen <http://doma-gen.readthedocs.io/ja/stable/>`_ を使うとデータベースのメータデータからEntityクラスなどを生成できます。
+`Doma-Gen <http://doma-gen.readthedocs.io/ja/stable/>`_ を使うとデータベースのメタデータからEntityクラスなどを生成できます。
 
 pom.xml
   pom.xmlのプラグインの設定例となります。この設定の場合、 ``mvn generate-resources`` の実行でEntityクラスが生成されます。
