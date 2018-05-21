@@ -1,7 +1,6 @@
-入力値のチェック
+ログ出力
 ==================================================
 .. toctree::
   :maxdepth: 2
 
-  database-validation
-
+  web-access-log
