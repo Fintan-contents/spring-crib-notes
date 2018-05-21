@@ -31,7 +31,7 @@ public class UserControllerTest {
     }
 
     @Test
-    public void 精査エラーとなりユーザIDは必須ですと表示されること() throws Exception {
+    public void バリデーションエラーとなりユーザIDは必須ですと表示されること() throws Exception {
         mockMvc
                 .perform(get("/validate"))
                 .andExpect(status().isBadRequest())

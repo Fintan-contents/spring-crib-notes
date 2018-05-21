@@ -18,7 +18,7 @@ public class BatchConfig {
     @Bean
     public LocalValidatorFactoryBean validator() {
         LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
-        // 精査エラー時のメッセージを、MessageSourceから取得するように設定します
+        // バリデーションエラー時のメッセージを、MessageSourceから取得するように設定します
         localValidatorFactoryBean.setValidationMessageSource(messageSource);
         return localValidatorFactoryBean;
     }
