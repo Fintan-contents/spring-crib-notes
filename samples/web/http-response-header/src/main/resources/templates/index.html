@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>サンプルアプリケーション</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/user.css}"/>
+  <script type="text/javascript" th:src="@{/scripts/user.js}"></script>
+</head>
+<body>
+
+  <!-- 全画面共通のcssで定義されているスタイルが適用されているため、フォントサイズが9pxになります -->
+  ここに各画面のコンテンツを記載します。
+  <!-- 全画面共通のjavascriptで定義されているhello()を呼び出します -->
+  <button type="button" onclick="hello()">hello</button>
+
+</body>
+</html>
