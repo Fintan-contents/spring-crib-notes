@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--/*@thymesVar id="form" type="keel.controller.AddUserController.Form"*/-->
+<form th:action="@{/}" method="post" th:object="${form}">
+  <div>
+    名前:<input type="text" name="name" th:value="*{name}">
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></div>
+  </div>
+  <div>
+    メールアドレス(登録済みの場合はエラーになります):<input type="text" name="mailAddress" th:value="*{mailAddress}">
+    <div th:if="${#fields.hasErrors('mailAddress')}" th:errors="*{mailAddress}" style="color: red"></div>
+  </div>
+  <div>
+    ロール(admin以外はデータベースに存在しないためエラーになります):<input type="text" name="role" th:value="*{role}">
+    <div th:if="${#fields.hasErrors('role')}" th:errors="*{role}" style="color: red"></div>
+  </div>
+  <button type="submit">登録</button>
+</form>
+</body>
+</html>
