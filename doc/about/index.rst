@@ -22,7 +22,7 @@
     * Maven
     * Amazon Web Services
 
-これからSpringやAmazon Web Servicesを初めて利用するという人に向けたドキュメントとはなっていません。一般的な書籍やサイトを活用して学習してください。
+これからSpringやAmazon Web Servicesを初めて利用するという人は、一般的な書籍やサイトを活用して学習してください。
 
 特に、Springについては、次のような書籍・サイトがあります。
 
@@ -42,9 +42,7 @@
 
 .. image:: ./how-to-use-this-document.png
 
-:ref:`target-user` に記載している通り、このドキュメントではSpringを利用したアプリケーションの実装方法について解説することを目的にはしていません。
-
-実装方法については、Springの公式ドキュメントを参照してください。
+基本的な実装方法については、Springの公式ドキュメントを参照してください。
 
 また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず `Macchinetta Framework <https://macchinetta.github.io>`_ を参照することをおすすめします。
 ただし、このドキュメントとMacchinettaでは、利用しているSpring Frameworkのバージョンが異なり、設定の記載方法も異なるため（MacchinettaはXML, このドキュメントではAutoConfigurationとJavaConfig）、具体的な実装例や設定例はそのままでは利用できないと考えてください。
