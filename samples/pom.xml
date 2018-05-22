@@ -10,6 +10,7 @@
   <modules>
     <module>web/database-validation</module>
     <module>web/doma2-optimistic-lock</module>
+    <module>web/template-engine-thymeleaf</module>
     <module>common/web-bean-validation-messages</module>
     <module>common/batch-bean-validation-messages</module>
     <module>web/tomcat-access-log</module>
