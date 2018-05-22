@@ -1,0 +1,12 @@
+<head xmlns:th="http://www.thymeleaf.org" th:fragment="head_fragment(title, scripts, links)">
+  <meta charset="UTF-8">
+  <title th:text="${title}"></title>
+  <!-- 全画面共通のcssを定義します -->
+  <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}"/>
+  <!-- 各画面専用のcssを定義します -->
+  <th:block th:replace="${links}" />
+  <!-- 全画面共通のjavascriptを定義します -->
+  <script type="text/javascript" th:src="@{/scripts/base.js}"></script>
+  <!-- 各画面専用のjavascriptを定義します -->
+  <th:block th:replace="${scripts}" />
+</head>

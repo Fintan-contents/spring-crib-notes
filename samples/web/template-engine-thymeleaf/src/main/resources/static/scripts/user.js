@@ -1,0 +1,3 @@
+thanks = function () {
+    alert("thanks");
+};
