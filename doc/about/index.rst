@@ -3,7 +3,7 @@
 
 このドキュメントでは `Spring <https://spring.io/>`_ を活用して、クラウド上にアプリケーションを構築する際に必要となるノウハウを提供します。
 
-特に、実際にアプリケーションを開発する際に公式ドキュメントやWeb上から実装方法を見つけることが難しく、躓きやすい点についての情報を提供します。
+特に、アプリケーションを開発する際に公式ドキュメントやWeb上から実装方法を見つけることが難しく、躓きやすい点についての情報を提供します。
 
 .. _target-user:
 
@@ -45,8 +45,26 @@
 基本的な実装方法については、Springの公式ドキュメントを参照してください。
 
 また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず `Macchinetta Framework <https://macchinetta.github.io>`_ を参照することをおすすめします。
-ただし、このドキュメントとMacchinettaでは、利用しているSpring Frameworkのバージョンが異なり、設定の記載方法も異なるため（MacchinettaはXML, このドキュメントではAutoConfigurationとJavaConfig）、具体的な実装例や設定例はそのままでは利用できないと考えてください。
+ただし、このドキュメントとMacchinettaでは、利用しているSpring Frameworkのバージョンが異なり、設定の記載方法も異なるため、具体的な実装例や設定例はそのままでは利用できないと考えてください。
 
 * `Macchinetta Server Framework Development Guideline <https://macchinetta.github.io/server-guideline-thymeleaf/current/ja/>`_
 * `Macchinetta Server Framework Cloud Extension Development Guideline <https://macchinetta.github.io/cloud-guideline/current/ja/>`_
 * `Macchinetta Batch Framework Development Guideline <https://macchinetta.github.io/batch-guideline/current/ja/>`_
+
+.. list-table:: Macchinettaとの主な相違点
+   :widths: 25 20 35 20
+   :header-rows: 1
+   :stub-columns: 1
+
+   * -
+     - Spring
+     - Spring Boot
+     - 設定方法
+   * - このドキュメント
+     - 5.x
+     - 2.x
+     - JavaConfig
+   * - Macchinetta Framework
+     - 4.x
+     - 1.x （Cloud Extensionのみ）
+     - XML
