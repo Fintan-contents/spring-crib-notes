@@ -10,7 +10,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>http-response-header</artifactId>
+  <artifactId>spring-security-http-response-header</artifactId>
 
   <dependencies>
     <dependency>

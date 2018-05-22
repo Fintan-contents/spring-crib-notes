@@ -1,9 +1,9 @@
-HTTPレスポンスヘッダ
-==================================================
+Spring Securityを使用した場合のHTTPレスポンスヘッダ
+====================================================
 
 本節では、 `Spring Security <https://docs.spring.io/spring-security/site/docs/current/reference/html/>`_ を使用した場合に設定されるHTTPレスポンスヘッダについて記載します。
 
-`Spring Security <https://docs.spring.io/spring-security/site/docs/current/reference/html/>`_ を使用した場合、デフォルトでは全てのHTTPレスポンスに以下のヘッダ値が設定されます。
+`Spring Security <https://docs.spring.io/spring-security/site/docs/current/reference/html/>`_ を使用した場合、デフォルトでは全てのHTTPレスポンスに以下のヘッダが設定されます。
 
   .. code-block:: YAML
 
@@ -25,17 +25,17 @@ HTTPレスポンスヘッダ
 
 
 静的コンテンツをキャッシュしたい場合
------------------------------------------------
+-------------------------------------------------
 
 アプリケーションによっては、静的コンテンツをブラウザやキャッシュサーバに、キャッシュさせたい場合もあるかと思います。
 
 その場合は、 ``application.properties`` に ``max-age`` 等を設定する事で実現が可能です。
 
 設定例
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 application.properties
-  .. literalinclude:: ../../../samples/web/http-response-header/src/main/resources/application.properties
+  .. literalinclude:: ../../../samples/web/spring-security-http-response-header/src/main/resources/application.properties
      :language: properties
      :linenos:
      :start-after: example-start

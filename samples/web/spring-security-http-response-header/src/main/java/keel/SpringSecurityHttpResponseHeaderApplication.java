@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @SpringBootApplication
 @Controller
-public class HttpResponseHeaderApplication {
+public class SpringSecurityHttpResponseHeaderApplication {
     public static void main(String[] args) {
-        SpringApplication.run(HttpResponseHeaderApplication.class, args);
+        SpringApplication.run(SpringSecurityHttpResponseHeaderApplication.class, args);
     }
 
     @GetMapping("/")

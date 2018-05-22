@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @TestPropertySource("classpath:test.properties")
-@SpringBootTest(classes = HttpResponseHeaderApplication.class)
+@SpringBootTest(classes = SpringSecurityHttpResponseHeaderApplication.class)
 @AutoConfigureMockMvc(secure = false)
 public class NoSpringSecurityResponseHeaderTest {
 
