@@ -3,5 +3,5 @@
 .. toctree::
   :maxdepth: 2
 
-  http-response-header
+  spring-security-http-response-header
 
