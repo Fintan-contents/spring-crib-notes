@@ -16,6 +16,7 @@
     <module>common/batch-bean-validation-messages</module>
     <module>web/tomcat-access-log</module>
     <module>common/doma2</module>
+    <module>web/spring-security-http-response-header</module>
   </modules>
 
   <parent>
