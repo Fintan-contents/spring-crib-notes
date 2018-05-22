@@ -1,0 +1,26 @@
+version: 1
+rules:
+  - expected: Spring
+    patterns:
+      - /[^/-]spring[^\.-]/
+      - スプリング
+    
+  - expected: Redis
+    pattern: /[^/]redis[^/]/
+    
+  - expected: Spring Session
+    patterns:
+      - spring session
+      - Spring session
+      - spring Session
+      - /[sS]pring[ ]*セッション/
+      
+  - expected: です
+    pattern: である
+    
+  - expected: できる
+    pattern: 出来る
+    
+  - expected: ""
+    pattern: siosio
+    

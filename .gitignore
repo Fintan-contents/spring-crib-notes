@@ -6,3 +6,4 @@ _templates
 target
 
 *.iml
+node_modules
