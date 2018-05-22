@@ -16,7 +16,7 @@
 
 * `Spring Boot <https://projects.spring.io/spring-boot/>`_ を利用して、Webアプリケーションを開発したことがあり、基本的な仕組みについて理解している。
 * `Spring Framework <https://projects.spring.io/spring-framework/>`_ を利用したアプリケーションの基本的なアーキテクチャについて理解している。
-* `Springの公式ドキュメント <https://spring.io/projects>`_ から適切な情報を検索できる。
+* `Springの公式ドキュメント <https://spring.io/docs>`_ から適切な情報を検索できる。
 * その他、次にあげるような技術要素について、基本的な知識を持っている。
     * SQL
     * Maven
