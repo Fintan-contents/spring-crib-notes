@@ -1,23 +1,7 @@
 Thymeleafを使用した共通レイアウトの作成方法
 ====================================================================================================
 
-Spring Bootでは、画面を作成するためのテンプレートエンジンとして以下の選択肢があります。
-
-* FreeMarker
-* Groovy
-* Thymeleaf
-* Mustache
-
-参考情報
-  * `Spring Boot Reference Guide - 27.1.10 Template Engines <https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-spring-mvc-template-engines>`_
-
-.. tip::
-  Spring Bootでは、画面の作成にJSPを使用する事は非推奨となっています。
-
-  詳細は、`Spring Boot Reference Guide - 27.4.5 JSP Limitations <https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-jsp-limitations>`_ を参照してください。
-
-
-本節では、その中でもドキュメント等の情報量が多く、作成したhtmlをそのまま利用できる `Thymeleaf <https://www.thymeleaf.org/documentation.html>`_ を使用して、共通レイアウトを作成する方法について記載します。
+本節では、ドキュメント等の情報量が多く、作成したhtmlをそのまま利用できる `Thymeleaf <https://www.thymeleaf.org/documentation.html>`_ を使用して、共通レイアウトを作成する方法について記載します。
 
 なお、`Thymeleaf <https://www.thymeleaf.org/documentation.html>`_ の基本的な使用方法については、以下のドキュメントを参照してください。
 
@@ -26,6 +10,10 @@ Spring Bootでは、画面を作成するためのテンプレートエンジン
   * `Tutorial: Thymeleaf + Spring <https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html>`_
   * `Tutorial: Extending Thymeleaf <https://www.thymeleaf.org/doc/tutorials/3.0/extendingthymeleaf.html>`_
 
+.. tip::
+  Spring Bootでは、画面の作成にJSPを使用する事は非推奨となっています。
+
+  詳細は、`Spring Boot Reference Guide - 27.4.5 JSP Limitations <https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-jsp-limitations>`_ を参照してください。
 
 
 実装例
