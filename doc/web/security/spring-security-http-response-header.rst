@@ -49,7 +49,7 @@ application.properties
 
     * `Spring Boot Reference Guide Appendix A. Common application properties <https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#common-application-properties>`_
 
-    ※「spring.resources.cache.cachecontrol.xxx」となっている項目が、``Cache-Control`` に設定可能なディレクティブです。
+    ※ **spring.resources.cache.cachecontrol.xxx** となっている項目が、``Cache-Control`` に設定可能なディレクティブです。
 
 .. tip::
 
