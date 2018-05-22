@@ -14,7 +14,6 @@ mvn spring-boot:run
 
 ### 3. 以下の情報を入力してログイン
 
-| 項目名   | 値       |
-|----------|----------|
-| User     | sample   |
-| Password | password |
+| User     | Password   |
+|----------|------------|
+| sample   | password   |
