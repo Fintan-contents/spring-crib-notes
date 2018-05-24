@@ -11,15 +11,30 @@ pipeline {
   }
 
   stages {
+    stage('Sphinx') {
+      agent {
+          docker {
+            image 'higebu/sphinx-latexpdf'
+          }
+      }
+      steps {
+        sh 'cd doc; make html'
+      }
+      post {
+        always {
+          archiveArtifacts 'doc/_build/**'
+        }
+      }
+    }
     stage('Unit test') {
       steps {
         sh 'cd samples; mvn test'
       }
-    }
-  }
-  post {
-    always {
-      junit '**/target/surefire-reports/*.xml'
+      post {
+        always {
+          junit '**/target/surefire-reports/*.xml'
+        }
+      }
     }
   }
 }
