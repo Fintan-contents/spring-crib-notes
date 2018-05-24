@@ -57,3 +57,5 @@ application.properties
 
     * `rfc7234 section 5.2.2 <https://tools.ietf.org/html/rfc7234#section-5.2.2>`_
     * `HTTP caching - Google developers reference <https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching>`_
+
+サンプル全体は :sample-app:`spring-security-http-response-header-sample <web/spring-security-http-response-header>` を参照してください。

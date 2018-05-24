@@ -187,4 +187,4 @@ epub_exclude_files = ['search.html']
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-extlinks = {'sample': ('https://ci.keel-dev.net/gitbucket/keel/crib-notes/blob/develop/%s', '')}
+extlinks = {'sample-app': ('https://ci.keel-dev.net/gitbucket/keel/crib-notes/tree/develop/samples/%s', None)}

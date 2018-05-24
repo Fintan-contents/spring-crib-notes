@@ -57,6 +57,8 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
   public class SampleException2 extends RuntimeException {
   }
 
+サンプル全体は :sample-app:`error-handling-sample <web/error-handling>` を参照してください。
+
 
 Serviceなどで送出した例外を業務エラーとして扱い画面にエラーメッセージを表示する例
 ----------------------------------------------------------------------------------------

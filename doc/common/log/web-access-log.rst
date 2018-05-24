@@ -25,3 +25,5 @@ pom.xml
     :linenos:
     :start-after: ltsv-start
     :end-before: ltsv-end
+
+サンプル全体は :sample-app:`tomcat-access-log-sample <web/tomcat-access-log>` を参照してください。

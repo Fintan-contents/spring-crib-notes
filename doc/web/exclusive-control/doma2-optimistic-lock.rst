@@ -56,3 +56,6 @@ ControllerAdvice
     :linenos:
     :start-after: example-start
     :end-before: example-end
+
+
+サンプル全体は :sample-app:`doma2-optimistic-lock-sample <web/doma2-optimistic-lock>` を参照してください。

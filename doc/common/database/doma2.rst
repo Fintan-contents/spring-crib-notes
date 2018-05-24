@@ -22,6 +22,8 @@ application.properties
      :start-after: doma2-settings-start
      :end-before: doma2-settings-end
 
+サンプル全体は :sample-app:`doma2-sample <common/doma2>` を参照してください。
+
 Doma2用のEntityを生成するための設定例
 --------------------------------------------------
 `Doma-Gen <http://doma-gen.readthedocs.io/ja/stable/>`_ を使うとデータベースのメタデータからEntityクラスなどを生成できます。
@@ -39,3 +41,5 @@ pom.xml
 .. tip::
 
   Entityクラス以外にもDaoやSQLファイルなどの生成もできます。
+
+サンプル全体は :sample-app:`doma2-sample <common/doma2>` を参照してください。

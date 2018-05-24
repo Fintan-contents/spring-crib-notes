@@ -54,3 +54,5 @@ Thymeleafを使用した共通レイアウトの作成方法
 
   上記の使い分けについては、 `Tutorial: Using Thymeleaf -  Including template fragments <https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#including-template-fragments>`_ を参照してください。
 
+サンプル全体は :sample-app:`template-engine-thymeleaf-sample <web/template-engine-thymeleaf>` を参照してください。
+

@@ -17,6 +17,8 @@ Configuration
      :start-after: example-start
      :end-before: example-end
 
+サンプル全体は :sample-app:`web-bean-validation-messages-sample <common/web-bean-validation-messages>` を参照してください。
+
 実装例（Batch）
 -----------------------------------------------
 
@@ -43,3 +45,4 @@ Configuration
 
   .. _ValidationMessages.properties: https://github.com/hibernate/hibernate-validator/blob/master/engine/src/main/resources/org/hibernate/validator/ValidationMessages.properties
 
+サンプル全体は :sample-app:`batch-bean-validation-messages-sample <common/batch-bean-validation-messages>` を参照してください。
