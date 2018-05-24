@@ -1,6 +1,6 @@
 ログ出力
 ==================================================
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 1
 
   web-access-log

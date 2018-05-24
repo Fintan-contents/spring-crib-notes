@@ -1,7 +1,7 @@
-入力値のチェック
+認証
 ==================================================
 .. toctree::
   :maxdepth: 1
 
-  database-validation
+  table
 

@@ -1,7 +1,6 @@
-入力値のチェック
+メッセージ管理
 ==================================================
 .. toctree::
   :maxdepth: 1
 
-  database-validation
-
+  bean-validation-message

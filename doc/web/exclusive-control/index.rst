@@ -1,7 +1,7 @@
-入力値のチェック
+排他制御
 ==================================================
 .. toctree::
   :maxdepth: 1
 
-  database-validation
+  doma2-optimistic-lock
 

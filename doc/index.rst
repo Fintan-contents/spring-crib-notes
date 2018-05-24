@@ -2,11 +2,10 @@
 ====================================
  
 .. toctree::
-  :maxdepth: 3
+  :maxdepth: 2
 
   about/index
   common/index
   web/index
   api/index
   batch/index
- 
