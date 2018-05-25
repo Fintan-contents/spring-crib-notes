@@ -9,4 +9,5 @@ API 虎の巻
   exclusive-control/index
   authentication/index
   authorization/index
+  status-code/index
   i18n/index
