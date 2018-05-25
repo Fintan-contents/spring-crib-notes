@@ -12,7 +12,10 @@ mvn spring-boot:run
 http://localhost:8080 にアクセスすることで動作を確認できます。
 
 バリデーション内容  
-* 全ての項目が必須
+* 名前と年齢とロールは必須
+* 年齢は数値のみOK
+* メールアドレスは、 ``keel.validation.value.MailAddress`` の型変換時のチェック  
+  型変換失敗( ``keel.validation.value.MailAddress.valueO`` で例外送出)された場合はバリデーションエラーとなります
 * メールアドレスの重複登録チェック  
   同じメールアドレスを登録した場合バリデーションエラーとなります
 * ロールの存在チェック  

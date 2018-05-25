@@ -1,8 +1,8 @@
-package keel.dao;
+package keel.validation.dao;
 
 import java.util.Optional;
 
-import keel.entity.Users;
+import keel.validation.entity.Users;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;

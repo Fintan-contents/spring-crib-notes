@@ -1,4 +1,4 @@
-package keel.entity;
+package keel.validation.entity;
 
 import org.seasar.doma.Entity;
 import org.seasar.doma.GeneratedValue;

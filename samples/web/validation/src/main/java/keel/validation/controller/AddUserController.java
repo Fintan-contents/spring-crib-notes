@@ -1,15 +1,17 @@
-package keel.controller;
+package keel.validation.controller;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
-import keel.entity.Users;
-import keel.service.UserService;
+import keel.validation.entity.Users;
+import keel.validation.service.UserService;
+import keel.validation.value.MailAddress;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,20 +25,25 @@ public class AddUserController {
     public AddUserController(final UserService userService) {
         this.userService = userService;
     }
+    
+    @ModelAttribute
+    public Form form() {
+        return new Form();
+    }
 
     @GetMapping("/")
-    public String index(Form form) {
+    public String index() {
         return "index";
     }
 
     // example-start
     @PostMapping("/")
-    public ModelAndView add(@Validated @ModelAttribute Form form, BindingResult bindingResult) {
+    public ModelAndView add(@Valid @ModelAttribute Form form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return createValidationErrorResponse();
         }
         try {
-            userService.insert(new Users(form.name, form.mailAddress, form.role));
+            userService.insert(new Users(form.name, form.mailAddress.getValue(), form.role));
         } catch (UserService.RoleNotFoundException e) {
             // ロールがデータベースのロールテーブル上に存在しない例外を捕捉して
             // 画面にメッセージを表示します。
@@ -65,14 +72,18 @@ public class AddUserController {
 
     public static class Form {
 
+        // type-converter-error-start
         @NotEmpty
         private String name;
 
-        @NotEmpty
-        private String mailAddress;
+        private MailAddress mailAddress;
+        
+        @NotNull
+        private Integer age;
 
         @NotEmpty
-        public String role;
+        private String role;
+        // type-converter-error-end
 
         public String getName() {
             return name;
@@ -82,12 +93,20 @@ public class AddUserController {
             this.name = name;
         }
 
-        public String getMailAddress() {
+        public MailAddress getMailAddress() {
             return mailAddress;
         }
 
-        public void setMailAddress(final String mailAddress) {
+        public void setMailAddress(final MailAddress mailAddress) {
             this.mailAddress = mailAddress;
+        }
+
+        public Integer getAge() {
+            return age;
+        }
+
+        public void setAge(final Integer age) {
+            this.age = age;
         }
 
         public String getRole() {

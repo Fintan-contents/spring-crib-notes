@@ -1,4 +1,4 @@
-package keel.controller;
+package keel.validation.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import keel.service.UserService;
+import keel.validation.service.UserService;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -33,10 +33,38 @@ public class AddUserControllerTest {
         // @formatter:off
         mockMvc.perform(post("/")
                     .param("name", "name")
+                    .param("age", "30")
                     .param("mailAddress", "mail@example.com")
                     .param("role", "admin"))
                .andExpect(status().is3xxRedirection())
                .andExpect(view().name("redirect:/"));
+        // @formatter:on
+    }
+
+    @Test
+    public void 年齢が数値以外の場合はバリデーションエラーとなります() throws Exception {
+        // @formatter:off
+        mockMvc.perform(post("/")
+                .param("name", "name")
+                .param("age", "aa")
+                .param("mailAddress", "invalid")
+                .param("role", "admin"))
+               .andExpect(status().isBadRequest())
+               .andExpect(model().attributeHasFieldErrorCode(
+                       "form", "age", "typeMismatch"));
+        // @formatter:on
+    }
+
+    @Test
+    public void メールアドレスの形式が不正な場合バリデーションエラーとなります() throws Exception {
+        // @formatter:off
+        mockMvc.perform(post("/")
+                .param("name", "name")
+                .param("mailAddress", "invalid")
+                .param("role", "admin"))
+               .andExpect(status().isBadRequest())
+               .andExpect(model().attributeHasFieldErrorCode(
+                       "form", "mailAddress", "typeMismatch"));
         // @formatter:on
     }
 
@@ -49,6 +77,7 @@ public class AddUserControllerTest {
         // @formatter:off
         mockMvc.perform(post("/")
                     .param("name", "name")
+                    .param("age", "30")
                     .param("mailAddress", "mail@example.com")
                     .param("role", "admin"))
                .andExpect(status().isBadRequest())
@@ -65,6 +94,7 @@ public class AddUserControllerTest {
         // @formatter:off
         mockMvc.perform(post("/")
                     .param("name", "name")
+                    .param("age", "30")
                     .param("mailAddress", "mail@example.com")
                     .param("role", "user"))
                .andExpect(status().isBadRequest())

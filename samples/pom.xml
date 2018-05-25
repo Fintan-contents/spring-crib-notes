@@ -8,7 +8,7 @@
   <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
-    <module>web/database-validation</module>
+    <module>web/validation</module>
     <module>web/doma2-optimistic-lock</module>
     <module>web/template-engine-thymeleaf</module>
     <module>web/error-handling</module>

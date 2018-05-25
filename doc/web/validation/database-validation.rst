@@ -3,8 +3,7 @@
 データベースを使用して入力値をチェックする
 ==================================================
 データベースの状態を用いた入力値のチェックをしたい場合があります。
-データベースの状態チェックはトランザクション配下で行ったほうが良いケースがあるため、
-`Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_ を使用するのではなく ``Service`` などでバリデーションを行うことをおすすめします。
+データベースの状態チェックはトランザクション配下で行ったほうが良いケースがあるため、 :ref:`bean-validation` を使用するのではなく ``Service`` などでバリデーションを行うことをおすすめします。
 
 .. tip::
 
@@ -16,14 +15,14 @@
 ``Service`` で送出した例外を ``Controller`` で捕捉し、画面にエラーメッセージを表示します。
 
 Controller
-  .. literalinclude:: ../../../samples/web/database-validation/src/main/java/keel/controller/AddUserController.java
+  .. literalinclude:: ../../../samples/web/validation/src/main/java/keel/validation/controller/AddUserController.java
      :language: java
      :linenos:
      :start-after: example-start
      :end-before: example-end
 
 Service
-  .. literalinclude:: ../../../samples/web/database-validation/src/main/java/keel/service/UserService.java
+  .. literalinclude:: ../../../samples/web/validation/src/main/java/keel/validation/service/UserService.java
     :language: java
     :linenos:
     :start-after: example-start

@@ -1,7 +1,7 @@
-package keel.service;
+package keel.validation.service;
 
-import keel.dao.UserDao;
-import keel.entity.Users;
+import keel.validation.dao.UserDao;
+import keel.validation.entity.Users;
 import org.springframework.stereotype.Service;
 
 @Service
