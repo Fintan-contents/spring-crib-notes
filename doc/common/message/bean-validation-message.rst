@@ -1,4 +1,4 @@
-Bean Validationのエラーメッセージをmessages.propertiesに定義する方法
+Bean Validationのエラーメッセージをmessages.propertiesに定義する
 ====================================================================================================
 
 Spring Bootでは、入力値のチェックとして ``Bean Validation`` をサポートしており、実装ライブラリとして `Hibernate Validator <https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/>`_ を採用しています。

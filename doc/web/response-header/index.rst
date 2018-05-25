@@ -1,4 +1,4 @@
-Spring Securityを使用した場合のHTTPレスポンスヘッダ
+HTTPレスポンスヘッダ
 ====================================================
 
 本節では、 `Spring Security <https://docs.spring.io/spring-security/site/docs/current/reference/html/>`_ を使用した場合に設定されるHTTPレスポンスヘッダについて記載します。
@@ -24,7 +24,7 @@ Spring Securityを使用した場合のHTTPレスポンスヘッダ
   `Spring Security <https://docs.spring.io/spring-security/site/docs/current/reference/html/>`_ を使用しなかった場合は、上記のヘッダ値は全て設定されません。
 
 
-静的コンテンツをキャッシュしたい場合
+静的コンテンツをキャッシュする
 -------------------------------------------------
 
 アプリケーションによっては、静的コンテンツをブラウザやキャッシュサーバに、キャッシュさせたい場合もあるかと思います。
