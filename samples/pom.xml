@@ -17,6 +17,7 @@
     <module>web/tomcat-access-log</module>
     <module>common/doma2</module>
     <module>web/spring-security-http-response-header</module>
+    <module>common/sql-management</module>
   </modules>
 
   <parent>
