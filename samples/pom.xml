@@ -18,6 +18,7 @@
     <module>common/doma2</module>
     <module>web/spring-security-http-response-header</module>
     <module>common/sql-management</module>
+    <module>api/api-error-handling</module>
   </modules>
 
   <parent>
