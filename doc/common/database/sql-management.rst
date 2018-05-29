@@ -52,7 +52,6 @@ Flyway Maven Plugin / SQL Maven Plugin の設定例
 pom.xml
   .. literalinclude:: ../../../samples/common/sql-management/pom.xml
      :language: xml
-     :linenos:
      :start-after: example-start
      :end-before: example-end
 

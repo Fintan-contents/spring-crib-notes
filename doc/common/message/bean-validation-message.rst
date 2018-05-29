@@ -13,7 +13,6 @@ Spring Bootでは、入力値のチェックとして ``Bean Validation`` をサ
 Configuration
   .. literalinclude:: ../../../samples/common/web-bean-validation-messages/src/main/java/keel/config/MessageConfig.java
      :language: java
-     :linenos:
      :start-after: example-start
      :end-before: example-end
 
@@ -25,7 +24,6 @@ Configuration
 Configuration
   .. literalinclude:: ../../../samples/common/batch-bean-validation-messages/src/main/java/keel/config/BatchConfig.java
      :language: java
-     :linenos:
      :start-after: example-start
      :end-before: example-end
 

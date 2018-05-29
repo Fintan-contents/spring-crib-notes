@@ -19,33 +19,28 @@ Controllerでの ``userService.update(User)`` の実行時にDoma2の楽観排�
 送出された ``OptimisticLockException`` はアプリケーション全体で横断的に処理することで、個別の機能で例外処理する必要がなくなります。詳細は、 :doc:`/api/error-handling/index` を参照してください。
 
 Controller
-
   .. literalInclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/controller/UsersController.java
     :language: java
-    :linenos:
     :start-after: optimistic-lock-example-start
     :end-before: optimistic-lock-example-end
 
 Dao
-
   .. literalInclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/dao/UserDao.java
     :language: java
-    :linenos:
     :start-after: optimistic-lock-example-start
     :end-before: optimistic-lock-example-end
 
 Entity
-
   .. literalInclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/entity/User.java
     :language: java
-    :linenos:
     :start-after: optimistic-lock-example-start
     :end-before: optimistic-lock-example-end
 
-GlobalExceptionHandler: サンプルアプリケーションで、アプリケーション全体の例外を横断的にハンドリングしているクラスです。
+GlobalExceptionHandler
+  サンプルアプリケーションで、アプリケーション全体の例外を横断的にハンドリングしているクラスです。
+  
   .. literalInclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/GlobalExceptionHandler.java
     :language: java
-    :linenos:
     :start-after: optimistic-lock-example-start
     :end-before: optimistic-lock-example-end
 

@@ -29,7 +29,6 @@ Doma2の ``@Version`` を使用した楽観ロック方式で実現します。
 Controller
   .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/keel/controller/UserUpdateController.java
     :language: java
-    :linenos:
     :start-after: example-start
     :end-before: example-end
 
@@ -37,7 +36,6 @@ Controller
 Dao
   .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/keel/domain/repository/UserDao.java
     :language: java
-    :linenos:
     :start-after: example-start
     :end-before: example-end
 
@@ -45,7 +43,6 @@ Dao
 Entity
   .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/keel/entity/User.java
     :language: java
-    :linenos:
     :start-after: example-start
     :end-before: example-end
 
@@ -53,7 +50,6 @@ Entity
 ControllerAdvice
   .. literalInclude:: ../../../samples/web/doma2-optimistic-lock/src/main/java/keel/controller/ErrorControllerAdvice.java
     :language: java
-    :linenos:
     :start-after: example-start
     :end-before: example-end
 

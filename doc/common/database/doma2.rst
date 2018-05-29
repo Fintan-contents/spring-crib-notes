@@ -9,7 +9,6 @@ pom.xml
 
   .. literalinclude:: ../../../samples/common/doma2/pom.xml
      :language: xml
-     :linenos:
      :start-after: doma-starter-start
      :end-before: doma-starter-end
 
@@ -18,7 +17,6 @@ application.properties
 
   .. literalinclude:: ../../../samples/common/doma2/src/main/resources/application.properties
      :language: properties
-     :linenos:
      :start-after: doma2-settings-start
      :end-before: doma2-settings-end
 
@@ -34,7 +32,6 @@ pom.xml
 
   .. literalinclude:: ../../../samples/common/doma2/pom.xml
     :language: xml
-    :linenos:
     :start-after: doma-gen-start
     :end-before: doma-gen-end
 

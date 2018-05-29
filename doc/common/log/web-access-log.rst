@@ -10,7 +10,6 @@ pom.xml
 
   .. literalinclude:: ../../../samples/web/tomcat-access-log/pom.xml
       :language: xml
-      :linenos:
       :start-after: example-start
       :end-before: example-end
 
@@ -22,7 +21,6 @@ pom.xml
 
   .. literalinclude:: ../../../samples/web/tomcat-access-log/src/main/resources/logback-access.xml
     :language: xml
-    :linenos:
     :start-after: ltsv-start
     :end-before: ltsv-end
 

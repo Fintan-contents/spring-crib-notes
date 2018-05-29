@@ -22,7 +22,6 @@ Bean Validationは、下の流れでバリデーションが行われますが `
 
   .. literalinclude:: ../../../samples/web/validation/src/main/java/keel/validation/controller/AddUserController.java
     :language: java
-    :linenos:
     :start-after: type-converter-error-start
     :end-before: type-converter-error-end
 
@@ -32,7 +31,6 @@ Bean Validationは、下の流れでバリデーションが行われますが `
   
   .. literalinclude:: ../../../samples/web/validation/src/main/resources/messages.properties
     :language: properties
-    :linenos:
 
   .. tip::
 

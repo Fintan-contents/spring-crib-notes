@@ -73,14 +73,12 @@ RESTful Webサービスでも、:doc:`Webの場合 </web/exclusive-control/doma2
 GlobalExceptionHandler
   .. literalinclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/GlobalExceptionHandler.java
      :language: java
-     :linenos:
      :start-after: api-error-handling-example-start
      :end-before: api-error-handling-example-end
 
 UserNotFoundException
   .. literalinclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/exception/UserNotFoundException.java
      :language: java
-     :linenos:
      :start-after: example-start
      :end-before: example-end
 
@@ -93,7 +91,6 @@ UserNotFoundException
 
 .. literalinclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/controller/Users2Controller.java
    :language: java
-   :linenos:
    :start-after: example-start
    :end-before: example-end
 

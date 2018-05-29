@@ -16,7 +16,6 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
 
 .. literalinclude:: ../../../samples/web/error-handling/src/main/java/keel/SampleExceptionHandler.java
    :language: java
-   :linenos:
    :start-after: exception-handler-start
    :end-before: exception-handler-end
 
@@ -25,7 +24,6 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
 
 .. literalinclude:: ../../../samples/web/error-handling/src/main/java/keel/Users2Controller.java
   :language: java
-  :linenos:
   :start-after: controller-exception-handling-start
   :end-before: controller-exception-handling-end
 
@@ -51,7 +49,6 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
 ただし、ログなどが一切出力されないため上で説明した `@ControllerAdvice <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html>`_ の使用を推奨します。
 
 .. code-block:: java
-  :linenos:
 
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   public class SampleException2 extends RuntimeException {

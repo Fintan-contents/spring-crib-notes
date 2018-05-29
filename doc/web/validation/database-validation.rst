@@ -17,13 +17,11 @@
 Controller
   .. literalinclude:: ../../../samples/web/validation/src/main/java/keel/validation/controller/AddUserController.java
      :language: java
-     :linenos:
      :start-after: example-start
      :end-before: example-end
 
 Service
   .. literalinclude:: ../../../samples/web/validation/src/main/java/keel/validation/service/UserService.java
     :language: java
-    :linenos:
     :start-after: example-start
     :end-before: example-end

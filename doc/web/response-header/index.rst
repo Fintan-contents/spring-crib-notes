@@ -37,7 +37,6 @@ HTTPレスポンスヘッダ
 application.properties
   .. literalinclude:: ../../../samples/web/spring-security-http-response-header/src/main/resources/application.properties
      :language: properties
-     :linenos:
      :start-after: example-start
      :end-before: example-end
 
