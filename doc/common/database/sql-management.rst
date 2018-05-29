@@ -16,18 +16,18 @@ DDLの管理として、バージョン管理が可能なマイグレーショ�
 参考情報
   * `Flyway Documentation <https://flywaydb.org/documentation/>`_
 
-``Spring Boot`` は `Flyway <https://flywaydb.org/documentation/>`_ をサポートしており、アプリケーションの起動時に `FlywayのMigrateコマンド <https://flywaydb.org/documentation/command/migrate>`_ を自動実行します。
+``Spring Boot`` は `Flyway <https://flywaydb.org>`_ をサポートしており、アプリケーションの起動時に `FlywayのMigrateコマンド <https://flywaydb.org/documentation/command/migrate>`_ を自動実行します。
 
-`Flyway <https://flywaydb.org/documentation/>`_ のその他のコマンドや、 アプリケーションの起動時ではなく任意のタイミングで `FlywayのMigrateコマンド <https://flywaydb.org/documentation/command/migrate>`_ を実行したい場合は、`FlywayのMaven Plugin <https://flywaydb.org/documentation/maven/>`_ を使用する事で実行が可能です。
+`Flyway <https://flywaydb.org>`_ のその他のコマンドや、 アプリケーションの起動時ではなく任意のタイミングで `FlywayのMigrateコマンド <https://flywaydb.org/documentation/command/migrate>`_ を実行したい場合は、`FlywayのMaven Plugin <https://flywaydb.org/documentation/maven/>`_ を使用する事で実行が可能です。
 
 参考情報
   * `Spring Boot Reference Guide - 81.5.1 Execute Flyway Database Migrations on Startup <https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#howto-execute-flyway-database-migrations-on-startup>`_
   * `Flyway Documentation - Maven Plugin <https://flywaydb.org/documentation/maven/>`_
 
 
-なお、`Flyway <https://flywaydb.org/documentation/>`_ を使用して、初期データやテストデータ等のDMLを管理する事も可能です。
-但し、データのみをクリーニングする機能が存在しないため、開発者がテスト時にデータを投入したり更新するようなテーブルのDMLは、 `Flyway <https://flywaydb.org/documentation/>`_ で管理しない事をお薦めします。
-例えば、`Flyway <https://flywaydb.org/documentation/>`_ で管理しているデータを投入する前に、開発者が同一レコードのデータを手動や別のツールで投入すると、
+なお、`Flyway <https://flywaydb.org>`_ を使用して、初期データやテストデータ等のDMLを管理する事も可能です。
+但し、データのみをクリーニングする機能が存在しないため、開発者がテスト時にデータを投入したり更新するようなテーブルのDMLは、 `Flyway <https://flywaydb.org>`_ で管理しない事をお薦めします。
+例えば、`Flyway <https://flywaydb.org>`_ で管理しているデータを投入する前に、開発者が同一レコードのデータを手動や別のツールで投入すると、
 一意制約違反が発生し、`FlywayのMigrateコマンド <https://flywaydb.org/documentation/command/migrate>`_ が失敗します。
 対応するには、開発者が手動でレコードを削除しなければいけない等、運用が煩雑になることが予想されます。
 そのため、このようなデータを管理する場合は、 以降に記載する `SQL Maven Plugin <http://www.mojohaus.org/sql-maven-plugin/>`_ をお薦めします。
