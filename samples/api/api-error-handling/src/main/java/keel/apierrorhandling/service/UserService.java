@@ -23,6 +23,10 @@ public class UserService {
         return userDao.findAllUsers();
     }
 
+    public List<User> findUsers(User user) {
+        return userDao.findUsers(user);
+    }
+
     public Optional<User> getUser(Long id) {
         return userDao.getUser(id);
     }

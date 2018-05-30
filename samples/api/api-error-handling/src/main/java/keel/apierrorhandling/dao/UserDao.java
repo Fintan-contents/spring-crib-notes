@@ -19,6 +19,9 @@ public interface UserDao {
     List<User> findAllUsers();
 
     @Select
+    List<User> findUsers(User user);
+
+    @Select
     Optional<User> getUser(Long id);
 
     @Insert

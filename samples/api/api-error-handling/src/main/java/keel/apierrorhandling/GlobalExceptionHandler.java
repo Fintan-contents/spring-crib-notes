@@ -9,6 +9,7 @@ import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -62,7 +63,27 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 request);
     }
 
+    /**
+     * 入力形式に誤りがあった場合のハンドリングを実施します。
+     * レスポンスボディには、固定のメッセージを出力します。
+     */
+    @Override
+    protected ResponseEntity<Object> handleHttpMessageNotReadable(
+            HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        return super.handleExceptionInternal(
+                ex,
+                messageSource.getMessage(
+                        "keel.api-error-handling.HttpMessageNotReadableException",
+                        new Object[0],
+                        LocaleContextHolder.getLocale()
+                ),
+                headers,
+                status,
+                request);
+    }
+
     //optimistic-lock-example-start
+
     /**
      * {@link ResponseEntityExceptionHandler}がハンドリングしない例外については、{@link ExceptionHandler}を使用してハンドリングします。
      * 楽観ロック例外が発生した場合は、HTTPステータスコードに409を設定します。

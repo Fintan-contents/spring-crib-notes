@@ -1,0 +1,1 @@
+select name from users where name = /* user.name */'taro' and role = /* user.role */'admin' and age = /* user.age */20
