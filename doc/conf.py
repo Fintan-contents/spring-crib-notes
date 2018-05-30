@@ -12,7 +12,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
@@ -187,4 +187,6 @@ epub_exclude_files = ['search.html']
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-extlinks = {'sample-app': ('https://ci.keel-dev.net/gitbucket/keel/crib-notes/tree/develop/samples/%s', None)}
+branch_name = os.getenv('BRANCH_NAME', 'develop')
+
+extlinks = {'sample-app': ('https://ci.keel-dev.net/gitbucket/keel/crib-notes/tree/' + branch_name + '/samples/%s', None)}
