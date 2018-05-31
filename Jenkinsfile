@@ -13,8 +13,8 @@ pipeline {
   stages {
     stage('Sphinx') {
       agent {
-          docker {
-            image 'higebu/sphinx-latexpdf'
+          dockerfile {
+            filename 'Dockerfile.build'
           }
       }
       steps {

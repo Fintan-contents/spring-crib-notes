@@ -1,3 +1,11 @@
+## sphinx_rtd_themeのインストール
+
+pipで `sphinx_rtd_theme` をインストールします。
+
+```sh
+pip install sphinx_rtd_theme
+```
+
 ## textlintの実行方法
 ### 環境構築
 #### Node.js
