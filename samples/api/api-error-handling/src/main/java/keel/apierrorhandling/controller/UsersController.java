@@ -22,6 +22,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UsersController {
 
+    // database-validation-start
     private static final String ROLE_NOT_FOUND_MESSAGE = "keel.api-error-handling.role-not-found";
 
     private final UserService userService;
@@ -47,6 +48,7 @@ public class UsersController {
             throw new CustomValidationException(bindingResult);
         }
     }
+    // database-validation-end
 
     @GetMapping("/{id:[\\d]+}")
     public User getUser(@PathVariable Long id) {

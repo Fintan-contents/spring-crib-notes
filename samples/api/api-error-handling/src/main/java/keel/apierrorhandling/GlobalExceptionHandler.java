@@ -73,6 +73,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
     //optimistic-lock-example-end
 
+    // database-validation-start
     /**
      * {@link ResponseEntityExceptionHandler} がハンドリングしない例外については、 {@link ExceptionHandler} を使用してハンドリングします。
      * 独自に作成した {@link CustomValidationException} が発生した場合は、HTTPステータスコードに400を設定し、エラー内容を返却しています。
@@ -99,7 +100,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 )
                 .collect(Collectors.toList());
     }
-
+    // database-validation-end
+    
     @Getter
     static class ApiError implements Serializable {
         @JsonInclude(JsonInclude.Include.NON_EMPTY)

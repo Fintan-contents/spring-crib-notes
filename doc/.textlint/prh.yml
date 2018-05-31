@@ -18,6 +18,9 @@ rules:
   - expected: です
     pattern: である
     
+  - expected: 捕捉
+    pattern: 補足
+    
   - expected: できる
     pattern: 出来る
     

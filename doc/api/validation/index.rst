@@ -4,4 +4,5 @@
   :maxdepth: 1
 
   bean-validation
+  database-validation
 
