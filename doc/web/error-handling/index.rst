@@ -7,20 +7,20 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
 
 例外に応じてクライアントに返すステータスコードやページをカスタマイズする
 -----------------------------------------------------------------------------
-アプリケーション全体で例外に応じた処理が決まっている場合は、 `@ControllerAdvice <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html>`_
+アプリケーション全体で例外に応じた処理が決まっている場合は、\ `@ControllerAdvice <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html>`_
 アノテーションを設定したクラスで例外ハンドリングを行います。
-どの例外を処理するかは、メソッドに設定された `@ExceptionHandler <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`_ アノテーションの情報により決まります。
+どの例外を処理するかは、メソッドに設定された\ `@ExceptionHandler <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`_\ アノテーションの情報により決まります。
 
-この例では、 ``NoResultException`` が発生した場合に対象データが存在しないことを示すステータスコード404を返します。
-クライアントには、404に対応したテンプレート(デフォルト設定では ``templates/error/404.html`` )ページが返されます。
+この例では、NoResultExceptionが発生した場合に対象データが存在しないことを示すステータスコード404を返します。
+クライアントには、404に対応したテンプレート(Thymeleafを使用した場合のデフォルト設定ではtemplates/error/404.html)ページが返されます。
 
 .. literalinclude:: ../../../samples/web/error-handling/src/main/java/keel/SampleExceptionHandler.java
    :language: java
    :start-after: exception-handler-start
    :end-before: exception-handler-end
 
-アプリケーション全体ではなく個別機能( ``Controller`` )で例外をハンドリングし、エラーページを返したい場合があります。
-この場合は、 ``Controller`` 内に例外ハンドリング用のメソッドを作成します。
+アプリケーション全体ではなく個別機能(Controller)で例外をハンドリングし、エラーページを返したい場合があります。
+この場合は、Controller内に例外ハンドリング用のメソッドを作成します。
 
 .. literalinclude:: ../../../samples/web/error-handling/src/main/java/keel/Users2Controller.java
   :language: java
@@ -30,7 +30,7 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
 .. tip::
 
   `ResponseStatus <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>`_ 
-  の ``reason`` 属性を指定しなかった場合は、下のように明示的にクライアントに返すテンプレートのパスを指定する必要があります。
+  のreason属性を指定しなかった場合は、下のように明示的にクライアントに返すテンプレートのパスを指定する必要があります。
 
   .. code-block:: java
 
@@ -45,8 +45,8 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
   テンプレートのパスを指定しなかった場合は、クライアントにはレスポンスヘッダーのみが返されます。
 
 単純に例外毎にクライアントに返すステータスコードを決めたい場合には、下の例のように例外クラスに
-`ResponseStatus <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>`_ アノテーションを設定することで対応できます。
-ただし、ログなどが一切出力されないため上で説明した `@ControllerAdvice <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html>`_ の使用を推奨します。
+ResponseStatusアノテーションを設定することで対応できます。
+ただし、ログなどが一切出力されないため上で説明した@ControllerAdviceの使用を推奨します。
 
 .. code-block:: java
 

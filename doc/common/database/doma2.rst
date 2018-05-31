@@ -1,16 +1,17 @@
 データベースアクセスにDoma2を使用する
 ==================================================
-Spring Bootアプリケーションのデータベースアクセスライブラリとして、 `Doma2 <https://doma.readthedocs.io/ja/stable/>`_ を使う方法について説明します。
+データベースアクセスライブラリとして、 `Doma2 <https://doma.readthedocs.io/ja/stable/>`_ を使う方法について説明します。
 
 Doma2を使うための設定例
 --------------------------------------------------
 pom.xml
-  依存ライブラリに ``doma-spring-boot-starter`` を追加することで、Doma2用の設定が自動的に行われます。
+  依存ライブラリに\ `doma-spring-boot-starter <https://github.com/domaframework/doma-spring-boot>`_\ を追加することで、Doma2用の設定が自動的に行われます。
 
   .. literalinclude:: ../../../samples/common/doma2/pom.xml
      :language: xml
      :start-after: doma-starter-start
      :end-before: doma-starter-end
+     :dedent: 4
 
 application.properties
   使用するデータベースをDoma2に認識させるための設定を追加します。
@@ -24,16 +25,17 @@ application.properties
 
 Doma2用のEntityを生成するための設定例
 --------------------------------------------------
-`Doma-Gen <http://doma-gen.readthedocs.io/ja/stable/>`_ を使うとデータベースのメタデータからEntityクラスなどを生成できます。
+`Doma-Gen <http://doma-gen.readthedocs.io/ja/stable/>`_\ を使うとデータベースのメタデータからEntityクラスなどを生成できます。
 
 pom.xml
-  pom.xmlのプラグインの設定例となります。この設定の場合、 ``mvn generate-resources`` の実行でEntityクラスが生成されます。
-  下の例と ``Doma-Gen`` のドキュメントを参考に必要な設定を行ってください。
+  pom.xmlのプラグインの設定例となります。この設定の場合、mvn generate-resourcesの実行でEntityクラスが生成されます。
+  下の例とDoma-Genのドキュメントを参考に必要な設定を行ってください。
 
   .. literalinclude:: ../../../samples/common/doma2/pom.xml
     :language: xml
     :start-after: doma-gen-start
     :end-before: doma-gen-end
+    :dedent: 2
 
 .. tip::
 

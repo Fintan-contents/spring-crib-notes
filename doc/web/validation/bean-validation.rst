@@ -2,7 +2,7 @@
 
 Bean Validationを使った入力値のチェック
 ==================================================
-画面から入力された値は、 `Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_ を使ってチェックすることができます。
+画面から入力された値は、\ `Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_\ を使ってチェックできます。
 
 Bean Validationは、下の流れでバリデーションが行われますが ``No1`` の型変換に失敗した場合には、ユーザに入力値が不正であったことを通知する必要があります。
 もし、アプリケーション側で適切な実装（メッセージの定義）をしなかった場合、ユーザには意味の分からないメッセージが表示されるため注意しましょう。
@@ -27,7 +27,7 @@ Bean Validationは、下の流れでバリデーションが行われますが `
 
 メッセージ
   メッセージを ``typeMismatch.<変換対象の型の完全修飾名>`` で定義します。
-  変換対象の型が ``java.lang.Integer`` の場合には、メッセージのキーは ``typeMismatch.java.lang.Integer`` となります。
+  変換対象の型がjava.lang.Integer の場合には、メッセージのキーは ``typeMismatch.java.lang.Integer`` となります。
   
   .. literalinclude:: ../../../samples/web/validation/src/main/resources/messages.properties
     :language: properties
