@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.util.stream.Collectors;
+
 @RestControllerAdvice
 public class ErrorControllerAdvice extends ResponseEntityExceptionHandler {
 
@@ -28,7 +30,8 @@ public class ErrorControllerAdvice extends ResponseEntityExceptionHandler {
                         .stream()
                         .map(fieldError ->
                                 messageSource.getMessage(fieldError, LocaleContextHolder.getLocale())
-                        ),
+                        )
+                        .collect(Collectors.toList()),
                 headers,
                 status,
                 request);
