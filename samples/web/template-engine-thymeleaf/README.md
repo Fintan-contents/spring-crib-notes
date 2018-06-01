@@ -9,5 +9,5 @@ mvn spring-boot:run
 ```
 
 ### 2. ブラウザで以下のURLにアクセス
-
-`http://localhost:8080/`
+* [共通レイアウトの確認](http://localhost:8080/)
+* [checkboxなどのデフォルト値の確認](http://localhost:8080/default)

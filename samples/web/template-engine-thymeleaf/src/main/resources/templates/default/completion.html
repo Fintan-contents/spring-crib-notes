@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>デフォルト値の確認用ページ</title>
+</head>
+<body>
+<div>
+  チェックボックス: <!--/*@thymesVar id="form" type="keel.thymeleaf.DefaultValueSampleController.Form"*/-->
+  <span th:text="${form.checkbox ? 'チェックあり' : 'チェックなし'}"></span>
+</div>
+<div>
+  複数チェックボックス:<br/>
+  <th:block th:if="${form.checkboxes.isEmpty()}">
+    チェックなし
+  </th:block>
+  <ul th:unless="${form.checkboxes.isEmpty()}">
+    <li th:each="c : ${form.checkboxes}" th:text="${c}"></li>
+  </ul>
+</div>
+<div>
+  複数選択セレクトボックス:<br/>
+  <th:block th:if="${form.selectOptions.isEmpty()}">
+    選択なし
+  </th:block>
+  <ul th:unless="${form.selectOptions.isEmpty()}">
+    <li th:each="s : ${form.selectOptions}" th:text="${s}"></li>
+  </ul>
+</div>
+</body>
+</html>

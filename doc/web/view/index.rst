@@ -4,4 +4,5 @@
   :maxdepth: 1
  
   template-engine-thymeleaf
+  thymeleaf-default-value
  
