@@ -6,11 +6,11 @@ import keel.entity.User;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.seasar.doma.jdbc.OptimisticLockException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -74,7 +74,7 @@ public class UserUpdateControllerTest {
 
     @Test
     public void 更新処理で楽観ロック例外が発生してステータスコードが409で終了すること() throws Exception {
-        doThrow(OptimisticLockException.class)
+        doThrow(OptimisticLockingFailureException.class)
                 .when(service)
                 .update(any());
 

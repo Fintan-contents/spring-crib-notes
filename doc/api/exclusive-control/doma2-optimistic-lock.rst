@@ -13,9 +13,13 @@ Doma2の楽観ロックについては、以下の公式ドキュメントを参
 
 実装例
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Controllerでの ``userService.update(User)`` の実行時にDoma2の楽観排他制御が行われます。楽観排他に失敗した場合は、Doma2からOptimisticLockExceptionが送出されます。
+Controllerでの ``userService.update(User)`` の実行時にDoma2の楽観排他制御が行われます。楽観排他に失敗した場合は、Doma2がOptimisticLockExceptionを送出します。
+OptimisticLockExceptionは、 ``doma-spring-boot-starter`` がSpringのOptimisticLockingFailureExceptionに変換して再送出します。
+詳細は、以下を参照してください。
 
-送出されたOptimisticLockExceptionはアプリケーション全体で横断的に処理することで、個別の機能で例外処理する必要がなくなります。詳細は、 :doc:`/api/error-handling/index` を参照してください。
+* :ref:`Doma2が送出する例外の変換 <doma2-exception-translator>`
+
+送出されたOptimisticLockingFailureExceptionはアプリケーション全体で横断的に処理することで、個別の機能で例外処理する必要がなくなります。詳細は、 :doc:`/api/error-handling/index` を参照してください。
 
 Controller
   .. literalInclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/controller/UsersController.java

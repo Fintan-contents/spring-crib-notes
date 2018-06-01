@@ -30,7 +30,7 @@ public interface UserDao {
     //optimistic-lock-example-start
 
     /**
-     * 楽観ロックエラーが発生した場合は、{@link org.seasar.doma.jdbc.OptimisticLockException}が送出されます。
+     * 楽観ロックエラーが発生した場合は、{@link org.springframework.dao.OptimisticLockingFailureException}が送出されます。
      * 呼出し元で例外を補足してハンドリングしてください。
      * <p/>
      * なお、サンプルアプリケーションでは{@link org.springframework.web.bind.annotation.RestControllerAdvice}を使用して、

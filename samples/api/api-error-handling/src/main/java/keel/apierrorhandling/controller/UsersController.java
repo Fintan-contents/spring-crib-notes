@@ -61,9 +61,9 @@ public class UsersController {
     @PostMapping("/{id:[\\d]+}")
     public User updateUser(@PathVariable Long id, @RequestBody @Valid UserUpdateForm form) {
         // リクエストボディのバージョン番号を、@Versionのついたプロパティに設定して更新します。
-        return userService.update(new User(id, form.getName(), form.getRole(), form.getAge(), form.getVersionNo())).getEntity();
-        // リクエストボディのバージョン番号が、データベースのバージョン番号と一致しない場合は楽観ロックエラーとなり、OptimisticLockExceptionが発生します。
+        // リクエストボディのバージョン番号が、データベースのバージョン番号と一致しない場合は楽観ロックエラーとなり、OptimisticLockingFailureExceptionが発生します。
         // 更新に成功した場合は、新しいバージョン番号を持ったエンティティを返します。
+        return userService.update(new User(id, form.getName(), form.getRole(), form.getAge(), form.getVersionNo())).getEntity();
     }
     //optimistic-lock-example-end
 }

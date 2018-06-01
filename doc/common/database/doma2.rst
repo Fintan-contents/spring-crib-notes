@@ -42,3 +42,13 @@ pom.xml
   Entityクラス以外にもDaoやSQLファイルなどの生成もできます。
 
 サンプル全体は :sample-app:`doma2-sample <common/doma2>` を参照してください。
+
+.. _doma2-exception-translator:
+
+Doma2が送出する例外の変換
+--------------------------------------------------
+Doma2が送出する例外は、 ``doma-spring-boot-starter`` の機能でSpringの例外クラスに変換されます。
+そのため、送出される例外を捕捉する場合は、Springの例外クラスを捕捉するようにしてください。
+Doma2の例外クラスとSpringの例外クラスのマッピングについては、以下を参照してください。
+
+* `Doma2の例外クラスとSpringの例外クラスののマッピング <https://github.com/domaframework/doma-spring-boot/blob/1.1.x/doma-spring-boot-autoconfigure/src/main/java/org/seasar/doma/boot/autoconfigure/DomaPersistenceExceptionTranslator.java>`_
