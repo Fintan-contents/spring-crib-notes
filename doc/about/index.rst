@@ -14,13 +14,28 @@
 
 特に、Springについて、次のような知識・能力を持っていることを前提としています。
 
-* `Spring Boot <https://projects.spring.io/spring-boot/>`_ を利用して、Webアプリケーションを開発したことがあり、基本的な仕組みについて理解している。
-* `Spring Framework <https://projects.spring.io/spring-framework/>`_ を利用したアプリケーションの基本的なアーキテクチャについて理解している。
-* `Springの公式ドキュメント <https://spring.io/docs>`_ から適切な情報を検索できる。
-* その他、次にあげるような技術要素について、基本的な知識を持っている。
+* 共通
+
+  * `Spring Boot <https://projects.spring.io/spring-boot/>`_ を利用して開発したことがあり、基本的な仕組みについて理解している。
+  * `Spring Framework <https://projects.spring.io/spring-framework/>`_ を利用したアプリケーションの基本的なアーキテクチャについて理解している。
+  * `Springの公式ドキュメント <https://spring.io/docs>`_ から適切な情報を検索できる。
+  * その他、次にあげるような技術要素について、基本的な知識を持っている。
+
     * SQL
     * Maven
     * Amazon Web Services
+
+* Web/API
+
+  * `Spring MVC <https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html>`_ の基本的な用語を理解している
+  * Spring MVCの各ステレオタイプの役割を理解している
+  * Spring MVCの処理フローを理解している
+
+* バッチ
+
+  * `Spring Batch <https://spring.io/projects/spring-batch>`_ の基本的な用語を理解している
+  * Spring Batchの各ステレオタイプの役割を理解している
+  * Spring Batchの処理フローを理解している
 
 これからSpringやAmazon Web Servicesを初めて利用するという人は、一般的な書籍やサイトを活用して学習してください。
 
