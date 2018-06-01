@@ -15,6 +15,7 @@ Web 虎の巻
   authorization/index
   double-submission/index
   response-header/index
+  static-resource-cache/index
   status-code/index
   data-retention/index
   pagination/index
