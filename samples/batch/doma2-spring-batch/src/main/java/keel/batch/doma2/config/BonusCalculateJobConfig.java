@@ -25,13 +25,16 @@ public class BonusCalculateJobConfig {
         this.stepBuilderFactory = stepBuilderFactory;
     }
 
+    // job-incrementer-start
     @Bean
     public Job bonusCalculateJob(Step bonusCalculateStep) {
         return jobBuilderFactory.get("bonusCalculateJob")
-                .incrementer(new RunIdIncrementer())
-                .start(bonusCalculateStep)
-                .build();
+                                // 起動時に一意のパラメータを設定する
+                                .incrementer(new RunIdIncrementer())
+                                .start(bonusCalculateStep)
+                                .build();
     }
+    // job-incrementer-end
 
     @Bean
     public Step bonusCalculateStep(EmployeeBonusReader reader, EmployeeBonusProcessor processor, BonusWriter writer) {
