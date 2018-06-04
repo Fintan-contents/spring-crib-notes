@@ -9,6 +9,7 @@ import org.seasar.doma.message.Message;
 
 import java.util.stream.Stream;
 
+// doma2-spring-batch-example-start
 @Dao
 @ConfigAutowireable
 public interface EmployeeBonusDao {
@@ -16,3 +17,4 @@ public interface EmployeeBonusDao {
     @Suppress(messages = Message.DOMA4274)
     Stream<EmployeeBonus> selectEmployeeBonus();
 }
+// doma2-spring-batch-example-end

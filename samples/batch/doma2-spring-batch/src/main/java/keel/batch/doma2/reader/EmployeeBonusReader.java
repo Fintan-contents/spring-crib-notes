@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
+// doma2-spring-batch-example-start
 @Component
 public class EmployeeBonusReader extends AbstractItemCountingItemStreamItemReader<EmployeeBonus> {
 
@@ -37,3 +38,4 @@ public class EmployeeBonusReader extends AbstractItemCountingItemStreamItemReade
         stream.close();
     }
 }
+// doma2-spring-batch-example-end

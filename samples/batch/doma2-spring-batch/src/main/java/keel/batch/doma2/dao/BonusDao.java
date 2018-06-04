@@ -8,9 +8,11 @@ import org.seasar.doma.jdbc.BatchResult;
 
 import java.util.List;
 
+// doma2-spring-batch-example-start
 @Dao
 @ConfigAutowireable
 public interface BonusDao {
     @BatchInsert
     BatchResult<Bonus> insert(List<Bonus> bonuses);
 }
+// doma2-spring-batch-example-end

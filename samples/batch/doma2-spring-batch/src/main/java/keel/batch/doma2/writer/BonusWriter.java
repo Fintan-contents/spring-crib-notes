@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+// doma2-spring-batch-example-start
 @Component
 public class BonusWriter implements ItemWriter<Bonus> {
 
@@ -21,3 +22,4 @@ public class BonusWriter implements ItemWriter<Bonus> {
         dao.insert((List<Bonus>) items);
     }
 }
+// doma2-spring-batch-example-end
