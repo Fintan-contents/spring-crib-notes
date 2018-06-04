@@ -1,4 +1,4 @@
-# Spring Boot + Doma2を使用した楽観ロックのサンプルアプリケーション（API）
+# 例外ハンドリング / Doma2の楽観ロックによる排他制御のサンプルアプリケーション
 
 ## 実行手順
 
@@ -14,10 +14,8 @@ mvn spring-boot:run
 
 ユーザ情報を以下のURLに `POST` して、ユーザを作成します。
 
-`http://localhost:8080/users`
-
-```json
-{"name": "名前", "age": 1, "role": "admin"}
+```bash
+$ curl -X POST http://localhost:8080/users -d '{"name": "taro", "age": 1, "role": "admin"}' -H "Content-Type:application/json"
 ```
 
 ユーザの作成時には、次の内容をバリデーションしています。
@@ -31,26 +29,26 @@ mvn spring-boot:run
 
 以下のURLに `GET` でアクセスして、作成したユーザの情報を取得します。（ `1` は作成したユーザの `id` の値です。）
 
-`http://localhost:8080/users/1`
+```bash
+$ curl -X GET http://localhost:8080/users/1
+```
 
 次のように、バージョン番号を含むJSONが返却されます。
 
 ```json
-{"id":1,"name":"名前","role":"admin","age":1,"versionNo":1}
+{"id":1,"name":"taro","role":"admin","age":1,"versionNo":1}
 ```
 
 存在しない `id` のURLにアクセスすると、　`404 NotFound` のステータスでレスポンスされます。
 
-### 3. 正しく更新できることを確認
+### 4. 正しく更新できることを確認
 
 3.で取得したデータの `name` を更新して、以下のURLに `POST` すると、データが更新され、新しいバージョン番号が返ります。（ `1` は作成したユーザの `id` の値です。）
 
-`http://localhost:8080/users/1`
-
 **Request**
 
-```json
-{"id":1,"name":"updated","role":"admin","age":1,"versionNo":1}
+```bash
+$ curl -X POST http://localhost:8080/users/1 -d '{"id":1,"name":"updated","role":"admin","age":1,"versionNo":1}' -H "Content-Type:application/json"
 ```
 
 **Response**
@@ -59,7 +57,7 @@ mvn spring-boot:run
 {"id":1,"name":"updated","role":"admin","age":1,"versionNo":2}
 ```
 
-### 4. 排他制御エラーが発生することを確認
+### 5. 排他制御エラーが発生することを確認
 
-3.で送信したのとまったく同じデータを、再度 `POST` すると排他制御エラーが発生し、`409 Conflict` のステータスでレスポンスされます。
+4.で送信したのとまったく同じデータを、再度 `POST` すると排他制御エラーが発生し、`409 Conflict` のステータスでレスポンスされます。
 

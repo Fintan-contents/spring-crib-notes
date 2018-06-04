@@ -1,16 +1,27 @@
-# Doma2
-Doma2を使うためのサンプルプロジェクトです。
+# Doma2を使用したサンプルアプリケーション
 
-アプリケーションの起動方法です。
-データベースの情報からDoma2用Entityが自動生成されアプリケーションが実行されます。
+## 実行手順
+
+### 1. アプリケーションの起動
 
 ```bash
 mvn clean spring-boot:run
 ```
 
-curlコマンドを使うことで確認が出来ます。
+データベースの情報からDoma2用Entityが自動生成されアプリケーションが実行されます。
+
+### 2. 確認方法
+
+> **Note** HTTP APIへのアクセスは、[`curl`](https://curl.haxx.se/) やChrome拡張機能の [Restlet Client \- REST API Testing \- Chrome ウェブストア](https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm?hl=ja) を利用してください。
+
+以下のURLに `POST` でアクセスすると、ユーザ情報が登録できます。
 
 ```bash
 $ curl -X POST http://localhost:8080/users
-{"id":161,"name":"name_1526875365164"}
+```
+
+登録したユーザ情報がレスポンスとして返却されます。
+
+```json
+{"id": 1,"name": "name_1527842358165"}
 ```
