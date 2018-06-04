@@ -20,6 +20,7 @@
     <module>common/sql-management</module>
     <module>api/api-error-handling</module>
     <module>batch/doma2-spring-batch</module>
+    <module>web/double-submission</module>
   </modules>
 
   <parent>

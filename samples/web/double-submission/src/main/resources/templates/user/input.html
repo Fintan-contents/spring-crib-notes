@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'サンプルアプリケーション')"></head>
+<body>
+  <div id="contents">
+    <form th:action="@{/user/confirm}" method="post" th:object="${userForm}">
+      <div>
+        名前:<input type="text" name="name" th:field="*{name}"/>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></div>
+      </div>
+      <div>
+        年齢:<input type="text" name="age" th:field="*{age}"/>
+        <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color: red"></div>
+      </div>
+      <button type="submit">確認</button>
+    </form>
+  </div>
+</body>
+</html>
