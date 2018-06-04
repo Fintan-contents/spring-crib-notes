@@ -12,6 +12,7 @@
     <module>web/doma2-optimistic-lock</module>
     <module>web/template-engine-thymeleaf</module>
     <module>web/error-handling</module>
+    <module>web/table-authentication</module>
     <module>common/web-bean-validation-messages</module>
     <module>common/batch-bean-validation-messages</module>
     <module>web/tomcat-access-log</module>
