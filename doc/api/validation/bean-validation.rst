@@ -1,4 +1,4 @@
-Bean Validationを使った値のチェック
+Bean Validationを使った入力値のチェック
 ==================================================
 クライアントから送信されるリクエストボディや、クエリパラメータは、\ `Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_\ を使ってチェックできます。
 Bean Validation の使用に関する基本的なフローは、:doc:`Webの場合 </web/validation/bean-validation>` と同様です。

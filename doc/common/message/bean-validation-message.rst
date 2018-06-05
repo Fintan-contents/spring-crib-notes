@@ -3,7 +3,7 @@ Bean Validationのエラーメッセージをmessages.propertiesに定義する
 Spring Bootでは、入力値のチェックとしてBean Validationをサポートしており、実装ライブラリとして `Hibernate Validator <https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/>`_ を採用しています。
 デフォルトでは、Hibernate Validatorで定義されているValidationMessages.propertiesからエラーメッセージが生成されます。
 
-本節では、エラーメッセージをValidationMessages.propertiesではなく、Spring BootのMessageSourceがロードするmessages.propertiesから取得する方法を記載します。
+ここでは、エラーメッセージをValidationMessages.propertiesではなく、Spring BootのMessageSourceがロードするmessages.propertiesから取得する方法を記載します。
 メッセージの定義をmessages.propertiesに集約する事で、開発者はメッセージをどのファイルに定義するべきかを意識する必要がなくなります。
 
 実装例（Web）

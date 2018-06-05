@@ -2,13 +2,18 @@
 ====================================================================================================
 Webアプリケーションでの例外ハンドリング方法とレスポンスの返却方法について説明します。
 
-`Spring Web MVC <https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html>`_ では、発生した例外のログ出力とエラー応答(基本的にステータスコードが500のレスポンス)を自動的に返却します。
-このため、アプリケーション側で何かを作り込む必要はありませんが、例外に応じてクライアントに返すステータスコードやページを変更したい場合には例外ハンドリングを実装する必要があります。
+`Spring Web MVC <https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html>`_ では、発生した例外を自動的にログ出力し、クライアントにエラーを返却します。
 
-例外に応じてクライアントに返すステータスコードやページをカスタマイズする
+特に、 `Spring Web MVCがデフォルトでハンドリングする例外 <https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`_
+は、アプリケーション側で設定や実装を行わなくても、適切なレスポンスステータスコードに変換されます。記載のない例外についてはデフォルトではステータスコード500に変換されます。
+
+なお、エラー画面はSpring Bootがデフォルトで用意した画面になります。カスタマイズする場合は、templates/error/<status-code>.htmlを作成してください。例えば、404 NotFoundの画面をカスタマイズしたい場合は、templates/error/404.htmlとして作成します。
+
+アプリケーション全体の例外ハンドリングをカスタマイズする例
 -----------------------------------------------------------------------------
 アプリケーション全体で例外に応じた処理が決まっている場合は、\ `@ControllerAdvice <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html>`_
 アノテーションを設定したクラスで例外ハンドリングを行います。
+
 どの例外を処理するかは、メソッドに設定された\ `@ExceptionHandler <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`_\ アノテーションの情報により決まります。
 
 この例では、NoResultExceptionが発生した場合に対象データが存在しないことを示すステータスコード404を返します。
@@ -18,6 +23,11 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
    :language: java
    :start-after: exception-handler-start
    :end-before: exception-handler-end
+
+サンプル全体は :sample-app:`error-handling-sample <web/error-handling>` を参照してください。
+
+個別機能(Controller)で例外をハンドリングする例
+-----------------------------------------------------------------------------
 
 アプリケーション全体ではなく個別機能(Controller)で例外をハンドリングし、エラーページを返したい場合があります。
 この場合は、Controller内に例外ハンドリング用のメソッドを作成します。
@@ -56,8 +66,6 @@ ResponseStatusアノテーションを設定することで対応できます。
 
 サンプル全体は :sample-app:`error-handling-sample <web/error-handling>` を参照してください。
 
-
 Serviceなどで送出した例外を業務エラーとして扱い画面にエラーメッセージを表示する
 ----------------------------------------------------------------------------------------
-:ref:`web-database-validation` の例を参照してください。
-
+:ref:`web-database-validation` の実装例を参照してください。
