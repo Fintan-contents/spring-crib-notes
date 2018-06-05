@@ -23,6 +23,14 @@ pipeline {
       post {
         always {
           archiveArtifacts 'doc/_build/**'
+          step([
+              $class: 'WarningsPublisher',
+              consoleParsers: [
+                  [parserName: 'Sphinx-build'],
+              ],
+              canComputeNew: false,
+              unstableTotalAll: '0'
+          ])
         }
       }
     }
