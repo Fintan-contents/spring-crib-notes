@@ -13,21 +13,24 @@
     <module>web/template-engine-thymeleaf</module>
     <module>web/error-handling</module>
     <module>web/table-authentication</module>
+    <module>web/tomcat-access-log</module>
+    <module>web/spring-security-http-response-header</module>
+    <module>web/double-submission</module>
+
+    <module>api/api-error-handling</module>
+
+    <module>batch/doma2-spring-batch</module>
+
     <module>common/web-bean-validation-messages</module>
     <module>common/batch-bean-validation-messages</module>
-    <module>web/tomcat-access-log</module>
     <module>common/doma2</module>
-    <module>web/spring-security-http-response-header</module>
     <module>common/sql-management</module>
-    <module>api/api-error-handling</module>
-    <module>batch/doma2-spring-batch</module>
-    <module>web/double-submission</module>
   </modules>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.1.RELEASE</version>
+    <version>2.0.2.RELEASE</version>
     <relativePath />
   </parent>
 
