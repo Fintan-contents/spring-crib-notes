@@ -45,4 +45,4 @@ View
      :start-after: sample-start
      :end-before: sample-end
 
-サンプル全体は :sample-app:`thymeleaf-sample <web/template-engine-thymeleaf>` を参照してください。
+サンプル全体は :sample-app:`template-engine-thymeleaf-sample <web/template-engine-thymeleaf>` を参照してください。
