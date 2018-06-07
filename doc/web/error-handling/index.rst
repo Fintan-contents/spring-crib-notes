@@ -15,6 +15,7 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
 アノテーションを設定したクラスで例外ハンドリングを行います。
 
 どの例外を処理するかは、メソッドに設定された\ `@ExceptionHandler <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`_\ アノテーションの情報により決まります。
+また、返却するステータスコードは `@ResponseStatus <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>`_ アノテーションに設定します。
 
 この例では、NoResultExceptionが発生した場合に対象データが存在しないことを示すステータスコード404を返します。
 クライアントには、404に対応したテンプレート(Thymeleafを使用した場合のデフォルト設定ではtemplates/error/404.html)ページが返されます。
@@ -23,6 +24,8 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
    :language: java
    :start-after: exception-handler-start
    :end-before: exception-handler-end
+
+注意点として、@ResponseStatusアノテーションのreason属性を指定しなかった場合は、クライアントに返却したいテンプレートのパスをメソッドの戻り値として明示的に指定する必要があります。
 
 サンプル全体は :sample-app:`error-handling-sample <web/error-handling>` を参照してください。
 
@@ -36,23 +39,6 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
   :language: java
   :start-after: controller-exception-handling-start
   :end-before: controller-exception-handling-end
-
-.. tip::
-
-  `ResponseStatus <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>`_ 
-  のreason属性を指定しなかった場合は、下のように明示的にクライアントに返すテンプレートのパスを指定する必要があります。
-
-  .. code-block:: java
-
-    @ExceptionHandler(SampleException.class)
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public String sampleExceptionHandler(SampleException e) {
-        logger.debug("クライアントからの要求が不正です", e);
-        // クライアントに返すテンプレートへのパスを戻します。
-        return "error/custom_400";
-    }
-
-  テンプレートのパスを指定しなかった場合は、クライアントにはレスポンスヘッダーのみが返されます。
 
 単純に例外毎にクライアントに返すステータスコードを決めたい場合には、下の例のように例外クラスに
 ResponseStatusアノテーションを設定することで対応できます。
