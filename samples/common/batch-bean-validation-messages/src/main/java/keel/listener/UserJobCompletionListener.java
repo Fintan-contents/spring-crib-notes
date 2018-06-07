@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserJobCompletionListener extends JobExecutionListenerSupport {
 
-    private final Logger log = LoggerFactory.getLogger(UserJobCompletionListener.class);
+    private final Logger logger = LoggerFactory.getLogger(UserJobCompletionListener.class);
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -23,7 +23,7 @@ public class UserJobCompletionListener extends JobExecutionListenerSupport {
     @Override
     public void afterJob(JobExecution jobExecution) {
         if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
-            log.info("job finished");
+            logger.info("job finished");
 
             jdbcTemplate
                     .query("SELECT user_id, user_name FROM users",
@@ -33,7 +33,7 @@ public class UserJobCompletionListener extends JobExecutionListenerSupport {
                             )
                     )
                     .forEach(user ->
-                            log.info(user.toString())
+                            logger.info(user.toString())
                     );
         }
     }
