@@ -25,3 +25,6 @@ Service
     :language: java
     :start-after: example-start
     :end-before: example-end
+    
+サンプル全体は :sample-app:`validation-sample <web/validation>` を参照してください。
+    
