@@ -51,4 +51,4 @@ GlobalExceptionHandler
     :end-before: optimistic-lock-example-end
     :dedent: 4
 
-サンプル全体は :sample-app:`doma2-optimistic-lock-sample <web/doma2-optimistic-lock>` を参照してください。
+サンプル全体は :sample-app:`api-error-handling-sample <api/api-error-handling>` を参照してください。
