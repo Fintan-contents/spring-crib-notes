@@ -1,7 +1,6 @@
 package keel;
 
 import keel.entity.Users;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.MediaType;
@@ -14,7 +13,6 @@ public class Doma2App {
     
     private final UsersDao dao;
 
-    @Autowired
     public Doma2App(final UsersDao dao) {
         this.dao = dao;
     }
