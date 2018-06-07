@@ -5,3 +5,9 @@ target
 
 *.iml
 node_modules
+
+.project
+.settings
+.classpath
+.apt_generated
+.factorypath
