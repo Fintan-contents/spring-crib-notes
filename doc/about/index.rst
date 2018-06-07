@@ -27,9 +27,9 @@
 
 * Web/API
 
-  * `Spring MVC <https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html>`_ の基本的な用語を理解している
-  * Spring MVCの各ステレオタイプの役割を理解している
-  * Spring MVCの処理フローを理解している
+  * `Spring Web MVC <https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html>`_ の基本的な用語を理解している
+  * Spring Web MVCの各ステレオタイプの役割を理解している
+  * Spring Web MVCの処理フローを理解している
 
 * バッチ
 
