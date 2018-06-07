@@ -27,7 +27,7 @@
 
 * Web/API
 
-  * `Spring Web MVC <https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html>`_ の基本的な用語を理解している
+  * :spring-doc:`Spring Web MVC <spring-framework-reference/web.html>` の基本的な用語を理解している
   * Spring Web MVCの各ステレオタイプの役割を理解している
   * Spring Web MVCの処理フローを理解している
 
@@ -47,7 +47,7 @@
 
 また、このドキュメントではアプリケーションをクラウド上にデプロイすることを想定しています。そういったアプリケーションに必要となるアーキテクチャについて、次にあげるサイトを参照して学習してください。
 
-* `クラウドネイティブなアプリケーション — Macchinetta Server Framework Cloud Extension Development Guideline <https://macchinetta.github.io/cloud-guideline/current/ja/Overview/CloudNativeApplication.html>`_
+* :macchinetta-cloud-guideline-doc:`クラウドネイティブなアプリケーション — Macchinetta Server Framework Cloud Extension Development Guideline <Overview/CloudNativeApplication.html>`
 * `The Twelve-Factor App <https://12factor.net/ja/>`_
 * `Beyond the 12 Factor App <https://content.pivotal.io/ebooks/beyond-the-12-factor-app>`_
 
@@ -63,9 +63,9 @@
 また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず `Macchinetta Framework <https://macchinetta.github.io>`_ を参照することをおすすめします。
 ただし、このドキュメントとMacchinettaでは、利用しているSpring Frameworkのバージョンが異なり、設定の記載方法も異なるため、具体的な実装例や設定例はそのままでは利用できないと考えてください。
 
-* `Macchinetta Server Framework Development Guideline <https://macchinetta.github.io/server-guideline-thymeleaf/current/ja/>`_
-* `Macchinetta Server Framework Cloud Extension Development Guideline <https://macchinetta.github.io/cloud-guideline/current/ja/>`_
-* `Macchinetta Batch Framework Development Guideline <https://macchinetta.github.io/batch-guideline/current/ja/>`_
+* :macchinetta-server-guideline-thymeleaf-doc:`Macchinetta Server Framework Development Guideline <>`
+* :macchinetta-cloud-guideline-doc:`Macchinetta Server Framework Cloud Extension Development Guideline <>`
+* :macchinetta-batch-guideline-doc:`Macchinetta Batch Framework Development Guideline <>`
 
 .. list-table:: Macchinettaとの主な相違点
    :widths: 25 20 35 20

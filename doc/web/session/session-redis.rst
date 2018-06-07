@@ -12,7 +12,7 @@ Redisへのセッション情報の保存や取得は、 `Spring Session <https:
 
 セッションの保存先をRedisにする
 ----------------------------------------------------------------------------------------------------
-`Spring Session - Spring Boot <https://docs.spring.io/spring-session/docs/current/reference/html5/guides/boot-redis.html>`_ を参考にライブラリの追加と設定の追加を行います。
+:spring-session-doc:`Spring Session - Spring Boot <reference/html5/guides/boot-redis.html>` を参考にライブラリの追加と設定の追加を行います。
 
 ローカル開発環境について
 ----------------------------------------------------------------------------------------------------

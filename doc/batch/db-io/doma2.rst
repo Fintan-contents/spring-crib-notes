@@ -1,7 +1,7 @@
 Doma2でデータベースから読み込み・書き出しする
 ==================================================
 
-Spring Batchで `Doma2 <https://doma.readthedocs.io/ja/stable/>`_ を利用してデータを読み込み/書き出しする方法について説明します。
+Spring Batchで :doma-doc:`Doma2 <>` を利用してデータを読み込み/書き出しする方法について説明します。
 
 データベースアクセスにDoma2を利用するための基本的な設定については、 :doc:`/common/database/doma2` を参照してください。
 
@@ -12,7 +12,7 @@ Spring Batchで `Doma2 <https://doma.readthedocs.io/ja/stable/>`_ を利用し�
 
 データ読み込みに利用するDaoのメソッドは、Streamを返すように実装します。詳細については、以下の公式ドキュメントを参照してください。
 
-* `検索 <http://doma.readthedocs.io/ja/stable/query/select>`_ ＞ ストリーム検索 ＞ 戻り値で戻す方法
+* :doma-doc:`検索 <query/select>` ＞ ストリーム検索 ＞ 戻り値で戻す方法
 
 ItemReaderではopenでDaoからStreamを取得し、Stream自身とそのStreamから取得したIteratorをインスタンス変数として保持しておきます。 readではIteratorの次の要素を返すようにし、 closeで必ずStreamを閉じるようにします。
 
@@ -37,7 +37,7 @@ ItemStreamReader
 
   PostgreSQLでは、トランザクションが終了すると自動的にカーソルが閉じられます [#f1]_ 。そのため、Spring BatchのChunkのように一定間隔ごとにcommitされるような場合には、1つめのチャンクは正常に完了しますが、以降のチャンクは処理できなくなってしまいます。
 
-  このような事象を回避するために、データベースにアクセスするItemReaderの実装クラスは、 `ItemStreamReader <https://docs.spring.io/spring-batch/4.0.x/api/org/springframework/batch/item/ItemStreamReader.html>`_ を実装したクラスにしてください。サンプルでは、ItemStreamReaderを実装した `AbstractItemCountingItemStreamItemReader <https://docs.spring.io/spring-batch/current/api/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.html>`_ を継承しています。
+  このような事象を回避するために、データベースにアクセスするItemReaderの実装クラスは、 :spring-batch-doc:`ItemStreamReader <api/org/springframework/batch/item/ItemStreamReader.html>` を実装したクラスにしてください。サンプルでは、ItemStreamReaderを実装した :spring-batch-doc:`AbstractItemCountingItemStreamItemReader <api/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.html>` を継承しています。
 
   ItemStreamReaderでは、openメソッドで利用されるコネクションとwriterで利用されるコネクションとは別のトランザクションに属するようになるため、PostgreSQLの上記のような問題を踏まないようになっています。
 
@@ -53,7 +53,7 @@ ItemStreamReader
 
 ItemWriterではDoma2の@BatchInsertを利用して、一括でインサートします。詳細については、以下の公式ドキュメントを参照してください。
 
-* `バッチ挿入 <http://doma.readthedocs.io/ja/stable/query/batch-insert/>`_
+* :doma-doc:`バッチ挿入 <query/batch-insert/>`
 
 実装例
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

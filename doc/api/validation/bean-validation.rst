@@ -16,8 +16,8 @@ RESTful Webサービスの場合は、``No1``\ の変換に失敗した場合に
   :header: 変換元, 例外
   :widths: 10, 10
 
-  リクエストボディ, `HttpMessageNotReadableException <https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/converter/HttpMessageNotReadableException.html>`_
-  クエリパラメータ, `BindException <https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/BindException.html>`_
+  リクエストボディ, :spring-framework-doc:`HttpMessageNotReadableException <javadoc-api/org/springframework/http/converter/HttpMessageNotReadableException.html>`
+  クエリパラメータ, :spring-framework-doc:`BindException <javadoc-api/org/springframework/validation/BindException.html>`
 
 ``No2``\ のBean Validationの実行でエラーとなった場合は、以下の例外が送出されます。
 
@@ -25,8 +25,8 @@ RESTful Webサービスの場合は、``No1``\ の変換に失敗した場合に
   :header: チェック対象, 例外
   :widths: 10, 10
 
-  リクエストボディから変換したBean, `MethodArgumentNotValidException <https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/MethodArgumentNotValidException.html>`_
-  クエリパラメータから変換したBean, `BindException <https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/validation/BindException.html>`_
+  リクエストボディから変換したBean, :spring-framework-doc:`MethodArgumentNotValidException <javadoc-api/org/springframework/web/bind/MethodArgumentNotValidException.html>`
+  クエリパラメータから変換したBean, :spring-framework-doc:`BindException <javadoc-api/org/springframework/validation/BindException.html>`
 
 
 上記例外発生時にデフォルトで返却されるレスポンスの内容や、そのレスポンスの内容をカスタマイズする方法については、:doc:`例外ハンドリング </api/error-handling/index>` を参照してください。

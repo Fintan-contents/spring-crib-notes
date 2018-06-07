@@ -199,4 +199,21 @@ todo_include_todos = True
 
 branch_name = os.getenv('BRANCH_NAME', 'develop')
 
-extlinks = {'sample-app': ('https://ci.keel-dev.net/gitbucket/keel/crib-notes/tree/' + branch_name + '/samples/%s', None)}
+extlinks = {
+  'sample-app': ('https://ci.keel-dev.net/gitbucket/keel/crib-notes/tree/' + branch_name + '/samples/%s', None),
+  'spring-doc': ('https://docs.spring.io/spring/docs/' + '5.0.6.RELEASE' + '/%s', None),
+  'spring-framework-doc': ('https://docs.spring.io/spring-framework/docs/' + '5.0.6.RELEASE' + '/%s', None),
+  'spring-boot-doc': ('https://docs.spring.io/spring-boot/docs/' + '2.0.2.RELEASE' + '/%s', None),
+  'spring-batch-doc': ('https://docs.spring.io/spring-batch/' + '4.0.x' + '/%s', None),
+  'spring-session-doc': ('https://docs.spring.io/spring-session/docs/' + '2.0.3.RELEASE' + '/%s', None),
+  'spring-security-doc': ('https://docs.spring.io/spring-security/site/docs/' + '5.0.5.RELEASE' + '/%s', None),
+  'macchinetta-server-guideline-thymeleaf-doc': ('https://macchinetta.github.io/server-guideline-thymeleaf/' + '1.5.1.RELEASE' + '/ja/%s', None),
+  'macchinetta-cloud-guideline-doc': ('https://macchinetta.github.io/cloud-guideline/' + '1.0.1.RELEASE' + '/ja/%s', None),
+  'macchinetta-batch-guideline-doc': ('https://macchinetta.github.io/batch-guideline/' + '2.0.1.RELEASE' + '/ja/%s', None),
+  'thymeleaf-tutorials-doc': ('https://www.thymeleaf.org/doc/tutorials/' + '3.0' + '/%s', None),
+  'doma-spring-boot-source': ('https://github.com/domaframework/doma-spring-boot/blob/' + '1.1.x' + '/%s', None),
+  'doma-doc': ('https://doma.readthedocs.io/ja/' + '2.19.2' + '/%s', None),
+  'doma-java-doc': ('https://static.javadoc.io/org.seasar.doma/doma/' + '2.19.2' + '/%s', None),
+  'doma-gen-doc': ('https://doma-gen.readthedocs.io/ja/' + '2.19.2' + '/%s', None),
+  'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '6.0' + '/%s', None)
+}

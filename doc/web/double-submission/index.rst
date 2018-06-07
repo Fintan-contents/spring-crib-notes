@@ -4,7 +4,7 @@ Springから提供されている機能では二重送信を防止できない�
 `TERASOLUNA <http://terasolunaorg.github.io/>`_ のトランザクショントークンチェックの機能を利用して二重送信を防止します。
 詳細は、以下を参照してください。
  
-* `Macchinetta Server Framework Development Guideline - 4.6. 二重送信防止 <https://macchinetta.github.io/server-guideline-thymeleaf/current/ja/ArchitectureInDetail/WebApplicationDetail/DoubleSubmitProtection.html>`_
+* :macchinetta-server-guideline-thymeleaf-doc:`Macchinetta Server Framework Development Guideline - 4.6. 二重送信防止 <ArchitectureInDetail/WebApplicationDetail/DoubleSubmitProtection.html>`
  
 設定例
 --------------------------------------------------

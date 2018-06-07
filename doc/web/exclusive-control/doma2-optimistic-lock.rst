@@ -1,11 +1,11 @@
 Doma2の楽観ロックで排他制御する
 ====================================================================================================
-Doma2の\ `@Version <http://static.javadoc.io/org.seasar.doma/doma/2.19.2/org/seasar/doma/Version.html>`_\ を使用した楽観ロック方式で実現します。
+Doma2の\ :doma-java-doc:`@Version <org/seasar/doma/Version.html>`\ を使用した楽観ロック方式で実現します。
 
 Doma2の楽観ロックについては、以下の公式ドキュメントを参照してください。
 
-* `更新 <http://doma.readthedocs.io/ja/stable/query/update/>`_
-* `バッチ更新 <http://doma.readthedocs.io/ja/stable/query/batch-update/>`_
+* :doma-doc:`更新 <query/update/>`
+* :doma-doc:`バッチ更新 <query/batch-update/>`
 
 処理フロー
 -----------------------------------------------

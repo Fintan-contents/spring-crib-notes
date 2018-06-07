@@ -20,7 +20,7 @@ Flywayのその他のコマンドや、 アプリケーションの起動時で�
 
 参考情報
 
-* `Spring Boot Reference Guide - 81.5.1 Execute Flyway Database Migrations on Startup <https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#howto-execute-flyway-database-migrations-on-startup>`_
+* :spring-boot-doc:`Spring Boot Reference Guide - 81.5.1 Execute Flyway Database Migrations on Startup <reference/htmlsingle/#howto-execute-flyway-database-migrations-on-startup>`
 * `Flyway Documentation - Maven Plugin <https://flywaydb.org/documentation/maven/>`_
 
 なお、Flywayを使用して、初期データやテストデータ等のDMLを管理する事も可能です。

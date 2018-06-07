@@ -20,7 +20,7 @@ application.properties
   Cache-Controlには、max-age以外にもいくつかの設定可能なディレクティブがあります。
   Spring Bootで設定可能なディレクティブについては、以下を参照してください。
 
-  * `Spring Boot Reference Guide Appendix A. Common application properties <https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#common-application-properties>`_
+  * :spring-boot-doc:`Spring Boot Reference Guide Appendix A. Common application properties <reference/htmlsingle/#common-application-properties>`
 
   ※ ``spring.resources.cache.cachecontrol.xxx`` となっている項目が、Cache-Controlに設定可能なディレクティブです。
 

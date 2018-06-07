@@ -14,7 +14,7 @@ checkboxやselectでデフォルト値を送信するためには、Thymeleafの
 
 詳細は、以下の公式ドキュメントのcheckboxの部分などを参照してください。
 
-* `Thymeleaf + Spring <https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html>`_
+* :thymeleaf-tutorials-doc:`Thymeleaf + Spring <thymeleafspring.html>`
 
 .. warning::
 
@@ -23,7 +23,7 @@ checkboxやselectでデフォルト値を送信するためには、Thymeleafの
 
   対応している型については、以下のJavadocを参照してください。
 
-  * `WebDataBinderのJavadoc <https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/WebDataBinder.html#getEmptyValue-java.lang.Class->`_
+  * :spring-framework-doc:`WebDataBinderのJavadoc <javadoc-api/org/springframework/web/bind/WebDataBinder.html#getEmptyValue-java.lang.Class->`
 
 
 実装例

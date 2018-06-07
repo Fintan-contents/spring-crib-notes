@@ -2,7 +2,7 @@
 
 データベースアクセスにDoma2を使用する
 ==================================================
-データベースアクセスライブラリとして、 `Doma2 <https://doma.readthedocs.io/ja/stable/>`_ を使う方法について説明します。
+データベースアクセスライブラリとして、 :doma-doc:`Doma2 <>` を使う方法について説明します。
 
 Doma2を使うための設定例
 --------------------------------------------------
@@ -27,7 +27,7 @@ application.properties
 
 Doma2用のEntityを生成するための設定例
 --------------------------------------------------
-`Doma-Gen <http://doma-gen.readthedocs.io/ja/stable/>`_\ を使うとデータベースのメタデータからEntityクラスなどを生成できます。
+:doma-gen-doc:`Doma-Gen <>`\ を使うとデータベースのメタデータからEntityクラスなどを生成できます。
 
 pom.xml
   pom.xmlのプラグインの設定例となります。この設定の場合、mvn generate-resourcesの実行でEntityクラスが生成されます。
@@ -53,4 +53,4 @@ Doma2が送出する例外は、 ``doma-spring-boot-starter`` の機能でSpring
 そのため、送出される例外を捕捉する場合は、Springの例外クラスを捕捉するようにしてください。
 Doma2の例外クラスとSpringの例外クラスのマッピングについては、以下を参照してください。
 
-* `Doma2の例外クラスとSpringの例外クラスのマッピング <https://github.com/domaframework/doma-spring-boot/blob/1.1.x/doma-spring-boot-autoconfigure/src/main/java/org/seasar/doma/boot/autoconfigure/DomaPersistenceExceptionTranslator.java>`_
+* :doma-spring-boot-source:`Doma2の例外クラスとSpringの例外クラスのマッピング <doma-spring-boot-autoconfigure/src/main/java/org/seasar/doma/boot/autoconfigure/DomaPersistenceExceptionTranslator.java>`

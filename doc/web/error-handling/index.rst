@@ -2,20 +2,20 @@
 ====================================================================================================
 Webアプリケーションでの例外ハンドリング方法とレスポンスの返却方法について説明します。
 
-`Spring Web MVC <https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html>`_ では、発生した例外を自動的にログ出力し、クライアントにエラーを返却します。
+:spring-doc:`Spring Web MVC <spring-framework-reference/web.html>` では、発生した例外を自動的にログ出力し、クライアントにエラーを返却します。
 
-特に、 `Spring Web MVCがデフォルトでハンドリングする例外 <https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`_
+特に、 :spring-framework-doc:`Spring Web MVCがデフォルトでハンドリングする例外 <javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`
 は、アプリケーション側で設定や実装を行わなくても、適切なレスポンスステータスコードに変換されます。記載のない例外についてはデフォルトではステータスコード500に変換されます。
 
 なお、エラー画面はSpring Bootがデフォルトで用意した画面になります。カスタマイズする場合は、templates/error/<status-code>.htmlを作成してください。例えば、404 NotFoundの画面をカスタマイズしたい場合は、templates/error/404.htmlとして作成します。
 
 アプリケーション全体の例外ハンドリングをカスタマイズする例
 -----------------------------------------------------------------------------
-アプリケーション全体で例外に応じた処理が決まっている場合は、\ `@ControllerAdvice <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html>`_
+アプリケーション全体で例外に応じた処理が決まっている場合は、\ :spring-doc:`@ControllerAdvice <javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html>`
 アノテーションを設定したクラスで例外ハンドリングを行います。
 
-どの例外を処理するかは、メソッドに設定された\ `@ExceptionHandler <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`_\ アノテーションの情報により決まります。
-また、返却するステータスコードは `@ResponseStatus <https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>`_ アノテーションに設定します。
+どの例外を処理するかは、メソッドに設定された\ :spring-doc:`@ExceptionHandler <javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`\ アノテーションの情報により決まります。
+また、返却するステータスコードは :spring-doc:`@ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>` アノテーションに設定します。
 
 この例では、NoResultExceptionが発生した場合に対象データが存在しないことを示すステータスコード404を返します。
 クライアントには、404に対応したテンプレート(Thymeleafを使用した場合のデフォルト設定ではtemplates/error/404.html)ページが返されます。

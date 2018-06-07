@@ -1,10 +1,10 @@
 HTTPレスポンスヘッダ
 ====================================================
-`Spring Security <https://docs.spring.io/spring-security/site/docs/current/reference/html/>`_ を使用した場合に設定されるHTTPレスポンスヘッダについて記載します。
+:spring-security-doc:`Spring Security <reference/html/>` を使用した場合に設定されるHTTPレスポンスヘッダについて記載します。
 
 Spring Securityを使用した場合、デフォルトでは全てのHTTPレスポンスに以下のヘッダが設定されます。詳細は、以下の公式ドキュメントを参照してください。
 
-* `Spring Security Reference 21.1 Default Security Headers <https://docs.spring.io/spring-security/site/docs/current/reference/html/headers.html#default-security-headers>`_
+* :spring-security-doc:`Spring Security Reference 21.1 Default Security Headers <reference/html/headers.html#default-security-headers>`
 
 デフォルトで設定されるレスポンスヘッダ
   .. code-block:: YAML
