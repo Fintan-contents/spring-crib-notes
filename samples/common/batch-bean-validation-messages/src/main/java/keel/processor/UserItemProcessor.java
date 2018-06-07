@@ -31,8 +31,7 @@ public class UserItemProcessor implements ItemProcessor<User, User> {
                                     logger.warn(
                                             "column name：{}, error message：{}",
                                                     userConstraintViolation
-                                                            .getPropertyPath()
-                                                            .toString(),
+                                                            .getPropertyPath(),
                                                     userConstraintViolation.getMessage()
                                     )
                     );
