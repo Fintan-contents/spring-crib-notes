@@ -6,6 +6,8 @@ import keel.processor.UserItemProcessor;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import org.assertj.core.groups.Tuple;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
@@ -24,6 +26,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+
+import java.util.Arrays;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {BatchBeanValidationMessagesApplication.class, UserJobTest.BatchTestConfig.class})
@@ -50,12 +55,20 @@ public class UserJobTest {
         verify(mockAppender, times(3)).doAppend(captorLoggingEvent.capture());
 
         SoftAssertions.assertSoftly(softly -> {
+            final List<LoggingEvent> loggingEvents = captorLoggingEvent.getAllValues();
             softly
-                    .assertThat(captorLoggingEvent.getAllValues())
+                    .assertThat(loggingEvents)
                     .extracting("message")
-                    .containsExactlyInAnyOrder("column name：userId, error message：値は8文字以上 20文字以下にしてください",
-                            "column name：userId, error message：値は8文字以上 20文字以下にしてください",
-                            "column name：userId, error message：必須です");
+                    .containsExactlyInAnyOrder("column name：{}, error message：{}",
+                            "column name：{}, error message：{}",
+                            "column name：{}, error message：{}");
+
+            softly.assertThat(loggingEvents)
+                  .flatExtracting("argumentArray")
+                  .containsAnyOf(
+                          "値は8文字以上 20文字以下にしてください", "値は8文字以上 20文字以下にしてください", "必須です"
+                  );
+            
             softly
                     .assertThat(result.getStatus())
                     .isEqualTo(BatchStatus.COMPLETED);
