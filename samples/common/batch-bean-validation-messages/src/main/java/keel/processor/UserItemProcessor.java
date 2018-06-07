@@ -29,12 +29,11 @@ public class UserItemProcessor implements ItemProcessor<User, User> {
                     .forEach(
                             userConstraintViolation ->
                                     logger.warn(
-                                            String.format("column name：%s, error message：%s",
+                                            "column name：{}, error message：{}",
                                                     userConstraintViolation
                                                             .getPropertyPath()
                                                             .toString(),
                                                     userConstraintViolation.getMessage()
-                                            )
                                     )
                     );
             return null;
