@@ -1,1 +1,1 @@
-select name from users where name = /* user.name */'taro' and role = /* user.role */'admin' and age = /* user.age */20
+select /*%expand*/* from users where name = /* user.name */'taro' and role = /* user.role */'admin' and age = /* user.age */20
