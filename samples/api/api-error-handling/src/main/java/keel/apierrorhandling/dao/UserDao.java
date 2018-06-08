@@ -1,5 +1,6 @@
 package keel.apierrorhandling.dao;
 
+import keel.apierrorhandling.dao.criteria.UserCriteria;
 import keel.apierrorhandling.entity.User;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Insert;
@@ -19,7 +20,7 @@ public interface UserDao {
     List<User> findAllUsers();
 
     @Select
-    List<User> findUsers(User user);
+    List<User> findUsers(UserCriteria criteria);
 
     @Select
     Optional<User> getUser(Long id);
@@ -46,6 +47,8 @@ public interface UserDao {
     Optional<String> getRole(String role);
 
     default boolean existsRole(String role) {
-        return this.getRole(role).isPresent();
+        return this
+                .getRole(role)
+                .isPresent();
     }
 }

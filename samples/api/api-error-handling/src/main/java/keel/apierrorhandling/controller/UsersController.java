@@ -1,5 +1,6 @@
 package keel.apierrorhandling.controller;
 
+import keel.apierrorhandling.dao.criteria.UserCriteria;
 import keel.apierrorhandling.entity.User;
 import keel.apierrorhandling.exception.CustomValidationException;
 import keel.apierrorhandling.exception.UserNotFoundException;
@@ -34,7 +35,7 @@ public class UsersController {
 
     @GetMapping("/find")
     public List<User> getUsers(@Validated UserForm form) {
-        return userService.findUsers(new User(form.getName(), form.getRole(), form.getAge()));
+        return userService.findUsers(new UserCriteria(form.getName(), form.getRole(), form.getAge()));
     }
 
     @PostMapping

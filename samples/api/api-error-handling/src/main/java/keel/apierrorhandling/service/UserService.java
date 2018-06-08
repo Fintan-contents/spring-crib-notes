@@ -1,6 +1,7 @@
 package keel.apierrorhandling.service;
 
 import keel.apierrorhandling.dao.UserDao;
+import keel.apierrorhandling.dao.criteria.UserCriteria;
 import keel.apierrorhandling.entity.User;
 import org.seasar.doma.jdbc.Result;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,8 @@ public class UserService {
         return userDao.findAllUsers();
     }
 
-    public List<User> findUsers(User user) {
-        return userDao.findUsers(user);
+    public List<User> findUsers(UserCriteria criteria) {
+        return userDao.findUsers(criteria);
     }
 
     public Optional<User> getUser(Long id) {
