@@ -3,6 +3,7 @@ package keel.validation.service;
 import keel.validation.dao.UserDao;
 import keel.validation.entity.User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -14,6 +15,7 @@ public class UserService {
     }
 
     // example-start
+    @Transactional
     public void insert(User user) {
         // ロールの存在チェック
         // 本来は外部キーの制約違反でハンドリングすべきですが、
