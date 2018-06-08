@@ -4,7 +4,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import keel.validation.entity.Users;
+import keel.validation.entity.User;
 import keel.validation.service.UserService;
 import keel.validation.value.MailAddress;
 import org.springframework.dao.DuplicateKeyException;
@@ -43,7 +43,7 @@ public class AddUserController {
             return createValidationErrorResponse();
         }
         try {
-            userService.insert(new Users(form.name, form.mailAddress.getValue(), form.role));
+            userService.insert(new User(form.name, form.mailAddress.getValue(), form.role));
         } catch (UserService.RoleNotFoundException e) {
             // ロールがデータベースのロールテーブル上に存在しない例外を捕捉して
             // 画面にメッセージを表示します。

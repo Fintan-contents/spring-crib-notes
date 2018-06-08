@@ -2,7 +2,7 @@ package keel.validation.dao;
 
 import java.util.Optional;
 
-import keel.validation.entity.Users;
+import keel.validation.entity.User;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Insert;
 import org.seasar.doma.Select;
@@ -21,5 +21,5 @@ public interface UserDao {
     }
 
     @Insert
-    Result<Users> insert(Users entity);
+    Result<User> insert(User entity);
 }

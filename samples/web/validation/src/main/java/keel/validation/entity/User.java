@@ -1,12 +1,10 @@
 package keel.validation.entity;
 
-import org.seasar.doma.Entity;
-import org.seasar.doma.GeneratedValue;
-import org.seasar.doma.GenerationType;
-import org.seasar.doma.Id;
+import org.seasar.doma.*;
 
 @Entity(immutable = true)
-public class Users {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +13,11 @@ public class Users {
     public final String mailAddress;
     public final String role;
 
-    public Users(final String name, final String mailAddress, final String role) {
+    public User(final String name, final String mailAddress, final String role) {
         this(null, name, mailAddress, role);
     }
 
-    public Users(final Long id, final String name, final String mailAddress, final String role) {
+    public User(final Long id, final String name, final String mailAddress, final String role) {
         this.id = id;
         this.name = name;
         this.mailAddress = mailAddress;
