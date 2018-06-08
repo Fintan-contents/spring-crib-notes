@@ -27,6 +27,12 @@
     <!-- doma-starter-end -->
 
     <dependency>
+      <groupId>org.seasar.doma</groupId>
+      <artifactId>doma</artifactId>
+      <version>2.19.2</version>
+    </dependency>
+
+    <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
     </dependency>
