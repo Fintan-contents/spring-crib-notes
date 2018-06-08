@@ -1,14 +1,41 @@
 package keel.batch.doma2.entity;
 
-import lombok.Value;
 import org.seasar.doma.Entity;
 
 @Entity(immutable = true)
-@Value
 public class EmployeeBonus {
-    public final long id;
-    public final String name;
-    public final long salary;
-    public final Long bonusMagnification;
-    public final Long fixedBonus;
+
+    private final long id;
+    private final String name;
+    private final long salary;
+    private final Long bonusMagnification;
+    private final Long fixedBonus;
+
+    public EmployeeBonus(long id, String name, long salary, Long bonusMagnification, Long fixedBonus) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+        this.bonusMagnification = bonusMagnification;
+        this.fixedBonus = fixedBonus;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public long getSalary() {
+        return salary;
+    }
+
+    public Long getBonusMagnification() {
+        return bonusMagnification;
+    }
+
+    public Long getFixedBonus() {
+        return fixedBonus;
+    }
 }

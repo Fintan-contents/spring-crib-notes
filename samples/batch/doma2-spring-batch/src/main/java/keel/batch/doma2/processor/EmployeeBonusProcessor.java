@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class EmployeeBonusProcessor implements ItemProcessor<EmployeeBonus, Bonus> {
     @Override
     public Bonus process(EmployeeBonus item) {
-        return new Bonus(item.id, calc(item.salary, item.bonusMagnification, item.fixedBonus));
+        return new Bonus(item.getId(), calc(item.getSalary(), item.getBonusMagnification(), item.getFixedBonus()));
     }
 
     private long calc(long salary, Long bonusMagnification, Long fixedBonus) {

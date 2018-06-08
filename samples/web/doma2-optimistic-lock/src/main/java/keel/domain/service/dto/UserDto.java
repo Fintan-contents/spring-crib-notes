@@ -1,11 +1,26 @@
 package keel.domain.service.dto;
 
-import lombok.Value;
-
-@Value
 public class UserDto {
 
-    private Long userId;
-    private String userName;
-    private Long versionNo;
+    private final Long userId;
+    private final String userName;
+    private final Long versionNo;
+
+    public UserDto(Long userId, String userName, Long versionNo) {
+        this.userId = userId;
+        this.userName = userName;
+        this.versionNo = versionNo;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public Long getVersionNo() {
+        return versionNo;
+    }
 }

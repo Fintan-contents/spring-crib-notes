@@ -2,7 +2,6 @@ package keel.apierrorhandling;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import keel.apierrorhandling.exception.CustomValidationException;
-import lombok.Getter;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.dao.OptimisticLockingFailureException;
@@ -95,6 +94,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     //optimistic-lock-example-end
 
     // database-validation-start
+
     /**
      * {@link ResponseEntityExceptionHandler} がハンドリングしない例外については、 {@link ExceptionHandler} を使用してハンドリングします。
      * 独自に作成した {@link CustomValidationException} が発生した場合は、HTTPステータスコードに400を設定し、エラー内容を返却しています。
@@ -122,9 +122,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .collect(Collectors.toList());
     }
     // database-validation-end
-    
-    @Getter
+
     static class ApiError implements Serializable {
+
         @JsonInclude(JsonInclude.Include.NON_EMPTY)
         private final String field;
         @JsonInclude(JsonInclude.Include.NON_EMPTY)
@@ -133,6 +133,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         ApiError(String field, String message) {
             this.field = field;
             this.message = message;
+        }
+
+        public String getField() {
+            return field;
+        }
+
+        public String getMessage() {
+            return message;
         }
     }
 

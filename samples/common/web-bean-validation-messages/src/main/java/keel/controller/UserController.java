@@ -1,6 +1,5 @@
 package keel.controller;
 
-import lombok.Data;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +14,17 @@ public class UserController {
         return "success";
     }
 
-    @Data
     static class UserForm {
 
         @NotEmpty
         String userId;
+
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
     }
 }
