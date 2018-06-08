@@ -14,10 +14,10 @@ import org.seasar.doma.jdbc.Result;
 public interface UserDao {
     
     @Select
-    Optional<String> findOne(String role);
+    Optional<String> findByRole(String role);
     
     default boolean existsRole(final String role) {
-        return findOne(role).isPresent();
+        return findByRole(role).isPresent();
     }
 
     @Insert
