@@ -25,6 +25,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authenticated()
             .and()
             .formLogin()
+            // usernameのパラメータ名を設定します。
+            // この例の場合は、usernameParameterの呼び出しを省略した場合と同じ動作となります。
+            // ログインフォームから送信するパラメータ名を変えたい場合は、usernameParameterにその値を設定してください。
+            .usernameParameter("username")
+            // passwordのパラメータ名を設定します。
+            // この例の場合は、passwordParameterの呼び出しを省略した場合と同じ動作となります。
+            // ログインフォームから送信するパラメータ名を変えたい場合は、、passwordParameterにその値を設定してください。
+            .passwordParameter("password")
             .loginPage("/login")
             .permitAll()
             .defaultSuccessUrl("/top", true);
