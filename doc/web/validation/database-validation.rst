@@ -26,5 +26,9 @@ Service
     :start-after: example-start
     :end-before: example-end
     
+メッセージ定義(messages.properties)
+  .. literalinclude:: ../../../samples/web/validation/src/main/resources/messages.properties
+    :language: properties
+    
 サンプル全体は :sample-app:`validation-sample <web/validation>` を参照してください。
     

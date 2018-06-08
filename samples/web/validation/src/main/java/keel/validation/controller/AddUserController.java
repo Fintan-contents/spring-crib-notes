@@ -11,7 +11,6 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,13 +25,8 @@ public class AddUserController {
         this.userService = userService;
     }
     
-    @ModelAttribute
-    public Form form() {
-        return new Form();
-    }
-
     @GetMapping("/")
-    public String index() {
+    public String index(Form form) {
         return "index";
     }
 
@@ -47,18 +41,12 @@ public class AddUserController {
         } catch (UserService.RoleNotFoundException e) {
             // ロールがデータベースのロールテーブル上に存在しない例外を捕捉して
             // 画面にメッセージを表示します。
-            bindingResult.addError(new FieldError(
-                    "form",
-                    "role",
-                    "ロールにはadmin以外登録出来ません。"));
+            bindingResult.rejectValue("role", "role.notFound");
             return createValidationErrorResponse();
         } catch (DuplicateKeyException e) {
             // 同じメールアドレスがデータベースに登録済みの場合には
             // 重複エラーが送出されるのでそれを元に画面にメッセージを表示します。
-            bindingResult.addError(new FieldError(
-                    "form",
-                    "mailAddress",
-                    "入力されたメールアドレスは登録済みです。"));
+            bindingResult.rejectValue("mailAddress", "mailAddress.duplicated");
             return createValidationErrorResponse();
         }
         return new ModelAndView("redirect:/");
