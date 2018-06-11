@@ -30,18 +30,11 @@ RESTful Webサービスでも、:doc:`Webの場合 </web/error-handling/index>` 
 
 アプリケーション全体の例外ハンドリングをカスタマイズする例
 --------------------------------------------------------------------------------------
-アプリケーション全体で例外に応じた処理が決まっている場合は、以下を満たすクラスを作成します。
+アプリケーション全体で例外に応じた処理が決まっている場合は、:spring-doc:`@RestControllerAdvice <javadoc-api/org/springframework/web/bind/annotation/RestControllerAdvice.html>`
+アノテーションを設定したクラスで例外ハンドリングを行います。
 
-1. :spring-doc:`@RestControllerAdvice <javadoc-api/org/springframework/web/bind/annotation/RestControllerAdvice.html>` をクラスに設定
-2. :spring-framework-doc:`ResponseEntityExceptionHandler <javadoc-api/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandler.html>` を継承
-
-ResponseEntityExceptionHandlerはSpring Web MVC内で発生する例外をハンドリングするクラスです。
-ResponseEntityExceptionHandlerでは、ハンドリングする例外に応じたステータスコードと空のレスポンスボディを返却します。
-
-ResponseEntityExceptionHandlerではハンドリングしない例外については、以下の方法を使用して例外をハンドリングします。
-
-1. :spring-framework-doc:`@ExceptionHandler <javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>` を設定したメソッドを定義
-2. :spring-doc:`@ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>` を設定した例外クラスを送出
+どの例外を処理するかは、メソッドに設定された\ :spring-doc:`@ExceptionHandler <javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`\ アノテーションの情報により決まります。
+返却するステータスコードは :spring-doc:`@ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>` アノテーションに設定します。
 
 .. tip::
 
@@ -53,6 +46,16 @@ ResponseEntityExceptionHandlerではハンドリングしない例外につい�
   Controller等のメソッドに設定したResponseStatusのreason属性を指定した場合も、
   レスポンスボディには、reason属性に指定した値がメッセージとして表示されます。
   ただし、reason属性に指定した値は、MessageSourceを使用して解決されません。そのため、reason属性に指定した値がそのまま出力されます。
+
+ResponseEntityExceptionHandlerを継承して例外ハンドリングクラスを作成する
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:spring-framework-doc:`ResponseEntityExceptionHandler <javadoc-api/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandler.html>` は、Spring Web MVC内で発生する例外をハンドリングするクラスです。
+ResponseEntityExceptionHandlerを継承したクラスを作成すると、ハンドリングする例外に応じたステータスコードと空のレスポンスボディが返却されます。
+ハンドリングする例外は、:spring-framework-doc:`Spring Web MVCがデフォルトでハンドリングする例外 <javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>` と同様です。
+
+全ての例外を@ExceptionHandlerアノテーションで一つずつハンドリングしていくのは大変なので、基本的な例外ハンドリングはResponseEntityExceptionHandlerに委譲して、それ以外の例外を@ExceptionHandlerアノテーションでハンドリングする使用方法をお薦めします。
+
+なお、ResponseEntityExceptionHandlerを継承した場合も、@RestControllerAdviceアノテーションを設定する必要があります。
 
 
 実装例
