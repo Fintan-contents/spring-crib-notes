@@ -43,10 +43,13 @@ pipeline {
           junit '**/target/surefire-reports/*.xml'
         }
         success {
-          slackSend message: "test succes - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", color: 'good'
+          slackSend message: ":grinning: - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", color: 'good'
         }
         failure {
-          slackSend message: "test failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", color: 'danger'
+          slackSend message: ":angry: - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", color: 'danger'
+        }
+        unstable {
+          slackSend message: ":thinking_face: - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", color: 'warning'
         }
       }
     }
