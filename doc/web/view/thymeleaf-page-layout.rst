@@ -1,10 +1,6 @@
 Thymeleafを使用して各画面で共通のレイアウトを利用する
 ====================================================================================================
 `Thymeleaf <https://www.thymeleaf.org/documentation.html>`_ を使用して、共通レイアウトを作成する方法について記載します。
-Thymeleafには、以下のメリットがあります。
-
-* ドキュメントが豊富で容易に利用できる
-* プロダクション環境で利用するテンプレート(html)をそのままブラウザで表示して確認できる
 
 Thymeleafの基本的な使用方法については、以下のドキュメントを参照してください。
 
@@ -12,10 +8,6 @@ Thymeleafの基本的な使用方法については、以下のドキュメン�
 * :thymeleaf-tutorials-doc:`Tutorial: Thymeleaf + Spring <thymeleafspring.html>`
 * :thymeleaf-tutorials-doc:`Tutorial: Extending Thymeleaf <extendingthymeleaf.html>`
 
-.. tip::
-  Spring Bootでは、画面の作成にJSPを使用する事は非推奨となっています。
-
-  詳細は、:spring-boot-doc:`Spring Boot Reference Guide - 27.4.5 JSP Limitations <reference/htmlsingle/#boot-features-jsp-limitations>` を参照してください。
 
 実装例
 -----------------------------------------------

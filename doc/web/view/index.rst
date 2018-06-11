@@ -2,7 +2,8 @@
 ==================================================
 .. toctree::
   :maxdepth: 1
- 
-  template-engine-thymeleaf
+  
+  thymeleaf
+  thymeleaf-page-layout
   thymeleaf-default-value
  

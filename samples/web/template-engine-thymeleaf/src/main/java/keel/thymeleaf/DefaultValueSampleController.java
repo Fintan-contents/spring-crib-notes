@@ -1,5 +1,6 @@
 package keel.thymeleaf;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -18,10 +19,13 @@ public class DefaultValueSampleController {
         return new Form();
     }
 
+    // example-start
     @GetMapping
-    public String get() {
+    public String get(Model model) {
+        model.addAttribute("nowDate", LocalDate.now());
         return "default/input";
     }
+    // example-end
 
     @PostMapping
     public String post(Form form, Model model) {

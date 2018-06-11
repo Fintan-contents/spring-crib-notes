@@ -5,6 +5,7 @@
   <title>デフォルト値の確認用ページ</title>
 </head>
 <body>
+<h1 th:text="'今日は、' + ${#temporals.format(nowDate, 'yyyy年MM月dd日')} + 'です。'"></h1>
 <!-- sample-start -->
 <form th:action="@{/default}" th:object="${form}" method="post">
   <div>
