@@ -3,6 +3,6 @@
 .. toctree::
   :maxdepth: 1
 
-  bean-validation
+  type-conversion-error
   database-validation
 

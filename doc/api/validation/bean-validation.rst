@@ -1,7 +1,9 @@
 Bean Validationを使った入力値のチェック
 ==================================================
-クライアントから送信されるリクエストボディや、クエリパラメータは、\ `Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_\ を使ってチェックできます。
-Bean Validation の使用に関する基本的なフローは、:doc:`Webの場合 </web/validation/bean-validation>` と同様です。
+クライアントから送信されるリクエストボディやクエリパラメータは、\ `Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_\ を使ってチェックできます。
+
+このページでは、クライアントから送信された値をチェックする際に発生する例外(``No1``\ 及び\ ``No2``\ で発生する例外)についてついて説明します。
+発生した例外に応じたレスポンスのカスタマイズ方法は、:doc:`例外ハンドリング </api/error-handling/index>` を参照してください。
 
 処理フロー
   1. リクエストボディや、クエリパラメータを解析してBeanに変換
@@ -10,23 +12,19 @@ Bean Validation の使用に関する基本的なフローは、:doc:`Webの場�
   2. Bean Validationの実行
   3. アプリケーションは検証済みのBeanを使って処理を行う
 
-RESTful Webサービスの場合は、``No1``\ の変換に失敗した場合に、以下の例外が送出されます。
+No1の型変換失敗時に送出される例外
+  .. csv-table::
+    :header: 変換元, 例外
+    :widths: 10, 10
 
-.. csv-table::
-  :header: 変換元, 例外
-  :widths: 10, 10
+    リクエストボディ, :spring-framework-doc:`HttpMessageNotReadableException <javadoc-api/org/springframework/http/converter/HttpMessageNotReadableException.html>`
+    クエリパラメータ, :spring-framework-doc:`BindException <javadoc-api/org/springframework/validation/BindException.html>`
 
-  リクエストボディ, :spring-framework-doc:`HttpMessageNotReadableException <javadoc-api/org/springframework/http/converter/HttpMessageNotReadableException.html>`
-  クエリパラメータ, :spring-framework-doc:`BindException <javadoc-api/org/springframework/validation/BindException.html>`
+No2のBean Validationでエラーがあった場合に送出される例外
+  .. csv-table::
+    :header: チェック対象, 例外
+    :widths: 10, 10
 
-``No2``\ のBean Validationの実行でエラーとなった場合は、以下の例外が送出されます。
+    リクエストボディから変換したBean, :spring-framework-doc:`MethodArgumentNotValidException <javadoc-api/org/springframework/web/bind/MethodArgumentNotValidException.html>`
+    クエリパラメータから変換したBean, :spring-framework-doc:`BindException <javadoc-api/org/springframework/validation/BindException.html>`
 
-.. csv-table::
-  :header: チェック対象, 例外
-  :widths: 10, 10
-
-  リクエストボディから変換したBean, :spring-framework-doc:`MethodArgumentNotValidException <javadoc-api/org/springframework/web/bind/MethodArgumentNotValidException.html>`
-  クエリパラメータから変換したBean, :spring-framework-doc:`BindException <javadoc-api/org/springframework/validation/BindException.html>`
-
-
-上記例外発生時にデフォルトで返却されるレスポンスの内容や、そのレスポンスの内容をカスタマイズする方法については、:doc:`例外ハンドリング </api/error-handling/index>` を参照してください。
