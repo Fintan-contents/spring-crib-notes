@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="UTF-8">
   <title>トップページ</title>
 </head>
 <body>
-ログインユーザ: <span th:text="${user.name}"></span>
+<div>
+  ログインユーザ: <span th:text="${#authentication.name}"></span>
+</div>
+<div>
+  権限:<br>
+  <ul>
+    <!--/*@thymesVar id="auth" type="org.springframework.security.core.GrantedAuthority"*/-->
+    <li th:each="auth : ${#authentication.getAuthorities()}" th:text="${auth.authority}"></li>
+  </ul>
+
+</div>
+<div>
+  admin権限を持つユーザでログインした場合↓に管理者用ページへのリンクが表示されます<br />
+  <a sec:authorize-url="GET /admin" th:href="@{/admin}">管理者用ページへ</a>
+</div>
 </body>
 </html>

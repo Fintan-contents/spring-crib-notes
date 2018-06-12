@@ -21,8 +21,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
+            .antMatchers("/admin/**")
+            .hasRole("admin")
             .anyRequest()
-            .authenticated()
+            .hasAnyRole("user", "admin")
             .and()
             .formLogin()
             // usernameのパラメータ名を設定します。
