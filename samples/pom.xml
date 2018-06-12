@@ -23,6 +23,7 @@
 
     <module>common/doma2</module>
     <module>common/sql-management</module>
+    <module>web/file-download</module>
   </modules>
 
   <parent>
