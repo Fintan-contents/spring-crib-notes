@@ -1,7 +1,7 @@
 このドキュメントについて
 ====================================
 
-このドキュメントでは `Spring <https://spring.io/>`_ を活用して、クラウド上にアプリケーションを構築する際に必要となるノウハウを提供します。
+このドキュメントでは `Spring <https://spring.io/>`_ を活用してアプリケーションを構築する際に必要となるノウハウを提供します。
 
 特に、アプリケーションを開発する際に公式ドキュメントやWeb上から実装方法を見つけることが難しく、躓きやすい点についての情報を提供します。
 
@@ -23,7 +23,6 @@
 
     * SQL
     * Maven
-    * Amazon Web Services
 
 * Web/API
 
@@ -44,12 +43,6 @@
 * `Getting Started · Building an Application with Spring Boot <https://spring.io/guides/gs/spring-boot/>`_
 * `はじめての Spring Boot[改訂版] <https://www.kohgakusha.co.jp/books/detail/978-4-7775-1969-9>`_
 * `Spring徹底入門 Spring FrameworkによるJavaアプリケーション開発（株式会社NTTデータ）｜翔泳社の本 <http://www.shoeisha.co.jp/book/detail/9784798142470>`_
-
-また、このドキュメントではアプリケーションをクラウド上にデプロイすることを想定しています。そういったアプリケーションに必要となるアーキテクチャについて、次にあげるサイトを参照して学習してください。
-
-* :macchinetta-cloud-guideline-doc:`クラウドネイティブなアプリケーション — Macchinetta Server Framework Cloud Extension Development Guideline <Overview/CloudNativeApplication.html>`
-* `The Twelve-Factor App <https://12factor.net/ja/>`_
-* `Beyond the 12 Factor App <https://content.pivotal.io/ebooks/beyond-the-12-factor-app>`_
 
 
 このドキュメントの使い方
