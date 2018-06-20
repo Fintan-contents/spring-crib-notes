@@ -36,9 +36,7 @@
   * Spring Batchの各ステレオタイプの役割を理解している
   * Spring Batchの処理フローを理解している
 
-これからSpringやAmazon Web Servicesを初めて利用するという人は、一般的な書籍やサイトを活用して学習してください。
-
-特に、Springについては、次のような書籍・サイトがあります。
+これからSpringを初めて利用するという人は、次のような書籍やサイトを活用して学習してください。
 
 * `Getting Started · Building an Application with Spring Boot <https://spring.io/guides/gs/spring-boot/>`_
 * `はじめての Spring Boot[改訂版] <https://www.kohgakusha.co.jp/books/detail/978-4-7775-1969-9>`_
