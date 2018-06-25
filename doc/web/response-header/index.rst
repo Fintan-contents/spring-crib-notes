@@ -17,6 +17,13 @@ Spring Securityを使用した場合、デフォルトでは全てのHTTPレス�
      X-Frame-Options: DENY
      X-XSS-Protection: 1; mode=block
 
+X-Content-Type-Options: nosniff が設定されるので、ブラウザはレスポンスのContent-Typeを推測しなくなります。そのため、レスポンスに正しいContent-Typeを設定しないと期待通りの動作をしなくなるので注意してください。Spring Bootのデフォルトでは適切なContent-Typeが設定されるように構成されています。
+
+また、 X-Frame-Options: DENY が設定されるため、レスポンスのHTMLを iframe などのフレーム内に表示することができなくなります。フレーム内に表示する必要がある場合は、 :spring-security-doc:`Spring Security Reference 21.1 Default Security Headers <reference/html/headers.html#headers-frame-options>` を参考に SAMEORIGIN を設定してください。
+
+.. tip::
+
+   X-Content-Type-Optionsというヘッダは、もともとはInternet Explorerでのみ採用されていましたが、現在ではChromeやFirefoxでも採用されています。(`X-Content-Type-Options - HTTP | MDN <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options>`_)
 
 .. tip::
 
