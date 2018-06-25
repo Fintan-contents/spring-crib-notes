@@ -1,5 +1,6 @@
 package keel.validation.service;
 
+import keel.validation.dao.RoleDao;
 import keel.validation.dao.UserDao;
 import keel.validation.entity.User;
 import org.springframework.stereotype.Service;
@@ -10,8 +11,11 @@ public class UserService {
 
     private final UserDao userDao;
 
-    public UserService(final UserDao userDao) {
+    private final RoleDao roleDao;
+
+    public UserService(final UserDao userDao, final RoleDao roleDao) {
         this.userDao = userDao;
+        this.roleDao = roleDao;
     }
 
     // example-start
@@ -20,7 +24,7 @@ public class UserService {
         // ロールの存在チェック
         // 本来は外部キーの制約違反でハンドリングすべきですが、
         // ここでは実装例を示すためこのような実装にしています。
-        if (!userDao.existsRole(user.role)) {
+        if (!roleDao.existsRole(user.role)) {
             throw new RoleNotFoundException();
         }
         userDao.insert(user);
