@@ -11,9 +11,9 @@ Viewのテンプレートエンジンとして\ :thymeleaf-tutorials-doc:`Thymel
 
 .. tip::
 
-  Spring Bootでは、以下のリンク先にあるとおりテンプレートエンジンにJSPを使用する事は非推奨となっています。
+  以下のリンク先にあるとおり、Spring Bootでは、特別な理由がない限りテンプレートエンジンにJSPを使用するのは避けるべきとされています。
 
-  * :spring-boot-doc:`Spring Boot Reference Guide - 27.4.5 JSP Limitations <reference/htmlsingle/#boot-features-jsp-limitations>`
+  * :spring-boot-doc:`Spring Boot Reference Guide - 27.1.10 Template Engines <reference/htmlsingle/#boot-features-spring-mvc-template-engines>`
 
 
 テンプレートエンジンとしてThymeleafを使用できるようにする
