@@ -5,6 +5,12 @@
   :maxdepth: 1
 
   db-io/index
-  file-io/index
   run-application/index
+
+
+.. toctree::
+  :maxdepth: 1
+  :hidden:
+
+  file-io/index
   validation/index

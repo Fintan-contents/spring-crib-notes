@@ -7,4 +7,10 @@
   log/index
   database/index
   message/index
+
+
+.. toctree::
+  :maxdepth: 1
+  :hidden:
+
   mail/index

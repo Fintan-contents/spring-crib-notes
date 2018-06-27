@@ -7,7 +7,13 @@ RESTful Webサービス開発のノウハウ
   validation/index
   error-handling/index
   exclusive-control/index
+  status-code/index
+
+
+.. toctree::
+  :maxdepth: 1
+  :hidden:
+
   authentication/index
   authorization/index
-  status-code/index
   i18n/index
