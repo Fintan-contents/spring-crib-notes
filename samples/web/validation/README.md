@@ -14,6 +14,7 @@ http://localhost:8080
 
 バリデーション内容  
 * 名前と年齢とロールは必須
+* 名前の文字数は255文字以内
 * 年齢は数値のみOK
 * メールアドレスは、 ``keel.validation.value.MailAddress`` の型変換時のチェック  
   型変換失敗( ``keel.validation.value.MailAddress.valueO`` で例外送出)された場合はバリデーションエラーとなります

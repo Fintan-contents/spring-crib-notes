@@ -2,9 +2,7 @@ package keel.validation.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import keel.validation.service.UserService;
 import org.mockito.Mockito;
@@ -37,6 +35,7 @@ public class AddUserControllerTest {
                     .param("mailAddress", "mail@example.com")
                     .param("role", "admin"))
                .andExpect(status().is3xxRedirection())
+               .andExpect(flash().attribute("successMessage", "ユーザの登録を完了しました。"))
                .andExpect(view().name("redirect:/"));
         // @formatter:on
     }

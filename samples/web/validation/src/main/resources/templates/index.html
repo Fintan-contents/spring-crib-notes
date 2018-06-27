@@ -7,6 +7,7 @@
 <body>
 <!--/*@thymesVar id="form" type="keel.validation.controller.AddUserController.Form"*/-->
 <form th:action="@{/}" method="post" th:object="${form}">
+  <div th:if="${successMessage}" th:text="${successMessage}" style="color: blue"></div>
   <div>
     名前:<input type="text" name="name" th:field="*{name}">
     <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></div>

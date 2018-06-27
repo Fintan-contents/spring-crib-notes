@@ -7,6 +7,9 @@ import javax.validation.constraints.NotNull;
 import keel.validation.entity.User;
 import keel.validation.service.UserService;
 import keel.validation.value.MailAddress;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -15,15 +18,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class AddUserController {
 
     private final UserService userService;
 
-    public AddUserController(final UserService userService) {
+    // message-source-injection-start
+    private final MessageSource messageSource;
+
+    public AddUserController(final UserService userService, MessageSource messageSource) {
         this.userService = userService;
+        this.messageSource = messageSource;
     }
+    // // message-source-injection-end
     
     @GetMapping("/")
     public String index(Form form) {
@@ -32,7 +41,8 @@ public class AddUserController {
 
     // example-start
     @PostMapping("/")
-    public ModelAndView add(@Valid @ModelAttribute Form form, BindingResult bindingResult) {
+    public ModelAndView add(@Valid @ModelAttribute Form form, BindingResult bindingResult,
+                            RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             return createValidationErrorResponse();
         }
@@ -49,6 +59,14 @@ public class AddUserController {
             bindingResult.rejectValue("mailAddress", "mailAddress.duplicated");
             return createValidationErrorResponse();
         }
+
+        // message-source-start
+        // MessageSourceから完了メッセージを取得して、Flashスコープに設定します。
+        // プレースホルダに、「ユーザ」を設定します。
+        redirectAttributes.addFlashAttribute("successMessage",
+                messageSource.getMessage("add.success", new String[]{"ユーザ"}, LocaleContextHolder.getLocale()));
+        // message-source-end
+
         return new ModelAndView("redirect:/");
     }
     
@@ -57,11 +75,11 @@ public class AddUserController {
     }
     // example-end
     
-
     public static class Form {
 
         // type-converter-error-start
         @NotEmpty
+        @Length(max = 255)
         private String name;
 
         private MailAddress mailAddress;
