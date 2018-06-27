@@ -20,7 +20,7 @@ import os
 # -- Project information -----------------------------------------------------
 
 project = u'keel-doc'
-copyright = u'2018, TIS'
+copyright = u'TIS Inc'
 author = u'TIS'
 
 # The short X.Y version
@@ -111,6 +111,8 @@ html_show_sourcelink = False
 # Custom stylesheet
 html_style = "css/customize-rtd.css"
 
+# Show copyright
+html_show_copyright = True
 
 # -- Options for HTMLHelp output ---------------------------------------------
 

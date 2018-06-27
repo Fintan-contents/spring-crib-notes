@@ -1,5 +1,10 @@
 @import url("theme.css");
 
+/* フッターの文字を小さく */
+.rst-content footer, .rst-content footer p {
+  font-size: small;
+}
+
 /* 「重要」の色を変更 */
 .rst-content .important {
   background: #fdf3f2;
