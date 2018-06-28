@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>デフォルト値の確認用ページ</title>
+</head>
+<body>
+<h1 th:text="'今日は、' + ${#temporals.format(nowDate, 'yyyy年MM月dd日')} + 'です。'"></h1>
+<!-- sample-start -->
+<form th:action="@{/default}" th:object="${form}" method="post">
+  <div>
+    <input type="checkbox" th:field="*{checkbox}" id="checkbox"/>
+    <label for="checkbox">単一チェックボックス</label>
+  </div>
+  <div>
+    複数チェックボックス<br/>
+
+    <!--/*@thymesVar id="type" type="keel.thymeleaf.DefaultValueSampleController.Options"*/-->
+    <th:block th:each="type: ${T(keel.thymeleaf.DefaultValueSampleController.Options).values()}">
+      <input type="checkbox" th:field="*{checkboxes}" th:value="${type.name()}" th:id="${type.name()}">
+      <label th:for="${type.name()}" th:text="${type.name()}"></label>
+    </th:block>
+  </div>
+  <div>
+    複数選択セレクトボックス<br/>
+    <select th:field="*{selectOptions}" multiple>
+      <!--/*@thymesVar id="type" type="keel.thymeleaf.DefaultValueSampleController.Options"*/-->
+      <option th:each="type: ${T(keel.thymeleaf.DefaultValueSampleController.Options).values()}"
+              th:value="${type.name()}"
+              th:text="${type.name()}">
+    </select>
+  </div>
+  <button type="submit">送信</button>
+</form>
+<!-- sample-end -->
+</body>
+</html>

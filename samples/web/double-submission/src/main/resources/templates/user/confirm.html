@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'サンプルアプリケーション')"></head>
+<body>
+<div id="contents">
+  <form th:action="@{/user/create}" method="post" th:object="${userForm}">
+    <div>
+      名前:<span name="name" th:text="*{name}"></span>
+      <input type="hidden" th:field="*{name}"/>
+    </div>
+    <div>
+      年齢:<span th:text="*{age}"></span>
+      <input type="hidden" th:field="*{age}"/>
+    </div>
+    <button type="submit">登録</button>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- th:replaceを使用して、 <head>用のフラグメントを読込みます -->
+<head th:replace="common/head :: head_fragment(title = 'サンプルアプリケーション', scripts = ~{::script}, links = ~{::link})">
+  <!-- 当画面で使用するjavascript、cssをフラグメントに渡します -->
+  <link rel="stylesheet" type="text/css" th:href="@{/css/user.css}"/>
+  <script type="text/javascript" th:src="@{/scripts/user.js}"></script>
+</head>
+<body>
+  <!-- th:replaceを使用して、 ヘッダー用のフラグメントを読込みます -->
+  <div th:replace="common/header :: header_fragment"></div>
+  <div id="contents">
+    <!-- 全画面共通のcssで定義されているスタイルが適用されているため、フォントサイズが9pxになります -->
+    <!-- 当画面専用のcssで定義されているスタイルが適用されているため、フォントカラーが赤色になります -->
+    ここに各画面のコンテンツを記載します。
+    <br/>
+    <!-- 全画面共通のjavascriptで定義されているhello()を呼び出します -->
+    <button type="button" onclick="hello()">hello</button>
+    <!-- 当画面専用のjavascriptで定義されているthanks()を呼び出します -->
+    <button type="button" onclick="thanks()">thanks</button>
+  </div>
+  <!-- th:replaceを使用して、 フッター用のフラグメントを読込みます -->
+  <div th:replace="common/footer :: footer_fragment"></div>
+</body>
+</html>

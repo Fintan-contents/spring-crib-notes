@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>sample application</title>
+</head>
+<body>
+<div class="row" th:if="${param.success}">
+  <div class="col s12">
+    <div id="card-alert" class="card pink lighten-5">
+      <div class="card-content blue-text center">
+        更新しました。
+      </div>
+    </div>
+  </div>
+</div>
+<form method="post" th:action="@{/user/update}" th:object="${form}">
+
+  <div>
+    ユーザ名：<input class='validate' type='userName' name='userName' id='user-name' th:value="*{userName}"/>
+    <span class="red-text text-darken-2" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></span>
+  </div>
+  <br/>
+  <button type="submit">更新</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,1 @@
+select /*%expand*/* from users where name = /* criteria.name */'taro' and role = /* criteria.role */'admin' and age = /* criteria.age */20

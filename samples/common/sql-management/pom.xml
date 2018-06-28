@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>samples</artifactId>
+    <groupId>jp.co.tis</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>sql-management</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <!-- example-start -->
+  <build>
+    <plugins>
+      <!--
+      application.propertiesから設定値をロードするプラグインです。
+      データベースの接続先情報を、application.propertiesから取得するために使用します。
+       -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>properties-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <phase>initialize</phase>
+            <goals>
+              <goal>read-project-properties</goal>
+            </goals>
+            <configuration>
+              <files>
+                <file>${project.basedir}/src/main/resources/application.properties</file>
+              </files>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!--
+      FlywayのMaven Pluginです。
+      サンプルアプリケーションでは、「generate-resources」フェーズで「migrate」を実行するように設定しています。
+      なお、デフォルト設定ではクラスパス配下のdb/migration配下にSQLファイルを格納します。
+       -->
+      <plugin>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <version>5.0.7</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>db-migration</id>
+            <phase>generate-resources</phase>
+            <configuration>
+              <url>${spring.datasource.url}</url>
+              <user>${spring.datasource.username}</user>
+              <password>${spring.datasource.password}</password>
+            </configuration>
+            <goals>
+              <goal>migrate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!--
+      SQL Maven Pluginです。
+      サンプルアプリケーションでは、「process-test-resources」フェーズで「execute」を実行するように設定しています。
+      なお、SQLファイルはsrc/test/data配下に格納する設定にしています。
+       -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>sql-maven-plugin</artifactId>
+        <version>1.5</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <driver>org.h2.Driver</driver>
+          <url>${spring.datasource.url}</url>
+          <username>${spring.datasource.username}</username>
+          <password>${spring.datasource.password}</password>
+          <autocommit>false</autocommit>
+          <onError>continue</onError>
+          <fileset>
+            <basedir>src/test/data</basedir>
+            <includes>
+              <include>*.sql</include>
+            </includes>
+          </fileset>
+          <orderFile>ascending</orderFile>
+        </configuration>
+        <executions>
+          <execution>
+            <id>data-load</id>
+            <phase>process-test-resources</phase>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <!-- example-end -->
+
+</project>

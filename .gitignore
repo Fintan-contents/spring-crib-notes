@@ -1,3 +1,13 @@
 _build
-_static
-_templates
+
+.idea
+target
+
+*.iml
+node_modules
+
+.project
+.settings
+.classpath
+.apt_generated
+.factorypath

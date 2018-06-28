@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "textlint": "^10.2.1",
+    "textlint-plugin-rst": "^0.1.1"
+  },
+  "dependencies": {
+    "textlint-rule-preset-ja-technical-writing": "^2.0.0",
+    "textlint-rule-prh": "^5.0.1"
+  }
+}
