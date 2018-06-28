@@ -20,7 +20,7 @@ import os
 # -- Project information -----------------------------------------------------
 
 project = u'keel-doc'
-copyright = u'TIS Inc'
+copyright = u'2018 TIS Inc'
 author = u'TIS'
 
 # The short X.Y version

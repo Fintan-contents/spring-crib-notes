@@ -7,6 +7,8 @@ Doma2の楽観ロックについては、以下の公式ドキュメントを参
 * :doma-doc:`更新 <query/update/>`
 * :doma-doc:`バッチ更新 <query/batch-update/>`
 
+以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
+
 処理フロー
 -----------------------------------------------
 * 初期表示

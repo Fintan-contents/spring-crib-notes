@@ -5,17 +5,19 @@ Springから提供されている機能では二重送信を防止できない�
 詳細は、以下を参照してください。
  
 * :macchinetta-server-guideline-thymeleaf-doc:`Macchinetta Server Framework Development Guideline - 4.6. 二重送信防止 <ArchitectureInDetail/WebApplicationDetail/DoubleSubmitProtection.html>`
- 
+
+以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
+
 設定例
 --------------------------------------------------
 pom.xml
   依存ライブラリに\ `terasoluna-gfw-web <https://github.com/terasolunaorg/terasoluna-gfw/tree/master/terasoluna-gfw-common-libraries/terasoluna-gfw-web>`_ を追加します。
  
-  .. literalinclude:: ../../../samples/web/double-submission/pom.xml
+  .. literalinclude:: ../../../samples/pom.xml
      :language: xml
-     :start-after: example-start
-     :end-before: example-end
-     :dedent: 4
+     :start-after: terasoluna-version-start
+     :end-before: terasoluna-version-end
+     :dedent: 6
  
 実装例
 --------------------------------------------------

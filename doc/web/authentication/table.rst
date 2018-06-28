@@ -2,6 +2,8 @@
 ==================================================
 データベース上の認証用テーブルを使って認証処理を行う方法について説明します。
 
+以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
+
 .. tip::
 
   このサンプルでは、`Spring Security <https://projects.spring.io/spring-security/>`_\ 提供のデータベースを使った認証用クラスではなく、:ref:`Doma2 <database-doma2>` を使用しています。

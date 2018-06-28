@@ -27,7 +27,6 @@
     <dependency>
       <groupId>net.rakugakibox.spring.boot</groupId>
       <artifactId>logback-access-spring-boot-starter</artifactId>
-      <version>2.7.1</version>
     </dependency>
 <!-- example-end -->
 

@@ -28,6 +28,8 @@ RESTful Webサービスでも、:doc:`Webの場合 </web/error-handling/index>` 
 
 このため、特定の例外メッセージをクライアントに返却したくない場合や、例外に応じてクライアントに返却するステータスコードやレスポンスボディを変更したい場合には例外ハンドリングを実装する必要があります。
 
+以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
+
 アプリケーション全体の例外ハンドリングをカスタマイズする例
 --------------------------------------------------------------------------------------
 アプリケーション全体で例外に応じた処理が決まっている場合は、:spring-doc:`@RestControllerAdvice <javadoc-api/org/springframework/web/bind/annotation/RestControllerAdvice.html>`

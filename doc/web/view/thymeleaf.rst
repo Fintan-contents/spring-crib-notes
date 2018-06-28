@@ -15,6 +15,7 @@ Viewのテンプレートエンジンとして\ :thymeleaf-tutorials-doc:`Thymel
 
   * :spring-boot-doc:`Spring Boot Reference Guide - 27.1.10 Template Engines <reference/htmlsingle/#boot-features-spring-mvc-template-engines>`
 
+以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
 テンプレートエンジンとしてThymeleafを使用できるようにする
 -------------------------------------------------------------------

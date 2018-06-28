@@ -22,7 +22,6 @@
     <dependency>
       <groupId>org.seasar.doma.boot</groupId>
       <artifactId>doma-spring-boot-starter</artifactId>
-      <version>1.1.1</version>
     </dependency>
     <!-- doma-starter-end -->
 

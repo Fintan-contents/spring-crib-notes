@@ -75,3 +75,43 @@
      - 4.x
      - 1.x （Cloud Extensionのみ）
      - XML
+
+.. _test-environment-and-dependencies:
+
+動作確認環境と依存ライブラリについて
+------------------------------------
+
+このドキュメントに含まれるサンプルコードは、 :sample-app:`サンプルアプリケーション <>` を利用して以下の実行環境でテストしています。
+
+.. list-table:: 実行環境
+
+   * - OS
+     - CentOS 7 64bit
+   * - Docker
+     - 18.03.1-ce
+   * - Container
+     - jenkins/jenkins:2.107.3
+   * - JDK
+     - OpenJDK 8
+
+また、明示的に依存しているのは以下のライブラリです。
+
+Spring Boot
+  Spring Bootから参照されるライブラリのバージョンは、 :spring-boot-doc:`Appendix F. Dependency versions <reference/html/appendix-dependency-versions.html>` を参照してください。
+
+  .. literalinclude:: ../../samples/pom.xml
+     :language: xml
+     :start-after: spring-boot-version-start
+     :end-before: spring-boot-version-end
+     :dedent: 6
+
+その他のライブラリ
+  以下のライブラリをすべてのサンプルで利用しているわけではありません。サンプルごとに利用しているライブラリは、サンプルのpom.xmlで確認してください。
+
+  .. literalinclude:: ../../samples/pom.xml
+     :language: xml
+     :start-after: other-versions-start
+     :end-before: other-versions-end
+     :dedent: 6
+
+これらの実行環境・ライブラリのバージョンアップには可能な限り追随し、テストが失敗する場合にはドキュメント含めて修正する予定です。

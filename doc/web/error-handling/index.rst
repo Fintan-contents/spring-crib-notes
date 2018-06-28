@@ -9,6 +9,8 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
 
 なお、エラー画面はSpring Bootがデフォルトで用意した画面になります。カスタマイズする場合は、templates/error/<status-code>.htmlを作成してください。例えば、404 NotFoundの画面をカスタマイズしたい場合は、templates/error/404.htmlとして作成します。
 
+以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
+
 アプリケーション全体の例外ハンドリングをカスタマイズする例
 -----------------------------------------------------------------------------
 アプリケーション全体で例外に応じた処理が決まっている場合は、\ :spring-doc:`@ControllerAdvice <javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html>`

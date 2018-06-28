@@ -3,6 +3,8 @@
 このページでは、メッセージの管理方法について記載します。
 メッセージは、Bean Validationを使った入力値チェックで使用するエラーメッセージと、それ以外のメッセージで管理方法が異なります。
 
+以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
+
 Bean Validationを使った入力値チェックのエラーメッセージ
 ---------------------------------------------------------
 Spring Bootでは、入力値のチェックとしてBean Validationをサポートしており、実装ライブラリとして :hibernate-validator-doc:`Hibernate Validator <reference/en-US/html_single/>` を採用しています。

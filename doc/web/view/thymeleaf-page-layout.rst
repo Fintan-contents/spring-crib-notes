@@ -8,6 +8,8 @@ Thymeleafの基本的な使用方法については、以下のドキュメン�
 * :thymeleaf-tutorials-doc:`Tutorial: Thymeleaf + Spring <thymeleafspring.html>`
 * :thymeleaf-tutorials-doc:`Tutorial: Extending Thymeleaf <extendingthymeleaf.html>`
 
+以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
+
 
 実装例
 -----------------------------------------------
