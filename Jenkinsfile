@@ -53,5 +53,27 @@ pipeline {
         }
       }
     }
+    stage('alfort push') {
+      when {
+        expression {
+          ['master', 'develop'].contains(env.BRANCH_NAME)
+        }
+      }
+      steps {
+        withCredentials(
+            [usernamePassword(
+                credentialsId: 'c01cba08-cf94-4a91-9f83-c3579b277c00',
+                passwordVariable: 'GIT_PASSWORD',
+                usernameVariable: 'GIT_USERNAME')]) {
+          sh('git branch temp-branch')
+          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@alfort.adc-tis.com/gitbucket/git/keel/spring-crib-notes.git temp-branch:${BRANCH_NAME}')
+        }
+      }
+      post {
+        failure {
+          slackSend message: "push to alfort failed :angry: - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", color: 'danger'
+        }
+      }
+    }
   }
 }
