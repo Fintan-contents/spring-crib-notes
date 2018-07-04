@@ -202,7 +202,6 @@ todo_include_todos = True
 branch_name = os.getenv('BRANCH_NAME', 'develop')
 sample_app_base = 'https://github.com/Fintan-contents/spring-crib-notes/tree/' + branch_name
 
-
 extlinks = {
   'sample-app': (sample_app_base + '/samples/%s', None),
   'spring-doc': ('https://docs.spring.io/spring/docs/' + '5.0.6.RELEASE' + '/%s', None),

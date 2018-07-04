@@ -18,7 +18,8 @@ pipeline {
           }
       }
       steps {
-        sh 'cd doc; make html'
+        sh 'cd doc; export LINKCHECK=true; make clean linkcheck'
+        sh 'cd doc; unset LINKCHECK; make clean html'
       }
       post {
         always {
@@ -31,6 +32,9 @@ pipeline {
               canComputeNew: false,
               unstableTotalAll: '0'
           ])
+        }
+        failure {
+          slackSend message: "sphinx failed :angry: - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", color: 'danger'
         }
       }
     }
