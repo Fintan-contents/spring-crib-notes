@@ -57,10 +57,11 @@ pipeline {
         }
       }
     }
-    stage('alfort push') {
+    stage('alfort push(branch)') {
       when {
-        expression {
-          ['master', 'develop'].contains(env.BRANCH_NAME)
+        anyOf {
+          branch 'master'
+          branch 'develop'
         }
       }
       steps {
@@ -69,13 +70,30 @@ pipeline {
                 credentialsId: 'c01cba08-cf94-4a91-9f83-c3579b277c00',
                 passwordVariable: 'GIT_PASSWORD',
                 usernameVariable: 'GIT_USERNAME')]) {
-          sh('git branch temp-branch')
-          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@alfort.adc-tis.com/gitbucket/git/keel/spring-crib-notes.git temp-branch:${BRANCH_NAME}')
+          sh('git branch -D ${BRANCH_NAME}; git branch ${BRANCH_NAME}')
+          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@alfort.adc-tis.com/gitbucket/git/keel/spring-crib-notes.git ${BRANCH_NAME}:${BRANCH_NAME}')
         }
       }
       post {
         failure {
-          slackSend message: "push to alfort failed :angry: - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", color: 'danger'
+          slackSend message: "push branch to alfort failed :angry: - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", color: 'danger'
+        }
+      }
+    }
+    stage('alfort push(tag)') {
+      when { tag 'v*' }
+      steps {
+        withCredentials(
+            [usernamePassword(
+                credentialsId: 'c01cba08-cf94-4a91-9f83-c3579b277c00',
+                passwordVariable: 'GIT_PASSWORD',
+                usernameVariable: 'GIT_USERNAME')]) {
+          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@alfort.adc-tis.com/gitbucket/git/keel/spring-crib-notes.git ${TAG_NAME}')
+        }
+      }
+      post {
+        failure {
+          slackSend message: "push tag to alfort failed :angry: - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)", color: 'danger'
         }
       }
     }
