@@ -70,9 +70,9 @@ pipeline {
                 credentialsId: 'c01cba08-cf94-4a91-9f83-c3579b277c00',
                 passwordVariable: 'GIT_PASSWORD',
                 usernameVariable: 'GIT_USERNAME')]) {
-          sh('git branch temp_branch')
-          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@alfort.adc-tis.com/gitbucket/git/keel/spring-crib-notes.git temp_branch:${BRANCH_NAME}')
-          sh('git branch -D temp_branch')
+          sh("git branch temp_branch_${env.BUILD_NUMBER}")
+          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@alfort.adc-tis.com/gitbucket/git/keel/spring-crib-notes.git temp_branch_' + env.BUILD_NUMBER + ':${BRANCH_NAME}')
+          sh("git branch -D temp_branch_${env.BUILD_NUMBER}")
         }
       }
       post {
