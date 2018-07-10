@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 // example-start
+// @Componentを設定して、コンポーネントスキャン対象にします。
 @Component
 public class TextFileDownloadView extends AbstractView {
 
@@ -25,13 +26,15 @@ public class TextFileDownloadView extends AbstractView {
     protected void renderMergedOutputModel(Map<String, Object> model,
                                            HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        final FileDownloadAttributes fileInfo = (FileDownloadAttributes) model.get(DOWNLOAD_FILE_INFO_KEY);
+        final FileDownloadAttributes attributes = (FileDownloadAttributes) model.get(DOWNLOAD_FILE_INFO_KEY);
 
-        response.setHeader("Content-Disposition", "attachment; filename=" + fileInfo.getDownloadFileName());
+        // レスポンスヘッダを設定します
+        response.setHeader("Content-Disposition", "attachment; filename=" + attributes.getDownloadFileName());
         response.setHeader("Content-Type", "text/plain");
 
+        // ダウンロード対象のファイルを読込み、レスポンスボディに書込みます
         StreamUtils.copy(
-                resourceLoader.getResource(fileInfo.getTargetFilePath()).getInputStream(),
+                resourceLoader.getResource(attributes.getTargetFilePath()).getInputStream(),
                 response.getOutputStream());
     }
 }
