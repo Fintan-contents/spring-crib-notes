@@ -38,6 +38,39 @@ pipeline {
         }
       }
     }
+
+    stage('copy build doc') {
+      when {
+        anyOf{
+          branch 'develop'
+          expression { env.BRANCH_NAME ==~ /feature.+/ }
+        }
+      }
+      steps {
+        step([  $class: 'CopyArtifact',
+                filter: 'doc/_build/**',
+                projectName: env.JOB_NAME,
+                selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}']
+        ])
+      }
+    }
+    
+    stage('s3 upload(develop)') {
+      when {branch 'develop'}
+      steps {
+        s3Delete(bucket:'keel-doc-develop', path: 'crib-notes/spring/')
+        s3Upload(bucket:'keel-doc-develop', path: 'crib-notes/spring/', workingDir:'doc/_build/html', includePathPattern: '**/*', excludePathPattern: '_sources/**')
+      }
+    }
+    
+    stage('s3 upload(feature)') {
+      when {expression { env.BRANCH_NAME ==~ /feature.+/ }}
+      steps {
+        s3Delete(bucket:'keel-doc-review', path: "${env.BRANCH_NAME}/crib-notes/spring/")
+        s3Upload(bucket:'keel-doc-review', path: "${env.BRANCH_NAME}/crib-notes/spring/", workingDir:'doc/_build/html', includePathPattern: '**/*', excludePathPattern: '_sources/**')
+      }
+    }
+    
     stage('Unit test') {
       steps {
         sh 'cd samples; mvn test'
