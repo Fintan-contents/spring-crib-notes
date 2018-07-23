@@ -220,3 +220,7 @@ extlinks = {
   'doma-gen-doc': ('https://doma-gen.readthedocs.io/ja/' + '2.19.2' + '/%s', None),
   'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '6.0' + '/%s', None)
 }
+
+# linkcheck option
+linkcheck_timeout = 10
+linkcheck_retries = 2
