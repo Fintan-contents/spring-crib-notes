@@ -22,5 +22,8 @@
   <a sec:authorize-url="GET /admin" th:href="@{/admin}">管理者用ページへ</a>
 </div>
 <!-- example-end -->
+<form th:action="@{/logout}" method="post">
+  <button>ログアウト</button>
+</form>
 </body>
 </html>
