@@ -20,7 +20,6 @@ import os
 # -- Project information -----------------------------------------------------
 
 project = u'keel-doc'
-copyright = u'2018 TIS Inc'
 author = u'TIS'
 
 # The short X.Y version
@@ -111,9 +110,6 @@ html_show_sourcelink = False
 # Custom stylesheet
 html_style = "css/customize-rtd.css"
 
-# Show copyright
-html_show_copyright = True
-
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
@@ -177,7 +173,6 @@ texinfo_documents = [
 epub_title = project
 epub_author = author
 epub_publisher = author
-epub_copyright = copyright
 
 # The unique identifier of the text. This can be a ISBN number
 # or the project homepage.
