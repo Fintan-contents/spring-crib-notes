@@ -1,19 +1,24 @@
 package keel.doublesubmission;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+
+import io.keelab.spring.web.token.transaction.InvalidTransactionTokenException;
+import io.keelab.spring.web.token.transaction.TransactionTokenCheck;
+import io.keelab.spring.web.token.transaction.TransactionTokenType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
-import org.terasoluna.gfw.web.token.transaction.InvalidTransactionTokenException;
-import org.terasoluna.gfw.web.token.transaction.TransactionTokenCheck;
-import org.terasoluna.gfw.web.token.transaction.TransactionTokenType;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 // example-start
 @Controller
@@ -34,7 +39,7 @@ public class UserController {
         return new UserForm();
     }
 
-    @GetMapping("/")
+    @GetMapping
     public String input() {
         return "user/input";
     }

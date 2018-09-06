@@ -78,23 +78,6 @@
         <artifactId>dbunit</artifactId>
         <version>2.5.2</version>
       </dependency>
-      <!-- terasoluna-version-start -->
-      <dependency>
-        <groupId>org.terasoluna.gfw</groupId>
-        <artifactId>terasoluna-gfw-web</artifactId>
-        <version>5.4.1.RELEASE</version>
-        <!--
-        spring-boot-starter-webの依存関係にもhibernate-validatorが含まれており、バージョンは6.x系となっています。
-        そのため、terasoluna-gfw-webの依存関係に含まれている5.x系のhibernate-validatorは除外します。
-         -->
-        <exclusions>
-          <exclusion>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <!-- terasoluna-version-end -->
       <!-- logback-access-spring-boot-version-start -->
       <dependency>
         <groupId>net.rakugakibox.spring.boot</groupId>
@@ -102,6 +85,14 @@
         <version>2.7.1</version>
       </dependency>
       <!-- logback-access-spring-boot-version-end -->
+
+      <!-- keel-web-start -->
+      <dependency>
+        <groupId>io.keelab.spring.boot</groupId>
+        <artifactId>keel-spring-boot-starter-web</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+      </dependency>
+      <!-- keel-web-end -->
       
       <dependency>
         <groupId>org.springframework.cloud</groupId>
