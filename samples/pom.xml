@@ -24,6 +24,8 @@
     <module>common/doma2</module>
     <module>common/sql-management</module>
     <module>web/file-download</module>
+
+    <module>aws/s3</module>
   </modules>
 
   <parent>
@@ -98,6 +100,14 @@
         <version>2.7.1</version>
       </dependency>
       <!-- logback-access-spring-boot-version-end -->
+      
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Finchley.SR1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
       <!-- other-versions-end -->
     </dependencies>
   </dependencyManagement>
