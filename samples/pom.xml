@@ -26,6 +26,7 @@
     <module>web/file-download</module>
 
     <module>aws/s3</module>
+    <module>aws/ses</module>
   </modules>
 
   <parent>

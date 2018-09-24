@@ -7,12 +7,12 @@
 
 ## 2.アプリケーションの起動
 ```bash
-mvn spring-boot:run spring-boot:run -Dspring-boot.run.arguments=<アップロード対象のファイルパス>
+mvn spring-boot:run -Dspring-boot.run.arguments=<アップロード対象のファイルパス>
 ```
 
 例えば、 `c:\text.png` をアップロードしたい場合は、以下のように実行します。
 ```bash
-mvn spring-boot:run spring-boot:run -Dspring-boot.run.arguments=c:\text.png
+mvn spring-boot:run -Dspring-boot.run.arguments=c:\text.png
 ```
 
 実行が終了すると…

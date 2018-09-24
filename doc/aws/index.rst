@@ -4,3 +4,4 @@ SpringからAWSマネージドサービスを利用する際のノウハウ
   :maxdepth: 1
 
   s3/index
+  ses/index
