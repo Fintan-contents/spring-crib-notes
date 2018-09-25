@@ -88,9 +88,9 @@
 
       <!-- keel-web-start -->
       <dependency>
-        <groupId>io.keelab.spring.boot</groupId>
+        <groupId>jp.fintan.keel</groupId>
         <artifactId>keel-spring-boot-starter-web</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>0.1.0</version>
       </dependency>
       <!-- keel-web-end -->
       

@@ -4,9 +4,9 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
-import io.keelab.spring.web.token.transaction.InvalidTransactionTokenException;
-import io.keelab.spring.web.token.transaction.TransactionTokenCheck;
-import io.keelab.spring.web.token.transaction.TransactionTokenType;
+import jp.fintan.keel.spring.web.token.transaction.InvalidTransactionTokenException;
+import jp.fintan.keel.spring.web.token.transaction.TransactionTokenCheck;
+import jp.fintan.keel.spring.web.token.transaction.TransactionTokenType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

@@ -3,8 +3,8 @@ package keel.doublesubmission;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import io.keelab.spring.web.token.transaction.TransactionToken;
-import io.keelab.spring.web.token.transaction.TransactionTokenInterceptor;
+import jp.fintan.keel.spring.web.token.transaction.TransactionToken;
+import jp.fintan.keel.spring.web.token.transaction.TransactionTokenInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
