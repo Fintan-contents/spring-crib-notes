@@ -200,10 +200,11 @@ epub_exclude_files = ['search.html']
 todo_include_todos = True
 
 branch_name = os.getenv('BRANCH_NAME', 'develop')
-sample_app_base = 'https://alfort.adc-tis.com/gitbucket/keel/spring-crib-notes/tree/' if branch_name == 'master' else 'https://ci.keel-dev.net/gitbucket/keel/crib-notes/tree/'
+sample_app_base = 'https://github.com/Fintan-contents/spring-crib-notes/tree/' + branch_name
+
 
 extlinks = {
-  'sample-app': (sample_app_base + branch_name + '/samples/%s', None),
+  'sample-app': (sample_app_base + '/samples/%s', None),
   'spring-doc': ('https://docs.spring.io/spring/docs/' + '5.0.6.RELEASE' + '/%s', None),
   'spring-framework-doc': ('https://docs.spring.io/spring-framework/docs/' + '5.0.6.RELEASE' + '/%s', None),
   'spring-boot-doc': ('https://docs.spring.io/spring-boot/docs/' + '2.0.2.RELEASE' + '/%s', None),
