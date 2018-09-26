@@ -27,6 +27,7 @@
 
     <module>aws/s3</module>
     <module>aws/ses</module>
+    <module>aws/rds</module>
   </modules>
 
   <parent>
