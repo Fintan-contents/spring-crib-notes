@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HTTPレスポンスヘッダ &mdash; keel-doc 1.0.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="画像やcssなどの静的なリソースをキャッシュする" href="../static-resource-cache/index.html" />
+    <link rel="prev" title="二重送信防止" href="../double-submission/index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> keel-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">このドキュメントについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#target-user">対象読者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#id5">このドキュメントの使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#test-environment-and-dependencies">動作確認環境と依存ライブラリについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html">アプリケーションのスタック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/doma2.html">データベースアクセスにDoma2を使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/sql-management.html">DDL / DMLの管理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Webアプリ開発のノウハウ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../view/index.html">画面の作成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf.html">ViewのテンプレートエンジンにThymeleafを使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf-page-layout.html">Thymeleafを使用して各画面で共通のレイアウトを利用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf-default-value.html">Thymeleafを使用してチェックボックスなどのデフォルト値を送信する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../session/index.html">セッション管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../session/session-redis.html">セッションの情報をRedisに保存する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../validation/type-conversion-error.html">入力値の型変換エラー時に入力画面に適切なメッセージを表示する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#service">Serviceなどで送出した例外を業務エラーとして扱い画面にエラーメッセージを表示する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../authentication/index.html">認証</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../authentication/table.html">テーブル認証</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../double-submission/index.html">二重送信防止</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../double-submission/index.html#id2">設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../double-submission/index.html#id3">実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HTTPレスポンスヘッダ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../static-resource-cache/index.html">画像やcssなどの静的なリソースをキャッシュする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../static-resource-cache/index.html#id1">設定例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">Bean Validationを使った入力値のチェック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch/index.html">バッチアプリ開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../batch/db-io/index.html">データベース入出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/db-io/doma2.html">Doma2でデータベースから読み込み・書き出しする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行済みエラーが出る場合の対処方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">keel-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Webアプリ開発のノウハウ</a> &raquo;</li>
+        
+      <li>HTTPレスポンスヘッダ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="http">
+<h1>HTTPレスポンスヘッダ<a class="headerlink" href="#http" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://docs.spring.io/spring-security/site/docs/5.0.5.RELEASE/reference/html/">Spring Security</a> を使用した場合に設定されるHTTPレスポンスヘッダについて記載します。</p>
+<p>Spring Securityを使用した場合、デフォルトでは全てのHTTPレスポンスに以下のヘッダが設定されます。詳細は、以下の公式ドキュメントを参照してください。</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.spring.io/spring-security/site/docs/5.0.5.RELEASE/reference/html/headers.html#default-security-headers">Spring Security Reference 21.1 Default Security Headers</a></li>
+</ul>
+<dl class="docutils">
+<dt>デフォルトで設定されるレスポンスヘッダ</dt>
+<dd><div class="first last highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Cache-Control</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">no-cache, no-store, max-age=0, must-revalidate</span>
+<span class="l l-Scalar l-Scalar-Plain">Pragma</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">no-cache</span>
+<span class="l l-Scalar l-Scalar-Plain">Expires</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="l l-Scalar l-Scalar-Plain">X-Content-Type-Options</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">nosniff</span>
+<span class="l l-Scalar l-Scalar-Plain">Strict-Transport-Security</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">max-age=31536000 ; includeSubDomains</span> <span class="c1"># HTTPS通信時のみ設定されます。</span>
+<span class="l l-Scalar l-Scalar-Plain">X-Frame-Options</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">DENY</span>
+<span class="l l-Scalar l-Scalar-Plain">X-XSS-Protection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1; mode=block</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>X-Content-Type-Options: nosniff が設定されるので、ブラウザはレスポンスのContent-Typeを推測しなくなります。そのため、レスポンスに正しいContent-Typeを設定しないと期待通りの動作をしなくなるので注意してください。Spring Bootのデフォルトでは適切なContent-Typeが設定されるように構成されています。</p>
+<p>また、 X-Frame-Options: DENY が設定されるため、レスポンスのHTMLを iframe などのフレーム内に表示することができなくなります。フレーム内に表示する必要がある場合は、 <a class="reference external" href="https://docs.spring.io/spring-security/site/docs/5.0.5.RELEASE/reference/html/headers.html#headers-frame-options">Spring Security Reference 21.1 Default Security Headers</a> を参考に SAMEORIGIN を設定してください。</p>
+<div class="admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<p class="last">X-Content-Type-Optionsというヘッダは、もともとはInternet Explorerでのみ採用されていましたが、現在ではChromeやFirefoxでも採用されています。(<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options - HTTP | MDN</a>)</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<p class="last">Spring Securityを使用しなかった場合は、上記のヘッダ値は全て設定されません。</p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<p class="last">静的リソースをキャッシュさせたい場合には、 <a class="reference internal" href="../static-resource-cache/index.html#web-static-resource-cache"><span class="std std-ref">画像やcssなどの静的なリソースをキャッシュする</span></a> を参考にしてください。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018 TIS Inc.
+    <br />
+      ドキュメントは、<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズ 表示 - 継承 4.0 国際 ライセンス</a>の下に提供されており、コードサンプルは<a rel="license" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>の下に提供されています。
+    </p>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /> </a>
+    </p>
+    <p>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0.0',
+            LANGUAGE:'ja',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

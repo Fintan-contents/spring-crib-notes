@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>二重送信防止 &mdash; keel-doc 1.0.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="HTTPレスポンスヘッダ" href="../response-header/index.html" />
+    <link rel="prev" title="🚧 認可" href="../authorization/index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> keel-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">このドキュメントについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#target-user">対象読者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#id5">このドキュメントの使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#test-environment-and-dependencies">動作確認環境と依存ライブラリについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html">アプリケーションのスタック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/doma2.html">データベースアクセスにDoma2を使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/sql-management.html">DDL / DMLの管理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Webアプリ開発のノウハウ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../view/index.html">画面の作成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf.html">ViewのテンプレートエンジンにThymeleafを使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf-page-layout.html">Thymeleafを使用して各画面で共通のレイアウトを利用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf-default-value.html">Thymeleafを使用してチェックボックスなどのデフォルト値を送信する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../session/index.html">セッション管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../session/session-redis.html">セッションの情報をRedisに保存する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../validation/type-conversion-error.html">入力値の型変換エラー時に入力画面に適切なメッセージを表示する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#service">Serviceなどで送出した例外を業務エラーとして扱い画面にエラーメッセージを表示する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../authentication/index.html">認証</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../authentication/table.html">テーブル認証</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">二重送信防止</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../response-header/index.html">HTTPレスポンスヘッダ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../static-resource-cache/index.html">画像やcssなどの静的なリソースをキャッシュする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../static-resource-cache/index.html#id1">設定例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">Bean Validationを使った入力値のチェック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch/index.html">バッチアプリ開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../batch/db-io/index.html">データベース入出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/db-io/doma2.html">Doma2でデータベースから読み込み・書き出しする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行済みエラーが出る場合の対処方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">keel-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Webアプリ開発のノウハウ</a> &raquo;</li>
+        
+      <li>二重送信防止</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>二重送信防止<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Springから提供されている機能では二重送信を防止できないため、
+<a class="reference external" href="http://terasolunaorg.github.io/">TERASOLUNA</a> のトランザクショントークンチェックの機能を利用して二重送信を防止します。
+詳細は、以下を参照してください。</p>
+<ul class="simple">
+<li><a class="reference external" href="https://macchinetta.github.io/server-guideline-thymeleaf/1.5.1.RELEASE/ja/ArchitectureInDetail/WebApplicationDetail/DoubleSubmitProtection.html">Macchinetta Server Framework Development Guideline - 4.6. 二重送信防止</a></li>
+</ul>
+<p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
+<div class="section" id="id2">
+<h2>設定例<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="docutils">
+<dt>pom.xml</dt>
+<dd><p class="first">依存ライブラリに<a class="reference external" href="https://github.com/terasolunaorg/terasoluna-gfw/tree/master/terasoluna-gfw-common-libraries/terasoluna-gfw-web">terasoluna-gfw-web</a> を追加します。</p>
+<div class="last highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.terasoluna.gfw<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>terasoluna-gfw-web<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.4.1.RELEASE<span class="nt">&lt;/version&gt;</span>
+  <span class="c">&lt;!--</span>
+<span class="c">  spring-boot-starter-webの依存関係にもhibernate-validatorが含まれており、バージョンは6.x系となっています。</span>
+<span class="c">  そのため、terasoluna-gfw-webの依存関係に含まれている5.x系のhibernate-validatorは除外します。</span>
+<span class="c">   --&gt;</span>
+  <span class="nt">&lt;exclusions&gt;</span>
+    <span class="nt">&lt;exclusion&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>hibernate-validator<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;/exclusion&gt;</span>
+  <span class="nt">&lt;/exclusions&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="id3">
+<h2>実装例<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="docutils">
+<dt>Configuration</dt>
+<dd><p class="first">トランザクショントークンチェックを実施するための定義をします。</p>
+<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebConfig</span> <span class="kd">implements</span> <span class="n">WebMvcConfigurer</span> <span class="o">{</span>
+
+    <span class="c1">// Thymeleafのth:actionが指定されている場合は、Hidden項目にトークンを埋め込むプロセッサを定義します。</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">RequestDataValueProcessor</span> <span class="nf">requestDataValueProcessor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">TransactionTokenRequestDataValueProcessor</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">// トークンチェックを実施するインターセプタを定義します。</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">TransactionTokenInterceptor</span> <span class="nf">transactionTokenInterceptor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">TransactionTokenInterceptor</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">// トークンチェックを実施するインターセプタ設定します。</span>
+    <span class="c1">// また、インターセプタを適用するパスを設定します。</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addInterceptors</span><span class="o">(</span><span class="n">InterceptorRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">registry</span>
+                <span class="o">.</span><span class="na">addInterceptor</span><span class="o">(</span><span class="n">transactionTokenInterceptor</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">addPathPatterns</span><span class="o">(</span><span class="s">&quot;/**&quot;</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">excludePathPatterns</span><span class="o">(</span><span class="s">&quot;/resources/**&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>Controller</dt>
+<dd><p class="first">サンプルアプリケーションでは、入力画面⇒確認画面⇒登録完了画面の流れで遷移します。トークンの生成やチェックは、以下のタイミングで実施しています。</p>
+<ul class="simple">
+<li>確認画面への遷移リクエスト<ul>
+<li>&#64;TransactionTokenCheck(type = TransactionTokenType.BEGIN)を使用してトークンを生成します。<ul>
+<li><cite>terasoluna-gfw-web</cite> は、生成したトークンを画面のhidden項目に自動設定します。</li>
+<li><cite>terasoluna-gfw-web</cite> は、生成したトークンを、サーバ側で保持します。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>登録処理へのリクエスト<ul>
+<li>&#64;TransactionTokenCheckを使用して、リクエストで送信されるトークンと、サーバ側に保持したトークンをチェックします。<ul>
+<li>トークンチェックをパスした場合は、入力情報をデータベースに登録して登録完了画面にリダイレクトします。</li>
+<li>トークンチェックエラーの場合は、エラー画面を返却します。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&quot;user&quot;</span><span class="o">)</span>
+<span class="c1">// 生成するトークンのネームスペースを設定します。</span>
+<span class="nd">@TransactionTokenCheck</span><span class="o">(</span><span class="s">&quot;user&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserController</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">UserService</span> <span class="n">userService</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">UserController</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="nf">UserController</span><span class="o">(</span><span class="n">UserService</span> <span class="n">userService</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">userService</span> <span class="o">=</span> <span class="n">userService</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@ModelAttribute</span>
+    <span class="kd">public</span> <span class="n">UserForm</span> <span class="nf">userForm</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">UserForm</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">input</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;user/input&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// @TransactionTokenCheckのtype属性にTransactionTokenType.BEGINを設定して、トークンを生成します。</span>
+    <span class="nd">@TransactionTokenCheck</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="n">TransactionTokenType</span><span class="o">.</span><span class="na">BEGIN</span><span class="o">)</span>
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/confirm&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">confirm</span><span class="o">(</span><span class="nd">@Validated</span> <span class="n">UserForm</span> <span class="n">form</span><span class="o">,</span> <span class="n">BindingResult</span> <span class="n">bindingResult</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">bindingResult</span><span class="o">.</span><span class="na">hasErrors</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">&quot;user/input&quot;</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="s">&quot;user/confirm&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// @TransactionTokenCheck設定して、リクエストで送信されるトークンとサーバで保持しているトークンが同一であるかをチェックします。</span>
+    <span class="c1">// 同一でない場合は、InvalidTransactionTokenExceptionが送出されます。</span>
+    <span class="c1">// @TransactionTokenCheckのtype属性のデフォルト値は、TransactionTokenType.INです。</span>
+    <span class="c1">// また、登録完了後の画面でページの再読込みを実施した場合に登録処理が再実行されることを防止するため、</span>
+    <span class="c1">// PRG(Post-Redirect-Get)パターンを適用しています。</span>
+    <span class="nd">@TransactionTokenCheck</span>
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/create&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">create</span><span class="o">(</span><span class="nd">@Validated</span> <span class="n">UserForm</span> <span class="n">form</span><span class="o">,</span> <span class="n">BindingResult</span> <span class="n">bindingResult</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">bindingResult</span><span class="o">.</span><span class="na">hasErrors</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="s">&quot;user/input&quot;</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">userService</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="n">form</span><span class="o">.</span><span class="na">name</span><span class="o">,</span> <span class="n">form</span><span class="o">.</span><span class="na">age</span><span class="o">));</span>
+        <span class="k">return</span> <span class="s">&quot;redirect:/user/complete&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">&quot;/complete&quot;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">complete</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">&quot;user/complete&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// @ExceptionHandlerを使用して、InvalidTransactionTokenExceptionが送出された場合のハンドリングをします。</span>
+    <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">InvalidTransactionTokenException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+    <span class="nd">@ResponseStatus</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="n">HttpStatus</span><span class="o">.</span><span class="na">BAD_REQUEST</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">invalidTransactionTokenExceptionHandler</span><span class="o">(</span><span class="n">InvalidTransactionTokenException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">logger</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">logger</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="s">&quot;error/token-error&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">UserForm</span> <span class="o">{</span>
+
+        <span class="nd">@NotEmpty</span>
+        <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+        <span class="nd">@Min</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+        <span class="nd">@Max</span><span class="o">(</span><span class="mi">150</span><span class="o">)</span>
+        <span class="kd">private</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">;</span>
+
+        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">age</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAge</span><span class="o">(</span><span class="n">Integer</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018 TIS Inc.
+    <br />
+      ドキュメントは、<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズ 表示 - 継承 4.0 国際 ライセンス</a>の下に提供されており、コードサンプルは<a rel="license" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>の下に提供されています。
+    </p>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /> </a>
+    </p>
+    <p>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0.0',
+            LANGUAGE:'ja',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
