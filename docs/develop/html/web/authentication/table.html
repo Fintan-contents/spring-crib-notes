@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>テーブル認証 &mdash; keel-doc 1.0.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="認可" href="../authorization/index.html" />
+    <link rel="prev" title="認証" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> keel-doc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">このドキュメントについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#target-user">対象読者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#id5">このドキュメントの使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#test-environment-and-dependencies">動作確認環境と依存ライブラリについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html">アプリケーションのスタック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/doma2.html">データベースアクセスにDoma2を使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/sql-management.html">DDL / DMLの管理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Webアプリ開発のノウハウ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../view/index.html">画面の作成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf.html">ViewのテンプレートエンジンにThymeleafを使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf-page-layout.html">Thymeleafを使用して各画面で共通のレイアウトを利用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf-default-value.html">Thymeleafを使用してチェックボックスなどのデフォルト値を送信する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../session/index.html">セッション管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../session/session-redis.html">セッションの情報をRedisに保存する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../validation/type-conversion-error.html">入力値の型変換エラー時に入力画面に適切なメッセージを表示する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#service">Serviceなどで送出した例外を業務エラーとして扱い画面にエラーメッセージを表示する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../file-download/index.html">ファイルダウンロード</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../file-download/file-download.html">ファイルをダウンロードする</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">認証</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">テーブル認証</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../authorization/index.html">認可</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id2">ユーザに対して権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id3">認証時にログインしたユーザの権限を保持する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id4">エントリポイントごとにアクセス出来る権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id5">アクセス権限に応じて画面上のリンクやボタンを非表示にする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../double-submission/index.html">二重送信防止</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../double-submission/index.html#id2">設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../double-submission/index.html#id3">実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../response-header/index.html">HTTPレスポンスヘッダ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../static-resource-cache/index.html">画像やcssなどの静的なリソースをキャッシュする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../static-resource-cache/index.html#id1">設定例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">Bean Validationを使った入力値のチェック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch/index.html">バッチアプリ開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../batch/db-io/index.html">データベース入出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/db-io/doma2.html">Doma2でデータベースから読み込み・書き出しする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行済みエラーが出る場合の対処方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/index.html">SpringからAWSマネージドサービスを利用する際のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/s3/index.html">AWS S3にファイルをアップロード&amp;S3からファイルをダウンロードする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#aws-s3">AWS S3を使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#id1">AWS S3にファイルをアップロードする実装例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#id2">AWS S3からファイルをダウンロードする実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/ses/index.html">AWS SESを使ってメールを送信する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">AWS SESを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id2">AWS SESのみ異なるリージョンに構築した場合のカスタマイズ実装を追加する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id3">メール送信の実装例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">keel-doc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Webアプリ開発のノウハウ</a> &raquo;</li>
+        
+          <li><a href="index.html">認証</a> &raquo;</li>
+        
+      <li>テーブル認証</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>テーブル認証<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>データベース上の認証用テーブルを使って認証処理を行う方法について説明します。</p>
+<p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
+<div class="admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<p class="last">このサンプルでは、<a class="reference external" href="https://projects.spring.io/spring-security/">Spring Security</a>提供のデータベースを使った認証用クラスではなく、<a class="reference internal" href="../../common/database/doma2.html#database-doma2"><span class="std std-ref">Doma2</span></a> を使用しています。
+Doma2を使用することで、SQLを外部ファイルで管理できるなどのメリットがあります。</p>
+</div>
+<div class="section" id="id2">
+<h2>認証で使用するテーブルの準備<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>データベースのテーブルを使って認証処理を行うため、ユーザの情報(ユーザ名やパスワード)を保持するテーブルを事前に作成します。
+この例では、認証処理に最低限必要となるユーザ名とパスワードのみを保持しています。</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">users</span> <span class="p">(</span>
+  <span class="n">username</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+  <span class="n">password</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+  <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">username</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">create</span> <span class="k">table</span> <span class="n">user_role</span> <span class="p">(</span>
+  <span class="n">username</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+  <span class="k">role</span>     <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+  <span class="k">primary</span> <span class="k">key</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="k">role</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>実装例<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Doma2を使用して認証処理を行うためのDao及びServiceを作成します。
+作成したServiceを使用して認証処理が行われるよう、Spring Securityに対する設定を行います。</p>
+<dl class="docutils">
+<dt>Dao</dt>
+<dd><div class="first last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Dao</span>
+<span class="nd">@ConfigAutowireable</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserDao</span> <span class="o">{</span>
+
+    <span class="nd">@Select</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">UserEntity</span><span class="o">&gt;</span> <span class="nf">loadUserByUserName</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">);</span>
+
+    <span class="nd">@Select</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">loadUserRoles</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>SQL</dt>
+<dd><p class="first">SQLでは、認証用のテーブルからユーザ名に紐づく情報を取得します。</p>
+<div class="last highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="cm">/*%expand*/</span><span class="o">*</span>
+<span class="k">from</span> <span class="n">users</span>
+<span class="k">where</span> <span class="n">username</span> <span class="o">=</span> <span class="cm">/*username*/</span><span class="s1">&#39;username&#39;</span>
+</pre></div>
+</div>
+</dd>
+<dt>Service</dt>
+<dd><div class="first last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// UserDetailsServiceを継承して、ユーザ名に紐づく情報を取得するloadUserByUsernameメソッドを実装します。</span>
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span> <span class="kd">implements</span> <span class="n">UserDetailsService</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">UserDao</span> <span class="n">userDao</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">UserService</span><span class="o">(</span><span class="n">UserDao</span> <span class="n">userDao</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">userDao</span> <span class="o">=</span> <span class="n">userDao</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">UserDetails</span> <span class="nf">loadUserByUsername</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">UsernameNotFoundException</span> <span class="o">{</span>
+        <span class="c1">// Daoを使用してユーザ情報を取得します。</span>
+        <span class="c1">// ユーザ情報が存在しない場合には、UsernameNotFoundExceptionを送出し</span>
+        <span class="c1">// Spring Security側での認証エラーの処理が行われるようにします。</span>
+        <span class="k">return</span> <span class="n">userDao</span><span class="o">.</span><span class="na">loadUserByUserName</span><span class="o">(</span><span class="n">username</span><span class="o">)</span>
+                      <span class="c1">// ユーザ情報には、ログインユーザに割り当てられた権限(ロール)も設定します。</span>
+                      <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">username</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">password</span><span class="o">,</span> <span class="n">loadAuthorities</span><span class="o">(</span><span class="n">username</span><span class="o">)))</span>
+                      <span class="o">.</span><span class="na">orElseThrow</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="n">UsernameNotFoundException</span><span class="o">(</span><span class="s">&quot;user not found. username:&quot;</span> <span class="o">+</span> <span class="n">username</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * ユーザ名に紐づく権限リストを取得します。</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param username ユーザ名</span>
+<span class="cm">     * @return ユーザ名に紐づく権限リスト（存在しない場合は空のリスト）</span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">GrantedAuthority</span><span class="o">&gt;</span> <span class="nf">loadAuthorities</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">userDao</span><span class="o">.</span><span class="na">loadUserRoles</span><span class="o">(</span><span class="n">username</span><span class="o">)</span>
+                      <span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+                      <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">SimpleGrantedAuthority</span><span class="o">::</span><span class="k">new</span><span class="o">)</span>
+                      <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">toList</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>Spring Securityに対する設定</dt>
+<dd><div class="first last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecurityConfig</span> <span class="kd">extends</span> <span class="n">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">UserService</span> <span class="n">userService</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">SecurityConfig</span><span class="o">(</span><span class="kd">final</span> <span class="n">UserService</span> <span class="n">service</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">userService</span> <span class="o">=</span> <span class="n">service</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// role-start</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">RoleHierarchyVoter</span> <span class="nf">roleHierarchyVoter</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">RoleHierarchyVoter</span><span class="o">(</span><span class="n">roleHierarchy</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">RoleHierarchy</span> <span class="nf">roleHierarchy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// 権限の階層構造の設定をします。</span>
+        <span class="c1">// admin権限は、user権限を含む権限となります。</span>
+        <span class="kd">final</span> <span class="n">RoleHierarchyImpl</span> <span class="n">hierarchy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RoleHierarchyImpl</span><span class="o">();</span>
+        <span class="n">hierarchy</span><span class="o">.</span><span class="na">setHierarchy</span><span class="o">(</span><span class="s">&quot;ROLE_admin &gt; ROLE_user&quot;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">hierarchy</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="kd">final</span> <span class="n">HttpSecurity</span> <span class="n">http</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">http</span><span class="o">.</span><span class="na">authorizeRequests</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">&quot;/admin/**&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">hasRole</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">anyRequest</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">authenticated</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">formLogin</span><span class="o">()</span>
+            <span class="c1">// usernameのパラメータ名を設定します。</span>
+            <span class="c1">// この例の場合は、usernameParameterの呼び出しを省略した場合と同じ動作となります。</span>
+            <span class="c1">// ログインフォームから送信するパラメータ名を変えたい場合は、usernameParameterにその値を設定してください。</span>
+            <span class="o">.</span><span class="na">usernameParameter</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">)</span>
+            <span class="c1">// passwordのパラメータ名を設定します。</span>
+            <span class="c1">// この例の場合は、passwordParameterの呼び出しを省略した場合と同じ動作となります。</span>
+            <span class="c1">// ログインフォームから送信するパラメータ名を変えたい場合は、、passwordParameterにその値を設定してください。</span>
+            <span class="o">.</span><span class="na">passwordParameter</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">loginPage</span><span class="o">(</span><span class="s">&quot;/login&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">permitAll</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">defaultSuccessUrl</span><span class="o">(</span><span class="s">&quot;/top&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">logout</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">invalidateHttpSession</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">logoutSuccessUrl</span><span class="o">(</span><span class="s">&quot;/login?logout&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">permitAll</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="c1">// role-end</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="kd">final</span> <span class="n">AuthenticationManagerBuilder</span> <span class="n">auth</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="c1">// データベースのテーブルを使った認証を行うServiceを設定します。</span>
+        <span class="n">auth</span><span class="o">.</span><span class="na">userDetailsService</span><span class="o">(</span><span class="n">userService</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">passwordEncoder</span><span class="o">(</span><span class="n">passwordEncoder</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">PasswordEncoder</span> <span class="nf">passwordEncoder</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">BCryptPasswordEncoder</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/web/table-authentication">table-authentication-sample</a> を参照してください。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <br />
+      ドキュメントは、<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズ 表示 - 継承 4.0 国際 ライセンス</a>の下に提供されており、コードサンプルは<a rel="license" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>の下に提供されています。
+    </p>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /> </a>
+    </p>
+    <p>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0.0',
+            LANGUAGE:'ja',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
