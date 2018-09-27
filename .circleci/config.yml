@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: mikoto2000/sphinx
+    working_directory: ~/doc
+    steps:
+      - checkout
+      - run:
+          name: Build html
+          command: |
+            if [ $CIRCLE_BRANCH = "master" ]; then
+              DIR='latest'
+            else
+              DIR='develop'
+            fi
+            
+            rm -rf docs/${DIR}/html
+            make html BUILDDIR=docs/${DIR}
+      - persist_to_workspace:
+          root: ~/doc
+          paths:
+            - ./*
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: [master,develop]
