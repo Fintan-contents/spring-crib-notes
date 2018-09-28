@@ -5,3 +5,4 @@ SpringからAWSマネージドサービスを利用する際のノウハウ
 
   s3/index
   ses/index
+  rds/index

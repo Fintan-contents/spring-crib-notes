@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Doma2の楽観ロックで排他制御する &mdash; keel-doc 1.0.0 ドキュメント</title>
+  <title>AWS RDSにアクセスする &mdash; keel-doc 1.0.0 ドキュメント</title>
   
 
   
@@ -28,8 +28,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="🚧 認証" href="../authentication/index.html" />
-    <link rel="prev" title="排他制御" href="index.html" /> 
+    <link rel="prev" title="AWS SESを使ってメールを送信する" href="../ses/index.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -157,22 +156,22 @@
 <li class="toctree-l2"><a class="reference internal" href="../../web/status-code/index.html">HTTPステータスコード</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">RESTful Webサービス開発のノウハウ</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../validation/bean-validation.html">Bean Validationを使った入力値のチェック</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">Bean Validationを使った入力値のチェック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../error-handling/index.html">例外ハンドリング</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">排他制御</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Doma2の楽観ロックで排他制御する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../status-code/index.html">HTTPステータスコード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/status-code/index.html">HTTPステータスコード</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../batch/index.html">バッチアプリ開発のノウハウ</a><ul>
@@ -186,22 +185,22 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../aws/index.html">SpringからAWSマネージドサービスを利用する際のノウハウ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/s3/index.html">AWS S3にファイルをアップロード&amp;S3からファイルをダウンロードする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#aws-s3">AWS S3を使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#id1">AWS S3にファイルをアップロードする実装例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#id2">AWS S3からファイルをダウンロードする実装例</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">SpringからAWSマネージドサービスを利用する際のノウハウ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../s3/index.html">AWS S3にファイルをアップロード&amp;S3からファイルをダウンロードする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../s3/index.html#aws-s3">AWS S3を使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../s3/index.html#id1">AWS S3にファイルをアップロードする実装例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../s3/index.html#id2">AWS S3からファイルをダウンロードする実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/ses/index.html">AWS SESを使ってメールを送信する</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">AWS SESを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id2">AWS SESのみ異なるリージョンに構築した場合のカスタマイズ実装を追加する</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id3">メール送信の実装例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ses/index.html">AWS SESを使ってメールを送信する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ses/index.html#id1">AWS SESを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ses/index.html#id2">AWS SESのみ異なるリージョンに構築した場合のカスタマイズ実装を追加する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ses/index.html#id3">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">AWS RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">AWS RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">AWS RDSにアクセスする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">AWS RDSを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">実装例</a></li>
 </ul>
 </li>
 </ul>
@@ -251,11 +250,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../index.html">RESTful Webサービス開発のノウハウ</a> &raquo;</li>
+          <li><a href="../index.html">SpringからAWSマネージドサービスを利用する際のノウハウ</a> &raquo;</li>
         
-          <li><a href="index.html">排他制御</a> &raquo;</li>
-        
-      <li>Doma2の楽観ロックで排他制御する</li>
+      <li>AWS RDSにアクセスする</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -272,75 +269,87 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="doma2">
-<h1>Doma2の楽観ロックで排他制御する<a class="headerlink" href="#doma2" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Doma2の<a class="reference external" href="https://static.javadoc.io/org.seasar.doma/doma/2.19.2/org/seasar/doma/Version.html">&#64;Version</a>を使用した楽観ロック方式で実現します。</p>
-<p><a class="reference internal" href="../../web/exclusive-control/doma2-optimistic-lock.html"><span class="doc">Webの場合</span></a> は更新前のバージョン番号をセッションに保存しますが、APIの場合はリクエストボディに含まれているバージョン番号がデータベースと一致しているかどうかで排他制御します。
-そのため、APIを呼び出すクライアントで、変更しようとしているエンティティのバージョンを保持する必要があります。</p>
-<p>Doma2の楽観ロックについては、以下の公式ドキュメントを参照してください。</p>
-<ul class="simple">
-<li><a class="reference external" href="https://doma.readthedocs.io/ja/2.19.2/query/update/">更新</a></li>
-<li><a class="reference external" href="https://doma.readthedocs.io/ja/2.19.2/query/batch-update/">バッチ更新</a></li>
-</ul>
-<p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
+  <div class="section" id="aws-rds">
+<h1>AWS RDSにアクセスする<a class="headerlink" href="#aws-rds" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="https://cloud.spring.io/spring-cloud-aws/">Spring Cloud AWS</a> を使用して、AWS RDSを使用するための実装方法を説明します。</p>
+<p>サンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/aws/rds">aws-rds</a> を参照してください。</p>
 <div class="section" id="id1">
-<h2>実装例<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Controllerでの <code class="docutils literal notranslate"><span class="pre">userService.update(User)</span></code> の実行時にDoma2の楽観排他制御が行われます。楽観排他に失敗した場合は、Doma2がOptimisticLockExceptionを送出します。
-OptimisticLockExceptionは、 <code class="docutils literal notranslate"><span class="pre">doma-spring-boot-starter</span></code> がSpringのOptimisticLockingFailureExceptionに変換して再送出します。
-詳細は、以下を参照してください。</p>
-<ul class="simple">
-<li><a class="reference internal" href="../../common/database/doma2.html#doma2-exception-translator"><span class="std std-ref">Doma2が送出する例外の変換</span></a></li>
-</ul>
-<p>送出されたOptimisticLockingFailureExceptionはアプリケーション全体で横断的に処理することで、個別の機能で例外処理する必要がなくなります。詳細は、 <a class="reference internal" href="../error-handling/index.html"><span class="doc">例外ハンドリング</span></a> を参照してください。</p>
+<h2>AWS RDSを使用するための設定例<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <dl class="docutils">
-<dt>Controller</dt>
-<dd><div class="first last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&quot;/{id:[\\d]+}&quot;</span><span class="o">)</span>
-<span class="kd">public</span> <span class="n">User</span> <span class="nf">updateUser</span><span class="o">(</span><span class="nd">@PathVariable</span> <span class="n">Long</span> <span class="n">id</span><span class="o">,</span> <span class="nd">@RequestBody</span> <span class="nd">@Valid</span> <span class="n">UserUpdateForm</span> <span class="n">form</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">// リクエストボディのバージョン番号を、@Versionのついたプロパティに設定して更新します。</span>
-    <span class="c1">// リクエストボディのバージョン番号が、データベースのバージョン番号と一致しない場合は楽観ロックエラーとなり、OptimisticLockingFailureExceptionが発生します。</span>
-    <span class="c1">// 更新に成功した場合は、新しいバージョン番号を持ったエンティティを返します。</span>
-    <span class="k">return</span> <span class="n">userService</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">form</span><span class="o">.</span><span class="na">getName</span><span class="o">(),</span> <span class="n">form</span><span class="o">.</span><span class="na">getRole</span><span class="o">(),</span> <span class="n">form</span><span class="o">.</span><span class="na">getAge</span><span class="o">(),</span> <span class="n">form</span><span class="o">.</span><span class="na">getVersionNo</span><span class="o">())).</span><span class="na">getEntity</span><span class="o">();</span>
-<span class="o">}</span>
+<dt>pom.xml</dt>
+<dd><p class="first">依存ライブラリにspring-cloud-starter-awsを追加します。</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-aws-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
+</div>
+<div class="last admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<p class="last">このサンプルでは、データベースアクセスには <a class="reference internal" href="../../common/database/doma2.html#database-doma2"><span class="std std-ref">Doma</span></a> を使用しています。
+Spring BootでDomaを使用する手順などはリンク先を参照してください。</p>
 </div>
 </dd>
-<dt>Dao</dt>
-<dd><div class="first last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
-<span class="cm"> * 楽観ロックエラーが発生した場合は、{@link org.springframework.dao.OptimisticLockingFailureException}が送出されます。</span>
-<span class="cm"> * 呼出し元で例外を補足してハンドリングしてください。</span>
-<span class="cm"> * &lt;p/&gt;</span>
-<span class="cm"> * なお、サンプルアプリケーションでは{@link org.springframework.web.bind.annotation.RestControllerAdvice}を使用して、</span>
-<span class="cm"> * 全てのControllerを横断したエラーハンドリングを実施しています。</span>
-<span class="cm"> *</span>
-<span class="cm"> * @see keel.apierrorhandling.GlobalExceptionHandler</span>
-<span class="cm"> */</span>
-<span class="nd">@Update</span>
-<span class="n">Result</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">update</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">);</span>
+<dt>application.properties</dt>
+<dd><p class="first">AWSのリージョン名とデータベースの接続先を設定します。</p>
+<p>アプリケーションをEC2で動かす場合には、EC2のメタデータからリージョン名が取得できるためcloud.aws.region.autoにはtrueを設定します。</p>
+<p>データベースの接続先は、 <code class="docutils literal notranslate"><span class="pre">cloud.aws.rds.&lt;RDSインスタンス名&gt;.password</span></code> にパスワードのみを設定します。
+このサンプルでは、RDSのインスタンス名が「keel」であるため、cloud.aws.rds.keel.passwordに対してパスワードを設定しています。</p>
+<p>RDSにMySQLを選択している場合、Springのトランザクション管理の仕組みを使用し、かつ読み取り専用トランザクションの場合、参照用SQLの実行をリードレプリカに自動的に振り分ける機能を利用できます。
+(2018/10現在、Spring Cloud AWSのリードレプリカ振り分け機能はAWS RDSのMySQLのみ利用可能となっています。)
+利用する場合には、 <code class="docutils literal notranslate"><span class="pre">cloud.aws.rds.&lt;RDSインスタンス名&gt;.readReplicaSupport</span></code> にtrueを設定します。</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">cloud.aws.region.auto</span><span class="o">=</span><span class="s">true</span>
+<span class="na">cloud.aws.stack.auto</span><span class="o">=</span><span class="s">false</span>
+
+<span class="na">cloud.aws.rds.keel.password</span><span class="o">=</span><span class="s">keel_example</span>
+<span class="na">cloud.aws.rds.keel.readReplicaSupport</span><span class="o">=</span><span class="s">true</span>
 </pre></div>
+</div>
+<p>EC2以外(例えば、ローカルの開発環境)で動かす場合には、下の例のようにcloud.aws.region.autoをfalseとしリージョン名を設定します。
+このサンプルでは、ローカルPCに構築したデータベースにアクセスするようにしています。</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">cloud.aws.region.auto</span><span class="o">=</span><span class="s">false</span>
+<span class="na">cloud.aws.region.static</span><span class="o">=</span><span class="s">ap-northeast-1</span>
+
+<span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:mysql://${database.hostname:localhost}:3306/keel?verifyServerCertificate=false&amp;useSSL=false</span>
+<span class="na">spring.datasource.hikari.username</span><span class="o">=</span><span class="s">keel</span>
+<span class="na">spring.datasource.hikari.password</span><span class="o">=</span><span class="s">keel</span>
+</pre></div>
+</div>
+<div class="last admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<p>ローカルの開発環境については、以下の理由によりPC上にデータベース環境を用意することをおすすめします。</p>
+<ul class="last simple">
+<li>AWS RDSを常時可動した場合コストが非常に高くなる</li>
+<li>各開発者が使用しているデータベースのスキーマバージョンが同じとは限らない</li>
+<li>開発中は機能のテストなどでデータを自由に変更したい</li>
+</ul>
 </div>
 </dd>
-<dt>Entity</dt>
-<dd><div class="first last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 楽観ロック用のバージョンカラムには、@Versionを付与します。</span>
-<span class="nd">@Version</span>
-<span class="kd">public</span> <span class="kd">final</span> <span class="n">Long</span> <span class="n">versionNo</span><span class="o">;</span>
-</pre></div>
-</div>
-</dd>
-<dt>GlobalExceptionHandler</dt>
-<dd><p class="first">サンプルアプリケーションで、アプリケーション全体の例外を横断的にハンドリングしているクラスです。</p>
-<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
-<span class="cm"> * {@link ResponseEntityExceptionHandler}がハンドリングしない例外については、{@link ExceptionHandler}を使用してハンドリングします。</span>
-<span class="cm"> * 楽観ロック例外が発生した場合は、HTTPステータスコードに409を設定します。</span>
-<span class="cm"> */</span>
-<span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="n">OptimisticLockingFailureException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-<span class="nd">@ResponseStatus</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="n">HttpStatus</span><span class="o">.</span><span class="na">CONFLICT</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleOptimisticLockingFailureException</span><span class="o">()</span> <span class="o">{</span>
-<span class="o">}</span>
-</pre></div>
-</div>
+<dt>環境変数</dt>
+<dd><p class="first">以下の環境変数にAWSアカウントのクレデンシャル情報を設定します。</p>
+<ul class="simple">
+<li>AWS_ACCESS_KEY_ID</li>
+<li>AWS_SECRET_ACCESS_KEY</li>
+</ul>
+<p class="last">AWS SDK for Javaが使用するクレデンシャル情報の推奨される設定方法などは、AWS SDK for Javaのドキュメントを参照してください。</p>
 </dd>
 </dl>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/api/api-error-handling">api-error-handling-sample</a> を参照してください。</p>
+</div>
+<div class="section" id="id2">
+<h2>実装例<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Spring Cloud AWSからAWS RDSを使用するからといって特別な実装を行う必要はありません。
+ローカルのデータベースを使用する場合とAWS RDSを使用する場合で、データベースにアクセスするクラスやSQLの実装方法に差異はありません。</p>
+<div class="admonition tip">
+<p class="first admonition-title">ちなみに</p>
+<p>RDSのMySQLを使用している場合で、参照用SQLをリードレプリカに対して発行したい場合には、以下のように読み取り専用トランザクションを設定します。</p>
+<div class="last highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Transactional</span><span class="o">(</span><span class="n">readOnly</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">UsersEntity</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">userDao</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

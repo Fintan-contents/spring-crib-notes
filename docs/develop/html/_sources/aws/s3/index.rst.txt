@@ -28,7 +28,7 @@ application.properties
   
   EC2以外(例えば、ローカルの開発環境)で動かす場合には、下の例のようにcloud.aws.region.autoをfalseとしリージョン名を設定します。
   
-  .. literalinclude:: ../../../samples/aws/s3/src/main/resources/application.properties
+  .. literalinclude:: ../../../samples/aws/s3/src/main/resources/application-local.properties
     :language: properties
     :start-after: start
     :end-before: end
