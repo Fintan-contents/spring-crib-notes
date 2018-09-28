@@ -37,7 +37,7 @@ application.properties
   
   EC2以外(例えば、ローカルの開発環境)で動かす場合には、下の例のようにcloud.aws.region.autoをfalseとしリージョン名を設定します。
   
-  .. literalinclude:: ../../../samples/aws/ses/src/main/resources/application.properties
+  .. literalinclude:: ../../../samples/aws/ses/src/main/resources/application-local.properties
     :language: properties
     :start-after: start
     :end-before: end
@@ -65,7 +65,7 @@ Beanの定義
 application.properties
   上記のConfigurationクラスが受け取るリージョン名を設定します。
   
-  .. literalinclude:: ../../../samples/aws/ses/src/main/resources/application.properties
+  .. literalinclude:: ../../../samples/aws/ses/src/main/resources/application-local.properties
     :language: properties
     :start-after: ses-start
     :end-before: ses-end
