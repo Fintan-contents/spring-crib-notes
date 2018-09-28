@@ -30,8 +30,8 @@ application.properties
   データベースの接続先は、 ``cloud.aws.rds.<RDSインスタンス名>.password`` にパスワードのみを設定します。
   このサンプルでは、RDSのインスタンス名が「keel」であるため、cloud.aws.rds.keel.passwordに対してパスワードを設定しています。
   
-  RDSにMySQLを選択している場合、読み取り専用トランザクションをリードレプリカに自動的に振り分ける機能を利用できます。
-  (2018/10現在、この機能はAWS RDSのMySQLのみ利用可能となっています。)
+  RDSにMySQLを選択している場合、Springのトランザクション管理の仕組みを使用し、かつ読み取り専用トランザクションの場合、参照用SQLの実行をリードレプリカに自動的に振り分ける機能を利用できます。
+  (2018/10現在、Spring Cloud AWSのリードレプリカ振り分け機能はAWS RDSのMySQLのみ利用可能となっています。)
   利用する場合には、 ``cloud.aws.rds.<RDSインスタンス名>.readReplicaSupport`` にtrueを設定します。
   
   .. literalinclude:: ../../../samples/aws/rds/src/main/resources/application-ec2.properties
