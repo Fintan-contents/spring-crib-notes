@@ -9,8 +9,11 @@
 * `AWS_ACCESS_KEY_ID` 及び `AWS_SECRET_ACCESS_KEY` 環境変数にAWSアカウントのクレデンシャル情報を設定します
 
 ## 2.アプリケーションの起動
+* `ec2` 上で実行する場合にはアクティブプロファイルに `ec2` を指定して実行します。
+* ローカルPCで実行する場合には、アクティブプロファイルに `local` を指定して実行します。
+
 ```bash
-mvn spring-boot:run
+mvn spring-boot:run -Dspring.profiles.active=<アクティブプロファイル>
 ```
 
 実行が終了すると…
