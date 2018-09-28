@@ -11,7 +11,9 @@
 mvn spring-boot:run -Dspring.profiles.active=ec2
 ```
 
-※ローカルPCではMySQL環境をローカルに準備し、アクティブプロファイルに `local` を指定して実行します。
+ローカルPCではMySQL環境をローカルに準備し、アクティブプロファイルに `local` を指定して実行します。
+データベース名やアカウントなどの情報は、 [application-local.properties](./src/main/resources/application-local.properties) を参照してください。
+
 ```bash
 mvn spring-boot:run -Dspring.profiles.active=local
 ```
