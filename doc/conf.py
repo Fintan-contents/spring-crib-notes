@@ -20,7 +20,6 @@ import os
 # -- Project information -----------------------------------------------------
 
 project = u'keel-doc'
-copyright = u'2018 TIS Inc'
 author = u'TIS'
 
 # The short X.Y version
@@ -111,9 +110,6 @@ html_show_sourcelink = False
 # Custom stylesheet
 html_style = "css/customize-rtd.css"
 
-# Show copyright
-html_show_copyright = True
-
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
@@ -177,7 +173,6 @@ texinfo_documents = [
 epub_title = project
 epub_author = author
 epub_publisher = author
-epub_copyright = copyright
 
 # The unique identifier of the text. This can be a ISBN number
 # or the project homepage.
@@ -202,7 +197,6 @@ todo_include_todos = True
 branch_name = os.getenv('BRANCH_NAME', 'develop')
 sample_app_base = 'https://github.com/Fintan-contents/spring-crib-notes/tree/' + branch_name
 
-
 extlinks = {
   'sample-app': (sample_app_base + '/samples/%s', None),
   'spring-doc': ('https://docs.spring.io/spring/docs/' + '5.0.6.RELEASE' + '/%s', None),
@@ -221,3 +215,7 @@ extlinks = {
   'doma-gen-doc': ('https://doma-gen.readthedocs.io/ja/' + '2.19.2' + '/%s', None),
   'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '6.0' + '/%s', None)
 }
+
+# linkcheck option
+linkcheck_timeout = 10
+linkcheck_retries = 2

@@ -25,6 +25,14 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
+
+    <!-- thymeleaf-security-start -->
+    <dependency>
+      <groupId>org.thymeleaf.extras</groupId>
+      <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+    </dependency>
+    <!-- thymeleaf-security-end -->
+
     <dependency>
       <groupId>org.seasar.doma.boot</groupId>
       <artifactId>doma-spring-boot-starter</artifactId>

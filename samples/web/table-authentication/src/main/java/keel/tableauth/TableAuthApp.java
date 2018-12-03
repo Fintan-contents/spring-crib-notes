@@ -1,12 +1,9 @@
 package keel.tableauth;
 
-import java.security.Principal;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -32,10 +29,17 @@ public class TableAuthApp {
     public static class TopController {
 
         @GetMapping("/top")
-        public String top(final Principal user, final Model model) {
-            model.addAttribute("user", user);
+        public String top() {
             return "top";
         }
     }
 
+    @Controller
+    public static class AdminController {
+
+        @GetMapping("/admin")
+        public String admin() {
+            return "/admin";
+        }
+    }
 }
