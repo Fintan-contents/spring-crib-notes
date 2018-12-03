@@ -144,9 +144,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../web/authorization/index.html#id5">アクセス権限に応じて画面上のリンクやボタンを非表示にする</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../web/double-submission/index.html">二重送信防止</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../web/double-submission/index.html#id2">設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../web/double-submission/index.html#id3">実装例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/double-submission/index.html">2重送信防止</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/double-submission/index.html#id3">設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/double-submission/index.html#id4">実装例</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../web/response-header/index.html">HTTPレスポンスヘッダ</a></li>
@@ -410,23 +410,6 @@
   <span class="nt">&lt;artifactId&gt;</span>dbunit<span class="nt">&lt;/artifactId&gt;</span>
   <span class="nt">&lt;version&gt;</span>2.5.2<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
-<span class="c">&lt;!-- terasoluna-version-start --&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.terasoluna.gfw<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>terasoluna-gfw-web<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>5.4.1.RELEASE<span class="nt">&lt;/version&gt;</span>
-  <span class="c">&lt;!--</span>
-<span class="c">  spring-boot-starter-webの依存関係にもhibernate-validatorが含まれており、バージョンは6.x系となっています。</span>
-<span class="c">  そのため、terasoluna-gfw-webの依存関係に含まれている5.x系のhibernate-validatorは除外します。</span>
-<span class="c">   --&gt;</span>
-  <span class="nt">&lt;exclusions&gt;</span>
-    <span class="nt">&lt;exclusion&gt;</span>
-      <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>hibernate-validator<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;/exclusion&gt;</span>
-  <span class="nt">&lt;/exclusions&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-<span class="c">&lt;!-- terasoluna-version-end --&gt;</span>
 <span class="c">&lt;!-- logback-access-spring-boot-version-start --&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>net.rakugakibox.spring.boot<span class="nt">&lt;/groupId&gt;</span>
@@ -434,6 +417,14 @@
   <span class="nt">&lt;version&gt;</span>2.7.1<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="c">&lt;!-- logback-access-spring-boot-version-end --&gt;</span>
+
+<span class="c">&lt;!-- keel-web-start --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jp.fintan.keel<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>keel-spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="c">&lt;!-- keel-web-end --&gt;</span>
 
 <span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
@@ -484,22 +475,25 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'1.0.0',
-            LANGUAGE:'ja',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="../_static/translations.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'1.0.0',
+              LANGUAGE:'ja',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
