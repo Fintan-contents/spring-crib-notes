@@ -2,7 +2,7 @@
 ==================================================
 Springから提供されている機能では、2重送信を防ぐことはできないため
 `keel-spring-enhance <https://github.com/Fintan-contents/keel-spring-enhance>`_ の
-`2重送信防止機能 <https://github.com/Fintan-contents/keel-spring-enhance/blob/master/doc/double-submission-check.md>`_ を使用します。
+`2重送信防止機能 <https://github.com/Fintan-contents/keel-spring-enhance/blob/master/README.md>`_ を使用します。
 
 以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
