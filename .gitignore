@@ -11,3 +11,5 @@ node_modules
 .classpath
 .apt_generated
 .factorypath
+
+download

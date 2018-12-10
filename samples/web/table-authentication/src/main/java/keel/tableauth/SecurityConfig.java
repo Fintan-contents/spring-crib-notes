@@ -2,11 +2,15 @@ package keel.tableauth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
+import org.springframework.security.access.vote.RoleHierarchyVoter;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 // example-start
 @Configuration
@@ -18,9 +22,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         userService = service;
     }
 
+    // role-start
+    @Bean
+    public RoleHierarchyVoter roleHierarchyVoter() {
+        return new RoleHierarchyVoter(roleHierarchy());
+    }
+
+    @Bean
+    public RoleHierarchy roleHierarchy() {
+        // 権限の階層構造の設定をします。
+        // admin権限は、user権限を含む権限となります。
+        final RoleHierarchyImpl hierarchy = new RoleHierarchyImpl();
+        hierarchy.setHierarchy("ROLE_admin > ROLE_user");
+        return hierarchy;
+    }
+
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
+            .antMatchers("/admin/**")
+            .hasRole("admin")
             .anyRequest()
             .authenticated()
             .and()
@@ -35,8 +56,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .passwordParameter("password")
             .loginPage("/login")
             .permitAll()
-            .defaultSuccessUrl("/top", true);
+            .defaultSuccessUrl("/top", true)
+            .and()
+            .logout()
+            .invalidateHttpSession(true)
+            .logoutSuccessUrl("/login?logout")
+            .permitAll();
     }
+    // role-end
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {

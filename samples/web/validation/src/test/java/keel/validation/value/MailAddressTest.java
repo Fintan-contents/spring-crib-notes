@@ -33,7 +33,7 @@ public class MailAddressTest {
     }
     
     @Test
-    public void アットマークでおわるおのはエラーとなること() {
+    public void アットマークでおわるものはエラーとなること() {
         assertThatThrownBy(() -> MailAddress.valueOf("sample@"))
                 .isInstanceOf(IllegalArgumentException.class);
     }

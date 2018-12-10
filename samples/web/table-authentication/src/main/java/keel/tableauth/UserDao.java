@@ -1,5 +1,6 @@
 package keel.tableauth;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.seasar.doma.Dao;
@@ -13,6 +14,9 @@ public interface UserDao {
 
     @Select
     Optional<UserEntity> loadUserByUserName(String username);
+
+    @Select
+    List<String> loadUserRoles(String username);
 
 }
 // example-end

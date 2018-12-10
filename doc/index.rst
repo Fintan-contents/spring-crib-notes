@@ -10,3 +10,4 @@ Springアプリ開発ノウハウ集
   web/index
   api/index
   batch/index
+  aws/index

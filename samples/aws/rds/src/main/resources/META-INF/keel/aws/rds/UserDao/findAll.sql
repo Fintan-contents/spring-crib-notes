@@ -1,0 +1,2 @@
+select /*%expand*/*
+from users
