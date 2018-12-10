@@ -51,7 +51,7 @@ jobs:
             git add docs --all
             git stash
             git checkout master
-            rm -rf docs/${DIR}/html
+            git rm -rf docs/${DIR}/html
             git add docs --all
             git commit -m '[ci skip] publish new version'
             git stash pop
