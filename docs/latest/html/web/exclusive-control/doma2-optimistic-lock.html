@@ -24,8 +24,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -130,13 +129,24 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Doma2の楽観ロックで排他制御する</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../file-download/index.html">ファイルダウンロード</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../file-download/file-download.html">ファイルをダウンロードする</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../authentication/index.html">認証</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../authentication/table.html">テーブル認証</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../double-submission/index.html">二重送信防止</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../double-submission/index.html#id2">設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../double-submission/index.html#id3">実装例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../authorization/index.html">認可</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id2">ユーザに対して権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id3">認証時にログインしたユーザの権限を保持する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id4">エントリポイントごとにアクセス出来る権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id5">アクセス権限に応じて画面上のリンクやボタンを非表示にする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../double-submission/index.html">2重送信防止</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../double-submission/index.html#id3">設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../double-submission/index.html#id4">実装例</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../response-header/index.html">HTTPレスポンスヘッダ</a></li>
@@ -172,6 +182,26 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行済みエラーが出る場合の対処方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/index.html">SpringからAWSマネージドサービスを利用する際のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/s3/index.html">AWS S3にファイルをアップロード&amp;S3からファイルをダウンロードする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#aws-s3">AWS S3を使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#id1">AWS S3にファイルをアップロードする実装例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#id2">AWS S3からファイルをダウンロードする実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/ses/index.html">AWS SESを使ってメールを送信する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">AWS SESを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id2">AWS SESのみ異なるリージョンに構築した場合のカスタマイズ実装を追加する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id3">メール送信の実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">AWS RDSにアクセスする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">AWS RDSを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
 </ul>
 </li>
 </ul>
@@ -363,7 +393,7 @@ OptimisticLockExceptionは、 <code class="docutils literal notranslate"><span c
 </div>
 </dd>
 </dl>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/web/doma2-optimistic-lock">doma2-optimistic-lock-sample</a> を参照してください。</p>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/web/doma2-optimistic-lock">doma2-optimistic-lock-sample</a> を参照してください。</p>
 </div>
 </div>
 
@@ -378,7 +408,6 @@ OptimisticLockExceptionは、 <code class="docutils literal notranslate"><span c
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018 TIS Inc.
     <br />
       ドキュメントは、<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズ 表示 - 継承 4.0 国際 ライセンス</a>の下に提供されており、コードサンプルは<a rel="license" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>の下に提供されています。
     </p>
@@ -402,29 +431,29 @@ OptimisticLockExceptionは、 <code class="docutils literal notranslate"><span c
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'1.0.0',
-            LANGUAGE:'ja',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="../../_static/translations.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'1.0.0',
+              LANGUAGE:'ja',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/translations.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {

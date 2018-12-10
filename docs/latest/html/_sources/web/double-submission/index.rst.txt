@@ -1,34 +1,24 @@
-二重送信防止
+2重送信防止
 ==================================================
-Springから提供されている機能では二重送信を防止できないため、
-`TERASOLUNA <http://terasolunaorg.github.io/>`_ のトランザクショントークンチェックの機能を利用して二重送信を防止します。
-詳細は、以下を参照してください。
- 
-* :macchinetta-server-guideline-thymeleaf-doc:`Macchinetta Server Framework Development Guideline - 4.6. 二重送信防止 <ArchitectureInDetail/WebApplicationDetail/DoubleSubmitProtection.html>`
+Springから提供されている機能では、2重送信を防ぐことはできないため
+`keel-spring-enhance <https://github.com/Fintan-contents/keel-spring-enhance>`_ の
+`2重送信防止機能 <https://github.com/Fintan-contents/keel-spring-enhance/blob/master/README.md>`_ を使用します。
 
 以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
 設定例
 --------------------------------------------------
 pom.xml
-  依存ライブラリに\ `terasoluna-gfw-web <https://github.com/terasolunaorg/terasoluna-gfw/tree/master/terasoluna-gfw-common-libraries/terasoluna-gfw-web>`_ を追加します。
+  依存ライブラリにkeel-spring-boot-starter-webを追加します。
  
   .. literalinclude:: ../../../samples/pom.xml
      :language: xml
-     :start-after: terasoluna-version-start
-     :end-before: terasoluna-version-end
+     :start-after: keel-web-start
+     :end-before: keel-web-end
      :dedent: 6
  
 実装例
 --------------------------------------------------
-Configuration
-  トランザクショントークンチェックを実施するための定義をします。
- 
-  .. literalinclude:: ../../../samples/web/double-submission/src/main/java/keel/doublesubmission/WebConfig.java
-     :language: java
-     :start-after: example-start
-     :end-before: example-end
- 
 Controller
   サンプルアプリケーションでは、入力画面⇒確認画面⇒登録完了画面の流れで遷移します。トークンの生成やチェックは、以下のタイミングで実施しています。
  
@@ -36,8 +26,8 @@ Controller
  
     * @TransactionTokenCheck(type = TransactionTokenType.BEGIN)を使用してトークンを生成します。
  
-      * `terasoluna-gfw-web` は、生成したトークンを画面のhidden項目に自動設定します。
-      * `terasoluna-gfw-web` は、生成したトークンを、サーバ側で保持します。
+      * `keel-transaction-token-check` は、生成したトークンを画面のhidden項目に自動設定します。
+      * `keel-transaction-token-check` は、生成したトークンを、サーバ側で保持します。
  
   * 登録処理へのリクエスト
  
