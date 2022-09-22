@@ -18,12 +18,14 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
-    <!-- doma-starter-start -->
     <dependency>
       <groupId>org.seasar.doma.boot</groupId>
       <artifactId>doma-spring-boot-starter</artifactId>
     </dependency>
-    <!-- doma-starter-end -->
+    <dependency>
+      <groupId>org.seasar.doma</groupId>
+      <artifactId>doma-processor</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>com.h2database</groupId>

@@ -5,19 +5,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import jp.fintan.keel.spring.web.token.transaction.TransactionToken;
 import jp.fintan.keel.spring.web.token.transaction.TransactionTokenInterceptor;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpSession;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = DoubleSubmissionApplication.class)
 @AutoConfigureMockMvc
 public class UserControllerTest {
