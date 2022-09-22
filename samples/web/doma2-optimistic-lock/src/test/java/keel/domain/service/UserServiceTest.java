@@ -1,10 +1,9 @@
 package keel.domain.service;
 
-import com.github.springtestdbunit.DbUnitTestExecutionListener;
-import com.github.springtestdbunit.annotation.DatabaseSetup;
-import com.github.springtestdbunit.annotation.DbUnitConfiguration;
+import com.github.database.rider.core.api.configuration.DBUnit;
+import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.junit5.api.DBRider;
 import keel.Doma2OptimisticLockApplication;
-import keel.dbunit.CsvDataSetLoader;
 import keel.domain.service.dto.UserDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,20 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.OptimisticLockingFailureException;
 
-@RunWith(SpringRunner.class)
-@TestExecutionListeners({
-        DependencyInjectionTestExecutionListener.class,
-        TransactionalTestExecutionListener.class,
-        DbUnitTestExecutionListener.class})
-@DbUnitConfiguration(dataSetLoader = CsvDataSetLoader.class)
+@DBRider
+@DBUnit(schema = "PUBLIC")
 @SpringBootTest(classes = {Doma2OptimisticLockApplication.class})
-@DatabaseSetup("classpath:data/")
 public class UserServiceTest {
 
     @Autowired
     UserService userService;
 
     @Test
+    @DataSet("users.yml")
     public void 楽観ロックエラー時にOptimisticLockingFailureExceptionが発生するかを検証するテスト() {
 
         Assertions

@@ -64,14 +64,16 @@
         <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>com.github.springtestdbunit</groupId>
-        <artifactId>spring-test-dbunit</artifactId>
-        <version>1.3.0</version>
+        <groupId>com.github.database-rider</groupId>
+        <artifactId>rider-spring</artifactId>
+        <version>1.34.0</version>
+        <scope>test</scope>
       </dependency>
       <dependency>
-        <groupId>org.dbunit</groupId>
-        <artifactId>dbunit</artifactId>
-        <version>2.5.2</version>
+        <groupId>com.github.database-rider</groupId>
+        <artifactId>rider-junit5</artifactId>
+        <version>1.34.0</version>
+        <scope>test</scope>
       </dependency>
       <!-- logback-access-spring-boot-version-start -->
       <dependency>

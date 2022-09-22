@@ -1,0 +1,9 @@
+ROLES:
+  - NAME: "admin"
+
+USERS:
+  - ID: 1
+    NAME: "taro"
+    AGE: 25
+    VERSION_NO: 10
+    ROLE: "admin"
