@@ -16,7 +16,7 @@
      - 構成要素
      - 概要
    * - 1
-     - :spring-doc:`Spring Web MVC <spring-framework-reference/web.html>`
+     - :spring-framework-doc:`Spring Web MVC <reference/html/web.html#spring-web>`
      - Springが提供するWeb MVCフレームワークです。
    * - 2
      - `Spring Security <https://projects.spring.io/spring-security/>`_

@@ -26,7 +26,7 @@
 
 * Web/API
 
-  * :spring-doc:`Spring Web MVC <spring-framework-reference/web.html>` の基本的な用語を理解している
+  * :spring-framework-doc:`Spring Web MVC <reference/html/web.html#spring-web>` の基本的な用語を理解している
   * Spring Web MVCの各ステレオタイプの役割を理解している
   * Spring Web MVCの処理フローを理解している
 
@@ -72,7 +72,7 @@
 また、明示的に依存しているのは以下のライブラリです。
 
 Spring Boot
-  Spring Bootから参照されるライブラリのバージョンは、 :spring-boot-doc:`Appendix F. Dependency versions <reference/html/appendix-dependency-versions.html>` を参照してください。
+  Spring Bootから参照されるライブラリのバージョンは、 :spring-boot-doc:`Appendix F. Dependency versions <reference/html/dependency-versions.html#appendix.dependency-versions>` を参照してください。
 
   .. literalinclude:: ../../samples/pom.xml
      :language: xml
