@@ -30,12 +30,13 @@
     <module>aws/ses</module>
   </modules>
 
+  <!-- spring-boot-version-start -->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>2.7.3</version>
-    <relativePath />
   </parent>
+  <!-- spring-boot-version-end -->
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,6 +46,7 @@
 
   <dependencyManagement>
     <dependencies>
+      <!-- other-versions-start -->
       <dependency>
         <groupId>org.seasar.doma.boot</groupId>
         <artifactId>doma-spring-boot-starter</artifactId>
@@ -95,6 +97,7 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- other-versions-end -->
     </dependencies>
   </dependencyManagement>
 

@@ -78,7 +78,7 @@ Spring Boot
      :language: xml
      :start-after: spring-boot-version-start
      :end-before: spring-boot-version-end
-     :dedent: 6
+     :dedent: 2
 
 その他のライブラリ
   以下のライブラリをすべてのサンプルで利用しているわけではありません。サンプルごとに利用しているライブラリは、サンプルのpom.xmlで確認してください。
