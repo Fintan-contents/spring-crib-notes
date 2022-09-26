@@ -45,29 +45,11 @@
 基本的な実装方法については、Springの公式ドキュメントを参照してください。
 
 また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず `Macchinetta Framework <https://macchinetta.github.io>`_ を参照することをおすすめします。
-ただし、このドキュメントとMacchinettaでは、利用しているSpring Frameworkのバージョンが異なり、設定の記載方法も異なるため、具体的な実装例や設定例はそのままでは利用できないと考えてください。
+ただし、このドキュメントとMacchinettaでは、設定の記載方法が異なるため、具体的な実装例や設定例はそのままでは利用できないと考えてください。（このドキュメントではJava Config、MacchinettaではXML Configを使用している）
 
 * :macchinetta-server-guideline-thymeleaf-doc:`Macchinetta Server Framework Development Guideline <>`
 * :macchinetta-cloud-guideline-doc:`Macchinetta Server Framework Cloud Extension Development Guideline <>`
 * :macchinetta-batch-guideline-doc:`Macchinetta Batch Framework Development Guideline <>`
-
-.. list-table:: Macchinettaとの主な相違点
-   :widths: 25 20 35 20
-   :header-rows: 1
-   :stub-columns: 1
-
-   * -
-     - Spring
-     - Spring Boot
-     - 設定方法
-   * - このドキュメント
-     - 5.x
-     - 2.x
-     - JavaConfig
-   * - Macchinetta Framework
-     - 4.x
-     - 1.x （Cloud Extensionのみ）
-     - XML
 
 .. _test-environment-and-dependencies:
 
