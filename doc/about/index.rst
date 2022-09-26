@@ -36,13 +36,6 @@
   * Spring Batchの各ステレオタイプの役割を理解している
   * Spring Batchの処理フローを理解している
 
-これからSpringを初めて利用するという人は、次のような書籍やサイトを活用して学習してください。
-
-* `Getting Started · Building an Application with Spring Boot <https://spring.io/guides/gs/spring-boot/>`_
-* `はじめての Spring Boot[改訂版] <https://www.kohgakusha.co.jp/books/detail/978-4-7775-1969-9>`_
-* `Spring徹底入門 Spring FrameworkによるJavaアプリケーション開発（株式会社NTTデータ）｜翔泳社の本 <http://www.shoeisha.co.jp/book/detail/9784798142470>`_
-
-
 このドキュメントの使い方
 ------------------------------------
 
