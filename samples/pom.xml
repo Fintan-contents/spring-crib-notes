@@ -47,6 +47,7 @@
   <dependencyManagement>
     <dependencies>
       <!-- other-versions-start -->
+      <!-- doma-starter-start -->
       <dependency>
         <groupId>org.seasar.doma.boot</groupId>
         <artifactId>doma-spring-boot-starter</artifactId>
@@ -58,6 +59,7 @@
         <version>2.53.0</version>
         <optional>true</optional>
       </dependency>
+      <!-- doma-starter-end -->
       <dependency>
         <groupId>io.awspring.cloud</groupId>
         <artifactId>spring-cloud-aws-dependencies</artifactId>

@@ -9,13 +9,13 @@
 Doma2を使うための設定例
 --------------------------------------------------
 pom.xml
-  依存ライブラリに\ `doma-spring-boot-starter <https://github.com/domaframework/doma-spring-boot>`_\ を追加することで、Doma2用の設定が自動的に行われます。
+  依存ライブラリに\ `doma-spring-boot-starter <https://github.com/domaframework/doma-spring-boot>`_\ と\ `doma-processor <https://github.com/domaframework/doma>`_\を追加することで、Doma2用の設定が自動的に行われます。
 
-  .. literalinclude:: ../../../samples/common/doma2/pom.xml
+  .. literalinclude:: ../../../samples/pom.xml
      :language: xml
      :start-after: doma-starter-start
      :end-before: doma-starter-end
-     :dedent: 4
+     :dedent: 6
 
 application.properties
   使用するデータベースをDoma2に認識させるための設定を追加します。
@@ -25,25 +25,9 @@ application.properties
      :start-after: doma2-settings-start
      :end-before: doma2-settings-end
 
-サンプル全体は :sample-app:`doma2-sample <common/doma2>` を参照してください。
-
-Doma2用のEntityを生成するための設定例
---------------------------------------------------
-:doma-gen-doc:`Doma-Gen <>`\ を使うとデータベースのメタデータからEntityクラスなどを生成できます。
-
-pom.xml
-  pom.xmlのプラグインの設定例となります。この設定の場合、mvn generate-resourcesの実行でEntityクラスが生成されます。
-  下の例とDoma-Genのドキュメントを参考に必要な設定を行ってください。
-
-  .. literalinclude:: ../../../samples/common/doma2/pom.xml
-    :language: xml
-    :start-after: doma-gen-start
-    :end-before: doma-gen-end
-    :dedent: 2
-
 .. tip::
 
-  Entityクラス以外にもDaoやSQLファイルなどの生成もできます。
+  ビルドツールにGradleを使用している場合は\ `Doma CodeGen Plugin <https://github.com/domaframework/doma-codegen-plugin>`_\ を使用することで、EntityクラスやDAOクラス、SQLファイルなどを生成することができます。
 
 サンプル全体は :sample-app:`doma2-sample <common/doma2>` を参照してください。
 
@@ -55,4 +39,4 @@ Doma2が送出する例外は、 ``doma-spring-boot-starter`` の機能でSpring
 そのため、送出される例外を捕捉する場合は、Springの例外クラスを捕捉するようにしてください。
 Doma2の例外クラスとSpringの例外クラスのマッピングについては、以下を参照してください。
 
-* :doma-spring-boot-source:`Doma2の例外クラスとSpringの例外クラスのマッピング <doma-spring-boot-autoconfigure/src/main/java/org/seasar/doma/boot/autoconfigure/DomaPersistenceExceptionTranslator.java>`
+* :doma-spring-boot-source:`Doma2の例外クラスとSpringの例外クラスのマッピング <doma-spring-boot-core/src/main/java/org/seasar/doma/boot/DomaPersistenceExceptionTranslator.java>`

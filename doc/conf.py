@@ -208,10 +208,9 @@ extlinks = {
   'macchinetta-cloud-guideline-doc': ('https://macchinetta.github.io/cloud-guideline/' + '1.2.0.RELEASE' + '/ja/%s', None),
   'macchinetta-batch-guideline-doc': ('https://macchinetta.github.io/batch-guideline/' + '2.3.1.RELEASE' + '/ja/%s', None),
   'thymeleaf-tutorials-doc': ('https://www.thymeleaf.org/doc/tutorials/' + '3.0' + '/%s', None),
-  'doma-spring-boot-source': ('https://github.com/domaframework/doma-spring-boot/blob/' + '1.1.1' + '/%s', None),
-  'doma-doc': ('https://doma.readthedocs.io/ja/' + '2.19.2' + '/%s', None),
-  'doma-java-doc': ('https://static.javadoc.io/org.seasar.doma/doma/' + '2.19.2' + '/%s', None),
-  'doma-gen-doc': ('https://doma-gen.readthedocs.io/ja/' + '2.19.2' + '/%s', None),
+  'doma-spring-boot-source': ('https://github.com/domaframework/doma-spring-boot/blob/' + '1.6.0' + '/%s', None),
+  'doma-doc': ('https://doma.readthedocs.io/en/' + '2.53.0' + '/%s', None),
+  'doma-java-doc': ('https://www.javadoc.io/static/org.seasar.doma/doma-core/' + '2.53.0' + '/%s', None),
   'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '6.0' + '/%s', None)
 }
 
