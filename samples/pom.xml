@@ -78,11 +78,13 @@
         <scope>test</scope>
       </dependency>
 
+      <!-- logback-access-spring-boot-version-start -->
       <dependency>
-        <groupId>net.rakugakibox.spring.boot</groupId>
+        <groupId>dev.akkinoc.spring.boot</groupId>
         <artifactId>logback-access-spring-boot-starter</artifactId>
-        <version>2.7.1</version>
+        <version>3.4.0</version>
       </dependency>
+      <!-- logback-access-spring-boot-version-end -->
 
       <dependency>
         <groupId>jp.fintan.keel</groupId>
