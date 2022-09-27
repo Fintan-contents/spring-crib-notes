@@ -5,7 +5,7 @@
 ドキュメント内に記載しているアプリケーションの構成要素は以下となります。
 
 アプリケーションの構成要素
-  .. image:: images/application-stack.drawio.svg
+  .. image:: images/application-stack.drawio.png
      :width: 90%
 
 .. list-table:: Web / APIの構成要素の概要
