@@ -40,6 +40,17 @@
      - `Spring Batch <https://spring.io/projects/spring-batch>`_
      - Springが提供するBatchフレームワークです。
 
+.. list-table:: AWSの構成要素の概要
+   :widths: 5 20 75
+   :header-rows: 1
+
+   * - No
+     - 構成要素
+     - 概要
+   * - 1
+     - `Spring Cloud AWS <https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html>`_
+     - Spring Cloud傘下のプロジェクトで、Amazon Web ServicesのSDKが提供する機能をSpringに統合します。
+
 .. list-table:: 共通の構成要素の概要
    :widths: 5 20 75
    :header-rows: 1
