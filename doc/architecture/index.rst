@@ -25,8 +25,8 @@
      - `Thymeleaf <https://www.thymeleaf.org/documentation.html>`_
      - テンプレートエンジンです。画面の作成に使用します。
    * - 4
-     - `terasoluna-gfw-web <https://github.com/terasolunaorg/terasoluna-gfw/tree/master/terasoluna-gfw-common-libraries/terasoluna-gfw-web>`_
-     - | `TERASOLUNA <http://terasolunaorg.github.io/>`_ が提供するWeb用のアプリケーションフレームワークです。
+     - `keel-spring-enhance <https://github.com/Fintan-contents/keel-spring-enhance>`_
+     - | Springの不足機能などを補うための機能を提供するライブラリです。
        | 二重送信の防止に利用します。
 
 .. list-table:: Batchの構成要素の概要
