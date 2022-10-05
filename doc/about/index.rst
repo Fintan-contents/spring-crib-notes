@@ -61,13 +61,9 @@
 .. list-table:: 実行環境
 
    * - OS
-     - CentOS 7 64bit
-   * - Docker
-     - 18.03.1-ce
-   * - Container
-     - jenkins/jenkins:2.107.3
+     - Amazon Linux 2
    * - JDK
-     - OpenJDK 8
+     - Liberica JDK 11
 
 また、明示的に依存しているのは以下のライブラリです。
 
