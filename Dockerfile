@@ -1,4 +1,4 @@
 FROM sphinxdoc/sphinx
 
-WORKDIR /docs
+WORKDIR /repos/doc
 RUN pip3 install sphinx_rtd_theme
