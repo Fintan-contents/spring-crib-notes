@@ -41,7 +41,7 @@
 このドキュメントの使い方
 ------------------------------------
 
-.. image:: images/how-to-use-this-document.png
+.. image:: images/how-to-use-this-document.drawio.png
    :width: 70%
 
 基本的な実装方法については、Springの公式ドキュメントを参照してください。
