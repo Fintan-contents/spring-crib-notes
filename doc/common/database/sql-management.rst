@@ -1,10 +1,6 @@
 DDL / DMLの管理
 ==================================================
 
-.. warning::
-     このページの内容は、現在検討・検証中です。今後、内容が大きく変更する可能性があります。
-     その点につきましてはご留意頂くようお願いします。
-
 開発時における、DDLやDMLの管理方法について記載します。
 
 以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
@@ -26,19 +22,24 @@ Flywayのその他のコマンドや、 アプリケーションの起動時で�
  <reference/html/howto.html#howto.data-initialization.migration-tool>`
 * `Flyway Documentation - Maven Plugin <https://flywaydb.org/documentation/maven/>`_
 
-なお、Flywayを使用して、初期データやテストデータ等のDMLを管理する事も可能です。
-但し、データのみをクリーニングする機能が存在しないため、開発者がテスト時にデータを投入したり更新したりするようなテーブルのDMLは、Flywayで管理しない事をお薦めします。
-例えば、Flywayで管理しているデータを投入する前に、開発者が同一レコードのデータを手動や別のツールで投入すると、一意制約違反が発生し、FlywayのMigrateコマンドが失敗します。
-対応するには、開発者が手動でレコードを削除しなければいけない等、運用が煩雑になることが予想されます。
-そのため、このようなデータを管理する場合は、 :ref:`sql-management-dml` を参考にしてください。
-
 .. _sql-management-dml:
 
 DMLの管理
 --------------------------------------------------
-初期データやテストデータ等のDMLの管理として、任意のディレクトリに格納されているSQLファイルを実行可能な `SQL Maven Plugin <http://www.mojohaus.org/sql-maven-plugin/>`_ の使用を推奨します。[#document_version]_ 
+
+初期データやテストデータ等のDMLの管理として、DDLと同じようにFlywayを使用する方法があります。
+ただ、開発者がテスト時に手動や別のツール等でデータを投入するといった運用をする場合、Flywayではデータのみをクリーニングする機能が存在しないので注意が必要になります。
+
+例えば、Flywayで管理しているデータを投入する前に重複するデータを手動で投入してしまっていた場合、FlywayのMigrateコマンドが失敗してしまいます。そういった事態を避けるために、開発者が手動でデータを削除しなければいけない等、運用が煩雑になることがあります。
+
+そのような状況でDMLを管理する方法の1つとして、ここでは任意のディレクトリに格納されているSQLファイルを実行できる `SQL Maven Plugin <http://www.mojohaus.org/sql-maven-plugin/>`_ を使用する方法について記載します。[#document_version]_
 
 .. [#document_version] 本サンプルアプリケーションで使用しているSQL Maven Pluginのバージョンは「1.5」ですが、参考情報のドキュメントはバージョンが「3.0.0-SNAPSHOT」の内容となります。ご注意ください。
+
+.. tip::
+
+  テストデータをFlywayで管理したい場合は、プロファイルを使用する方法等がありますので、 :spring-boot-doc:`9.5.1. Execute Flyway Database Migrations on Startup
+ <reference/html/howto.html#howto.data-initialization.migration-tool>`_ を参考にしてください。
 
 Flyway Maven Plugin / SQL Maven Plugin の設定例
 --------------------------------------------------
