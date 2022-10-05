@@ -15,9 +15,9 @@ Spring Bootでは、入力値のチェックとしてBean Validationをサポー
 * Springのメッセージ定義ファイル（クラスパス直下のmessages.properties）
 * Hibernate Validatorのメッセージ定義ファイル（クラスパス直下のValidationMessages.propertiesやValidationMessages_ja.properties等）
 
-エラーメッセージの解決では、まずSpringのメッセージ定義ファイルが使用されます。（エラーメッセージ解決の詳細については :spring-framework-doc:` エラーメッセージの解決 <reference/html/core.html#validation-conversion>`_ を参考にしてください）
+エラーメッセージの解決では、まずSpringのメッセージ定義ファイルが使用されます。（エラーメッセージ解決の詳細については :spring-framework-doc:`エラーメッセージの解決 <reference/html/core.html#validation-conversion>` を参考にしてください）
 
-Springのメッセージ定義ファイルにエラーメッセージが定義されていなければ、Hibernate Validatorのメッセージ定義ファイルが使用されます。（Hibernate Validatorのエラーメッセージ解決の詳細については :hibernate-validator-doc:`エラーメッセージの補完<reference/en-US/html_single/#chapter-message-interpolation>`_ を参考にしてください）
+Springのメッセージ定義ファイルにエラーメッセージが定義されていなければ、Hibernate Validatorのメッセージ定義ファイルが使用されます。（Hibernate Validatorのエラーメッセージ解決の詳細については :hibernate-validator-doc:`エラーメッセージの補完 <reference/en-US/html_single/#chapter-message-interpolation>` を参考にしてください）
 
 エラーメッセージには、Bean ValidationやHibernate Validatorの入力チェックアノテーションで定義されている属性名を、プレースホルダとして定義できます。
 例えば、 :hibernate-validator-doc:`@Length <api/org/hibernate/validator/constraints/Length.html>` を用いて入力値チェックを実施した場合は、プレースホルダとして `{min}、{max}` が使用できます。

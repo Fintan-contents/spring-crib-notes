@@ -18,8 +18,7 @@ Flywayのその他のコマンドや、 アプリケーションの起動時で�
 
 参考情報
 
-* :spring-boot-doc:`9.5.1. Execute Flyway Database Migrations on Startup
- <reference/html/howto.html#howto.data-initialization.migration-tool>`
+* :spring-boot-doc:`9.5.1. Execute Flyway Database Migrations on Startup <reference/html/howto.html#howto.data-initialization.migration-tool>`
 * `Flyway Documentation - Maven Plugin <https://flywaydb.org/documentation/maven/>`_
 
 .. _sql-management-dml:
@@ -38,8 +37,7 @@ DMLの管理
 
 .. tip::
 
-  テストデータをFlywayで管理したい場合は、プロファイルを使用する方法等がありますので、 :spring-boot-doc:`9.5.1. Execute Flyway Database Migrations on Startup
- <reference/html/howto.html#howto.data-initialization.migration-tool>`_ を参考にしてください。
+  テストデータをFlywayで管理したい場合は、プロファイルを使用する方法等がありますので、 :spring-boot-doc:`9.5.1. Execute Flyway Database Migrations on Startup <reference/html/howto.html#howto.data-initialization.migration-tool>` を参考にしてください。
 
 Flyway Maven Plugin / SQL Maven Plugin の設定例
 --------------------------------------------------
