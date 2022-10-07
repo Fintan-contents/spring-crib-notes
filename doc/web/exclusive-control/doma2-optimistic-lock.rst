@@ -1,11 +1,13 @@
 Doma2の楽観ロックで排他制御する
 ====================================================================================================
-Doma2の\ :doma-java-doc:`@Version <org/seasar/doma/Version.html>`\ を使用した楽観ロック方式で実現します。
+Doma2の\ :doma-doc:`@Versionアノテーション <entity/#version>`\ を使用した楽観ロック方式で実現します。
 
 Doma2の楽観ロックについては、以下の公式ドキュメントを参照してください。
 
 * :doma-doc:`更新 <query/update/>`
+* :doma-doc:`削除 <query/delete/>`
 * :doma-doc:`バッチ更新 <query/batch-update/>`
+* :doma-doc:`バッチ削除 <query/batch-delete/>`
 
 以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
@@ -29,9 +31,7 @@ Doma2の楽観ロックについては、以下の公式ドキュメントを参
 -----------------------------------------------
 Controllerでの ``userService.update(User)`` の実行時にDoma2の楽観排他制御が行われます。楽観排他に失敗した場合は、Doma2がOptimisticLockExceptionを送出します。
 OptimisticLockExceptionは、 ``doma-spring-boot-starter`` がSpringのOptimisticLockingFailureExceptionに変換して再送出します。
-詳細は、以下を参照してください。
-
-* :ref:`Doma2が送出する例外の変換 <doma2-exception-translator>`
+詳細は、 :ref:`Doma2が送出する例外の変換 <doma2-exception-translator>` を参照してください。
 
 送出されたOptimisticLockingFailureExceptionはアプリケーション全体で横断的に処理することで、個別の機能で例外処理する必要がなくなります。詳細は、 :doc:`/web/error-handling/index` を参照してください。
 
