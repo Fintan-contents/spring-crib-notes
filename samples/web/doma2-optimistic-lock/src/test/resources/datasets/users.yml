@@ -1,4 +1,4 @@
-USERS:
-  - USER_ID: 9999
-    USER_NAME: "jiro"
-    VERSION_NO: 10
+users:
+  - user_id: 9999
+    user_name: "jiro"
+    version_no: 10

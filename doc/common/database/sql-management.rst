@@ -14,12 +14,12 @@ Flyway の基本的な使用方法については、以下を参照してくだ�
 * `Flyway Documentation <https://flywaydb.org/documentation/>`_
 
 Spring BootはFlywayをサポートしており、アプリケーションの起動時に `FlywayのMigrateコマンド <https://flywaydb.org/documentation/command/migrate>`_ を自動実行します。
-Flywayのその他のコマンドや、 アプリケーションの起動時ではなく任意のタイミングでFlywayのMigrateコマンドを実行したい場合は、`FlywayのMaven Plugin <https://flywaydb.org/documentation/maven/>`_\ を使用する事で実行が可能です。
+Flywayのその他のコマンドや、 アプリケーションの起動時ではなく任意のタイミングでFlywayのMigrateコマンドを実行したい場合は、`FlywayのMaven Plugin <https://flywaydb.org/documentation/usage/maven/>`_\ を使用する事で実行が可能です。
 
 参考情報
 
 * :spring-boot-doc:`9.5.1. Execute Flyway Database Migrations on Startup <reference/html/howto.html#howto.data-initialization.migration-tool>`
-* `Flyway Documentation - Maven Plugin <https://flywaydb.org/documentation/maven/>`_
+* `Flyway Documentation - Maven Plugin <https://flywaydb.org/documentation/usage/maven/>`_
 
 .. _sql-management-dml:
 
