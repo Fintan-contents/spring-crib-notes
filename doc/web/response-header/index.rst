@@ -1,10 +1,10 @@
 HTTPレスポンスヘッダ
 ====================================================
-:spring-security-doc:`Spring Security <reference/html/>` を使用した場合に設定されるHTTPレスポンスヘッダについて記載します。
+:spring-security-doc:`Spring Security <index.html>` を使用した場合に設定されるHTTPレスポンスヘッダについて記載します。
 
 Spring Securityを使用した場合、デフォルトでは全てのHTTPレスポンスに以下のヘッダが設定されます。詳細は、以下の公式ドキュメントを参照してください。
 
-* :spring-security-doc:`Spring Security Reference 21.1 Default Security Headers <reference/html/headers.html#default-security-headers>`
+* :spring-security-doc:`Default Security Headers <servlet/exploits/headers.html#servlet-headers-default>`
 
 デフォルトで設定されるレスポンスヘッダ
   .. code-block:: YAML
@@ -19,7 +19,7 @@ Spring Securityを使用した場合、デフォルトでは全てのHTTPレス�
 
 X-Content-Type-Options: nosniff が設定されるので、ブラウザはレスポンスのContent-Typeを推測しなくなります。そのため、レスポンスに正しいContent-Typeを設定しないと期待通りの動作をしなくなるので注意してください。Spring Bootのデフォルトでは適切なContent-Typeが設定されるように構成されています。
 
-また、 X-Frame-Options: DENY が設定されるため、レスポンスのHTMLを iframe などのフレーム内に表示できなくなります。フレーム内に表示する必要がある場合は、 :spring-security-doc:`Spring Security Reference 21.1 Default Security Headers <reference/html/headers.html#headers-frame-options>` を参考に SAMEORIGIN を設定してください。
+また、 X-Frame-Options: DENY が設定されるため、レスポンスのHTMLを iframe などのフレーム内に表示できなくなります。フレーム内に表示する必要がある場合は、 :spring-security-doc:`X-Frame-Options <servlet/exploits/headers.html#servlet-headers-frame-options>` を参考に SAMEORIGIN を設定してください。
 
 .. tip::
 

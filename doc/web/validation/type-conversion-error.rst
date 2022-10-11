@@ -1,7 +1,6 @@
 入力値の型変換エラー時に入力画面に適切なメッセージを表示する
 ===================================================================
-画面から入力された値は、\ `Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_\ を使ってチェックを行いますが、
-入力値からBeanを作成する際に(下記の ``No1`` で)型変換エラーが発生する場合があります。
+画面から入力された値は、\ `Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_\ により下記の流れで処理されますが、入力値をBeanに変換する際に型変換エラーが発生する場合があります。
 
 Bean Validationの処理の流れ
   1. 入力値をBeanに変換  

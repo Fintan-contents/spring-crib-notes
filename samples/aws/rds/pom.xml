@@ -20,7 +20,7 @@
     
     <!-- cloud-aws-jdbc-start -->
     <dependency>
-      <groupId>org.springframework.cloud</groupId>
+      <groupId>io.awspring.cloud</groupId>
       <artifactId>spring-cloud-starter-aws-jdbc</artifactId>
     </dependency>
     <!-- cloud-aws-jdbc-end -->
@@ -28,6 +28,14 @@
     <dependency>
       <groupId>org.seasar.doma.boot</groupId>
       <artifactId>doma-spring-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.seasar.doma</groupId>
+      <artifactId>doma-processor</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.seasar.doma</groupId>
+      <artifactId>doma-slf4j</artifactId>
     </dependency>
 
     <dependency>

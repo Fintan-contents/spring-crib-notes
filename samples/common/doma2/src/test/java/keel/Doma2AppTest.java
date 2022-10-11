@@ -1,22 +1,17 @@
 package keel;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = Doma2App.class)
 @AutoConfigureMockMvc
 public class Doma2AppTest {
@@ -27,7 +22,7 @@ public class Doma2AppTest {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         jdbcTemplate.execute("truncate table users");
     }

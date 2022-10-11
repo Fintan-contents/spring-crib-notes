@@ -4,8 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import keel.apierrorhandling.ApiErrorHandlingApp;
 import keel.apierrorhandling.service.UserService;
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -14,7 +13,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.HashMap;
@@ -28,7 +26,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = ApiErrorHandlingApp.class)
 @AutoConfigureMockMvc
 public class UsersControllerTest {
@@ -146,4 +143,3 @@ public class UsersControllerTest {
                 .andExpect(jsonPath("$").value("入力形式に誤りがあります。"));
     }
 }
-

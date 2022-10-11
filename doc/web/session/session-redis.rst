@@ -12,15 +12,15 @@ Redisへのセッション情報の保存や取得は、 `Spring Session <https:
 
 セッションの保存先をRedisにする
 ----------------------------------------------------------------------------------------------------
-:spring-session-doc:`Spring Session - Spring Boot <reference/html5/guides/boot-redis.html>` を参考にライブラリの追加と設定の追加を行います。
+:spring-session-doc:`Spring Session - Spring Boot Configuration <guides/boot-redis.html#boot-spring-configuration>` を参考にライブラリの追加と設定の追加を行います。
 
 ローカル開発環境について
 ----------------------------------------------------------------------------------------------------
 Dockerの `Redis公式イメージ <https://hub.docker.com/_/redis/>`_ を使用することで簡単にRedis環境を構築出来ます。
-この場合は、ローカル開発環境とテストや本番環境でRedisの接続先の設定が変わるので、:spring-boot-doc:`profile <reference/html/boot-features-external-config.html#boot-features-external-config-profile-specific-properties>`\ で設定値を切り替える等の対応が必要となります。
+この場合は、ローカル開発環境とテストや本番環境でRedisの接続先の設定が変わるので、:spring-boot-doc:`2.3.3. Profile Specific Files <reference/html/features.html#features.external-config.files.profile-specific>`\ で設定値を切り替える等の対応が必要となります。
 
 例えば、本番と開発PCで設定を切り替える場合には以下のような構成になります。
-接続先の設定については、 :spring-session-doc:`Configuring the Redis Connection <reference/html5/guides/boot-redis.html#boot-redis-configuration>` を参照してください。
+接続先の設定については、 :spring-session-doc:`Configuring the Redis Connection <guides/boot-redis.html#boot-redis-configuration>` を参照してください。
 
 application.properties(本番用)
   .. code-block:: properties

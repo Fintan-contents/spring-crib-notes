@@ -24,7 +24,7 @@ pom.xml
 
 .. tip::
   ログのフォーマットの変更(例えば、ログの可視化用にLTSV形式への変更)などを行う場合には、
-  `logback-access-spring-boot-starter <https://github.com/akihyro/logback-access-spring-boot-starter>`_ を参考にしてください。
+  `logback-access-spring-boot-starter <https://github.com/akkinoc/logback-access-spring-boot-starter>`_ を参考にしてください。
 
   例えば、LTSVでログを出力する場合は下の内容をもつ logback-access.xmlを作成してsrc/main/resources配下に配置します。
 

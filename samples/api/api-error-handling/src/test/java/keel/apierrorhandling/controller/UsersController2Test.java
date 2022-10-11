@@ -3,14 +3,12 @@ package keel.apierrorhandling.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import keel.apierrorhandling.ApiErrorHandlingApp;
 import keel.apierrorhandling.service.UserService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.HashMap;
@@ -20,7 +18,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = ApiErrorHandlingApp.class)
 @AutoConfigureMockMvc
 public class UsersController2Test {
@@ -52,4 +49,3 @@ public class UsersController2Test {
                 .andExpect(jsonPath("$").value("入力項目に誤りがあります。"));
     }
 }
-
