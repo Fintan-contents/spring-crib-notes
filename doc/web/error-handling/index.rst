@@ -7,7 +7,7 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
 :spring-framework-doc:`Spring Web MVCがデフォルトでハンドリングする例外 <javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`
 であれば、アプリケーション側で設定や実装を行わなくても、レスポンスに適切なステータスコードが設定されます。記載のない例外については、デフォルトではステータスコードとして500が設定されます。
 
-エラーが返却された場合、 デフォルトで :spring-boot-doc:`Sping Bootが提供しているエラー画面が表示されます <reference/htmlsingle/#web.servlet.spring-mvc.error-handling>` 。エラー画面の動作については ``server.error`` プロパティでカスマイズすることができます。プロパティの詳細については :spring-boot-doc:`Server Properties <reference/htmlsingle/#appendix.application-properties.server>` を参照してください。
+エラーが返却された場合、 デフォルトで :spring-boot-doc:`Sping Bootが提供しているエラー画面が表示されます <reference/html/web.html#web.servlet.spring-mvc.error-handling>` 。エラー画面の動作については ``server.error`` プロパティでカスマイズすることができます。プロパティの詳細については :spring-boot-doc:`Server Properties <reference/html/application-properties.html#appendix.application-properties.server>` を参照してください。
 
 また、デフォルトのエラー画面ではなく独自に作成したエラー画面を表示したい場合には、以下の方法があります。
 
