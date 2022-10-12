@@ -4,10 +4,17 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
 
 :spring-framework-doc:`Spring Web MVC <reference/html/web.html#spring-web>` では、発生した例外を自動的にログ出力し、クライアントにエラーを返却します。
 
-特に、 :spring-framework-doc:`Spring Web MVCがデフォルトでハンドリングする例外 <javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`
-は、アプリケーション側で設定や実装を行わなくても、適切なレスポンスステータスコードに変換されます。記載のない例外についてはデフォルトではステータスコード500に変換されます。
+:spring-framework-doc:`Spring Web MVCがデフォルトでハンドリングする例外 <javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`
+であれば、アプリケーション側で設定や実装を行わなくても、レスポンスに適切なステータスコードが設定されます。記載のない例外については、デフォルトではステータスコードとして500が設定されます。
 
-なお、エラー画面はSpring Bootがデフォルトで用意した画面になります。カスタマイズする場合は、templates/error/<status-code>.htmlを作成してください。例えば、404 NotFoundの画面をカスタマイズしたい場合は、templates/error/404.htmlとして作成します。
+エラーが返却された場合、 デフォルトで :spring-boot-doc:`Sping Bootが提供しているエラー画面が表示されます <reference/html/web.html#web.servlet.spring-mvc.error-handling>` 。エラー画面の動作については ``server.error`` プロパティでカスマイズすることができます。プロパティの詳細については :spring-boot-doc:`Server Properties <reference/html/application-properties.html#appendix.application-properties.server>` を参照してください。
+
+また、デフォルトのエラー画面ではなく独自に作成したエラー画面を表示したい場合には、以下の方法があります。
+
+* ステータスコードに対応するページを templates/error/<status-code>.html として作成する
+* 例外をハンドリング後、任意のページ名を返す
+
+例えば、ステータスコードが 404 NotFound の画面をカスタマイズしたい場合は templates/error/404.html を作成します。
 
 以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
