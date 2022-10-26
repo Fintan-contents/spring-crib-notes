@@ -1,13 +1,15 @@
 package keel.filedownload;
 
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.AbstractView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 // example-start
@@ -21,7 +23,6 @@ public class TextFileDownloadView extends AbstractView {
 
     public TextFileDownloadView(ResourceLoader resourceLoader) {
         this.resourceLoader = resourceLoader;
-        setContentType("text/plain");
     }
 
     @Override
@@ -29,18 +30,18 @@ public class TextFileDownloadView extends AbstractView {
                                            HttpServletRequest request, HttpServletResponse response) throws Exception {
         // ダウンロード対象のファイルを読込み、レスポンスボディに書込みます
         FileDownloadAttributes attributes = (FileDownloadAttributes) model.get(DOWNLOAD_FILE_INFO_KEY);
-        long size = writeFileContentToResponse(attributes.getTargetFilePath(), response);
+        try (InputStream in = resourceLoader.getResource(attributes.getTargetFilePath()).getInputStream()) {
+            in.transferTo(response.getOutputStream());
+        }
 
         // レスポンスヘッダを設定します
-        response.setContentType(getContentType());
-        response.setHeader("Content-Disposition", "attachment; filename=" + attributes.getDownloadFileName());
-        response.setHeader("Content-Length", String.valueOf(size));
-    }
-
-    private long writeFileContentToResponse(String filePath, HttpServletResponse response) throws IOException {
-        try (InputStream in = resourceLoader.getResource(filePath).getInputStream()) {
-            return in.transferTo(response.getOutputStream());
-        }
+        response.setContentType("text/plain");
+        // 日本語のファイル名に対応するため、Content-DispositionはRFC6266の形式に沿って設定する
+        ContentDisposition contentDisposition = ContentDisposition
+                .attachment()
+                .filename(attributes.getDownloadFileName(), StandardCharsets.UTF_8)
+                .build();
+        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, contentDisposition.toString());
     }
 }
 // example-end
