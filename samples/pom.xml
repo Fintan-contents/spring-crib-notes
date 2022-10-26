@@ -91,11 +91,13 @@
       </dependency>
       <!-- logback-access-spring-boot-version-end -->
 
+      <!-- keel-web-start -->
       <dependency>
         <groupId>jp.fintan.keel</groupId>
         <artifactId>keel-spring-boot-starter-web</artifactId>
         <version>1.0.0</version>
       </dependency>
+      <!-- keel-web-end -->
 
       <dependency>
         <groupId>org.springframework.cloud</groupId>
