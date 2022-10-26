@@ -24,7 +24,7 @@ public class UserController {
         // Viewで使用するダウンロードファイルパスをModelに設定します
         // （もしユーザが画面で入力したファイルパス等を使用する場合は、ディレクトリトラバーサル攻撃への対策も考慮してください）
         model.addAttribute(TextFileDownloadView.DOWNLOAD_FILE_INFO_KEY,
-                new FileDownloadAttributes(targetFilePath, "テスト.txt"));
+                new FileDownloadAttributes(targetFilePath, "ダウンロード.txt"));
 
         // ViewのBean名を返します
         return "textFileDownloadView";

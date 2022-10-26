@@ -29,7 +29,7 @@ public class UserControllerTest {
                 .andExpect(model().hasNoErrors())
                 .andExpect(content().string("test"))
                 .andExpect(content().contentType("text/plain"))
-                .andExpect(header().string("Content-Disposition",
-                        "attachment; filename*=UTF-8''" + URLEncoder.encode("テスト.txt", StandardCharsets.UTF_8)));
+                .andExpect(header().string("Content-Disposition", "attachment; filename*=UTF-8''"
+                        + URLEncoder.encode("ダウンロード.txt", StandardCharsets.UTF_8)));
     }
 }
