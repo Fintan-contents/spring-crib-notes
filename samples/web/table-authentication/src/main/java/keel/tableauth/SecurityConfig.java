@@ -17,20 +17,18 @@ public class SecurityConfig {
     // role-start
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(authz -> authz
-                .antMatchers("/admin/**")
-                .hasRole("admin")
-                .anyRequest()
-                .authenticated()
-        ).formLogin(login -> login
+        http.authorizeHttpRequests(authorize -> authorize
+                .mvcMatchers("/admin/**").hasRole("admin")
+                .anyRequest().authenticated()
+        ).formLogin(form -> form
+                .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .loginPage("/login")
-                .permitAll()
                 .defaultSuccessUrl("/top", true)
+                .permitAll()
         ).logout(logout -> logout
-                .invalidateHttpSession(true)
                 .logoutSuccessUrl("/login?logout")
+                .invalidateHttpSession(true)
                 .permitAll()
         );
 
