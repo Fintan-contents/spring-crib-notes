@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 // example-start
-// UserDetailsServiceを継承して、ユーザ名に紐づく情報を取得するloadUserByUsernameメソッドを実装します。
+// UserDetailsServiceを実装して、ユーザ名に紐づく情報を取得するloadUserByUsernameメソッドを実装します。
 @Service
 public class UserService implements UserDetailsService {
 
