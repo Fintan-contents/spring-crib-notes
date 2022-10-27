@@ -7,6 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -26,6 +29,7 @@ public class UserControllerTest {
                 .andExpect(model().hasNoErrors())
                 .andExpect(content().string("test"))
                 .andExpect(content().contentType("text/plain"))
-                .andExpect(header().string("Content-Disposition", "attachment; filename=download.txt"));
+                .andExpect(header().string("Content-Disposition", "attachment; filename*=UTF-8''"
+                        + URLEncoder.encode("ダウンロード.txt", StandardCharsets.UTF_8)));
     }
 }
