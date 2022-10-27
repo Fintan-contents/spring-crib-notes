@@ -2,7 +2,6 @@ package keel.tableauth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.access.vote.RoleHierarchyVoter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -37,16 +36,11 @@ public class SecurityConfig {
 
     @Bean
     public RoleHierarchyVoter roleHierarchyVoter() {
-        return new RoleHierarchyVoter(roleHierarchy());
-    }
-
-    @Bean
-    public RoleHierarchy roleHierarchy() {
         // 権限の階層構造の設定をします。
         // admin権限は、user権限を含む権限となります。
-        final RoleHierarchyImpl hierarchy = new RoleHierarchyImpl();
+        RoleHierarchyImpl hierarchy = new RoleHierarchyImpl();
         hierarchy.setHierarchy("ROLE_admin > ROLE_user");
-        return hierarchy;
+        return new RoleHierarchyVoter(hierarchy);
     }
     // role-end
 
