@@ -10,7 +10,7 @@ public class UserController {
 
     /** ダウンロード対象のファイルパス */
     @Value("${keel.filedownload.path}")
-    String targetFilePath;
+    private String targetFilePath;
 
     @GetMapping("/")
     public String index() {
@@ -20,19 +20,13 @@ public class UserController {
     // example-start
     @GetMapping("/download")
     public String download(Model model) {
-        /**
-         * {@link TextFileDownloadView}に渡す情報を、Modelに設定します。
-         *
-         * なお、このサンプルではダウンロード対象のファイルパス({@link targetFilePath})は
-         * application.propertiesから取得していますが、ユーザが画面で入力したファイルパス等を使用する場合は、
-         * ディレクトリトラバーサル攻撃への対策も実施するようにしてください。
-         */
+
+        // Viewで使用するダウンロードファイルパスをModelに設定します
+        // （もしユーザが画面で入力したファイルパス等を使用する場合は、ディレクトリトラバーサル攻撃への対策も考慮してください）
         model.addAttribute(TextFileDownloadView.DOWNLOAD_FILE_INFO_KEY,
-                new FileDownloadAttributes(targetFilePath, "download.txt"));
-        /**
-         * ダウンロード処理は、{@link TextFileDownloadView}で実施するため、
-         * ここではそのBean名(textFileDownloadView)を返却します。
-         */
+                new FileDownloadAttributes(targetFilePath, "ダウンロード.txt"));
+
+        // ViewのBean名を返します
         return "textFileDownloadView";
     }
     // example-end
