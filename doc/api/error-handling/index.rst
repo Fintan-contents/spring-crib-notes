@@ -40,6 +40,13 @@ RESTful Webサービスでの例外ハンドリング方法とレスポンスの
 どの例外を処理するかは、メソッドに設定された\ :spring-framework-doc:`@ExceptionHandler <javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`\ アノテーションの情報により決まります。
 返却するステータスコードは :spring-framework-doc:`@ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>` アノテーションに設定します。
 
+.. tip::
+
+  例外クラスに設定した\ :spring-framework-doc:`ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>`\ のreason属性を指定した場合、
+  レスポンスボディには、reason属性に指定した値がメッセージとして表示されます。
+  reason属性に指定した値は、\ :spring-framework-doc:`MessageSource <javadoc-api/org/springframework/context/MessageSource.html>`\ を使用して解決されるため、
+  messages.propertiesに定義することも可能です。
+
 ResponseEntityExceptionHandlerを継承して例外ハンドリングクラスを作成する
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :spring-framework-doc:`ResponseEntityExceptionHandler <javadoc-api/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandler.html>` は、Spring Web MVC内で発生する例外をハンドリングするクラスです。
@@ -63,6 +70,12 @@ GlobalExceptionHandler
      :language: java
      :start-after: api-error-handling-example-start
      :end-before: api-error-handling-example-end
+
+ApiError
+  .. literalinclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/ApiError.java
+     :language: java
+     :start-after: api-error-model-start
+     :end-before: api-error-model-end
 
 UserNotFoundException
   .. literalinclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/exception/UserNotFoundException.java

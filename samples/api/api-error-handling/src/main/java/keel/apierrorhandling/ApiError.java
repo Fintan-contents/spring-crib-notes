@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
+// api-error-model-start
 public class ApiError implements Serializable {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
@@ -25,3 +26,4 @@ public class ApiError implements Serializable {
         return message;
     }
 }
+// api-error-model-end
