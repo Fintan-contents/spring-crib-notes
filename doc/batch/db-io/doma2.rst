@@ -16,7 +16,7 @@ Spring Batchで :doma-doc:`Doma2 <>` を利用してデータを読み込み/書
 
 * :doma-doc:`ストリーム検索 - 戻り値で戻す方法 <query/select/#return-the-return-value>`
 
-ItemReaderのopenではDaoからStreamを取得し、Stream自身とそのStreamから取得したIteratorをインスタンス変数として保持しておきます。 readでは保持しているIteratorの次の要素を返すようにし、 closeでは保持しているStreamを閉じるようにします。
+ItemReaderではopenでDaoからStreamを取得し、Stream自身とそのStreamから取得したIteratorをインスタンス変数として保持しておきます。 readでは保持しているIteratorの次の要素を返すようにし、 closeでは保持しているStreamを閉じるようにします。
 
 実装例
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
