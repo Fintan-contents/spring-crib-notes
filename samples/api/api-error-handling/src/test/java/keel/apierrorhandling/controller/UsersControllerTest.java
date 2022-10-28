@@ -140,6 +140,6 @@ public class UsersControllerTest {
                         .content("{name")
                 )
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$").value("入力形式に誤りがあります。"));
+                .andExpect(jsonPath("$.message").value("入力形式に誤りがあります。"));
     }
 }

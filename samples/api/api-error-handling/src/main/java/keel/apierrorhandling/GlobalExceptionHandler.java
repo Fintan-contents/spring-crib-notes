@@ -37,7 +37,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return super.handleExceptionInternal(
+        return handleExceptionInternal(
                 ex,
                 body(ex.getBindingResult()),
                 headers,
@@ -52,7 +52,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleBindException(
             BindException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return super.handleExceptionInternal(
+        return handleExceptionInternal(
                 ex,
                 body(ex.getBindingResult()),
                 headers,
@@ -67,13 +67,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(
             HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return super.handleExceptionInternal(
+        return handleExceptionInternal(
                 ex,
-                messageSource.getMessage(
-                        "keel.api-error-handling.HttpMessageNotReadableException",
-                        null,
-                        LocaleContextHolder.getLocale()
-                ),
+                body("keel.api-error-handling.HttpMessageNotReadableException"),
                 headers,
                 status,
                 request);
@@ -115,6 +111,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                         fieldError.getField(),
                         messageSource.getMessage(fieldError, LocaleContextHolder.getLocale())))
                 .collect(Collectors.toList());
+    }
+
+    private ApiError body(String code) {
+        String message = messageSource.getMessage(code, null, LocaleContextHolder.getLocale());
+        return new ApiError(null, message);
     }
     // database-validation-end
 }
