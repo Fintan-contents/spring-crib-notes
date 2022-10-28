@@ -68,7 +68,7 @@ public class UserControllerTest {
     @Test
     public void トークンが再利用されるとトークンチェックでエラーになる() throws Exception {
 
-        final MockHttpServletRequest request = mockMvc.perform(
+        MockHttpServletRequest request = mockMvc.perform(
                 post("/user/confirm")
                     .param("name", "error")
                     .param("age", "25"))
