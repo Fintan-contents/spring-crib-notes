@@ -70,7 +70,7 @@ public class UserControllerTest {
 
         MockHttpServletRequest request = mockMvc.perform(
                 post("/user/confirm")
-                    .param("name", "error")
+                    .param("name", "taro")
                     .param("age", "25"))
                 .andExpect(status().isOk())
                 .andReturn()
@@ -90,7 +90,7 @@ public class UserControllerTest {
         mockMvc.perform(
                 post("/user/create")
                         .param("name", "taro")
-                        .param("age", "26")
+                        .param("age", "25")
                         .param("_TRANSACTION_TOKEN", transactionToken.getTokenString())
                         .session(session))
                 .andExpect(status().isBadRequest())
