@@ -16,6 +16,9 @@
   </ul>
 
 </div>
+<div>
+  <a sec:authorize-url="GET /user" th:href="@{/user}">一般ユーザ用ページへ</a>
+</div>
 <!-- example-start -->
 <div>
   admin権限を持つユーザでログインした場合↓に管理者用ページへのリンクが表示されます<br />

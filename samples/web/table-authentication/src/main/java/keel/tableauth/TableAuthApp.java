@@ -42,4 +42,13 @@ public class TableAuthApp {
             return "/admin";
         }
     }
+
+    @Controller
+    public static class UserController {
+
+        @GetMapping("/user")
+        public String admin() {
+            return "/user";
+        }
+    }
 }
