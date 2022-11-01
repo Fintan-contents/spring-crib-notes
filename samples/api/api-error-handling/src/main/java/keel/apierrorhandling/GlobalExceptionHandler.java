@@ -103,19 +103,19 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 request);
     }
 
-    private List<ApiError> body(BindingResult bindingResult) {
+    private List<ApiErrorResponse> body(BindingResult bindingResult) {
         return bindingResult
                 .getFieldErrors()
                 .stream()
-                .map(fieldError -> new ApiError(
+                .map(fieldError -> new ApiErrorResponse(
                         fieldError.getField(),
                         messageSource.getMessage(fieldError, LocaleContextHolder.getLocale())))
                 .collect(Collectors.toList());
     }
 
-    private ApiError body(String code) {
+    private ApiErrorResponse body(String code) {
         String message = messageSource.getMessage(code, null, LocaleContextHolder.getLocale());
-        return new ApiError(null, message);
+        return new ApiErrorResponse(null, message);
     }
     // database-validation-end
 }

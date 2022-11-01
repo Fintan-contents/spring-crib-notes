@@ -2,10 +2,8 @@ package keel.apierrorhandling;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.io.Serializable;
-
 // api-error-model-start
-public class ApiError implements Serializable {
+public class ApiErrorResponse {
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private final String field;
@@ -13,7 +11,7 @@ public class ApiError implements Serializable {
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private final String message;
 
-    ApiError(String field, String message) {
+    ApiErrorResponse(String field, String message) {
         this.field = field;
         this.message = message;
     }
