@@ -1,14 +1,16 @@
 Doma2の楽観ロックで排他制御する
 ====================================================================================================
-Doma2の\ :doma-java-doc:`@Version <org/seasar/doma/Version.html>`\ を使用した楽観ロック方式で実現します。
+Doma2の\ :doma-doc:`@Versionアノテーション <entity/#version>`\ を使用した楽観ロック方式で実現します。
 
-:doc:`Webの場合 </web/exclusive-control/doma2-optimistic-lock>` は更新前のバージョン番号をセッションに保存しますが、APIの場合はリクエストボディに含まれているバージョン番号がデータベースと一致しているかどうかで排他制御します。
-そのため、APIを呼び出すクライアントで、変更しようとしているエンティティのバージョンを保持する必要があります。
+:doc:`Webの場合 </web/exclusive-control/doma2-optimistic-lock>` は更新前のバージョン番号をセッションに保存しますが、RESTful Webサービスの場合はリクエストボディに含まれているバージョン番号がデータベースと一致しているかどうかで排他制御します。
+そのため、RESTful Webサービスを呼び出すクライアントで、変更しようとしているエンティティのバージョンを保持する必要があります。
 
 Doma2の楽観ロックについては、以下の公式ドキュメントを参照してください。
 
 * :doma-doc:`更新 <query/update/>`
+* :doma-doc:`削除 <query/delete/>`
 * :doma-doc:`バッチ更新 <query/batch-update/>`
+* :doma-doc:`バッチ削除 <query/batch-delete/>`
 
 以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 

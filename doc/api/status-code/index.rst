@@ -4,4 +4,4 @@ HTTPステータスコード
 RESTful Webサービスでは、処理結果に応じて適切なHTTPステータスコードを返却する必要があります。
 返却するHTTPステータスコードを検討する際は、以下を参考にしてください。
 
-* `HTTPステータスコードの使い分け <https://qiita.com/kawasima/items/e48180041ace99842779>`_
+* `HTTP レスポンスステータスコード - HTTP | MDN <https://developer.mozilla.org/ja/docs/Web/HTTP/Status>`_
