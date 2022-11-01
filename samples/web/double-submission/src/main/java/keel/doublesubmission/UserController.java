@@ -1,9 +1,5 @@
 package keel.doublesubmission;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-
 import jp.fintan.keel.spring.web.token.transaction.InvalidTransactionTokenException;
 import jp.fintan.keel.spring.web.token.transaction.TransactionTokenCheck;
 import jp.fintan.keel.spring.web.token.transaction.TransactionTokenType;
@@ -27,8 +23,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @TransactionTokenCheck("user")
 public class UserController {
 
-    private final UserService userService;
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -57,15 +54,17 @@ public class UserController {
     // @TransactionTokenCheck設定して、リクエストで送信されるトークンとサーバで保持しているトークンが同一であるかをチェックします。
     // 同一でない場合は、InvalidTransactionTokenExceptionが送出されます。
     // @TransactionTokenCheckのtype属性のデフォルト値は、TransactionTokenType.INです。
-    // また、登録完了後の画面でページの再読込みを実施した場合に登録処理が再実行されることを防止するため、
-    // PRG(Post-Redirect-Get)パターンを適用しています。
     @TransactionTokenCheck
     @PostMapping("/create")
     public String create(@Validated UserForm form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "user/input";
         }
-        userService.insert(new User(form.name, form.age));
+
+        userService.insert(new User(form.getName(), form.getAge()));
+
+        // 登録完了後の画面でページの再読込みを実施した場合に登録処理が再実行されることを防止するため、
+        // PRG(Post-Redirect-Get)パターンを適用しています。
         return "redirect:/user/complete";
     }
 
@@ -82,32 +81,6 @@ public class UserController {
             logger.debug(e.getMessage());
         }
         return "error/token-error";
-    }
-
-    public static class UserForm {
-
-        @NotEmpty
-        private String name;
-
-        @Min(1)
-        @Max(150)
-        private Integer age;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public Integer getAge() {
-            return age;
-        }
-
-        public void setAge(Integer age) {
-            this.age = age;
-        }
     }
 }
 // example-end

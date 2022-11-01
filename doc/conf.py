@@ -200,17 +200,16 @@ sample_app_base = 'https://github.com/Fintan-contents/spring-crib-notes/tree/' +
 extlinks = {
   'sample-app': (sample_app_base + '/samples/%s', None),
   'spring-framework-doc': ('https://docs.spring.io/spring-framework/docs/' + '5.3.23' + '/%s', None),
-  'spring-boot-doc': ('https://docs.spring.io/spring-boot/docs/' + '2.7.4' + '/%s', None),
+  'spring-boot-doc': ('https://docs.spring.io/spring-boot/docs/' + '2.7.5' + '/%s', None),
   'spring-batch-doc': ('https://docs.spring.io/spring-batch/docs/' + '4.3.7' + '/%s', None),
   'spring-session-doc': ('https://docs.spring.io/spring-session/reference/' + '2.7.0' + '/%s', None),
-  'spring-security-doc': ('https://docs.spring.io/spring-security/reference/' + '5.7.3' + '/%s', None),
+  'spring-security-doc': ('https://docs.spring.io/spring-security/reference/' + '5.7.4' + '/%s', None),
   'macchinetta-server-guideline-thymeleaf-doc': ('https://macchinetta.github.io/server-guideline-thymeleaf/' + '1.8.1.SP1.RELEASE' + '/ja/%s', None),
   'macchinetta-cloud-guideline-doc': ('https://macchinetta.github.io/cloud-guideline/' + '1.2.0.RELEASE' + '/ja/%s', None),
   'macchinetta-batch-guideline-doc': ('https://macchinetta.github.io/batch-guideline/' + '2.3.1.RELEASE' + '/ja/%s', None),
   'thymeleaf-tutorials-doc': ('https://www.thymeleaf.org/doc/tutorials/' + '3.0' + '/%s', None),
   'doma-spring-boot-source': ('https://github.com/domaframework/doma-spring-boot/blob/' + '1.6.0' + '/%s', None),
   'doma-doc': ('https://doma.readthedocs.io/en/' + '2.53.0' + '/%s', None),
-  'doma-java-doc': ('https://www.javadoc.io/static/org.seasar.doma/doma-core/' + '2.53.0' + '/%s', None),
   'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '6.2' + '/%s', None)
 }
 

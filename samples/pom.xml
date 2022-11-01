@@ -34,7 +34,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.4</version>
+    <version>2.7.5</version>
   </parent>
   <!-- spring-boot-version-end -->
 
@@ -91,11 +91,13 @@
       </dependency>
       <!-- logback-access-spring-boot-version-end -->
 
+      <!-- keel-web-start -->
       <dependency>
         <groupId>jp.fintan.keel</groupId>
         <artifactId>keel-spring-boot-starter-web</artifactId>
         <version>1.0.0</version>
       </dependency>
+      <!-- keel-web-end -->
 
       <dependency>
         <groupId>org.springframework.cloud</groupId>
