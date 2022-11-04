@@ -36,6 +36,15 @@ URLパターンごとにアクセスに必要な権限を設定します。
    :start-after: role-start
    :end-before: role-end
 
+.. tip::
+
+  ``SecurityFilterChain`` を設定する際に ``HttpSecurity#authorizeHttpRequests`` メソッドを使用すると、
+  従来の ``AccessDecisionManager`` に代わり 5.5 から導入されている ``AuthorizationManager`` を使用することができます。
+  ただ、 ``AuthorizationManager`` は現時点では権限の階層構造に対応していないため、ここでは
+  ``HttpSecurity#authorizeRequests`` メソッドを使用して ``AccessDecisionManager`` を使用するようにしています。
+  ``AccessDecisionManager`` は将来的には非推奨になる予定であるため、必要な機能が ``AuthorizationManager`` で対応され次第、
+  移行を検討していく必要があります。
+
 アクセス権限に応じて画面上のリンクやボタンを非表示にする
 -----------------------------------------------------------
 :doc:`Thymeleaf <../view/thymeleaf>` を使用している場合に、権限に応じて画面上にあるリンクやボタンの表示を制御する方法を説明します。
