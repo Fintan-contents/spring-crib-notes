@@ -9,9 +9,11 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.core.launch.support.RunIdIncrementer;
+import org.springframework.batch.core.jsr.JsrJobParametersConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class BonusCalculateJobConfig {
@@ -25,14 +27,18 @@ public class BonusCalculateJobConfig {
         this.stepBuilderFactory = stepBuilderFactory;
     }
 
-    // job-incrementer-start
     @Bean
     public Job bonusCalculateJob(Step bonusCalculateStep) {
         return jobBuilderFactory.get("bonusCalculateJob")
-                                // 起動時に一意のパラメータを設定する
-                                .incrementer(new RunIdIncrementer())
                                 .start(bonusCalculateStep)
                                 .build();
+    }
+
+    // job-incrementer-start
+    @Bean
+    public JsrJobParametersConverter jsrJobParametersConverter(DataSource dataSource) {
+        // 起動時に一意のパラメータ(jsr_batch_run_id)を設定する
+        return new JsrJobParametersConverter(dataSource);
     }
     // job-incrementer-end
 
