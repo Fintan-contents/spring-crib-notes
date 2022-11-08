@@ -71,8 +71,8 @@ GlobalExceptionHandler
      :start-after: api-error-handling-example-start
      :end-before: api-error-handling-example-end
 
-ApiError
-  .. literalinclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/ApiError.java
+ApiErrorResponse
+  .. literalinclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/ApiErrorResponse.java
      :language: java
      :start-after: api-error-model-start
      :end-before: api-error-model-end

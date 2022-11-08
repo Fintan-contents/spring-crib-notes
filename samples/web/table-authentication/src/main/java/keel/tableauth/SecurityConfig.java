@@ -43,6 +43,7 @@ public class SecurityConfig {
         hierarchy.setHierarchy("ROLE_admin > ROLE_user");
         return hierarchy;
     }
+    // role-end
 
     @Bean
     public PasswordEncoder passwordEncoder() {
