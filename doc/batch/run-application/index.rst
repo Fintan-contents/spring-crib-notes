@@ -52,11 +52,19 @@ JobInstanceはジョブ名や起動パラメータから識別されるため、
   # アプリケーション起動時にパラメータにシステム日付を設定する
   java -jar batch-application.jar --spring.batch.job.names=job1 date="`date '+%Y%m%d'`"
 
-日付などに関係なく常に実行できるようにしたい場合には、ジョブの設定で ``RunIdIncrementer`` を指定します。
-これにより起動時に ``run.id`` というパラメータが付与され、実行毎に一意なパラメータとなることで同じジョブを何度でも実行することができます。
+日付などに関係なく常に実行できるようにしたい場合には、``JsrJobParametersConverter`` をBean定義します。
+これにより起動時に ``jsr_batch_run_id`` というパラメータが付与され、実行毎に一意なパラメータとなることで、同じジョブを何度でも実行することができます。
 
 .. literalinclude:: ../../../samples/batch/doma2-spring-batch/src/main/java/keel/batch/doma2/config/BonusCalculateJobConfig.java
    :language: java
    :start-after: job-incrementer-start
    :end-before: job-incrementer-end
    :dedent: 4
+
+.. tip::
+
+  一意なパラメータを付与する設定方法としては、 ``JsrJobParametersConverter`` の他に ``RunIdIncrementer`` があります。
+  ``RunIdIncrementer`` では、起動時のパラメータが指定されていなければ前回実行時のパラメータが復元される仕様になっているため、
+  特定のケースでのみパラメータを指定するといった運用がある場合には注意する必要があります。
+  なお、``JsrJobParametersConverter`` にはパラメータを復元するというような仕様はありませんが、Spring Batch 6.x で削除予定であるため、
+  それを踏まえた上で使用する必要があります。
