@@ -18,12 +18,22 @@
       <artifactId>spring-boot-starter</artifactId>
     </dependency>
     
-    <!-- cloud-aws-start -->
+    <!-- spring-cloud-aws-start -->
     <dependency>
       <groupId>io.awspring.cloud</groupId>
       <artifactId>spring-cloud-starter-aws</artifactId>
     </dependency>
-    <!-- cloud-aws-end -->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>2.3.7</version>
+    </dependency>
+    <!-- spring-cloud-aws-end -->
 
     <dependency>
       <groupId>org.springframework.boot</groupId>

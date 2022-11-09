@@ -2,35 +2,37 @@ package keel.aws.s3;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.List;
 
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ExampleCommandLineRunner implements CommandLineRunner {
+public class ExampleCommandLineRunner implements ApplicationRunner {
 
-    private final AwsS3Service awsS3Service;
+    private final AwsS3UploadService awsS3UploadService;
 
-    public ExampleCommandLineRunner(final AwsS3Service awsS3Service) {
-        this.awsS3Service = awsS3Service;
+    private final AwsS3DownloadService awsS3DownloadService;
+
+    public ExampleCommandLineRunner(AwsS3UploadService awsS3UploadService, AwsS3DownloadService awsS3DownloadService) {
+        this.awsS3UploadService = awsS3UploadService;
+        this.awsS3DownloadService = awsS3DownloadService;
     }
 
     @Override
-    public void run(final String... args) throws Exception {
-        if (args.length != 1) {
+    public void run(ApplicationArguments args) throws Exception {
+        List<String> optionArgs = args.getNonOptionArgs();
+        if (optionArgs.size() != 1) {
             throw new IllegalArgumentException("アップロード対象のファイルパスを指定してください。");
         }
 
-        final Path path = Paths.get(args[0]);
+        final Path path = Path.of(optionArgs.get(0));
         if (!Files.exists(path)) {
             throw new IllegalArgumentException("アップロード対象のファイルが存在しません。");
         }
-        awsS3Service.uploadFile(path);
+        awsS3UploadService.uploadFile(path);
 
-        final String fileName = path.getFileName()
-                                .toString();
-        awsS3Service.downloadFile(fileName);
-        awsS3Service.downloadFileByStream(fileName);
+        awsS3DownloadService.downloadFile(path);
     }
 }
