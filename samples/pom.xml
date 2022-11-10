@@ -63,6 +63,7 @@
         <version>2.53.0</version>
       </dependency>
       <!-- doma-starter-end -->
+      <!-- spring-cloud-aws-start -->
       <dependency>
         <groupId>io.awspring.cloud</groupId>
         <artifactId>spring-cloud-aws-dependencies</artifactId>
@@ -70,6 +71,7 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- spring-cloud-aws-start -->
       <dependency>
         <groupId>com.github.database-rider</groupId>
         <artifactId>rider-spring</artifactId>

@@ -13,7 +13,7 @@ public class AwsS3Properties {
         return bucketName;
     }
 
-    public void setBucketName(final String bucketName) {
+    public void setBucketName(String bucketName) {
         this.bucketName = bucketName;
     }
 }
