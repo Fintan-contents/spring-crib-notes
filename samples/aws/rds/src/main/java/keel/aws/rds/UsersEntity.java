@@ -16,13 +16,13 @@ public class UsersEntity {
 
     public final String name;
 
-    public UsersEntity(final String name) {
-        this(null, name);
-    }
-
     public UsersEntity(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public UsersEntity(String name) {
+        this(null, name);
     }
 
 }
