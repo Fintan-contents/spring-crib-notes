@@ -1,6 +1,6 @@
-Amazon S3にファイルをアップロード&ファイルをダウンロードする
+Amazon S3にファイルをアップロード&ダウンロードする
 ================================================================================
-:spring-cloud-aws-doc:`Spring Cloud AWS <reference/html/index.html>` を使用して、Amazon S3にファイルをアップロード、及びファイルをダウンロードする実装方法を説明します。
+:spring-cloud-aws-doc:`Spring Cloud AWS <reference/html/index.html>` を使用して、Amazon S3にファイルをアップロード及びダウンロードする実装方法を説明します。
 
 サンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
