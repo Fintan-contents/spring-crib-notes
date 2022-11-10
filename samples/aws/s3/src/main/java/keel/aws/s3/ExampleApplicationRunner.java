@@ -9,13 +9,13 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ExampleCommandLineRunner implements ApplicationRunner {
+public class ExampleApplicationRunner implements ApplicationRunner {
 
     private final AwsS3UploadService awsS3UploadService;
 
     private final AwsS3DownloadService awsS3DownloadService;
 
-    public ExampleCommandLineRunner(AwsS3UploadService awsS3UploadService, AwsS3DownloadService awsS3DownloadService) {
+    public ExampleApplicationRunner(AwsS3UploadService awsS3UploadService, AwsS3DownloadService awsS3DownloadService) {
         this.awsS3UploadService = awsS3UploadService;
         this.awsS3DownloadService = awsS3DownloadService;
     }
