@@ -25,10 +25,10 @@ pom.xml
 
 application.properties
   AWSのリージョンを設定します。
-  
-  アプリケーションをEC2で動かす場合、EC2のメタデータからリージョンが取得できるためを設定する必要はありません。
+  実行環境がEC2の場合、EC2のメタデータからリージョンが取得できるためを設定する必要はありません。
+  ローカル開発環境など実行環境がEC2以外の場合、 ``cloud.aws.region.static`` にリージョンを設定します。
+  （サンプルでは ``application-local.properties`` にのみ指定しています）
 
-  ローカル開発環境など、EC2以外の環境で動かす場合には ``cloud.aws.region.static`` にリージョンを設定します。
   設定可能な値の詳細については :spring-cloud-aws-doc:`Configuring region <reference/html/index.html#configuring-region>` を参照してください。
   
   .. literalinclude:: ../../../samples/aws/s3/src/main/resources/application-local.properties
