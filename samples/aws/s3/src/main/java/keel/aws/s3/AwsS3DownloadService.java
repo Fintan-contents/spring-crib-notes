@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -40,7 +41,7 @@ public class AwsS3DownloadService {
 
             logger.info("{}にファイルを保存しました。", downloadPath.getFileName());
         } catch (IOException e) {
-            throw new RuntimeException("S3からのファイルダウンロードに失敗しました。", e);
+            throw new UncheckedIOException("S3からのファイルダウンロードに失敗しました。", e);
         }
     }
 

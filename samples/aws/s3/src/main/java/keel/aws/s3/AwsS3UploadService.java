@@ -2,6 +2,7 @@ package keel.aws.s3;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -33,7 +34,7 @@ public class AwsS3UploadService {
 
             logger.info("S3にファイルをアップロードしました。");
         } catch (IOException e) {
-                throw new RuntimeException("S3へのファイルアップロードに失敗しました。", e);
+                throw new UncheckedIOException("S3へのファイルアップロードに失敗しました。", e);
         }
     }
 
