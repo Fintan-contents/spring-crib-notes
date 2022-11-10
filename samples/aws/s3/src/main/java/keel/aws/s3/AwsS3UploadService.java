@@ -30,7 +30,7 @@ public class AwsS3UploadService {
     public void uploadFile(Path path) {
         WritableResource writableResource = (WritableResource) resourceLoader.getResource(createObjectLocation(path));
         try (OutputStream outputStream = writableResource.getOutputStream()) {
-            outputStream.write(Files.readAllBytes(path));
+            Files.copy(path, outputStream);
 
             logger.info("S3にファイルをアップロードしました。");
         } catch (IOException e) {
