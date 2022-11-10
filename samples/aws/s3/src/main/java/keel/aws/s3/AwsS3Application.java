@@ -8,8 +8,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class AwsS3Application {
 
     public static void main(String[] args) {
-        try (final ConfigurableApplicationContext ignored = SpringApplication.run(AwsS3Application.class, args)) {
-            // nop
-        }
+        SpringApplication.run(AwsS3Application.class, args);
     }
 }
