@@ -34,7 +34,7 @@ public class AwsS3UploadService {
 
             logger.info("S3にファイルをアップロードしました。");
         } catch (IOException e) {
-                throw new UncheckedIOException("S3へのファイルアップロードに失敗しました。", e);
+            throw new UncheckedIOException("S3へのファイルアップロードに失敗しました。", e);
         }
     }
 
