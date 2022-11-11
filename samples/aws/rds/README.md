@@ -30,5 +30,5 @@ mvn spring-boot:run -Dspring-boot.run.profiles=<プロファイル>
 
 例えば、ローカル開発環境上で実行する場合は、以下のように実行します。
 ```bash
-mvn spring-boot:run -Dspring.profiles.active=local
+mvn spring-boot:run -Dspring-boot.run.profiles=local
 ```
