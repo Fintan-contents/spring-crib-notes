@@ -26,6 +26,8 @@
 
 * AWSのS3に、アップロード対象のバケットを作成します。
 * `application-ec2.properties` の `s3.bucket-name` にアップロード対象のバケット名を設定します。
+* AWS上でアプリケーション実行環境のEC2を構築します。
+* アプリケーションをEC2上に配置します。
 * `AWS_ACCESS_KEY_ID` 及び `AWS_SECRET_ACCESS_KEY` 環境変数にAWSアカウントのクレデンシャル情報を設定します。
 
 ## 2.アプリケーションの起動

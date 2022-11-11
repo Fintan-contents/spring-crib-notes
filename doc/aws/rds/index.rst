@@ -1,15 +1,21 @@
-AWS RDSにアクセスする
+Amazon RDSにアクセスする
 ==================================================
-`Spring Cloud AWS <https://cloud.spring.io/spring-cloud-aws/>`_ を使用して、AWS RDSを使用するための実装方法を説明します。
+:spring-cloud-aws-doc:`Spring Cloud AWS <reference/html/index.html>` を使用して、Amazon RDSを使用するための実装方法を説明します。
+
+.. tip::
+
+  Spring Bootのデータソース設定に接続情報を設定するだけでもAmazon RDSへ接続することができますが、
+  Spring Cloud AWSを使用することで、リードレプリカの自動検出やフェイルオーバー中の再試行といった機能を使用することができます。
+  詳細については :spring-cloud-aws-doc:`JDBC によるデータアクセス <reference/html/index.html>` を参照してください。
 
 サンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
 サンプル全体は :sample-app:`aws-rds <aws/rds>` を参照してください。
 
-AWS RDSを使用するための設定例
+Amazon RDSを使用するための設定例
 --------------------------------------------------
 pom.xml
-  依存ライブラリにspring-cloud-starter-awsを追加します。
+  依存ライブラリに spring-cloud-starter-aws-jdbc を追加します。
   
   .. literalinclude:: ../../../samples/aws/rds/pom.xml
     :language: xml
@@ -19,58 +25,52 @@ pom.xml
     
   .. tip::
   
-    このサンプルでは、データベースアクセスには :ref:`Doma <database-doma2>` を使用しています。
-    Spring BootでDomaを使用する手順などはリンク先を参照してください。
+    このサンプルでは、データベースアクセスには :doma-doc:`Doma2 <>` を使用しています。
+    Spring BootでDoma2を使用する実装例については :ref:`データベースアクセスにDoma2を使用する <database-doma2>` を参照してください。
 
 application.properties
   AWSのリージョン名とデータベースの接続先を設定します。
-  
-  アプリケーションをEC2で動かす場合には、EC2のメタデータからリージョン名が取得できるためcloud.aws.region.autoにはtrueを設定します。
-  
-  データベースの接続先は、 ``cloud.aws.rds.<RDSインスタンス名>.password`` にパスワードのみを設定します。
-  このサンプルでは、RDSのインスタンス名が「keel」であるため、cloud.aws.rds.keel.passwordに対してパスワードを設定しています。
-  
-  RDSにMySQLを選択している場合、Springのトランザクション管理の仕組みを使用し、かつ読み取り専用トランザクションの場合、参照用SQLの実行をリードレプリカに自動的に振り分ける機能を利用できます。
-  (2018/10現在、Spring Cloud AWSのリードレプリカ振り分け機能はAWS RDSのMySQLのみ利用可能となっています。)
-  利用する場合には、 ``cloud.aws.rds.<RDSインスタンス名>.readReplicaSupport`` にtrueを設定します。
-  
+
+  実行環境がEC2の場合、EC2のメタデータからリージョンが取得できるためを設定する必要はありません。
+  実行環境がEC2以外の場合、 ``cloud.aws.region.static`` にリージョンを設定します。
+
+  接続先の情報は ``cloud.aws.rds.instances[x]`` プロパティに設定します。
+  接続先は複数設定することができるため、 ``cloud.aws.rds.instances[0]`` のようにインデックスを指定します。
+  リードレプリカがサポートされているデータベースを使用する場合は、 ``cloud.aws.rds.instances[x].readReplicaSupport`` の値を ``true`` に設定することで、読み取り専用トランザクションでのアクセス先をリードレプリカに向けることができます。
+
   .. literalinclude:: ../../../samples/aws/rds/src/main/resources/application-ec2.properties
     :language: properties
-    :start-after: config-start
-    :end-before: config-end
-  
-  EC2以外(例えば、ローカルの開発環境)で動かす場合には、下の例のようにcloud.aws.region.autoをfalseとしリージョン名を設定します。
-  このサンプルでは、ローカルPCに構築したデータベースにアクセスするようにしています。
-  
+    :start-after: datasource-start
+    :end-before: datasource-end
+
+  なお、このサンプルではローカル開発環境からはRDSではなく別途用意したデータベースに接続する実装としています。
+  コストやテスト容易性を考慮してローカル開発環境ではRDSを使用しない場合も多いと考えられるため、このような実装としています。
+  そのため、 ``application-local.properties`` では ``cloud.aws.rds.instances[x]`` プロパティを使用せず、
+  Spring Bootのデータソース設定である ``spring.datasource`` プロパティを使用しています。
+
   .. literalinclude:: ../../../samples/aws/rds/src/main/resources/application-local.properties
     :language: properties
     :start-after: config-start
     :end-before: config-end
-  
-  .. tip::
-    
-    ローカルの開発環境については、以下の理由によりPC上にデータベース環境を用意することをおすすめします。
-    
-    * AWS RDSを常時可動した場合コストが非常に高くなる
-    * 各開発者が使用しているデータベースのスキーマバージョンが同じとは限らない
-    * 開発中は機能のテストなどでデータを自由に変更したい
-   
-環境変数
-  以下の環境変数にAWSアカウントのクレデンシャル情報を設定します。
-  
-  * AWS_ACCESS_KEY_ID
-  * AWS_SECRET_ACCESS_KEY
-  
-  AWS SDK for Javaが使用するクレデンシャル情報の推奨される設定方法などは、AWS SDK for Javaのドキュメントを参照してください。
+
+AWSアカウントのクレデンシャル情報
+  AWSアカウントのクレデンシャル情報を実行環境に設定します。
+  クレデンシャル情報の設定方法はいくつかありますが、例えば環境変数を使用する方法であれば、以下の環境変数にクレデンシャル情報を設定します。
+
+  * ``AWS_ACCESS_KEY_ID``
+  * ``AWS_SECRET_ACCESS_KEY``
+
+  クレデンシャル情報の設定方法の詳細については :spring-cloud-aws-doc:`SDK credentials configuration <reference/html/index.html#sdk-credentials-configuration>`
+  を参照してください。
   
 実装例
 --------------------------------------------------
-Spring Cloud AWSからAWS RDSを使用するからといって特別な実装を行う必要はありません。
-ローカルのデータベースを使用する場合とAWS RDSを使用する場合で、データベースにアクセスするクラスやSQLの実装方法に差異はありません。
+Spring Cloud AWSを使用していても、前述のプロパティ以外で特別な実装はありません。
+一般的なデータベースにアクセスする際のクラスやSQLの実装方法に差異はありません。
 
 .. tip::
 
-  RDSのMySQLを使用している場合で、参照用SQLをリードレプリカに対して発行したい場合には、以下のように読み取り専用トランザクションを設定します。
+  リードレプリカに対してSQLを発行したい場合には、以下のように読み取り専用トランザクションを設定します。
 
   .. literalinclude:: ../../../samples/aws/rds/src/main/java/keel/aws/rds/UserService.java
     :language: java
