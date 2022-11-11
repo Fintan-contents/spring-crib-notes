@@ -10,17 +10,18 @@ public class SimpleMailService {
     private final MailSender mailSender;
     private final MailProperties mailProperties;
 
-    public SimpleMailService(final MailSender mailSender, final MailProperties mailProperties) {
+    public SimpleMailService(MailSender mailSender, MailProperties mailProperties) {
         this.mailSender = mailSender;
         this.mailProperties = mailProperties;
     }
 
     public void sendMail() {
-        final SimpleMailMessage message = new SimpleMailMessage();
+        SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(mailProperties.getFrom());
         message.setTo(mailProperties.getTo());
-        message.setSubject("title");
+        message.setSubject("タイトル");
         message.setText("本文");
+
         mailSender.send(message);
     }
 
