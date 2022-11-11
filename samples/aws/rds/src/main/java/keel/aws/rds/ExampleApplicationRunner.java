@@ -5,11 +5,11 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ExampleCommandLineRunner implements ApplicationRunner {
+public class ExampleApplicationRunner implements ApplicationRunner {
     
     private final UserService userService;
 
-    public ExampleCommandLineRunner(UserService userService) {
+    public ExampleApplicationRunner(UserService userService) {
         this.userService = userService;
     }
 
