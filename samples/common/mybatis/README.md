@@ -8,8 +8,6 @@
 mvn clean spring-boot:run
 ```
 
-データベースの情報からDoma2用Entityが自動生成されアプリケーションが実行されます。
-
 ### 2. 確認方法
 
 > **Note** HTTP APIへのアクセスは、[`curl`](https://curl.haxx.se/) やChrome拡張機能の [Restlet Client \- REST API Testing \- Chrome ウェブストア](https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm?hl=ja) を利用してください。
