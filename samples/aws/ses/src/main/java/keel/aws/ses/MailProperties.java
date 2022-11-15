@@ -14,7 +14,7 @@ public class MailProperties {
         return from;
     }
 
-    public void setFrom(final String from) {
+    public void setFrom(String from) {
         this.from = from;
     }
 
@@ -22,7 +22,7 @@ public class MailProperties {
         return to;
     }
 
-    public void setTo(final String to) {
+    public void setTo(String to) {
         this.to = to;
     }
 }
