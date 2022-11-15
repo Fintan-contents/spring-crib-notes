@@ -56,12 +56,12 @@ AWSアカウントのクレデンシャル情報
   .. literalinclude:: ../../../samples/aws/ses/src/main/java/keel/aws/ses/MailProperties.java
     :language: java
 
-ファイルを添付しないような単純なメールを送信する場合には、Spring Bootが提供する ``MailSender`` を使用して簡潔に実装できます。
+ファイルを添付しないような単純なメールを送信する場合には、Springが提供する ``MailSender`` を使用して簡潔に実装できます。
 
   .. literalinclude:: ../../../samples/aws/ses/src/main/java/keel/aws/ses/SimpleMailService.java
     :language: java
 
-ファイルを添付する場合は、Spring Bootが提供する ``JavaMailSender`` を使用して実装できます。
+ファイルを添付する場合は、Springが提供する ``JavaMailSender`` を使用して実装できます。
 ファイルの添付が必要ない場合でも、 ``MailSender`` ではなく ``JavaMailSender`` を使用することで詳細な設定を行うことができます。
 
   .. literalinclude:: ../../../samples/aws/ses/src/main/java/keel/aws/ses/AttachmentMailService.java
