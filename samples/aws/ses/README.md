@@ -41,7 +41,7 @@
   * ローカル開発環境で実行する場合は `local`
 
 ```bash
-mvn spring-boot:run -Dspring-boot.run.arguments=<アップロード対象のファイルパス> -Dspring-boot.run.profiles=<プロファイル>
+mvn spring-boot:run -Dspring-boot.run.profiles=<プロファイル>
 ```
 
 例えば、ローカル開発環境上であれば以下のように実行します。
