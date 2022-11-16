@@ -9,6 +9,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <modules>
     <module>common/doma2</module>
+    <module>common/mybatis</module>
     <module>common/sql-management</module>
 
     <module>web/doma2-optimistic-lock</module>
@@ -63,6 +64,13 @@
         <version>2.53.0</version>
       </dependency>
       <!-- doma-starter-end -->
+      <!-- mybatis-start -->
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>2.2.2</version>
+      </dependency>
+      <!-- mybatis-end -->
       <!-- spring-cloud-aws-start -->
       <dependency>
         <groupId>io.awspring.cloud</groupId>
