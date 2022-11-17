@@ -23,18 +23,14 @@ pom.xml
   サンプルではdependencyManagementに ``spring-cloud-aws-dependencies`` を指定して
   Spring Cloud AWS関連ライブラリのバージョンを制御しています。
 
-application.properties
-  AWSのリージョンを設定します。
-  実行環境がEC2の場合、EC2のメタデータからリージョンが取得できるためを設定する必要はありません。
-  ローカル開発環境など実行環境がEC2以外の場合、 ``cloud.aws.region.static`` にリージョンを設定します。
-  （サンプルでは ``application-local.properties`` にのみ指定しています）
+AWSのリージョン
+  AWSのリージョンを実行環境に設定します。
+  デフォルトのリージョンはAWS SDKが提供する ``DefaultAwsRegionProviderChain`` により決定され、実行環境に設定されたAWSアカウント情報や、
+  EC2のメタデータからリージョンを取得します。
+
+  明示的に指定する場合は、 ``cloud.aws.region.static`` プロパティにリージョンを設定します。
 
   設定可能な値の詳細については :spring-cloud-aws-doc:`Configuring region <reference/html/index.html#configuring-region>` を参照してください。
-  
-  .. literalinclude:: ../../../samples/aws/s3/src/main/resources/application-local.properties
-    :language: properties
-    :start-after: region-start
-    :end-before: region-end
 
 AWSアカウントのクレデンシャル情報
   AWSアカウントのクレデンシャル情報を実行環境に設定します。
