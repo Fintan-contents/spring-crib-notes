@@ -42,6 +42,11 @@ AWSアカウントのクレデンシャル情報
   クレデンシャル情報の設定方法の詳細については :spring-cloud-aws-doc:`SDK credentials configuration <reference/html/index.html#sdk-credentials-configuration>`
   を参照してください。
 
+.. tip::
+
+  IAMによるアクセス制御を行う場合、実行環境には必要な権限を付与する必要があります。
+  必要な権限の詳細については :spring-cloud-aws-doc:`IAM Permissions <reference/html/index.html#iam-permissions-8>` を参照してください。
+
 .. _s3-upload:
 
 Amazon S3にファイルをアップロードする実装例
