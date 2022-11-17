@@ -27,22 +27,20 @@
 * AWSのS3に、アップロード対象のバケットを作成します。
 * `application-ec2.properties` の `s3.bucket-name` にアップロード対象のバケット名を設定します。
 * AWS上でアプリケーション実行環境のEC2を構築します。
-* アプリケーションをEC2上に配置します。
-* `AWS_ACCESS_KEY_ID` 及び `AWS_SECRET_ACCESS_KEY` 環境変数にAWSアカウントのクレデンシャル情報を設定します。
+  * EC2からS3へアクセスできるように設定します。
+* アプリケーション（JARファイル）をEC2上に配置します。
 
 ## 2.アプリケーションの起動
 
-実行環境に合わせてプロファイルを指定し、Sprint Bootを起動します。
+### ローカル開発環境
 
-* 指定するプロファイル
-  * AWSのEC2上で実行する場合は `ec2`
-  * ローカル開発環境で実行する場合は `local`
+プロファイルに`local`を指定して、Sprint Bootを起動します。
 
 ```bash
 mvn spring-boot:run -Dspring-boot.run.arguments=<アップロード対象のファイルパス> -Dspring-boot.run.profiles=<プロファイル>
 ```
 
-例えば、ローカル開発環境上で `c:\text.png` をアップロードしたい場合は、以下のように実行します。
+例えば、`c:\text.png` をアップロードしたい場合は、以下のように実行します。
 ```bash
 mvn spring-boot:run -Dspring-boot.run.arguments="c:\text.png" -Dspring-boot.run.profiles=local
 ```
@@ -50,3 +48,15 @@ mvn spring-boot:run -Dspring-boot.run.arguments="c:\text.png" -Dspring-boot.run.
 実行が終了すると…
 * 対象バケットの `upload` 配下にファイルがアップロードされます。
 * アップロードしたファイルが、 先頭に`download-`を付与したファイル名でカレントディレクトリ配下にダウンロードされます。
+
+### AWS環境
+
+プロファイルに`ec2`を指定して、Sprint Bootを起動します。
+
+引数チェックに影響するため、プロファイルは環境変数の`SPRING_PROFILES_ACTIVE`に設定します。
+
+```bash
+java -jar aws-s3-0.0.1-SNAPSHOT.jar <アップロード対象のファイルパス> 
+```
+
+実行結果はローカル開発環境と同じです。
