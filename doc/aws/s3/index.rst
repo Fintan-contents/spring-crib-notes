@@ -66,7 +66,7 @@ Amazon S3にファイルをアップロードする実装例
     :language: java
 
 アップロード先とするAmazon S3上のオブジェクトは、 ``ResourceLoader`` のリソースとして ``s3://<バケット名>/<オブジェクトキー名>`` の形式で指定します。
-（例えば ``s3://keel-bucket-test/upload/upload.txt`` のようになります）
+（例えば ``s3://keel-s3-bucket-test/upload/upload.txt`` のようになります）
 
 指定したリソースに対して書き込むことで、Amazon S3にファイルをアップロードします。
 

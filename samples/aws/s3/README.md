@@ -18,7 +18,7 @@
   * 環境変数を使用する場合は、`AWS_ACCESS_KEY_ID` 及び `AWS_SECRET_ACCESS_KEY` 環境変数に設定します
 * AWS CLIを使用して、LocalStackのS3上にアップロード対象のバケットを作成します。AWS CLIでLocalStackに接続するため、`endpoint-url`オプションで接続先を指定します。
   ```
-  aws --endpoint-url=http://localhost:4566 s3 mb s3://keel-bucket-test
+  aws --endpoint-url=http://localhost:4566 s3 mb s3://keel-s3-bucket-test
   ```
 * `application-local.properties` の `s3.bucket-name` にアップロード対象のバケットを設定します。
 
