@@ -21,6 +21,15 @@ Flywayのその他のコマンドや、 アプリケーションの起動時で�
 * :spring-boot-doc:`9.5.1. Execute Flyway Database Migrations on Startup <reference/html/howto.html#howto.data-initialization.migration-tool>`
 * `Flyway Documentation - Maven Plugin <https://flywaydb.org/documentation/usage/maven/>`_
 
+.. warning::
+
+  サンプルコードに設定されているFlyway Maven Pluginを実行すると、使用しているH2のバージョンがサポートされていない旨の警告が出力されます。
+
+  ``[WARNING] Flyway upgrade recommended: H2 2.1.214 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.1.210.``
+
+  サンプルコードではSpring Bootのバージョン管理に則ったバージョンを使用していますが、そのバージョン管理上でこの問題が発生しています。
+  Spring BootのバージョンアップによりFlywayのバージョンが上がれば解消されるため、サンプルコードではバージョンを独自に設定することはせず、Spring Bootで管理しているバージョンのままとしています。
+
 .. _sql-management-dml:
 
 DMLの管理

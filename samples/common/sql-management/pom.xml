@@ -69,7 +69,6 @@
       <plugin>
         <groupId>org.flywaydb</groupId>
         <artifactId>flyway-maven-plugin</artifactId>
-        <version>9.4.0</version>
         <dependencies>
           <dependency>
             <groupId>com.h2database</groupId>
