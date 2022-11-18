@@ -29,6 +29,8 @@ public class AwsS3DownloadService {
 
     public void downloadFile(Path path) {
         Path downloadPath = Path.of("download-" + path.getFileName());
+        logger.info("アップロードされた{}をダウンロードし、{}に保存します。", path.getFileName(), downloadPath.getFileName());
+
         if (Files.exists(downloadPath)) {
             logger.info("既に{}が存在するためファイルの保存をスキップします。", downloadPath.getFileName());
             return;
@@ -38,7 +40,7 @@ public class AwsS3DownloadService {
         try (InputStream inputStream = writableResource.getInputStream()) {
             Files.copy(inputStream, downloadPath);
 
-            logger.info("{}にファイルを保存しました。", downloadPath.getFileName());
+            logger.info("ファイルの保存に成功しました。");
         } catch (IOException e) {
             throw new UncheckedIOException("S3からのファイルダウンロードに失敗しました。", e);
         }

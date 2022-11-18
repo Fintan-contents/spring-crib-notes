@@ -28,11 +28,13 @@ public class AwsS3UploadService {
     }
 
     public void uploadFile(Path path) {
+        logger.info("{}をS3にアップロードします。", path.getFileName());
+
         WritableResource writableResource = (WritableResource) resourceLoader.getResource(createObjectLocation(path));
         try (OutputStream outputStream = writableResource.getOutputStream()) {
             Files.copy(path, outputStream);
 
-            logger.info("S3にファイルをアップロードしました。");
+            logger.info("ファイルのアップロードに成功しました。");
         } catch (IOException e) {
             throw new UncheckedIOException("S3へのファイルアップロードに失敗しました。", e);
         }
