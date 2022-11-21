@@ -211,7 +211,8 @@ extlinks = {
   'thymeleaf-tutorials-doc': ('https://www.thymeleaf.org/doc/tutorials/' + '3.0' + '/%s', None),
   'doma-spring-boot-source': ('https://github.com/domaframework/doma-spring-boot/blob/' + '1.6.0' + '/%s', None),
   'doma-doc': ('https://doma.readthedocs.io/en/' + '2.53.0' + '/%s', None),
-  'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '6.2' + '/%s', None)
+  'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '6.2' + '/%s', None),
+  'nablarch-doc': ('https://nablarch.github.io/docs/' + '5u21' + '/%s', None)
 }
 
 # linkcheck option

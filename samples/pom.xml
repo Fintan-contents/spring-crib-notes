@@ -29,6 +29,8 @@
     <module>aws/rds</module>
     <module>aws/s3</module>
     <module>aws/ses</module>
+
+    <module>nablarch/nablarch-validation</module>
   </modules>
 
   <!-- spring-boot-version-start -->
@@ -117,6 +119,16 @@
         <scope>import</scope>
       </dependency>
       <!-- other-versions-end -->
+
+      <!-- nablarch-start -->
+      <dependency>
+        <groupId>com.nablarch.profile</groupId>
+        <artifactId>nablarch-bom</artifactId>
+        <version>5u21</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- nablarch-end -->
     </dependencies>
   </dependencyManagement>
 
