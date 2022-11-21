@@ -44,6 +44,7 @@ public class ValidatorFactoryBuilderImpl extends ValidatorFactoryBuilder impleme
 
     @Override
     public ValidatorContext usingContext() {
+        // ドメインバリデーションで使用しない部分については UnsupportedOperationException を送出する実装にしておく
         throw new UnsupportedOperationException();
     }
 

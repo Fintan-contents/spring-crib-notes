@@ -28,10 +28,8 @@ public class ValidationSystemRepositoryLoader implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() {
-        SystemRepository
-                .load(() -> Map
-                        .of(
-                                "domainManager", new ExampleDomainManager(),
-                                "validatorFactoryBuilder", new ValidatorFactoryBuilderImpl(localValidatorFactoryBean)));
+        SystemRepository.load(() -> Map.of(
+                "domainManager", new ExampleDomainManager(),
+                "validatorFactoryBuilder", new ValidatorFactoryBuilderImpl(localValidatorFactoryBean)));
     }
 }

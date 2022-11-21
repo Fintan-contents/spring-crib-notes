@@ -5,67 +5,88 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 
 この例では、Nablarchの機能である :nablarch-doc:`ドメインバリデーション <doc/application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation-domain-validation>` を使用して、入力値をチェックする実装方法を説明します。
 
+ドメインバリデーションを使用することで、Nablarchが提供するバリデーターの使用や、Beanにドメイン名を指定するだけでバリデーションを設定するといったことができます。Beanごとにバリデーションのルールを定義する必要がないため、ルールの変更が容易になります。
+
 サンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
-サンプル全体は :sample-app:`nablarch-validation <nablarch/validation>` を参照してください。
+サンプル全体は :sample-app:`nablarch-validation <nablarch/nablarch-validation>` を参照してください。
 
-ドメインバリデーションを使用するための設定例
+Nablarchを使用するための準備
 --------------------------------------------------
 pom.xml
-  依存ライブラリにspring-cloud-starter-awsを追加します。また、Spring Bootでメールを送信するためのライブラリと、
-  Amazon SES用のAWS SDKも依存ライブラリに追加します。
+  Nablarchのモジュールバージョンを管理するために、dependencyManagementにnablarch-bomを追加します。
 
-  .. literalinclude:: ../../../samples/aws/ses/pom.xml
+  .. literalinclude:: ../../../samples/pom.xml
     :language: xml
-    :start-after: cloud-aws-start
-    :end-before: cloud-aws-end
+    :start-after: nablarch-start
+    :end-before: nablarch-end
     :dedent: 4
 
-application.properties
-  AWSのリージョンを設定します。
+ ドメインバリデーションを使うため、依存ライブラリにnablarch-core-validation-eeとnablarch-main-default-configurationを追加します。
 
-  実行環境がEC2の場合、EC2のメタデータからリージョンが取得できるためを設定する必要はありません。
-  ローカル開発環境など実行環境がEC2以外の場合、 ``cloud.aws.region.static`` にリージョンを設定します。
-  （サンプルでは ``application-local.properties`` にのみ指定しています）
+  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/pom.xml
+    :language: xml
+    :start-after: nablarch-start
+    :end-before: nablarch-end
+    :dedent: 4
 
-  設定可能な値の詳細については :spring-cloud-aws-doc:`Configuring region <reference/html/index.html#configuring-region>` を参照してください。
+.. tip::
 
-  .. literalinclude:: ../../../samples/aws/s3/src/main/resources/application-local.properties
-    :language: properties
-    :start-after: region-start
-    :end-before: region-end
+  Nablarchでは独自のログ出力機能を提供していますが、別のログライブラリを使用するためのアダプタが提供されています。この例では、SLF4Jを使用するためのアダプタである nablarch-slf4j-adaptor を使用しています。
+  詳細は :nablarch-doc:`logアダプタ <doc/application_framework/adaptors/log_adaptor.html>` を参照してください。
 
-AWSアカウントのクレデンシャル情報
-  AWSアカウントのクレデンシャル情報を実行環境に設定します。
-  クレデンシャル情報の設定方法はいくつかありますが、例えば環境変数を使用する方法であれば、以下の環境変数にクレデンシャル情報を設定します。
-
-  * ``AWS_ACCESS_KEY_ID``
-  * ``AWS_SECRET_ACCESS_KEY``
-
-  クレデンシャル情報の設定方法の詳細については :spring-cloud-aws-doc:`SDK credentials configuration <reference/html/index.html#sdk-credentials-configuration>`
-  を参照してください。
-
-ドメインバリデーションの実装例
+ドメインBeanの作成
 --------------------------------------------------
-この例では、メールアドレスが環境によって異なる場合を想定し、プロパティで設定可能にする実装とします。
+Nablarchのドメインバリデーションは、NablarchのDIコンテナ機能を使用して動作するようになっています。Nablarchにはドメインバリデーションを動作させるための設定が組み込まれていますが、Springからそのまま使用することは出来ないため、Nablarchに組み込まれている設定と同等の設定をSpring側でも行います。
 
-  .. literalinclude:: ../../../samples/aws/ses/src/main/resources/application-local.properties
+  ドメイン毎のバリデーションルールを設定し、ドメインを定義します。
+
+  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/validation/DomainBean.java
+    :language: java
+
+  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/validation/ExampleDomainManager.java
+    :language: java
+
+ドメインバリデーションを動作させるための設定
+--------------------------------------------------
+Nablarchのドメインバリデーションは、NablarchのDIコンテナ機能を使用して動作するようになっています。Nablarchにはドメインバリデーションを動作させるための設定が組み込まれていますが、Springからそのまま使用することは出来ないため、Nablarchに組み込まれている設定と同等の設定をSpring側で行います。
+
+また、Nablarchではデフォルト設定として文字種バリデーションで使用する文字種の定義を提供しているため、それを使用するための設定も行います。
+
+  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/validation/ValidationConfiguration.java
+    :language: java
+
+  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/validation/ValidatorFactoryBuilderImpl.java
+    :language: java
+
+  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/validation/ValidationSystemRepositoryLoader.java
+    :language: java
+
+  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/validation/CharsetDefProperties.java
+    :language: java
+
+  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/validation/CharsetDefSystemRepositoryLoader.java
+    :language: java
+
+ドメインバリデーションのメッセージ定義
+--------------------------------------------------
+Nablarchが提供するバリデーターでは、メッセージ定義用のプロパティ名がデフォルトで設定されているため、使用するバリデーターに合わせてメッセージを定義します。
+
+デフォルトのプロパティ名についてはアノテーション指定時に上書きすることができるため、独自のプロパティについても定義します。
+
+Nablarchのデフォルト設定の詳細については :nablarch-doc:`デフォルト設定一覧 <doc/application_framework/application_framework/configuration/index.html>` を参照してください。
+（機能名「メッセージ設定」にある ``nablarch.core.validation.ee.xxx.message`` プロパティが該当します）
+
+message.properties
+
+  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/resources/messages.properties
     :language: properties
-    :start-after: mail-start
-    :end-before: mail-end
+    :start-after: nablarch-start
+    :end-before: nablarch-end
 
-プロパティファイルに合わせて、プロパティ値をバインドするためのBeanを定義します。
+ドメインバリデーションの使用例
+--------------------------------------------------
+Controllerで受け取るBeanのプロパティに対して、 ``@Domain`` アノテーションで対応するドメイン名を指定します。Springでバリデーションが実行される際、ドメインBeanに設定したドメイン定義に従ってバリデーションが実行されます。
 
-  .. literalinclude:: ../../../samples/aws/ses/src/main/java/keel/aws/ses/MailProperties.java
-    :language: java
-
-ファイルを添付しないような単純なメールを送信する場合には、Springが提供する ``MailSender`` を使用して簡潔に実装できます。
-
-  .. literalinclude:: ../../../samples/aws/ses/src/main/java/keel/aws/ses/SimpleMailService.java
-    :language: java
-
-ファイルを添付する場合は、Springが提供する ``JavaMailSender`` を使用して実装できます。
-ファイルの添付が必要ない場合でも、 ``MailSender`` ではなく ``JavaMailSender`` を使用することで詳細な設定を行うことができます。
-
-  .. literalinclude:: ../../../samples/aws/ses/src/main/java/keel/aws/ses/AttachmentMailService.java
+  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/controller/ValidationForm.java
     :language: java

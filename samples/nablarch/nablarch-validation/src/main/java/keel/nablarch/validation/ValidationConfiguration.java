@@ -12,9 +12,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
  * バリデーション機能の設定。
  */
 @Configuration(proxyBeanMethods = false)
-@PropertySource(
-        value = "classpath:nablarch/core/validation/charset-definition.config",
-        encoding = "UTF-8")
+@PropertySource(value = "classpath:nablarch/core/validation/charset-definition.config", encoding = "UTF-8")
 public class ValidationConfiguration {
 
     /**
@@ -35,8 +33,7 @@ public class ValidationConfiguration {
      * @return 構築されたインスタンス
      */
     @Bean
-    public ValidationSystemRepositoryLoader validationSystemRepositoryLoader(
-            LocalValidatorFactoryBean localValidatorFactoryBean) {
+    public ValidationSystemRepositoryLoader validationSystemRepositoryLoader(LocalValidatorFactoryBean localValidatorFactoryBean) {
         return new ValidationSystemRepositoryLoader(localValidatorFactoryBean);
     }
 
@@ -47,8 +44,7 @@ public class ValidationConfiguration {
      * @return 構築されたインスタンス
      */
     @Bean
-    public CharsetDefSystemRepositoryLoader charsetDefSystemRepositoryLoader(
-            CharsetDefProperties properties) {
+    public CharsetDefSystemRepositoryLoader charsetDefSystemRepositoryLoader(CharsetDefProperties properties) {
         return new CharsetDefSystemRepositoryLoader(properties);
     }
 }
