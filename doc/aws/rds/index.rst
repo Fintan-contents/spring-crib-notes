@@ -31,8 +31,8 @@ pom.xml
 application.properties
   AWSのリージョン名とデータベースの接続先を設定します。
 
-  実行環境がEC2の場合、EC2のメタデータからリージョンが取得できるためを設定する必要はありません。
-  実行環境がEC2以外の場合、 ``cloud.aws.region.static`` にリージョンを設定します。
+  デフォルトのリージョンはAWS SDKが提供する ``DefaultAwsRegionProviderChain`` により決定され、実行環境に設定されたAWSアカウント情報や、EC2のメタデータからリージョンを取得します。
+  明示的に指定する場合は、 ``cloud.aws.region.static`` プロパティにリージョンを設定します。
 
   接続先の情報は ``cloud.aws.rds.instances[x]`` プロパティに設定します。
   接続先は複数設定することができるため、 ``cloud.aws.rds.instances[0]`` のようにインデックスを指定します。
@@ -62,7 +62,12 @@ AWSアカウントのクレデンシャル情報
 
   クレデンシャル情報の設定方法の詳細については :spring-cloud-aws-doc:`SDK credentials configuration <reference/html/index.html#sdk-credentials-configuration>`
   を参照してください。
-  
+
+.. tip::
+
+  IAMによるアクセス制御を行う場合、実行環境には必要な権限を付与する必要があります。
+  必要な権限の詳細については :spring-cloud-aws-doc:`IAM Permissions <reference/html/index.html#iam-permissions-6>` を参照してください。
+
 実装例
 --------------------------------------------------
 Spring Cloud AWSを使用していても、前述のプロパティ以外で特別な実装はありません。
