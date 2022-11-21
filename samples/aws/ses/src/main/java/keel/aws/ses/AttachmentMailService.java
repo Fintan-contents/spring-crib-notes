@@ -23,7 +23,7 @@ public class AttachmentMailService {
             helper.setFrom(mailProperties.getFrom());
             helper.setTo(mailProperties.getTo());
             
-            helper.setSubject("タイトル");
+            helper.setSubject("タイトル（ファイル添付）");
             helper.setText("本文");
 
             // この例では、クラスパス上にあるファイルを添付ファイルとして追加しています。
