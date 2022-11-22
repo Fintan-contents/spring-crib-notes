@@ -5,7 +5,7 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 
 この例では、Nablarchの機能である :nablarch-doc:`ドメインバリデーション <doc/application_framework/application_framework/libraries/validation/bean_validation.html#bean-validation-domain-validation>` を使用して、入力値をチェックする実装方法を説明します。
 
-ドメインバリデーションを使用することで、Nablarchが提供するバリデーターの使用や、Beanにドメイン名を指定するだけでバリデーションを設定するといったことができます。Beanごとにバリデーションのルールを定義する必要がないため、ルールの変更が容易になります。
+ドメインバリデーションを使用することで、Nablarchが提供するバリデーターの使用や、Beanにドメイン名を指定するだけでバリデーションを設定することができます。Beanごとにバリデーションのルールを定義する必要がないため、ルールの変更が容易になります。
 
 サンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
@@ -35,11 +35,9 @@ pom.xml
   Nablarchでは独自のログ出力機能を提供していますが、別のログライブラリを使用するためのアダプタが提供されています。この例では、SLF4Jを使用するためのアダプタである nablarch-slf4j-adaptor を使用しています。
   詳細は :nablarch-doc:`logアダプタ <doc/application_framework/adaptors/log_adaptor.html>` を参照してください。
 
-ドメインBeanの作成
+バリデーションルールの設定
 --------------------------------------------------
-Nablarchのドメインバリデーションは、NablarchのDIコンテナ機能を使用して動作するようになっています。Nablarchにはドメインバリデーションを動作させるための設定が組み込まれていますが、Springからそのまま使用することは出来ないため、Nablarchに組み込まれている設定と同等の設定をSpring側でも行います。
-
-  ドメイン毎のバリデーションルールを設定し、ドメインを定義します。
+ドメイン毎のバリデーションルールを設定するためドメインBeanを作成し、有効化します。
 
   .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/validation/DomainBean.java
     :language: java
@@ -51,7 +49,7 @@ Nablarchのドメインバリデーションは、NablarchのDIコンテナ機�
 --------------------------------------------------
 Nablarchのドメインバリデーションは、NablarchのDIコンテナ機能を使用して動作するようになっています。Nablarchにはドメインバリデーションを動作させるための設定が組み込まれていますが、Springからそのまま使用することは出来ないため、Nablarchに組み込まれている設定と同等の設定をSpring側で行います。
 
-また、Nablarchではデフォルト設定として文字種バリデーションで使用する文字種の定義を提供しているため、それを使用するための設定も行います。
+また、Nablarchでは文字種バリデーションで使用する文字種定義をデフォルト設定として提供しているため、それを使用するための設定も行います。
 
   .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/validation/ValidationConfiguration.java
     :language: java
@@ -70,9 +68,9 @@ Nablarchのドメインバリデーションは、NablarchのDIコンテナ機�
 
 ドメインバリデーションのメッセージ定義
 --------------------------------------------------
-Nablarchが提供するバリデーターでは、メッセージ定義用のプロパティ名がデフォルトで設定されているため、使用するバリデーターに合わせてメッセージを定義します。
+Nablarchが提供するバリデーターでは、メッセージを定義するためプロパティ名がデフォルトで設定されているため、使用するバリデーターに合わせてメッセージを定義します。
 
-デフォルトのプロパティ名についてはアノテーション指定時に上書きすることができるため、独自のプロパティについても定義します。
+デフォルトのプロパティ名はアノテーション指定時に上書きすることができるため、独自のプロパティについても定義します。
 
 Nablarchのデフォルト設定の詳細については :nablarch-doc:`デフォルト設定一覧 <doc/application_framework/application_framework/configuration/index.html>` を参照してください。
 （機能名「メッセージ設定」にある ``nablarch.core.validation.ee.xxx.message`` プロパティが該当します）
@@ -86,7 +84,7 @@ message.properties
 
 ドメインバリデーションの使用例
 --------------------------------------------------
-Controllerで受け取るBeanのプロパティに対して、 ``@Domain`` アノテーションで対応するドメイン名を指定します。Springでバリデーションが実行される際、ドメインBeanに設定したドメイン定義に従ってバリデーションが実行されます。
+Controllerで受け取るBeanのプロパティに対して、 ``@Domain`` アノテーションで対応するドメイン名を指定します。Springでバリデーションが実行される際、ドメインBeanに設定したバリデーションルールに従ってバリデーションが実行されます。
 
   .. literalinclude:: ../../../samples/nablarch/nablarch-validation/src/main/java/keel/nablarch/controller/ValidationForm.java
     :language: java
