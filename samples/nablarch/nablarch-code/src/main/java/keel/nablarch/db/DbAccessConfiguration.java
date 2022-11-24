@@ -41,48 +41,6 @@ public class DbAccessConfiguration {
     }
 
     /**
-     * BasicDbConnectionFactoryForDataSourceを構築する。
-     * 
-     * @param dataSource データソース
-     * @param statementFactory StatementFactory
-     * @param dbAccessExceptionFactory DbAccessExceptionFactory
-     * @param dialect Dialect
-     * @return 構築されたインスタンス
-     */
-    @Bean
-    @ConfigurationProperties(prefix = "nablarch.db.connection-factory")
-    public BasicDbConnectionFactoryForDataSource connectionFactory(
-            DataSource dataSource,
-            StatementFactory statementFactory,
-            DbAccessExceptionFactory dbAccessExceptionFactory,
-            Dialect dialect) {
-        BasicDbConnectionFactoryForDataSource connectionFactory = new BasicDbConnectionFactoryForDataSource();
-        connectionFactory.setDataSource(new TransactionAwareDataSourceProxy(dataSource));
-        connectionFactory.setStatementFactory(statementFactory);
-        connectionFactory.setDbAccessExceptionFactory(dbAccessExceptionFactory);
-        connectionFactory.setDialect(dialect);
-        return connectionFactory;
-    }
-
-    /**
-     * BasicStatementFactoryを構築する。
-     * 
-     * @param sqlStatementExceptionFactory SqlStatementExceptionFactory
-     * @param sqlParameterParserFactory SqlParameterParserFactory
-     * @return 構築されたインスタンス
-     */
-    @Bean
-    @ConfigurationProperties(prefix = "nablarch.db.statement-factory")
-    public BasicStatementFactory statementFactory(SqlStatementExceptionFactory sqlStatementExceptionFactory,
-                                                  SqlParameterParserFactory sqlParameterParserFactory) {
-        BasicStatementFactory statementFactory = new BasicStatementFactory();
-        statementFactory.setSqlStatementExceptionFactory(sqlStatementExceptionFactory);
-        statementFactory.setUpdatePreHookObjectHandlerList(List.of());
-        statementFactory.setSqlParameterParserFactory(sqlParameterParserFactory);
-        return statementFactory;
-    }
-
-    /**
      * BasicSqlStatementExceptionFactoryを構築する。
      * 
      * @return 構築されたインスタンス
@@ -106,6 +64,24 @@ public class DbAccessConfiguration {
     }
 
     /**
+     * BasicStatementFactoryを構築する。
+     *
+     * @param sqlStatementExceptionFactory SqlStatementExceptionFactory
+     * @param sqlParameterParserFactory SqlParameterParserFactory
+     * @return 構築されたインスタンス
+     */
+    @Bean
+    @ConfigurationProperties(prefix = "nablarch.db.statement-factory")
+    public BasicStatementFactory statementFactory(SqlStatementExceptionFactory sqlStatementExceptionFactory,
+                                                  SqlParameterParserFactory sqlParameterParserFactory) {
+        BasicStatementFactory statementFactory = new BasicStatementFactory();
+        statementFactory.setSqlStatementExceptionFactory(sqlStatementExceptionFactory);
+        statementFactory.setUpdatePreHookObjectHandlerList(List.of());
+        statementFactory.setSqlParameterParserFactory(sqlParameterParserFactory);
+        return statementFactory;
+    }
+
+    /**
      * BasicDbAccessExceptionFactoryを構築する。
      * 
      * @return 構築されたインスタンス
@@ -117,11 +93,35 @@ public class DbAccessConfiguration {
 
     /**
      * H2のDialectを構築する。
-     * 
+     *
      * @return 構築されたインスタンス
      */
     @Bean
     public H2Dialect dialect() {
         return new H2Dialect();
+    }
+
+    /**
+     * BasicDbConnectionFactoryForDataSourceを構築する。
+     *
+     * @param dataSource データソース
+     * @param statementFactory StatementFactory
+     * @param dbAccessExceptionFactory DbAccessExceptionFactory
+     * @param dialect Dialect
+     * @return 構築されたインスタンス
+     */
+    @Bean
+    @ConfigurationProperties(prefix = "nablarch.db.connection-factory")
+    public BasicDbConnectionFactoryForDataSource connectionFactory(
+            DataSource dataSource,
+            StatementFactory statementFactory,
+            DbAccessExceptionFactory dbAccessExceptionFactory,
+            Dialect dialect) {
+        BasicDbConnectionFactoryForDataSource connectionFactory = new BasicDbConnectionFactoryForDataSource();
+        connectionFactory.setDataSource(new TransactionAwareDataSourceProxy(dataSource));
+        connectionFactory.setStatementFactory(statementFactory);
+        connectionFactory.setDbAccessExceptionFactory(dbAccessExceptionFactory);
+        connectionFactory.setDialect(dialect);
+        return connectionFactory;
     }
 }

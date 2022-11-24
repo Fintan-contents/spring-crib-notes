@@ -5,12 +5,14 @@ import nablarch.core.validation.ee.Required;
 
 public class CodeManagementForm {
 
+    // form-start
     @Required
     @Domain("codePattern01")
     private String codePattern01;
 
     @Domain("codePattern02")
     private String codePattern02;
+    // form-end
 
     public String getCodePattern01() {
         return codePattern01;

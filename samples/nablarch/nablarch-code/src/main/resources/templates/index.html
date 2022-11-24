@@ -7,6 +7,7 @@
 <body>
 <form th:action="@{/}" method="post" th:object="${codeManagementForm}">
   <div th:if="${successMessage}" th:text="${successMessage}" style="color: blue"></div>
+  <!-- select-start -->
   <div style="margin-bottom: 8px">
     コード（パターン1）:
     <select  name="codePattern01" th:field="*{codePattern01}">
@@ -22,6 +23,7 @@
     </select>
     <div th:if="${#fields.hasErrors('codePattern01')}" th:errors="*{codePattern01}" style="color: red"></div>
   </div>
+  <!-- select-end -->
   <div style="margin-bottom: 8px">
     コード（パターン2）:
     <select  name="codePattern02" th:field="*{codePattern02}">

@@ -21,26 +21,7 @@ import org.springframework.context.annotation.Import;
 @Import(DbAccessConfiguration.class)
 public class CodeManagementConfiguration {
 
-    /**
-     * BasicCodeLoaderを構築する。
-     * 
-     * @param codePatternSchema CodePatternSchema
-     * @param codeNameSchema CodeNameSchema
-     * @param dbManager SimpleDbTransactionManager
-     * @return 構築されたインスタンス
-     */
-    @Bean(initMethod = "initialize")
-    public BasicCodeLoader codeLoader(
-            CodePatternSchema codePatternSchema,
-            CodeNameSchema codeNameSchema,
-            SimpleDbTransactionManager dbManager) {
-        BasicCodeLoader codeLoader = new BasicCodeLoader();
-        codeLoader.setCodeNameSchema(codeNameSchema);
-        codeLoader.setCodePatternSchema(codePatternSchema);
-        codeLoader.setDbManager(dbManager);
-        return codeLoader;
-    }
-
+    // schema-bean-start
     /**
      * CodePatternSchemaを構築する。
      * テーブル名やカラム名など、プロジェクトに合わせてカスタマイズすること。
@@ -86,7 +67,31 @@ public class CodeManagementConfiguration {
                 });
         return codeNameSchema;
     }
+    // schema-bean-end
 
+    // loader-bean-start
+    /**
+     * BasicCodeLoaderを構築する。
+     *
+     * @param codePatternSchema CodePatternSchema
+     * @param codeNameSchema CodeNameSchema
+     * @param dbManager SimpleDbTransactionManager
+     * @return 構築されたインスタンス
+     */
+    @Bean(initMethod = "initialize")
+    public BasicCodeLoader codeLoader(
+            CodePatternSchema codePatternSchema,
+            CodeNameSchema codeNameSchema,
+            SimpleDbTransactionManager dbManager) {
+        BasicCodeLoader codeLoader = new BasicCodeLoader();
+        codeLoader.setCodeNameSchema(codeNameSchema);
+        codeLoader.setCodePatternSchema(codePatternSchema);
+        codeLoader.setDbManager(dbManager);
+        return codeLoader;
+    }
+    // loader-bean-end
+
+    // manager-bean-start
     /**
      * BasicStaticDataCacheを構築する。
      * 
@@ -113,7 +118,9 @@ public class CodeManagementConfiguration {
         codeManager.setCodeDefinitionCache(codeDefinitionCache);
         return codeManager;
     }
+    // manager-bean-end
 
+    // repository-bean-start
     /**
      * CodeManagementSystemRepositoryLoaderを構築する。
      * 
@@ -124,4 +131,5 @@ public class CodeManagementConfiguration {
     public CodeManagementSystemRepositoryLoader codeManagementSystemRepositoryLoader(CodeManager codeManager) {
         return new CodeManagementSystemRepositoryLoader(codeManager);
     }
+    // repository-bean-end
 }
