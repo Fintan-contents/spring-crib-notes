@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form th:action="@{/}" method="post" th:object="${codeManagementForm}">
+  <div th:if="${successMessage}" th:text="${successMessage}" style="color: blue"></div>
+  <div style="margin-bottom: 8px">
+    コード（パターン1）:
+    <select  name="codePattern01" th:field="*{codePattern01}">
+      <option value=""></option>
+      <option value="ER">未登録のコード</option>
+      <option
+              th:each="codeValue : ${@codeViewHelper.getValues('CODE01','pattern01')}"
+              th:value="${codeValue}"
+              th:text="${@codeViewHelper.getName('CODE01', codeValue)}"
+      >
+        ...
+      </option>
+    </select>
+    <div th:if="${#fields.hasErrors('codePattern01')}" th:errors="*{codePattern01}" style="color: red"></div>
+  </div>
+  <div style="margin-bottom: 8px">
+    コード（パターン2）:
+    <select  name="codePattern02" th:field="*{codePattern02}">
+      <option value=""></option>
+      <option
+              th:each="codeValue : ${@codeViewHelper.getValues('CODE01','pattern02')}"
+              th:value="${codeValue}"
+              th:text="${@codeViewHelper.getName('CODE01', codeValue)}"
+      >
+        ...
+      </option>
+    </select>
+    <div th:if="${#fields.hasErrors('codePattern02')}" th:errors="*{codePattern02}" style="color: red"></div>
+  </div>
+  <button type="submit">入力値をチェック</button>
+</form>
+</body>
+</html>

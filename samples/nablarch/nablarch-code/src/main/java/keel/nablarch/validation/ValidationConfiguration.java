@@ -1,0 +1,27 @@
+package keel.nablarch.validation;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+
+import javax.validation.Validator;
+
+/**
+ * バリデーション機能の設定。
+ */
+@Configuration(proxyBeanMethods = false)
+public class ValidationConfiguration {
+
+    /**
+     * ValidationSystemRepositoryLoaderを構築する。
+     * 
+     * @param localValidatorFactoryBean {@link Validator}実装クラスのインスタンス
+     * @return 構築されたインスタンス
+     */
+    @Bean
+    public ValidationSystemRepositoryLoader validationSystemRepositoryLoader(LocalValidatorFactoryBean localValidatorFactoryBean) {
+        return new ValidationSystemRepositoryLoader(localValidatorFactoryBean);
+    }
+}

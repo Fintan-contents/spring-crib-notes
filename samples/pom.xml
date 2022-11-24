@@ -31,6 +31,7 @@
     <module>aws/ses</module>
 
     <module>nablarch/nablarch-validation</module>
+    <module>nablarch/nablarch-code</module>
   </modules>
 
   <!-- spring-boot-version-start -->
