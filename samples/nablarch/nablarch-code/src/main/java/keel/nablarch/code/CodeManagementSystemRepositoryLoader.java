@@ -6,6 +6,7 @@ import org.springframework.beans.factory.InitializingBean;
 
 import java.util.Map;
 
+// class-start
 /**
  * コード管理機能に必要なインスタンスを{@link SystemRepository}へ登録するクラス。
  */
@@ -30,3 +31,4 @@ public class CodeManagementSystemRepositoryLoader implements InitializingBean {
         SystemRepository.load(() -> Map.of("codeManager", codeManager));
     }
 }
+// class-start

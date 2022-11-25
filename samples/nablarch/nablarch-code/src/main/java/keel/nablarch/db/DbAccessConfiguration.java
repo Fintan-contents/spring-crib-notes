@@ -22,6 +22,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 import java.util.List;
 
+// class-start
 /**
  * Nablarchのデータアクセス機能を使用するための設定。
  */
@@ -125,3 +126,4 @@ public class DbAccessConfiguration {
         return connectionFactory;
     }
 }
+// class-end

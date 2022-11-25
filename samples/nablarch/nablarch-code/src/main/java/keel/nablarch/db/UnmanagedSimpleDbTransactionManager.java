@@ -8,6 +8,7 @@ import nablarch.core.transaction.TransactionContext;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 
+// class-start
 /**
  * Springのトランザクション管理機能と統合するSimpleDbTransactionManagerサブクラス。
  */
@@ -82,3 +83,4 @@ public class UnmanagedSimpleDbTransactionManager extends SimpleDbTransactionMana
         DbConnectionContext.removeConnection(DB_TRANSACTION_NAME);
     }
 }
+// class-end

@@ -9,6 +9,7 @@ import org.springframework.util.StringUtils;
 
 import nablarch.common.code.CodeManager;
 
+// helper-start
 /**
  * コード値に関するViewHelper。
  */
@@ -45,3 +46,4 @@ public class CodeViewHelper {
         return codeManager.getValues(codeId, pattern);
     }
 }
+// helper-end

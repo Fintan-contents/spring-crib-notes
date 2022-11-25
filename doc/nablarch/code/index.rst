@@ -48,7 +48,6 @@ pom.xml
   テーブル名やカラム名はあくまで一例であり、スキーマ情報を保持するBeanを定義する際に任意のカラム名を設定することができます。
 
 V001__create_code_table.sql
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/resources/db/migration/V001__create_code_table.sql
     :language: sql
 
@@ -59,16 +58,18 @@ Nablarchのコード管理機能は、NablarchのDIコンテナ機能とデー�
 データアクセス機能を使用できるようにするため、Springのトランザクション管理機能と統合させるためのクラスを作成します。
 
 UnmanagedSimpleDbTransactionManager
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/db/UnmanagedSimpleDbTransactionManager.java
     :language: java
+    :start-after: class-start
+    :end-before: class-end
 
 作成したトランザクション管理のクラスや、その他に必要となるクラスをBean定義します。
 
 DbAccessConfiguration
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/db/DbAccessConfiguration.java
     :language: java
+    :start-after: class-start
+    :end-before: class-end
 
 .. tip::
 
@@ -80,7 +81,6 @@ DbAccessConfiguration
 コード管理で使用するために用意したテーブル定義に合わせて、スキーマ情報を保持するBeanを定義します。前述のテーブル定義に合わせて、テーブル名やカラム名を設定します。
 
 CodeManagementConfiguration
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/code/CodeManagementConfiguration.java
     :language: java
     :start-after: schema-bean-start
@@ -89,7 +89,6 @@ CodeManagementConfiguration
 スキーマ情報のBeanとやデータアクセス機能のBeanを使用して、データベースからコードをロードするための ``BasicCodeLoader`` をBean定義します。 ``BasicCodeLoader`` には初期化するための ``initialize`` メソッドがあるため、Bean初期化時に呼び出すように設定しておきます。
 
 CodeManagementConfiguration
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/code/CodeManagementConfiguration.java
     :language: java
     :start-after: loader-bean-start
@@ -98,7 +97,6 @@ CodeManagementConfiguration
 コード情報にアクセスする際に使用する ``CodeManager`` をBean定義します。
 
 CodeManagementConfiguration
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/code/CodeManagementConfiguration.java
     :language: java
     :start-after: manager-bean-start
@@ -107,16 +105,16 @@ CodeManagementConfiguration
 CodeManagerはNablarchの内部でも使用するため、NablarchのDIコンテナであるシステムリポジトリに ``codeManager`` という名前で登録します。
 
 CodeManagementConfiguration
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/code/CodeManagementConfiguration.java
     :language: java
     :start-after: repository-bean-start
     :end-before: repository-bean-end
 
 CodeManagementSystemRepositoryLoader
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/code/CodeManagementSystemRepositoryLoader.java
     :language: java
+    :start-after: class-start
+    :end-before: class-end
 
 ドメインバリデーションを動作させるための設定
 --------------------------------------------------
@@ -124,20 +122,19 @@ TODO: ドメインバリデーションページを参照させるため、ド�
 
 コード値バリデーションの使用例
 --------------------------------------------------
-Nablarchが提供するバリデーターでは、メッセージを定義するためプロパティ名がデフォルトで設定されているため、使用するバリデーターに合わせてメッセージを定義します。
+Nablarchが提供するバリデーターでは、各種エラーに対応するメッセージを定義する必要がありますので、使用するバリデーターに合わせてメッセージを定義します。
+メッセージのプロパティ名は、Nablarchのデフォルト設定で定義されています。
 
 Nablarchのデフォルト設定の詳細については :nablarch-doc:`デフォルト設定一覧 <doc/application_framework/application_framework/configuration/index.html>` を参照してください。
 （機能名「メッセージ設定」にある ``nablarch.core.validation.ee.xxx.message`` プロパティが該当します）
 
 message.properties
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/resources/messages.properties
     :language: properties
 
 ドメインバリデーションで使用するドメインBeanに、 ``@CodeValue`` アノテーションでコード値のバリデーションを設定します。使用するコード値とパターンを指定し、対応するコード情報を設定します。
 
 DomainBean
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/validation/DomainBean.java
     :language: java
     :start-after: domain-start
@@ -146,7 +143,6 @@ DomainBean
 Controllerで受け取るBeanのプロパティに対して、 ``@Domain`` アノテーションで対応するドメイン名を指定します。Springでバリデーションが実行される際、ドメインBeanに設定したバリデーションルールに従ってバリデーションが実行されます。
 
 CodeManagementForm
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/controller/CodeManagementForm.java
     :language: java
     :start-after: form-start
@@ -157,14 +153,14 @@ CodeManagementForm
 Bean定義した ``CodeManger`` を使用することでコード情報を取得することができるため、Thymeleafから使用するためのヘルパークラスを作成します。
 
 CodeViewHelper
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/code/CodeViewHelper.java
     :language: java
+    :start-after: helper-start
+    :end-before: helper-end
 
 画面では、作成したヘルパークラスを使用してコード値と名称を取得し、プルダウンに設定します。
 
 index.html
-
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/resources/templates/index.html
     :language: html
     :start-after: select-start
