@@ -15,6 +15,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 @PropertySource(value = "classpath:nablarch/core/validation/charset-definition.config", encoding = "UTF-8")
 public class ValidationConfiguration {
 
+    // charset-props-start
     /**
      * CharsetDefPropertiesを構築する。
      * 
@@ -25,7 +26,22 @@ public class ValidationConfiguration {
     public CharsetDefProperties charsetDefProperties() {
         return new CharsetDefProperties();
     }
+    // charset-props-end
 
+    // charset-loader-start
+    /**
+     * CharsetDefSystemRepositoryLoaderを構築する。
+     *
+     * @param properties CharsetDefProperties
+     * @return 構築されたインスタンス
+     */
+    @Bean
+    public CharsetDefSystemRepositoryLoader charsetDefSystemRepositoryLoader(CharsetDefProperties properties) {
+        return new CharsetDefSystemRepositoryLoader(properties);
+    }
+    // charset-loader-end
+
+    // repository-start
     /**
      * ValidationSystemRepositoryLoaderを構築する。
      * 
@@ -36,15 +52,5 @@ public class ValidationConfiguration {
     public ValidationSystemRepositoryLoader validationSystemRepositoryLoader(LocalValidatorFactoryBean localValidatorFactoryBean) {
         return new ValidationSystemRepositoryLoader(localValidatorFactoryBean);
     }
-
-    /**
-     * CharsetDefSystemRepositoryLoaderを構築する。
-     * 
-     * @param properties CharsetDefProperties
-     * @return 構築されたインスタンス
-     */
-    @Bean
-    public CharsetDefSystemRepositoryLoader charsetDefSystemRepositoryLoader(CharsetDefProperties properties) {
-        return new CharsetDefSystemRepositoryLoader(properties);
-    }
+    // repository-end
 }

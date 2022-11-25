@@ -9,6 +9,7 @@ import nablarch.core.repository.SystemRepository;
 import nablarch.core.validation.validator.unicode.CompositeCharsetDef;
 import nablarch.core.validation.validator.unicode.RangedCharsetDef;
 
+// class-start
 /**
  * 文字種バリデーション機能に必要なインスタンスを{@link SystemRepository}へ登録するクラス。
  */
@@ -79,3 +80,4 @@ public class CharsetDefSystemRepositoryLoader implements InitializingBean {
                 "システム許容文字", systemAllowedCharset));
     }
 }
+// class-end

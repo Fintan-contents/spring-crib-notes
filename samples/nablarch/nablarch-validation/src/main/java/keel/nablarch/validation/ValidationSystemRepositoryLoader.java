@@ -7,6 +7,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import javax.validation.Validator;
 import java.util.Map;
 
+// class-start
 /**
  * バリデーション機能に必要なインスタンスを{@link SystemRepository}へ登録するクラス。
  */
@@ -33,3 +34,4 @@ public class ValidationSystemRepositoryLoader implements InitializingBean {
                 "validatorFactoryBuilder", new ValidatorFactoryBuilderImpl(localValidatorFactoryBean)));
     }
 }
+// class-end

@@ -13,6 +13,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import nablarch.core.validation.ee.ValidatorFactoryBuilder;
 
+// class-start
 /**
  * 特定の{@link Validator}実装クラスを返す{@link ValidatorFactoryBuilder}サブクラス。
  */
@@ -40,6 +41,10 @@ public class ValidatorFactoryBuilderImpl extends ValidatorFactoryBuilder impleme
     @Override
     public Validator getValidator() {
         return localValidatorFactoryBean;
+    }
+
+    @Override
+    public void close() {
     }
 
     @Override
@@ -77,8 +82,5 @@ public class ValidatorFactoryBuilderImpl extends ValidatorFactoryBuilder impleme
     public <T> T unwrap(Class<T> type) {
         throw new UnsupportedOperationException();
     }
-
-    @Override
-    public void close() {
-    }
 }
+// class-end

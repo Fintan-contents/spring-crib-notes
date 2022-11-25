@@ -3,6 +3,7 @@ package keel.nablarch.validation;
 import nablarch.core.validation.validator.unicode.CharsetDef;
 import nablarch.core.validation.validator.unicode.LiteralCharsetDef;
 
+// property-start
 /**
  * Nablarchデフォルト設定に含まれる文字種の定義を読み込むためのProperties。
  */
@@ -64,6 +65,9 @@ public class CharsetDefProperties {
 
     /** IBM拡張文字 */
     private CharsetDef ibmExtendedCharset = new LiteralCharsetDef();
+
+    // （アクセサの記載は省略します）
+    // property-end
 
     /**
      * 半角数字を返す。

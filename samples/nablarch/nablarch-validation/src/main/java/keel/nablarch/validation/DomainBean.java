@@ -5,6 +5,7 @@ import nablarch.core.validation.ee.Length;
 import nablarch.core.validation.ee.NumberRange;
 import nablarch.core.validation.ee.SystemChar;
 
+// class-start
 /**
  * ドメインのバリデーションルール。
  */
@@ -28,3 +29,4 @@ public class DomainBean {
     @SystemChar(charsetDef = "システム許容文字")
     public String note;
 }
+// class-end
