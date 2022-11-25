@@ -3,15 +3,17 @@ package keel.nablarch.controller;
 import nablarch.core.validation.ee.Domain;
 import nablarch.core.validation.ee.Required;
 
+// form-start
 public class CodeManagementForm {
 
-    // form-start
     @Required
     @Domain("codePattern01")
     private String codePattern01;
 
     @Domain("codePattern02")
     private String codePattern02;
+
+    // （アクセサの記載は省略します）
     // form-end
 
     public String getCodePattern01() {

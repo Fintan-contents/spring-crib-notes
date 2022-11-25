@@ -118,15 +118,13 @@ CodeManagementSystemRepositoryLoader
 
 ドメインバリデーションを動作させるための設定
 --------------------------------------------------
-TODO: ドメインバリデーションページを参照させるため、ドメインバリデーションのPRがマージされた後で対応予定
+ドメインバリデーションを動作させるための設定については、 :ref:`Nablarchのドメインバリデーションを使用して入力値をチェックする <nablarch-validation>` を参照してください。
 
 コード値バリデーションの使用例
 --------------------------------------------------
 Nablarchが提供するバリデーターでは、各種エラーに対応するメッセージを定義する必要がありますので、使用するバリデーターに合わせてメッセージを定義します。
-メッセージのプロパティ名は、Nablarchのデフォルト設定で定義されています。
 
-Nablarchのデフォルト設定の詳細については :nablarch-doc:`デフォルト設定一覧 <doc/application_framework/application_framework/configuration/index.html>` を参照してください。
-（機能名「メッセージ設定」にある ``nablarch.core.validation.ee.xxx.message`` プロパティが該当します）
+使用するプロパティ名については、Nablarchのデフォルト設定として定義されています。Nablarchのデフォルト設定の詳細については :nablarch-doc:`デフォルト設定一覧 <doc/application_framework/application_framework/configuration/index.html>` を参照してください。
 
 message.properties
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/resources/messages.properties
@@ -137,8 +135,8 @@ message.properties
 DomainBean
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/validation/DomainBean.java
     :language: java
-    :start-after: domain-start
-    :end-before: domain-end
+    :start-after: class-start
+    :end-before: class-end
 
 Controllerで受け取るBeanのプロパティに対して、 ``@Domain`` アノテーションで対応するドメイン名を指定します。Springでバリデーションが実行される際、ドメインBeanに設定したバリデーションルールに従ってバリデーションが実行されます。
 
