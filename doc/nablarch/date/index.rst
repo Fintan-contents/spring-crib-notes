@@ -180,6 +180,13 @@ DateService
     :start-after: bizdate-update-start
     :end-before: bizdate-update-end
 
+業務日付を上書きする場合は、``business-date.fixed.[区分]`` プロパティを設定します。
+例えば、バッチ実行時に業務区分 ``00`` の業務日付を上書きしたいといった場合、以下のように起動します。
+
+.. code-block:: bash
+
+  java -jar nablarch-date-0.0.1-SNAPSHOT.jar --businessDate.fixed.00=20220131
+
 .. tip::
 
   :nablarch-doc:`BasicBusinessDateProvider <javadoc/nablarch/core/date/BasicBusinessDateProvider.html>` では業務日付を ``String`` 型で扱います。
