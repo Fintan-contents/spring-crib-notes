@@ -5,6 +5,7 @@ import nablarch.core.validation.ee.Length;
 import nablarch.core.validation.ee.NumberRange;
 import nablarch.core.validation.ee.SystemChar;
 
+// class-start
 /**
  * ドメインのバリデーションルール。
  */
@@ -15,8 +16,8 @@ public class DomainBean {
     public String id;
 
     /** 名前 **/
-    @Length(max = 10, message = "{domainType.name.message}")
-    @SystemChar(charsetDef = "全角文字", message = "{domainType.name.message}")
+    @Length(max = 10)
+    @SystemChar(charsetDef = "全角文字")
     public String name;
 
     /** 年齢 **/
@@ -24,7 +25,8 @@ public class DomainBean {
     public String age;
 
     /** 備考 **/
-    @Length(max = 10, message = "{domainType.note.message}")
-    @SystemChar(charsetDef = "システム許容文字", message = "{domainType.note.message}")
+    @Length(max = 10)
+    @SystemChar(charsetDef = "システム許容文字")
     public String note;
 }
+// class-end

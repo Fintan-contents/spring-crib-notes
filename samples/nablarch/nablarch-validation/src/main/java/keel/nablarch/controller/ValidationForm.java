@@ -3,6 +3,7 @@ package keel.nablarch.controller;
 import nablarch.core.validation.ee.Domain;
 import nablarch.core.validation.ee.Required;
 
+// property-start
 public class ValidationForm {
 
     @Required
@@ -19,6 +20,9 @@ public class ValidationForm {
 
     @Domain("note")
     private String note;
+
+    // （アクセサの記載は省略します）
+    // property-end
 
     public Integer getId() {
         return id;
