@@ -32,6 +32,7 @@
 
     <module>nablarch/nablarch-validation</module>
     <module>nablarch/nablarch-code</module>
+    <module>nablarch/nablarch-date</module>
   </modules>
 
   <!-- spring-boot-version-start -->
