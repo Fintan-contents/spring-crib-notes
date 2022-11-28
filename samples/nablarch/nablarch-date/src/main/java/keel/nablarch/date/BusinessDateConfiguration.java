@@ -38,7 +38,7 @@ public class BusinessDateConfiguration {
     }
     // provider-end
 
-    // repository-start
+    // repository-bean-start
     /**
      * BusinessDateSystemRepositoryLoaderを構築する。
      * 
@@ -51,5 +51,5 @@ public class BusinessDateConfiguration {
             BusinessDateProvider businessDateProvider, FixedBusinessDateProperties properties) {
         return new BusinessDateSystemRepositoryLoader(businessDateProvider, properties);
     }
-    // repository-end
+    // repository-bean-end
 }

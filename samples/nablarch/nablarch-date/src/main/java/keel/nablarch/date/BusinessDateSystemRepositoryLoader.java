@@ -40,7 +40,6 @@ public class BusinessDateSystemRepositoryLoader implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() {
-        System.out.println("!!!!!!!!!!!!!!!!" + properties.getFixed());
         Map<String, Object> objectMap = new HashMap<>();
         objectMap.put("businessDateProvider", businessDateProvider);
         properties.getFixed().forEach((key, value) ->

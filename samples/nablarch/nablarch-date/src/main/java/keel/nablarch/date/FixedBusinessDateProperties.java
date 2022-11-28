@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+// class-start
 @Component
 @ConfigurationProperties(prefix = "business-date")
 public class FixedBusinessDateProperties {
@@ -21,3 +22,4 @@ public class FixedBusinessDateProperties {
         this.fixed = fixed;
     }
 }
+// class-end

@@ -11,37 +11,58 @@ import java.time.format.DateTimeFormatter;
 @Service
 public class DateService {
 
-    // bizdate-bind-start
     @Autowired
     private BusinessDateProvider businessDateProvider;
-    // bizdate-bind-end
 
+    // sysdate-start
+    /**
+     * システム日付を取得します。
+     *
+     * @return システム日付(yyyyMMdd形式)
+     */
     public String getSystemDate() {
-        // sysdate-start
         String systemDate = SystemTimeUtil.getDateString();
-        // sysdate-end
         return systemDate;
     }
+    // sysdate-end
 
+    // bizdate-00-start
+    /**
+     * デフォルト区分の業務日付を取得します。
+     *
+     * @return 業務日付(yyyyMMdd形式)
+     */
     public String getBusinessDate() {
-        // bizdate-00-start
         String businessDate = businessDateProvider.getDate();
-        // bizdate-00-end
         return businessDate;
     }
+    // bizdate-00-end
 
+
+    // bizdate-01-start
+    /**
+     * 指定された区分の業務日付を取得します。
+     *
+     * @param segment 区分
+     * @return 業務日付(yyyyMMdd形式)
+     */
     public String getBusinessDateWithSegment(String segment) {
-        // bizdate-01-start
         String businessDate = businessDateProvider.getDate(segment);
-        // bizdate-01-end
         return businessDate;
     }
+    // bizdate-01-end
 
+    // bizdate-update-start
+    /**
+     * 指定された区分の業務日付を更新します。
+     *
+     * @param segment 区分
+     * @param date 日付
+     */
     public void updateBusinessDate(String segment, LocalDate date) {
-        // update-start
-        // 更新時の日付はyyyyMMdd形式の文字列で指定する（）
+        // 更新時の日付はyyyyMMdd形式の文字列で指定する
         String dateString = date.format(DateTimeFormatter.ofPattern("uuuuMMdd"));
         businessDateProvider.setDate(segment, dateString);
-        // update-end
     }
+    // bizdate-update-end
 }

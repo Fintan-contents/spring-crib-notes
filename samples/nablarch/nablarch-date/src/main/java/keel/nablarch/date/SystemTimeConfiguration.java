@@ -22,7 +22,7 @@ public class SystemTimeConfiguration {
     }
     // provider-end
 
-    // repository-start
+    // repository-bean-start
     /**
      * SystemTimeSystemRepositoryLoaderを構築する。
      * 
@@ -33,5 +33,5 @@ public class SystemTimeConfiguration {
     public SystemTimeSystemRepositoryLoader systemTimeSystemRepositoryLoader(SystemTimeProvider systemTimeProvider) {
         return new SystemTimeSystemRepositoryLoader(systemTimeProvider);
     }
-    // repository-end
+    // repository-bean-end
 }
