@@ -25,7 +25,7 @@
         <!-- Nablarch：日付管理 -->
         <dependency>
             <groupId>com.nablarch.framework</groupId>
-            <artifactId>nablarch-common-code</artifactId>
+            <artifactId>nablarch-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.nablarch.framework</groupId>
