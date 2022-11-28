@@ -43,12 +43,13 @@ public class BusinessDateConfiguration {
      * BusinessDateSystemRepositoryLoaderを構築する。
      * 
      * @param businessDateProvider BusinessDateProvider
+     * @param properties 業務日付を上書きするためのProperties
      * @return 構築されたインスタンス
      */
     @Bean
     public BusinessDateSystemRepositoryLoader businessDateSystemRepositoryLoader(
-            BusinessDateProvider businessDateProvider) {
-        return new BusinessDateSystemRepositoryLoader(businessDateProvider);
+            BusinessDateProvider businessDateProvider, FixedBusinessDateProperties properties) {
+        return new BusinessDateSystemRepositoryLoader(businessDateProvider, properties);
     }
     // repository-end
 }
