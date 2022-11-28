@@ -31,4 +31,4 @@ public class CodeManagementSystemRepositoryLoader implements InitializingBean {
         SystemRepository.load(() -> Map.of("codeManager", codeManager));
     }
 }
-// class-start
+// class-end
