@@ -24,7 +24,7 @@ pom.xml
 
  コード管理機能を使うため、依存ライブラリにnablarch-common-codeとnablarch-common-code-jdbcを追加します。
 
-  .. literalinclude:: ../../../samples/nablarch/nablarch-validation/pom.xml
+  .. literalinclude:: ../../../samples/nablarch/nablarch-code/pom.xml
     :language: xml
     :start-after: nablarch-start
     :end-before: nablarch-end
