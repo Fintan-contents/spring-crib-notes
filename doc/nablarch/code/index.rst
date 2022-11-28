@@ -94,7 +94,7 @@ CodeManagementConfiguration
     :start-after: loader-bean-start
     :end-before: loader-bean-end
 
-コード情報にアクセスする際に使用する :nablarch-doc:`BasicCodeManager <javadoc/nablarch/common/code/BasicCodeManager.html>`` をBean定義します。
+コード情報にアクセスする際に使用する :nablarch-doc:`BasicCodeManager <javadoc/nablarch/common/code/BasicCodeManager.html>` をBean定義します。
 
 CodeManagementConfiguration
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/java/keel/nablarch/code/CodeManagementConfiguration.java
