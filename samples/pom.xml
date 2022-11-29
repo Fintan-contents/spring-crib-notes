@@ -140,6 +140,14 @@
           <excludeFilterFile>${project.basedir}/../../tools/spotbugs/spotbugs-exclude.xml</excludeFilterFile>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>2.0.0</version>
+        <configuration>
+          <excludedScopes>test</excludedScopes>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
