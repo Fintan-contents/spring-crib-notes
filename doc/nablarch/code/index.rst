@@ -51,6 +51,8 @@ V001__create_code_table.sql
   .. literalinclude:: ../../../samples/nablarch/nablarch-code/src/main/resources/db/migration/V001__create_code_table.sql
     :language: sql
 
+.. _nablarch-dao-settings:
+
 データアクセス機能を動作させるための設定
 --------------------------------------------------
 Nablarchのコード管理機能は、NablarchのDIコンテナ機能とデータアクセス機能を使用して動作するようになっています。Nablarchにはそれらを動作させるための設定が組み込まれていますが、Springからそのまま使用することは出来ないため、Nablarchに組み込まれている設定と同等の設定をSpring側で行います。
