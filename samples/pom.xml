@@ -138,6 +138,13 @@
         <version>4.7.3.0</version>
         <configuration>
           <excludeFilterFile>${project.basedir}/../../tools/spotbugs/spotbugs-exclude.xml</excludeFilterFile>
+          <plugins>
+            <plugin>
+              <groupId>com.h3xstream.findsecbugs</groupId>
+              <artifactId>findsecbugs-plugin</artifactId>
+              <version>1.12.0</version>
+            </plugin>
+          </plugins>
         </configuration>
       </plugin>
       <plugin>
