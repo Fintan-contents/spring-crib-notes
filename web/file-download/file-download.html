@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ファイルをダウンロードする &mdash; keel-doc 1.0.0 ドキュメント</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="🚧 ファイルシステム上のファイルをダウンロードする" href="filesystem.html" />
+    <link rel="prev" title="ファイルダウンロード" href="index.html" />
+<script>
+  <script defer data-domain="fintan-content.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> keel-doc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">このドキュメントについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#target-user">対象読者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#id5">このドキュメントの使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#test-environment-and-dependencies">動作確認環境と依存ライブラリについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html">アプリケーションのスタック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/doma2.html">データベースアクセスにDoma2を使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/mybatis.html">データベースアクセスにMyBatisを使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/sql-management.html">DDL / DMLの管理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Webアプリ開発のノウハウ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../view/index.html">画面の作成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf.html">ViewのテンプレートエンジンにThymeleafを使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf-page-layout.html">Thymeleafを使用して各画面で共通のレイアウトを利用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../view/thymeleaf-default-value.html">Thymeleafを使用してチェックボックスなどのデフォルト値を送信する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../session/index.html">セッション管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../session/session-redis.html">セッションの情報をRedisに保存する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../validation/type-conversion-error.html">入力値の型変換エラー時に入力画面に適切なメッセージを表示する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../error-handling/index.html#service">Serviceなどで送出した例外を業務エラーとして扱い画面にエラーメッセージを表示する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ファイルダウンロード</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ファイルをダウンロードする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../authentication/index.html">認証</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../authentication/table.html">テーブル認証</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../authorization/index.html">認可</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id2">ユーザに対して権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id3">認証時にログインしたユーザの権限を保持する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#url">URLパターンごとにアクセスに必要な権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../authorization/index.html#id4">アクセス権限に応じて画面上のリンクやボタンを非表示にする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../double-submission/index.html">二重送信防止</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../double-submission/index.html#id3">設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../double-submission/index.html#id4">実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../response-header/index.html">HTTPレスポンスヘッダ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../static-resource-cache/index.html">画像やcssなどの静的なリソースをキャッシュする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../static-resource-cache/index.html#id1">設定例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch/index.html">バッチアプリ開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../batch/db-io/index.html">データベース入出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/db-io/doma2.html">Doma2でデータベースから読み込み・書き出しする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/index.html">SpringからAWSマネージドサービスを利用する際のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/s3/index.html">Amazon S3にファイルをアップロード及びAmazon S3からファイルをダウンロードする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#amazon-s3">Amazon S3を使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#s3-upload">Amazon S3にファイルをアップロードする実装例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#id2">Amazon S3からファイルをダウンロードする実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/ses/index.html">Amazon SESを使ってメールを送信する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#aws-ses">AWS SESを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nablarch/validation/index.html">Nablarchのドメインバリデーションを使用して入力値をチェックする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/validation/index.html#id1">Nablarchを使用するための準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/validation/index.html#id2">バリデーションルールの設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/validation/index.html#id3">ドメインバリデーションを動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/validation/index.html#id4">ドメインバリデーションの使用例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nablarch/code/index.html">Nablarchのコード管理機能を使用する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id1">Nablarchを使用するための準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id2">コード管理で使用するテーブルの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#nablarch-dao-settings">データアクセス機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id4">コード管理機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id5">ドメインバリデーションを動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id6">コード値バリデーションの使用例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id7">画面での使用例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nablarch/date/index.html">Nablarchの日付管理機能を使用する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id1">Nablarchを使用するための準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id2">業務日付管理で使用するテーブルの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id3">データアクセス機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id4">業務日付管理機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id5">システム日付管理機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id6">システム日付の使用例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id7">業務日付の使用例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">keel-doc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Webアプリ開発のノウハウ</a> &raquo;</li>
+          <li><a href="index.html">ファイルダウンロード</a> &raquo;</li>
+      <li>ファイルをダウンロードする</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>ファイルをダウンロードする<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
+<p>このページでは、ファイルをダウンロードする方法について説明します。</p>
+<p>ファイルのダウンロード処理は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.23/javadoc-api/org/springframework/web/servlet/view/AbstractView.html">AbstractView</a> を継承したカスタムViewクラスで実施します。
+AbstractViewを継承したクラスをSpringのDIコンテナに登録しておくと、 <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.23/javadoc-api/org/springframework/web/servlet/view/BeanNameViewResolver.html">BeanNameViewResolver</a> が
+Controllerから返却されたBean名と一致する場合に、Viewとして選択してくれます。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Spring Web MVCやThymeleafでは、Controllerから返却された値に対応するViewを解決するため、いくつかのViewResolverが提供されています。Spring Bootを使用する場合、これらのViewResolverは自動で構成され、優先度の高いViewResolverから使用されます。Spring Web MVCが提供しているものについては <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.23/reference/html/web.html#mvc-viewresolver">View Resolution</a> を、Thymeleafが提供しているものについては <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#views-and-view-resolvers">Views and View Resolvers</a> を参照してください。</p>
+</div>
+<p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
+<section id="id2">
+<h2>処理フロー<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
+<ol class="arabic simple">
+<li><p>Controllerはファイルのダウンロード処理を実施するカスタムViewクラスのBean名を返却します。(このサンプルではテキストファイルのダウンロード処理を実施するBean名を返却します。)</p></li>
+<li><p>BeanNameViewResolverは、Controllerから返却されたBean名に一致するカスタムViewクラスを選択します。</p></li>
+<li><p>カスタムViewクラスは、レスポンスヘッダを設定してダウンロードファイルをレスポンスボディに書込みます。</p></li>
+</ol>
+</section>
+<section id="id3">
+<h2>実装例<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
+<dl>
+<dt>Controller</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/download&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Viewで使用するダウンロードファイルパスをModelに設定します</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// （もしユーザが画面で入力したファイルパス等を使用する場合は、ディレクトリトラバーサル攻撃への対策も考慮してください）</span><span class="w"></span>
+<span class="w">    </span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="n">TextFileDownloadView</span><span class="p">.</span><span class="na">DOWNLOAD_FILE_INFO_KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">FileDownloadAttributes</span><span class="p">(</span><span class="n">targetFilePath</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ダウンロード.txt&quot;</span><span class="p">));</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ViewのBean名を返します</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;textFileDownloadView&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>TextFileDownloadView</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// @Componentを設定して、コンポーネントスキャン対象にします</span><span class="w"></span>
+<span class="nd">@Component</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TextFileDownloadView</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractView</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">DOWNLOAD_FILE_INFO_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;fileInfo&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ResourceLoader</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">TextFileDownloadView</span><span class="p">(</span><span class="n">ResourceLoader</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">resourceLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">renderMergedOutputModel</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                           </span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// ダウンロード対象のファイルを読込み、レスポンスボディに書込みます</span><span class="w"></span>
+<span class="w">        </span><span class="n">FileDownloadAttributes</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">FileDownloadAttributes</span><span class="p">)</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">DOWNLOAD_FILE_INFO_KEY</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">InputStream</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">.</span><span class="na">getResource</span><span class="p">(</span><span class="n">attributes</span><span class="p">.</span><span class="na">getTargetFilePath</span><span class="p">()).</span><span class="na">getInputStream</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">in</span><span class="p">.</span><span class="na">transferTo</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// レスポンスヘッダを設定します</span><span class="w"></span>
+<span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/plain&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 日本語のファイル名に対応するため、Content-DispositionはRFC6266の形式に沿って設定する</span><span class="w"></span>
+<span class="w">        </span><span class="n">ContentDisposition</span><span class="w"> </span><span class="n">contentDisposition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ContentDisposition</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">attachment</span><span class="p">()</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">filename</span><span class="p">(</span><span class="n">attributes</span><span class="p">.</span><span class="na">getDownloadFileName</span><span class="p">(),</span><span class="w"> </span><span class="n">StandardCharsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="n">HttpHeaders</span><span class="p">.</span><span class="na">CONTENT_DISPOSITION</span><span class="p">,</span><span class="w"> </span><span class="n">contentDisposition</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <br />
+      ドキュメントは、<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズ 表示 - 継承 4.0 国際 ライセンス</a>の下に提供されており、コードサンプルは<a rel="license" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>の下に提供されています。
+    </p>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /> </a>
+    </p>
+    <p>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
