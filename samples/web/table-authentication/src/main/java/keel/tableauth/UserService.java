@@ -31,7 +31,7 @@ public class UserService implements UserDetailsService {
         return userDao.loadUserByUserName(username)
                       // ユーザ情報には、ログインユーザに割り当てられた権限(ロール)も設定します。
                       .map(e -> new User(e.getUsername(), e.getPassword(), loadAuthorities(e.getUsername())))
-                      .orElseThrow(() -> new UsernameNotFoundException("user not found. username:" + username));
+                      .orElseThrow(() -> new UsernameNotFoundException("user not found."));
     }
 
     /**
