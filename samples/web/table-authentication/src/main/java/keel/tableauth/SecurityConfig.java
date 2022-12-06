@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
 
 // example-start
 @Configuration
@@ -16,23 +17,26 @@ public class SecurityConfig {
     // role-start
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests(authorize -> authorize
-                .mvcMatchers("/admin/**").hasRole("admin")
-                .mvcMatchers("/user/**").hasRole("user")
-                .anyRequest().authenticated()
-        ).formLogin(form -> form
-                .loginPage("/login")
-                .usernameParameter("username")
-                .passwordParameter("password")
-                .defaultSuccessUrl("/top", true)
-                .permitAll()
-        ).logout(logout -> logout
-                .logoutSuccessUrl("/login?logout")
-                .invalidateHttpSession(true)
-                .permitAll()
-        );
-
-        return http.build();
+        return http
+                .authorizeRequests(authorize -> authorize
+                        .mvcMatchers("/admin/**").hasRole("admin")
+                        .mvcMatchers("/user/**").hasRole("user")
+                        .anyRequest().authenticated())
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .usernameParameter("username")
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/top", true)
+                        .permitAll())
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/login?logout")
+                        .invalidateHttpSession(true)
+                        .permitAll())
+                .headers(configurer -> configurer
+                        .contentSecurityPolicy(policy -> policy
+                                .policyDirectives("script-src 'self'"))
+                        .referrerPolicy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN))
+                .build();
     }
 
     @Bean
