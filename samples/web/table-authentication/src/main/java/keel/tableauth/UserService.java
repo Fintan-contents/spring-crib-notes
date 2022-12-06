@@ -30,7 +30,7 @@ public class UserService implements UserDetailsService {
         // Spring Security側での認証エラーの処理が行われるようにします。
         return userDao.loadUserByUserName(username)
                       // ユーザ情報には、ログインユーザに割り当てられた権限(ロール)も設定します。
-                      .map(e -> new User(e.username, e.password, loadAuthorities(username)))
+                      .map(e -> new User(e.getUsername(), e.getPassword(), loadAuthorities(username)))
                       .orElseThrow(() -> new UsernameNotFoundException("user not found. username:" + username));
     }
 
