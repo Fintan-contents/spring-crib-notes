@@ -11,11 +11,11 @@ public class AdminController {
 
     @GetMapping
     public String get() {
-        return "/admin";
+        return "admin";
     }
 
     @PostMapping(params = "back")
     public String back() {
-        return "/top";
+        return "top";
     }
 }

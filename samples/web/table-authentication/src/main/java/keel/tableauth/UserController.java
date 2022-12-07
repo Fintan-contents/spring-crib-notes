@@ -11,11 +11,11 @@ public class UserController {
 
     @GetMapping
     public String get() {
-        return "/user";
+        return "user";
     }
 
     @PostMapping(params = "back")
     public String back() {
-        return "/top";
+        return "top";
     }
 }

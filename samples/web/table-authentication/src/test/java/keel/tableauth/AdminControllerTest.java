@@ -36,7 +36,7 @@ public class AdminControllerTest {
         mockMvc.perform(get("/admin"))
                .andDo(MockMvcResultHandlers.print())
                .andExpect(status().is2xxSuccessful())
-               .andExpect(view().name("/admin"));
+               .andExpect(view().name("admin"));
     }
 
     @Test
