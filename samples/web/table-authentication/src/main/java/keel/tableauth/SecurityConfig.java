@@ -33,8 +33,6 @@ public class SecurityConfig {
                         .invalidateHttpSession(true)
                         .permitAll())
                 .headers(configurer -> configurer
-                        .contentSecurityPolicy(policy -> policy
-                                .policyDirectives("script-src 'self'"))
                         .referrerPolicy(referrer -> referrer
                                 .policy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN)))
                 .build();
