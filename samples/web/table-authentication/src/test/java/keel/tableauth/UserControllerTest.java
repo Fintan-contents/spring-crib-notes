@@ -1,10 +1,5 @@
 package keel.tableauth;
 
-import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +10,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
 @SpringBootTest(classes = TableAuthApp.class)
-public class AdminControllerTest {
+public class UserControllerTest {
 
     private MockMvc mockMvc;
 
@@ -32,17 +32,19 @@ public class AdminControllerTest {
 
     @Test
     @WithMockUser(roles = "admin")
-    public void 管理者ユーザの場合管理者用ページにアクセス出来ること() throws Exception {
-        mockMvc.perform(get("/admin"))
+    public void 管理者ユーザの場合に一般ユーザーページにアクセス出来ること() throws Exception {
+        mockMvc.perform(get("/user"))
                .andDo(MockMvcResultHandlers.print())
                .andExpect(status().is2xxSuccessful())
-               .andExpect(view().name("admin"));
+               .andExpect(view().name("user"));
     }
 
     @Test
     @WithMockUser(username = "user", roles = "user")
-    public void 管理者ユーザではない場合は管理者用ページに権限エラーでアクセスできないこと() throws Exception {
-        mockMvc.perform(get("/admin"))
-               .andExpect(status().is(403));
+    public void 管理者ユーザではない場合に一般ユーザーページにアクセス出来ること() throws Exception {
+        mockMvc.perform(get("/user"))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(status().is2xxSuccessful())
+                .andExpect(view().name("user"));
     }
 }

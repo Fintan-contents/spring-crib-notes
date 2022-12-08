@@ -24,14 +24,14 @@ public class UserService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Daoを使用してユーザ情報を取得します。
         // ユーザ情報が存在しない場合には、UsernameNotFoundExceptionを送出し
         // Spring Security側での認証エラーの処理が行われるようにします。
         return userDao.loadUserByUserName(username)
                       // ユーザ情報には、ログインユーザに割り当てられた権限(ロール)も設定します。
-                      .map(e -> new User(e.username, e.password, loadAuthorities(username)))
-                      .orElseThrow(() -> new UsernameNotFoundException("user not found. username:" + username));
+                      .map(e -> new User(e.getUsername(), e.getPassword(), loadAuthorities(e.getUsername())))
+                      .orElseThrow(() -> new UsernameNotFoundException("user not found."));
     }
 
     /**
@@ -40,7 +40,7 @@ public class UserService implements UserDetailsService {
      * @param username ユーザ名
      * @return ユーザ名に紐づく権限リスト（存在しない場合は空のリスト）
      */
-    private List<GrantedAuthority> loadAuthorities(final String username) {
+    private List<GrantedAuthority> loadAuthorities(String username) {
         return userDao.loadUserRoles(username)
                       .stream()
                       .map(SimpleGrantedAuthority::new)
