@@ -116,7 +116,7 @@
           <autocommit>false</autocommit>
           <onError>continue</onError>
           <fileset>
-            <basedir>src/test/data</basedir>
+            <basedir>${project.basedir}/src/test/data</basedir>
             <includes>
               <include>*.sql</include>
             </includes>
