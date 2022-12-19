@@ -9,7 +9,6 @@ Webアプリ開発のノウハウ
   validation/index
   error-handling/index
   exclusive-control/index
-  file-upload/index
   file-download/index
   authentication/index
   authorization/index
@@ -17,7 +16,3 @@ Webアプリ開発のノウハウ
   response-header/index
   static-resource-cache/index
   status-code/index
-  data-retention/index
-  pagination/index
-  i18n/index
-  health-check/index
