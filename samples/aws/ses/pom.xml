@@ -50,7 +50,6 @@
     <dependency>
       <groupId>cloud.localstack</groupId>
       <artifactId>localstack-utils</artifactId>
-      <version>0.2.21</version>
       <scope>test</scope>
     </dependency>
 
