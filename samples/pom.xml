@@ -33,6 +33,9 @@
     <module>nablarch/nablarch-validation</module>
     <module>nablarch/nablarch-code</module>
     <module>nablarch/nablarch-date</module>
+
+    <!-- カバレッジレポートを集約するためのプロジェクト -->
+    <module>jacoco-report</module>
   </modules>
 
   <!-- spring-boot-version-start -->
