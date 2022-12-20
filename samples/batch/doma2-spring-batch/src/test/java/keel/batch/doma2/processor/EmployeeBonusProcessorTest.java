@@ -4,8 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import keel.batch.doma2.entity.Bonus;
 import keel.batch.doma2.entity.EmployeeBonus;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class EmployeeBonusProcessorTest {
 
@@ -13,7 +12,7 @@ public class EmployeeBonusProcessorTest {
 
     @Test
     public void 固定のボーナスが設定されている場合はそれがボーナスとなります() throws Exception {
-        final Bonus actual = sut.process(new EmployeeBonus(1L, "name", 100L, null, 200L));
+        final Bonus actual = sut.process(new EmployeeBonus(1L, 100L, null, 200L));
         assertThat(actual)
                 .extracting("employee_id", "payments")
                 .containsExactly(1L, 200L);
@@ -21,7 +20,7 @@ public class EmployeeBonusProcessorTest {
 
     @Test
     public void 固定のボーナスが設定されていない場合は給与と倍率からボーナスが算出されます() throws Exception {
-        final Bonus actual = sut.process(new EmployeeBonus(10L, "name", 100L, 3L, null));
+        final Bonus actual = sut.process(new EmployeeBonus(10L, 100L, 3L, null));
         assertThat(actual)
                 .extracting("employee_id", "payments")
                 .containsExactly(10L, 300L);

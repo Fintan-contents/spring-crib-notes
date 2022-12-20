@@ -1,31 +1,26 @@
 package keel.apierrorhandling.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.database.rider.core.api.configuration.DBUnit;
+import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.junit5.api.DBRider;
 import keel.apierrorhandling.ApiErrorHandlingApp;
-import keel.apierrorhandling.service.UserService;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.when;
+import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@DBRider
+@DBUnit(schema = "PUBLIC")
 @SpringBootTest(classes = ApiErrorHandlingApp.class)
 @AutoConfigureMockMvc
 public class UsersControllerTest {
@@ -33,113 +28,76 @@ public class UsersControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private UserService service;
-
     @Autowired
     ObjectMapper objectMapper;
 
     @Test
-    public void アプリケーション全体のMethodArgumentNotValidExceptionのハンドリングのテスト() throws Exception {
+    @DataSet("users.yml")
+    public void ユーザー一覧取得APIで全てのユーザーを取得できる() throws Exception {
+        mockMvc
+                .perform(get("/users"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$.[0].id").value(1))
+                .andExpect(jsonPath("$.[0].name").value("taro"))
+                .andExpect(jsonPath("$.[1].id").value(2))
+                .andExpect(jsonPath("$.[1].name").value("hanako"));
+    }
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("name", "");
-        map.put("age", 1);
-        map.put("role", "admin");
-        String requestJson = objectMapper.writeValueAsString(map);
+    @Test
+    @DataSet("users.yml")
+    public void ユーザー取得APIでユーザーを取得できる() throws Exception {
+        mockMvc
+                .perform(get("/users/2"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(2))
+                .andExpect(jsonPath("$.name").value("hanako"));
+    }
 
+    @Test
+    @DataSet("no-users.yml")
+    public void ユーザー登録APIでユーザーを追加できる() throws Exception {
         mockMvc
                 .perform(post("/users")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
-                        .content(requestJson)
+                        .content(objectMapper.writeValueAsString(Map.of(
+                                "name", "piyo",
+                                "age", 1,
+                                "role", "admin"
+                        )))
                 )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$..field").value("name"))
-                .andExpect(jsonPath("$..message").value("must not be empty"));
-    }
+                .andExpect(status().is2xxSuccessful())
+                .andExpect(jsonPath("$.name").value("piyo"))
+                .andReturn();
 
-    @Test
-    public void アプリケーション全体のBindExceptionのハンドリングのテスト() throws Exception {
-
+        // DBRiderのデータ登録ではid列のauto_incrementが進まないため、簡易的に件数のみ検証しておく
         mockMvc
-                .perform(get("/users/find?name=taro&age=151&role=admin"))
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$..field").value("age"))
-                .andExpect(jsonPath("$..message").value("must be less than or equal to 150"));
+                .perform(get("/users"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)));
     }
 
     @Test
-    public void アプリケーション全体の楽観ロックエラーのハンドリングのテスト() throws Exception {
-
-        doThrow(OptimisticLockingFailureException.class)
-                .when(service)
-                .update(ArgumentMatchers.any());
-
-        Map<String, Object> map = new HashMap<>();
-        map.put("name", "taro");
-        map.put("age", 1);
-        map.put("role", "admin");
-        map.put("versionNo", "1");
-        String requestJson = objectMapper.writeValueAsString(map);
-
-
+    @DataSet("users.yml")
+    public void ユーザー登録APIでユーザーを更新できる() throws Exception {
         mockMvc
                 .perform(post("/users/1")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
-                        .content(requestJson)
+                        .content(objectMapper.writeValueAsString(Map.of(
+                                "name", "hogehoge",
+                                "age", 1,
+                                "role", "user",
+                                "versionNo", 10
+                        )))
                 )
-                .andExpect(status().isConflict())
-                .andExpect(content().string(""));
-    }
+                .andExpect(status().is2xxSuccessful())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.name").value("hogehoge"));
 
-    @Test
-    public void アプリケーション全体のUserNotFoundExceptionのハンドリングのテスト() throws Exception {
-
-        when(service.getUser(any())).thenReturn(Optional.empty());
-
-        final MockHttpServletResponse response = mockMvc
+        mockMvc
                 .perform(get("/users/1"))
-                .andExpect(status().isNotFound())
-                .andReturn()
-                .getResponse();
-
-        Assertions
-                .assertThat(response.getErrorMessage())
-                .isEqualTo("ユーザーが見つかりませんでした。");
-    }
-
-    @Test
-    public void アプリケーション全体のCustomValidationExceptionのハンドリングのテスト() throws Exception {
-
-        doThrow(UserService.RoleNotFoundException.class)
-                .when(service)
-                .insert(ArgumentMatchers.any());
-
-        Map<String, Object> map = new HashMap<>();
-        map.put("name", "taro");
-        map.put("age", 1);
-        map.put("role", "admin");
-        String requestJson = objectMapper.writeValueAsString(map);
-
-        mockMvc
-                .perform(post("/users")
-                        .contentType(MediaType.APPLICATION_JSON_VALUE)
-                        .content(requestJson)
-                )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$..field").value("role"))
-                .andExpect(jsonPath("$..message").value("ロール[admin]が見つかりませんでした。"));
-    }
-
-    @Test
-    public void アプリケーション全体のHttpMessageNotReadableExceptionのハンドリングのテスト() throws Exception {
-
-        mockMvc
-                .perform(post("/users")
-                        .contentType(MediaType.APPLICATION_JSON_VALUE)
-                        .content("{name")
-                )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value("入力形式に誤りがあります。"));
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.name").value("hogehoge"));
     }
 }

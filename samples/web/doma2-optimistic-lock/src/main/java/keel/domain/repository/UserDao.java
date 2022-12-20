@@ -12,8 +12,8 @@ import java.util.Optional;
 @Dao
 public interface UserDao {
 
-    @Select
-    Optional<User> find();
+    @Select(ensureResult = true)
+    User find();
 
     // example-start
     /**

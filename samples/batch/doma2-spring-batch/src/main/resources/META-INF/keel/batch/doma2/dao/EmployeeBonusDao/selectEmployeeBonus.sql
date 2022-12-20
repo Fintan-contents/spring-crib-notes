@@ -1,6 +1,5 @@
 select
   employee.id,
-  employee.name,
   employee.salary,
   grade.bonus_magnification,
   grade.fixed_bonus

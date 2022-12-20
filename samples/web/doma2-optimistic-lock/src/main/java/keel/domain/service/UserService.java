@@ -2,7 +2,6 @@ package keel.domain.service;
 
 import keel.domain.repository.UserDao;
 import keel.domain.service.dto.UserDto;
-import keel.domain.service.exception.UserNotFoundException;
 import keel.entity.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,11 +17,7 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public User find() {
-        return userDao
-                .find()
-                .orElseThrow(
-                        () -> new UserNotFoundException
-                                ("user not found."));
+        return userDao.find();
     }
 
     @Transactional

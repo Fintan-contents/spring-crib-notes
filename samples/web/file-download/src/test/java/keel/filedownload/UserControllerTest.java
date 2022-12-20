@@ -22,6 +22,14 @@ public class UserControllerTest {
     private MockMvc mockMvc;
 
     @Test
+    public void ファイルダウンロード画面の初期表示() throws Exception {
+        mockMvc
+                .perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("index"));
+    }
+
+    @Test
     public void ファイルダウンロードのテスト() throws Exception {
         mockMvc
                 .perform(get("/download"))
