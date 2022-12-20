@@ -172,7 +172,13 @@
         <version>0.8.8</version>
         <configuration>
           <excludes>
+            <!-- Domaが自動生成するエンティティメタクラスは除外する -->
             <exclude>**/_*</exclude>
+            <!-- DomainBeanはフィールドのアノテーションを読み取るだけなため除外する -->
+            <exclude>**/DomainBean.class</exclude>
+            <!-- メインクラスは除外する -->
+            <exclude>**/*App.class</exclude>
+            <exclude>**/*Application.class</exclude>
           </excludes>
         </configuration>
         <executions>
