@@ -199,11 +199,11 @@ sample_app_base = 'https://github.com/Fintan-contents/spring-crib-notes/tree/' +
 
 extlinks = {
   'sample-app': (sample_app_base + '/samples/%s', None),
-  'spring-framework-doc': ('https://docs.spring.io/spring-framework/docs/' + '5.3.23' + '/%s', None),
-  'spring-boot-doc': ('https://docs.spring.io/spring-boot/docs/' + '2.7.5' + '/%s', None),
+  'spring-framework-doc': ('https://docs.spring.io/spring-framework/docs/' + '5.3.24' + '/%s', None),
+  'spring-boot-doc': ('https://docs.spring.io/spring-boot/docs/' + '2.7.6' + '/%s', None),
   'spring-batch-doc': ('https://docs.spring.io/spring-batch/docs/' + '4.3.7' + '/%s', None),
   'spring-session-doc': ('https://docs.spring.io/spring-session/reference/' + '2.7.0' + '/%s', None),
-  'spring-security-doc': ('https://docs.spring.io/spring-security/reference/' + '5.7.4' + '/%s', None),
+  'spring-security-doc': ('https://docs.spring.io/spring-security/reference/' + '5.7.5' + '/%s', None),
   'spring-cloud-aws-doc': ('https://docs.awspring.io/spring-cloud-aws/docs/' + '2.4.2' + '/%s', None),
   'macchinetta-server-guideline-thymeleaf-doc': ('https://macchinetta.github.io/server-guideline-thymeleaf/' + '1.8.1.SP1.RELEASE' + '/ja/%s', None),
   'macchinetta-cloud-guideline-doc': ('https://macchinetta.github.io/cloud-guideline/' + '1.2.0.RELEASE' + '/ja/%s', None),
