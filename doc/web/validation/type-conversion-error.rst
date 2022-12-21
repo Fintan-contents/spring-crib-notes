@@ -27,7 +27,7 @@ Bean Validationの処理の流れ
 入力値を受け取るBean(Form)
   入力パラメータを保持するBeanのプロパティを適切な型で宣言します。
 
-  .. literalinclude:: ../../../samples/web/validation/src/main/java/keel/validation/controller/AddUserController.java
+  .. literalinclude:: ../../../samples/web/validation/src/main/java/keel/validation/controller/Form.java
     :language: java
     :start-after: type-converter-error-start
     :end-before: type-converter-error-end
