@@ -7,4 +7,3 @@
   log/index
   database/index
   message/index
-  mail/index

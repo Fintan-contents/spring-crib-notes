@@ -96,4 +96,49 @@ public class UserControllerTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(view().name("error/token-error"));
     }
+
+    @Test
+    public void 登録入力画面へ遷移() throws Exception {
+        mockMvc.perform(get("/user"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("user/input"));
+    }
+
+    @Test
+    public void 登録完了画面へ遷移() throws Exception {
+        mockMvc.perform(get("/user/complete"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("user/complete"));
+    }
+
+    @Test
+    public void 登録画面の入力値チェックでエラーがあれば登録画面に戻る() throws Exception {
+        mockMvc.perform(post("/user/confirm")
+                        .param("name", "taro")
+                        .param("age", "151"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("user/input"));
+    }
+
+    @Test
+    public void 登録確認画面の入力値チェックでエラーがあれば登録画面に戻る() throws Exception {
+        MockHttpServletRequest request = mockMvc.perform(
+                        post("/user/confirm")
+                                .param("name", "taro")
+                                .param("age", "25"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getRequest();
+
+        MockHttpSession session = (MockHttpSession) request.getSession();
+        TransactionToken transactionToken = (TransactionToken) request.getAttribute(TransactionTokenInterceptor.NEXT_TOKEN_REQUEST_ATTRIBUTE_NAME);
+
+        mockMvc.perform(
+                        post("/user/create")
+                                .param("name", "taro")
+                                .param("age", "151")
+                                .param("_TRANSACTION_TOKEN", transactionToken.getTokenString())
+                                .session(session))
+                .andExpect(view().name("user/input"));
+    }
 }

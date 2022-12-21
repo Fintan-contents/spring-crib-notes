@@ -1,6 +1,5 @@
 package keel.apierrorhandling.controller;
 
-import keel.apierrorhandling.dao.criteria.UserCriteria;
 import keel.apierrorhandling.entity.User;
 import keel.apierrorhandling.exception.CustomValidationException;
 import keel.apierrorhandling.exception.UserNotFoundException;
@@ -8,7 +7,6 @@ import keel.apierrorhandling.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -31,11 +29,6 @@ public class UsersController {
     @GetMapping
     public List<User> getAllUsers() {
         return userService.findAllUsers();
-    }
-
-    @GetMapping("/find")
-    public List<User> getUsers(@Validated UserForm form) {
-        return userService.findUsers(new UserCriteria(form.getName(), form.getRole(), form.getAge()));
     }
 
     @PostMapping

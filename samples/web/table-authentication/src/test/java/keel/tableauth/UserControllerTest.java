@@ -10,8 +10,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
@@ -46,5 +48,16 @@ public class UserControllerTest {
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(view().name("user"));
+    }
+
+    @Test
+    @WithMockUser(username = "user", roles = "user")
+    public void 一般ユーザーページからトップページに戻る() throws Exception {
+        mockMvc.perform(post("/user")
+                        .param("back", "")
+                        .with(csrf()))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(status().is2xxSuccessful())
+                .andExpect(view().name("top"));
     }
 }

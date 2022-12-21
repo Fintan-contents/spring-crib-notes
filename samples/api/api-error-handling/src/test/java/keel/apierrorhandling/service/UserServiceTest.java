@@ -21,7 +21,7 @@ public class UserServiceTest {
 
     @Test
     @DataSet("users.yml")
-    public void 楽観ロックエラー時にOptimisticLockingFailureExceptionが発生するかを検証するテスト() {
+    public void 楽観ロックエラー時にOptimisticLockingFailureExceptionが発生する() {
 
         Assertions
                 .assertThatThrownBy(() -> {
@@ -35,5 +35,35 @@ public class UserServiceTest {
                 })
                 .isInstanceOf(OptimisticLockingFailureException.class);
 
+    }
+
+    @Test
+    @DataSet("users.yml")
+    public void 登録時に未登録のロールを指定した場合はRoleNotFoundExceptionが発生する() {
+        Assertions
+                .assertThatThrownBy(() -> {
+                    userService.insert(new User(
+                            "jiro",
+                            "dummy",
+                            20
+                    ));
+                })
+                .isInstanceOf(UserService.RoleNotFoundException.class);
+    }
+
+    @Test
+    @DataSet("users.yml")
+    public void 更新時に未登録のロールを指定した場合はRoleNotFoundExceptionが発生する() {
+        Assertions
+                .assertThatThrownBy(() -> {
+                    userService.update(new User(
+                            1L,
+                            "jiro",
+                            "dummy",
+                            20,
+                            9L
+                    ));
+                })
+                .isInstanceOf(UserService.RoleNotFoundException.class);
     }
 }

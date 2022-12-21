@@ -33,6 +33,9 @@
     <module>nablarch/nablarch-validation</module>
     <module>nablarch/nablarch-code</module>
     <module>nablarch/nablarch-date</module>
+
+    <!-- カバレッジレポートを集約するためのプロジェクト -->
+    <module>jacoco-report</module>
   </modules>
 
   <!-- spring-boot-version-start -->
@@ -75,7 +78,6 @@
         <version>2.3.0</version>
       </dependency>
       <!-- mybatis-end -->
-      <!-- spring-cloud-aws-start -->
       <dependency>
         <groupId>io.awspring.cloud</groupId>
         <artifactId>spring-cloud-aws-dependencies</artifactId>
@@ -83,7 +85,6 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- spring-cloud-aws-start -->
       <dependency>
         <groupId>com.github.database-rider</groupId>
         <artifactId>rider-spring</artifactId>
@@ -123,6 +124,20 @@
         <scope>import</scope>
       </dependency>
       <!-- nablarch-end -->
+
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>testcontainers-bom</artifactId>
+        <version>1.17.6</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>cloud.localstack</groupId>
+        <artifactId>localstack-utils</artifactId>
+        <version>0.2.21</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -151,6 +166,37 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>license-maven-plugin</artifactId>
         <version>2.0.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.8</version>
+        <configuration>
+          <excludes>
+            <!-- Domaが自動生成するエンティティメタクラスは除外する -->
+            <exclude>**/_*</exclude>
+            <!-- DomainBeanはフィールドのアノテーションを読み取るだけなため除外する -->
+            <exclude>**/DomainBean.class</exclude>
+            <!-- メインクラスは除外する -->
+            <exclude>**/*App.class</exclude>
+            <exclude>**/*Application.class</exclude>
+          </excludes>
+        </configuration>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
