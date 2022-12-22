@@ -110,6 +110,9 @@ html_show_sourcelink = False
 # Custom stylesheet
 html_style = "css/customize-rtd.css"
 
+# バージョン表記を削除するためタイトルを明示
+html_title = project
+
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
