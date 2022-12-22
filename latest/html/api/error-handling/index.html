@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>例外ハンドリング &mdash; keel-doc</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="排他制御" href="../exclusive-control/index.html" />
+    <link rel="prev" title="データベースを使用して入力値をチェックする" href="../validation/database-validation.html" />
+  <script defer data-domain="fintan-content.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> keel-doc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">このドキュメントについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#target-user">対象読者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#id5">このドキュメントの使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#test-environment-and-dependencies">動作確認環境と依存ライブラリについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html">アプリケーションのスタック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/doma2.html">データベースアクセスにDoma2を使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/mybatis.html">データベースアクセスにMyBatisを使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/database/sql-management.html">DDL / DMLの管理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../web/index.html">Webアプリ開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../web/view/index.html">画面の作成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web/view/thymeleaf.html">ViewのテンプレートエンジンにThymeleafを使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/view/thymeleaf-page-layout.html">Thymeleafを使用して各画面で共通のレイアウトを利用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/view/thymeleaf-default-value.html">Thymeleafを使用してチェックボックスなどのデフォルト値を送信する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/session/index.html">セッション管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web/session/session-redis.html">セッションの情報をRedisに保存する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web/validation/type-conversion-error.html">入力値の型変換エラー時に入力画面に適切なメッセージを表示する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web/error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/error-handling/index.html#service">Serviceなどで送出した例外を業務エラーとして扱い画面にエラーメッセージを表示する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web/exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/file-download/index.html">ファイルダウンロード</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web/file-download/file-download.html">ファイルをダウンロードする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/authentication/index.html">認証</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web/authentication/table.html">テーブル認証</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/authorization/index.html">認可</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web/authorization/index.html#id2">ユーザに対して権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/authorization/index.html#id3">認証時にログインしたユーザの権限を保持する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/authorization/index.html#url">URLパターンごとにアクセスに必要な権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/authorization/index.html#id4">アクセス権限に応じて画面上のリンクやボタンを非表示にする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/double-submission/index.html">二重送信防止</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web/double-submission/index.html#id3">設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../web/double-submission/index.html#id4">実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/response-header/index.html">HTTPレスポンスヘッダ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/static-resource-cache/index.html">画像やcssなどの静的なリソースをキャッシュする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../web/static-resource-cache/index.html#id1">設定例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../web/status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">RESTful Webサービス開発のノウハウ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../batch/index.html">バッチアプリ開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../batch/db-io/index.html">データベース入出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/db-io/doma2.html">Doma2でデータベースから読み込み・書き出しする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../aws/index.html">SpringからAWSマネージドサービスを利用する際のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/s3/index.html">Amazon S3にファイルをアップロード及びAmazon S3からファイルをダウンロードする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#amazon-s3">Amazon S3を使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#s3-upload">Amazon S3にファイルをアップロードする実装例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/s3/index.html#id2">Amazon S3からファイルをダウンロードする実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/ses/index.html">Amazon SESを使ってメールを送信する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#aws-ses">AWS SESを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nablarch/validation/index.html">Nablarchのドメインバリデーションを使用して入力値をチェックする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/validation/index.html#id1">Nablarchを使用するための準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/validation/index.html#id2">バリデーションルールの設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/validation/index.html#id3">ドメインバリデーションを動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/validation/index.html#id4">ドメインバリデーションの使用例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nablarch/code/index.html">Nablarchのコード管理機能を使用する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id1">Nablarchを使用するための準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id2">コード管理で使用するテーブルの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#nablarch-dao-settings">データアクセス機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id4">コード管理機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id5">ドメインバリデーションを動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id6">コード値バリデーションの使用例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/code/index.html#id7">画面での使用例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nablarch/date/index.html">Nablarchの日付管理機能を使用する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id1">Nablarchを使用するための準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id2">業務日付管理で使用するテーブルの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id3">データアクセス機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id4">業務日付管理機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id5">システム日付管理機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id6">システム日付の使用例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nablarch/date/index.html#id7">業務日付の使用例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">keel-doc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">RESTful Webサービス開発のノウハウ</a> &raquo;</li>
+      <li>例外ハンドリング</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-error-handling">
+<span id="id1"></span><h1>例外ハンドリング<a class="headerlink" href="#api-error-handling" title="Permalink to this heading"></a></h1>
+<p>RESTful Webサービスでの例外ハンドリング方法とレスポンスの返却方法について説明します。</p>
+<p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/reference/html/web.html#spring-web">Spring Web MVC</a> では例外が発生した場合、例外情報をログに出力し、クライアントにエラーレスポンスを返却します。</p>
+<p>発生した例外が <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html">Spring Web MVCがデフォルトでハンドリングする例外</a>
+であれば、アプリケーション側で設定や実装を行わなくても、適切なレスポンスが返却されます。それ以外の例外であれば、デフォルトではHTTPステータスコードに500が設定されたレスポンスが返却されます。</p>
+<p>レスポンスボディにはエラー情報が出力されます。出力する内容は <code class="docutils literal notranslate"><span class="pre">server.error</span></code> プロパティでカスマイズすることができます。プロパティの詳細については <a class="reference external" href="https://docs.spring.io/spring-boot/docs/2.7.6/reference/html/application-properties.html#appendix.application-properties.server">Server Properties</a> を参照してください。</p>
+<dl>
+<dt>レスポンスの例</dt><dd><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>HTTP/1.1 500
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 28 May 2018 07:20:57 GMT
+Connection: keep-alive
+
+{
+  &quot;timestamp&quot;: &quot;2018-05-28T07:20:57.132+00:00&quot;,
+  &quot;status&quot;: 500,
+  &quot;error&quot;: &quot;Internal Server Error&quot;,
+  &quot;path&quot;: &quot;/users/1&quot;
+}
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>例外に応じてHTTPステータスコードやレスポンスボディをカスタマイズする場合は、例外ハンドリングを実装する必要があります。</p>
+<p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
+<section id="id2">
+<h2>アプリケーション全体の例外ハンドリングをカスタマイズする例<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p>アプリケーション全体で例外に応じた処理が決まっている場合は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/RestControllerAdvice.html">&#64;RestControllerAdvice</a>
+アノテーションを設定したクラスで例外ハンドリングを行います。</p>
+<p>どの例外を処理するかは、メソッドに設定された<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a>アノテーションの情報により決まります。
+返却するステータスコードは <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html">&#64;ResponseStatus</a> アノテーションに設定します。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>例外クラスに設定した<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html">ResponseStatus</a>のreason属性を指定した場合、
+レスポンスボディには、reason属性に指定した値がメッセージとして表示されます。
+reason属性に指定した値は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/context/MessageSource.html">MessageSource</a>を使用して解決されるため、
+messages.propertiesに定義することも可能です。</p>
+</div>
+<section id="responseentityexceptionhandler">
+<h3>ResponseEntityExceptionHandlerを継承して例外ハンドリングクラスを作成する<a class="headerlink" href="#responseentityexceptionhandler" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandler.html">ResponseEntityExceptionHandler</a> は、Spring Web MVC内で発生する例外をハンドリングするクラスです。
+ResponseEntityExceptionHandlerを継承したクラスを作成すると、ハンドリングする例外に応じたステータスコードと空のレスポンスボディが返却されます。
+ハンドリングする例外は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html">Spring Web MVCがデフォルトでハンドリングする例外</a> と同様です。</p>
+<p>全ての例外を&#64;ExceptionHandlerアノテーションで1つずつハンドリングしていくのは大変なので、基本的な例外ハンドリングはResponseEntityExceptionHandlerに委譲して、それ以外の例外を&#64;ExceptionHandlerアノテーションでハンドリングする使用方法をお薦めします。</p>
+<p>なお、ResponseEntityExceptionHandlerを継承した場合も、&#64;RestControllerAdviceアノテーションを設定する必要があります。</p>
+</section>
+<section id="id3">
+<h3>実装例<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>入力値チェックでエラーが発生した場合の処理をカスタマイズしています。</p></li>
+<li><p>排他制御エラーが発生した場合に送出される例外を、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a> を使用してハンドリングしています。</p></li>
+<li><p>独自に作成した例外(CustomValidationException)を、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a> を使用してハンドリングしています。</p></li>
+<li><p>独自に作成した例外(UserNotFoundException)に <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html">ResponseStatus</a> を設定して、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/reference/html/web.html#spring-web">Spring Web MVC</a> に例外ハンドリングを委譲します。</p></li>
+</ul>
+<dl>
+<dt>GlobalExceptionHandler</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RestControllerAdvice</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GlobalExceptionHandler</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ResponseEntityExceptionHandler</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MessageSource</span><span class="w"> </span><span class="n">messageSource</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">GlobalExceptionHandler</span><span class="p">(</span><span class="n">MessageSource</span><span class="w"> </span><span class="n">messageSource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">messageSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">messageSource</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * リクエストボディに設定された値に対する入力値チェック時に、エラーが発生した場合のハンドリングを実施します。</span>
+<span class="cm">     * レスポンスボディには、{@link BindingResult}から取得したフィールド名と、メッセージをを出力します。</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleMethodArgumentNotValid</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">MethodArgumentNotValidException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatus</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">handleExceptionInternal</span><span class="p">(</span><span class="w"></span>
+<span class="w">                </span><span class="n">ex</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="na">getBindingResult</span><span class="p">()),</span><span class="w"></span>
+<span class="w">                </span><span class="n">headers</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">status</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">request</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * クエリパラメータに対する入力値チェック時に、エラーが発生した場合のハンドリングを実施します。</span>
+<span class="cm">     * レスポンスボディには、{@link BindingResult}から取得したフィールド名と、メッセージをを出力します。</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleBindException</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">BindException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatus</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">handleExceptionInternal</span><span class="p">(</span><span class="w"></span>
+<span class="w">                </span><span class="n">ex</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="na">getBindingResult</span><span class="p">()),</span><span class="w"></span>
+<span class="w">                </span><span class="n">headers</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">status</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">request</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * 入力形式に誤りがあった場合のハンドリングを実施します。</span>
+<span class="cm">     * レスポンスボディには、固定のメッセージを出力します。</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleHttpMessageNotReadable</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="n">HttpMessageNotReadableException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatus</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">handleExceptionInternal</span><span class="p">(</span><span class="w"></span>
+<span class="w">                </span><span class="n">ex</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="s">&quot;keel.api-error-handling.HttpMessageNotReadableException&quot;</span><span class="p">),</span><span class="w"></span>
+<span class="w">                </span><span class="n">headers</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">status</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">request</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">//optimistic-lock-example-start</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * {@link ResponseEntityExceptionHandler}がハンドリングしない例外については、{@link ExceptionHandler}を使用してハンドリングします。</span>
+<span class="cm">     * 楽観ロック例外が発生した場合は、HTTPステータスコードに409を設定します。</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">OptimisticLockingFailureException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@ResponseStatus</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">CONFLICT</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handleOptimisticLockingFailureException</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//optimistic-lock-example-end</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// database-validation-start</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * {@link ResponseEntityExceptionHandler} がハンドリングしない例外については、 {@link ExceptionHandler} を使用してハンドリングします。</span>
+<span class="cm">     * 独自に作成した {@link CustomValidationException} が発生した場合は、HTTPステータスコードに400を設定し、エラー内容を返却しています。</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">CustomValidationException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleCustomValidationException</span><span class="p">(</span><span class="n">CustomValidationException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kd">super</span><span class="p">.</span><span class="na">handleExceptionInternal</span><span class="p">(</span><span class="w"></span>
+<span class="w">                </span><span class="n">ex</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="na">getBindingResult</span><span class="p">()),</span><span class="w"></span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="p">(),</span><span class="w"></span>
+<span class="w">                </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">BAD_REQUEST</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="n">request</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ApiErrorResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">body</span><span class="p">(</span><span class="n">BindingResult</span><span class="w"> </span><span class="n">bindingResult</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bindingResult</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">getFieldErrors</span><span class="p">()</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">stream</span><span class="p">()</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">fieldError</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiErrorResponse</span><span class="p">(</span><span class="w"></span>
+<span class="w">                        </span><span class="n">fieldError</span><span class="p">.</span><span class="na">getField</span><span class="p">(),</span><span class="w"></span>
+<span class="w">                        </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span><span class="n">fieldError</span><span class="p">,</span><span class="w"> </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">())))</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ApiErrorResponse</span><span class="w"> </span><span class="nf">body</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiErrorResponse</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// database-validation-end</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>ApiErrorResponse</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ApiErrorResponse</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_EMPTY</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">field</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_EMPTY</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ApiErrorResponse</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getField</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">field</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getMessage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>UserNotFoundException</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * {@link ResponseStatus} が付いている例外を送出することで、 {@link GlobalExceptionHandler} でハンドリングしていなくても、</span>
+<span class="cm"> * {@link ResponseStatus} に指定したHTTPステータスでレスポンスが返却されます。</span>
+<span class="cm"> * &lt;p&gt;</span>
+<span class="cm"> * {@code reason} に指定した文字列は、 {@code messages.properties} でキーとして定義されている場合は対応するメッセージに変換されます。</span>
+<span class="cm"> * そうでない場合はそのまま表示されます。</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="nd">@ResponseStatus</span><span class="p">(</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">NOT_FOUND</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;keel.api-error-handling.user-not-found&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserNotFoundException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RuntimeException</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/api/api-error-handling">api-error-handling-sample</a> を参照してください。</p>
+</section>
+</section>
+<section id="controller">
+<h2>個別機能(Controller)で例外をハンドリングする例<a class="headerlink" href="#controller" title="Permalink to this heading"></a></h2>
+<p>アプリケーション全体ではなく個別機能(Controller)で例外をハンドリングし、メッセージを返却したい場合があります。
+<a class="reference internal" href="../../web/error-handling/index.html"><span class="doc">Webの場合</span></a> と同様に、Controller内に例外ハンドリング用のメソッドを作成します。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * {@link MethodArgumentNotValidException}を補足して、当画面固有のメッセージをリクエストボディに出力します。</span>
+<span class="cm">     * ステータスコードは、400を返却します。</span>
+<span class="cm">     */</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">MethodArgumentNotValidException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">methodArgumentNotValidExceptionHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">BAD_REQUEST</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">.</span><span class="na">body</span><span class="p">(</span><span class="w"></span>
+<span class="w">                        </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span><span class="w"></span>
+<span class="w">                                </span><span class="s">&quot;keel.api-error-handling.MethodArgumentNotValidException&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">()</span><span class="w"></span>
+<span class="w">                        </span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/api/api-error-handling">api-error-handling-sample</a> を参照してください。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <br />
+      ドキュメントは、<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズ 表示 - 継承 4.0 国際 ライセンス</a>の下に提供されており、コードサンプルは<a rel="license" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>の下に提供されています。
+    </p>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /> </a>
+    </p>
+    <p>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

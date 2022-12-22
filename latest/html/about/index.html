@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>このドキュメントについて &mdash; keel-doc</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/customize-rtd.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="アプリケーションのスタック" href="../architecture/index.html" />
+    <link rel="prev" title="Springアプリ開発ノウハウ集" href="../index.html" />
+  <script defer data-domain="fintan-content.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> keel-doc
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">このドキュメントについて</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#target-user">対象読者</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">このドキュメントの使い方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-environment-and-dependencies">動作確認環境と依存ライブラリについて</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">アプリケーションのスタック</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/index.html">アプリの種類によらないノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../common/log/index.html">ログ出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../common/database/index.html">データベースアクセス</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../common/database/doma2.html">データベースアクセスにDoma2を使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/database/mybatis.html">データベースアクセスにMyBatisを使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/database/sql-management.html">DDL / DMLの管理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../common/message/index.html">メッセージ管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/message/index.html#id3">その他のメッセージ</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../web/index.html">Webアプリ開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../web/view/index.html">画面の作成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/view/thymeleaf.html">ViewのテンプレートエンジンにThymeleafを使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/view/thymeleaf-page-layout.html">Thymeleafを使用して各画面で共通のレイアウトを利用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/view/thymeleaf-default-value.html">Thymeleafを使用してチェックボックスなどのデフォルト値を送信する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/session/index.html">セッション管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/session/session-redis.html">セッションの情報をRedisに保存する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/validation/type-conversion-error.html">入力値の型変換エラー時に入力画面に適切なメッセージを表示する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/error-handling/index.html#service">Serviceなどで送出した例外を業務エラーとして扱い画面にエラーメッセージを表示する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/file-download/index.html">ファイルダウンロード</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/file-download/file-download.html">ファイルをダウンロードする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/authentication/index.html">認証</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/authentication/table.html">テーブル認証</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/authorization/index.html">認可</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/authorization/index.html#id2">ユーザに対して権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/authorization/index.html#id3">認証時にログインしたユーザの権限を保持する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/authorization/index.html#url">URLパターンごとにアクセスに必要な権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/authorization/index.html#id4">アクセス権限に応じて画面上のリンクやボタンを非表示にする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/double-submission/index.html">二重送信防止</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/double-submission/index.html#id3">設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../web/double-submission/index.html#id4">実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/response-header/index.html">HTTPレスポンスヘッダ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web/static-resource-cache/index.html">画像やcssなどの静的なリソースをキャッシュする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../web/static-resource-cache/index.html#id1">設定例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../web/status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/validation/index.html">入力値チェック</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/error-handling/index.html">例外ハンドリング</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/error-handling/index.html#id2">アプリケーション全体の例外ハンドリングをカスタマイズする例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/error-handling/index.html#controller">個別機能(Controller)で例外をハンドリングする例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/exclusive-control/index.html">排他制御</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/exclusive-control/doma2-optimistic-lock.html">Doma2の楽観ロックで排他制御する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/status-code/index.html">HTTPステータスコード</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../batch/index.html">バッチアプリ開発のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../batch/db-io/index.html">データベース入出力</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../batch/db-io/doma2.html">Doma2でデータベースから読み込み・書き出しする</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../batch/run-application/index.html">起動方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../aws/index.html">SpringからAWSマネージドサービスを利用する際のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../aws/s3/index.html">Amazon S3にファイルをアップロード及びAmazon S3からファイルをダウンロードする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aws/s3/index.html#amazon-s3">Amazon S3を使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aws/s3/index.html#s3-upload">Amazon S3にファイルをアップロードする実装例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aws/s3/index.html#id2">Amazon S3からファイルをダウンロードする実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../aws/ses/index.html">Amazon SESを使ってメールを送信する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aws/ses/index.html#aws-ses">AWS SESを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aws/ses/index.html#id1">メール送信の実装例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../aws/rds/index.html#id2">実装例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nablarch/validation/index.html">Nablarchのドメインバリデーションを使用して入力値をチェックする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/validation/index.html#id1">Nablarchを使用するための準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/validation/index.html#id2">バリデーションルールの設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/validation/index.html#id3">ドメインバリデーションを動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/validation/index.html#id4">ドメインバリデーションの使用例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../nablarch/code/index.html">Nablarchのコード管理機能を使用する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/code/index.html#id1">Nablarchを使用するための準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/code/index.html#id2">コード管理で使用するテーブルの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/code/index.html#nablarch-dao-settings">データアクセス機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/code/index.html#id4">コード管理機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/code/index.html#id5">ドメインバリデーションを動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/code/index.html#id6">コード値バリデーションの使用例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/code/index.html#id7">画面での使用例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../nablarch/date/index.html">Nablarchの日付管理機能を使用する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/date/index.html#id1">Nablarchを使用するための準備</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/date/index.html#id2">業務日付管理で使用するテーブルの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/date/index.html#id3">データアクセス機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/date/index.html#id4">業務日付管理機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/date/index.html#id5">システム日付管理機能を動作させるための設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/date/index.html#id6">システム日付の使用例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nablarch/date/index.html#id7">業務日付の使用例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">keel-doc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>このドキュメントについて</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>このドキュメントについて<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<p>このドキュメントでは <a class="reference external" href="https://spring.io/">Spring</a> を活用してアプリケーションを構築する際に必要となるノウハウを提供します。</p>
+<p>特に、アプリケーションを開発する際に公式ドキュメントやWeb上から実装方法を見つけることが難しく、躓きやすい点についての情報を中心に提供します。</p>
+<section id="target-user">
+<span id="id2"></span><h2>対象読者<a class="headerlink" href="#target-user" title="Permalink to this heading"></a></h2>
+<p>このドキュメントは、ソフトウェア開発経験のあるアーキテクトやプログラマ向けに書かれています。</p>
+<p>特に、Springについて、次のような知識・能力を持っていることを前提としています。</p>
+<ul class="simple">
+<li><p>共通</p>
+<ul>
+<li><p><a class="reference external" href="https://projects.spring.io/spring-boot/">Spring Boot</a> を利用して開発したことがあり、基本的な仕組みについて理解している。</p></li>
+<li><p><a class="reference external" href="https://projects.spring.io/spring-framework/">Spring Framework</a> を利用したアプリケーションの基本的なアーキテクチャについて理解している。</p></li>
+<li><p><a class="reference external" href="https://spring.io/docs">Springの公式ドキュメント</a> から適切な情報を検索できる。</p></li>
+<li><p>その他、次にあげるような技術要素について、基本的な知識を持っている。</p>
+<ul>
+<li><p>SQL</p></li>
+<li><p>Maven</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Web/API</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/reference/html/web.html#spring-web">Spring Web MVC</a> の基本的な用語を理解している</p></li>
+<li><p>Spring Web MVCの各ステレオタイプの役割を理解している</p></li>
+<li><p>Spring Web MVCの処理フローを理解している</p></li>
+</ul>
+</li>
+<li><p>バッチ</p>
+<ul>
+<li><p><a class="reference external" href="https://spring.io/projects/spring-batch">Spring Batch</a> の基本的な用語を理解している</p></li>
+<li><p>Spring Batchの各ステレオタイプの役割を理解している</p></li>
+<li><p>Spring Batchの処理フローを理解している</p></li>
+</ul>
+</li>
+</ul>
+<p>これからSpringを初めて利用するという人は、<a class="reference external" href="https://spring.io/guides">公式ガイド</a> 等を活用して学習してください。</p>
+</section>
+<section id="id5">
+<h2>このドキュメントの使い方<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="../_images/how-to-use-this-document.drawio.png"><img alt="../_images/how-to-use-this-document.drawio.png" src="../_images/how-to-use-this-document.drawio.png" style="width: 70%;" /></a>
+<p>基本的な実装方法については、Springの公式ドキュメントを参照してください。</p>
+<p>また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず <a class="reference external" href="https://macchinetta.github.io">Macchinetta Framework</a> を参照することをおすすめします。
+ただし、このドキュメントとMacchinettaでは、設定の記載方法が異なるため、具体的な実装例や設定例はそのままでは利用できないと考えてください。（このドキュメントではJava Config、MacchinettaではXML Configを使用している）</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://macchinetta.github.io/server-guideline-thymeleaf/1.8.1.SP1.RELEASE/ja/">Macchinetta Server Framework Development Guideline</a></p></li>
+<li><p><a class="reference external" href="https://macchinetta.github.io/cloud-guideline/1.2.0.RELEASE/ja/">Macchinetta Server Framework Cloud Extension Development Guideline</a></p></li>
+<li><p><a class="reference external" href="https://macchinetta.github.io/batch-guideline/2.3.1.RELEASE/ja/">Macchinetta Batch Framework Development Guideline</a></p></li>
+</ul>
+</section>
+<section id="test-environment-and-dependencies">
+<span id="id6"></span><h2>動作確認環境と依存ライブラリについて<a class="headerlink" href="#test-environment-and-dependencies" title="Permalink to this heading"></a></h2>
+<p>このドキュメントに含まれるサンプルコードは、 <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/">サンプルアプリケーション</a> を利用して以下の実行環境でテストしています。</p>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">実行環境</span><a class="headerlink" href="#id7" title="このテーブルへのパーマリンク"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>OS</p></td>
+<td><p>Amazon Linux 2</p></td>
+</tr>
+<tr class="row-even"><td><p>JDK</p></td>
+<td><p>Liberica JDK 11</p></td>
+</tr>
+</tbody>
+</table>
+<p>また、明示的に依存しているのは以下のライブラリです。</p>
+<dl>
+<dt>Spring Boot</dt><dd><p>Spring Bootから参照されるライブラリのバージョンは、 <a class="reference external" href="https://docs.spring.io/spring-boot/docs/2.7.6/reference/html/dependency-versions.html#appendix.dependency-versions">Appendix F. Dependency versions</a> を参照してください。</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;parent&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-parent<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.7.6<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/parent&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt>その他のライブラリ</dt><dd><p>以下のライブラリをすべてのサンプルで利用しているわけではありません。サンプルごとに利用しているライブラリは、サンプルのpom.xmlで確認してください。</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- doma-starter-start --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.seasar.doma.boot<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>doma-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.7.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.seasar.doma<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>doma-processor<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.53.1<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.seasar.doma<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>doma-slf4j<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.53.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="cm">&lt;!-- doma-starter-end --&gt;</span>
+<span class="cm">&lt;!-- mybatis-start --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.mybatis.spring.boot<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>mybatis-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.3.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="cm">&lt;!-- mybatis-end --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>io.awspring.cloud<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-cloud-aws-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.4.2<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.github.database-rider<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>rider-spring<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.35.0<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.github.database-rider<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>rider-junit5<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.35.0<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="cm">&lt;!-- logback-access-spring-boot-version-start --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>dev.akkinoc.spring.boot<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>logback-access-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>3.4.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="cm">&lt;!-- logback-access-spring-boot-version-end --&gt;</span>
+
+<span class="cm">&lt;!-- keel-web-start --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jp.fintan.keel<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>keel-spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="cm">&lt;!-- keel-web-end --&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>これらの実行環境・ライブラリのバージョンアップには可能な限り追随し、テストが失敗する場合にはドキュメント含めて修正する予定です。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <br />
+      ドキュメントは、<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズ 表示 - 継承 4.0 国際 ライセンス</a>の下に提供されており、コードサンプルは<a rel="license" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>の下に提供されています。
+    </p>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /> </a>
+    </p>
+    <p>
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
