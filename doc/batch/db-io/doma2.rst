@@ -14,9 +14,9 @@ Spring Batchで :doma-doc:`Doma2 <>` を利用してデータを読み込み/書
 
 データ読み込みに利用するDaoのメソッドは、Streamを返すように実装します。詳細については、以下の公式ドキュメントを参照してください。
 
-* :doma-doc:`検索 <query/select>` ＞ ストリーム検索 ＞ 戻り値で戻す方法
+* :doma-doc:`ストリーム検索 - 戻り値で戻す方法 <query/select/#return-the-return-value>`
 
-ItemReaderではopenでDaoからStreamを取得し、Stream自身とそのStreamから取得したIteratorをインスタンス変数として保持しておきます。 readではIteratorの次の要素を返すようにし、 closeで必ずStreamを閉じるようにします。
+ItemReaderではopenでDaoからStreamを取得し、Stream自身とそのStreamから取得したIteratorをインスタンス変数として保持しておきます。 readでは保持しているIteratorの次の要素を返すようにし、 closeでは保持しているStreamを閉じるようにします。
 
 実装例
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -41,11 +41,11 @@ ItemStreamReader
 
   このような事象を回避するために、データベースにアクセスするItemReaderの実装クラスは、 :spring-batch-doc:`ItemStreamReader <api/org/springframework/batch/item/ItemStreamReader.html>` を実装したクラスにしてください。サンプルでは、ItemStreamReaderを実装した :spring-batch-doc:`AbstractItemCountingItemStreamItemReader <api/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.html>` を継承しています。
 
-  ItemStreamReaderでは、openメソッドで利用されるコネクションとwriterで利用されるコネクションとは別のトランザクションに属するようになるため、PostgreSQLの上記のような問題を踏まないようになっています。
+  ItemStreamReaderでは、openメソッドで利用されるコネクションとwriterで利用されるコネクションとは別のトランザクションに属するようになるため、上記の問題を踏まないようになっています。
 
 .. [#f1]
 
-  `Chapter 5\. Issuing a Query and Processing the Result <https://jdbc.postgresql.org/documentation/head/query.html>`_ の Getting results based on a cursor という節に下記のように記載があります。
+  `Issuing a Query and Processing the Result の Getting results based on a cursor <https://jdbc.postgresql.org/documentation/query/#getting-results-based-on-a-cursor>`_ に下記の記載があります。
 
     The backend closes cursors at the end of transactions, so in autocommit mode the backend will have closed the cursor before anything can be fetched from it.
 

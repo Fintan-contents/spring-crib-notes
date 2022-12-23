@@ -1,29 +1,24 @@
 package keel.controller;
 
+import com.github.database.rider.core.api.configuration.DBUnit;
+import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.junit5.api.DBRider;
 import keel.Doma2OptimisticLockApplication;
-import keel.domain.service.UserService;
-import keel.entity.User;
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.dao.OptimisticLockingFailureException;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import javax.servlet.http.HttpSession;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@RunWith(SpringRunner.class)
+@DBRider
+@DBUnit(schema = "PUBLIC")
 @SpringBootTest(classes = Doma2OptimisticLockApplication.class)
 @AutoConfigureMockMvc
 public class UserUpdateControllerTest {
@@ -31,19 +26,10 @@ public class UserUpdateControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private UserService service;
-
     @Test
+    @DataSet("users.yml")
     public void 初期表示がステータスコード200で終了すること() throws Exception {
-
-        when(service.find()).thenReturn(new User(
-                1L,
-                "太郎",
-                1L
-        ));
-
-        final HttpSession session = mockMvc
+        HttpSession session = mockMvc
                 .perform(get("/user/edit"))
                 .andExpect(status().isOk())
                 .andExpect(model().hasNoErrors())
@@ -55,17 +41,23 @@ public class UserUpdateControllerTest {
         Assertions
                 .assertThat(session.getAttribute("form"))
                 .extracting("userId", "userName", "versionNo")
-                .containsExactly(1L, "太郎", 1L);
+                .containsExactly(9999L, "jiro", 10L);
     }
 
     @Test
+    @DataSet("users.yml")
     public void 更新処理が正常に完了しステータスコードが200で終了すること() throws Exception {
-
-        when(service.update(any())).thenReturn(1);
+        HttpSession session = mockMvc
+                .perform(get("/user/edit"))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getRequest()
+                .getSession();
 
         mockMvc
                 .perform(post("/user/update")
                         .param("userName", "キール")
+                        .sessionAttr("form", session.getAttribute("form"))
                 )
                 .andExpect(status().is3xxRedirection())
                 .andExpect(model().hasNoErrors())
@@ -73,15 +65,13 @@ public class UserUpdateControllerTest {
     }
 
     @Test
-    public void 更新処理で楽観ロック例外が発生してステータスコードが409で終了すること() throws Exception {
-        doThrow(OptimisticLockingFailureException.class)
-                .when(service)
-                .update(any());
-
+    public void 更新時の入力値チェックでエラーがあれば更新画面に戻る() throws Exception {
         mockMvc
                 .perform(post("/user/update")
-                        .param("userName", "キール")
+                        .param("id", "1")
+                        .param("userName", "")
                 )
-                .andExpect(status().isConflict());
+                .andExpect(status().isOk())
+                .andExpect(view().name("user/edit"));
     }
 }

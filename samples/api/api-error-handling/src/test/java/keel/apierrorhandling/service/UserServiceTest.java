@@ -1,37 +1,27 @@
 package keel.apierrorhandling.service;
 
-import com.github.springtestdbunit.DbUnitTestExecutionListener;
-import com.github.springtestdbunit.annotation.DatabaseSetup;
-import com.github.springtestdbunit.annotation.DbUnitConfiguration;
+import com.github.database.rider.core.api.configuration.DBUnit;
+import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.junit5.api.DBRider;
 import keel.apierrorhandling.ApiErrorHandlingApp;
-import keel.apierrorhandling.dbunit.CsvDataSetLoader;
 import keel.apierrorhandling.entity.User;
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.OptimisticLockingFailureException;
-import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 
-@RunWith(SpringRunner.class)
-@TestExecutionListeners({
-        DependencyInjectionTestExecutionListener.class,
-        TransactionalTestExecutionListener.class,
-        DbUnitTestExecutionListener.class})
-@DbUnitConfiguration(dataSetLoader = CsvDataSetLoader.class)
+@DBRider
+@DBUnit(schema = "PUBLIC")
 @SpringBootTest(classes = {ApiErrorHandlingApp.class})
-@DatabaseSetup("classpath:data/")
 public class UserServiceTest {
 
     @Autowired
     UserService userService;
 
     @Test
-    public void 楽観ロックエラー時にOptimisticLockingFailureExceptionが発生するかを検証するテスト() {
+    @DataSet("users.yml")
+    public void 楽観ロックエラー時にOptimisticLockingFailureExceptionが発生する() {
 
         Assertions
                 .assertThatThrownBy(() -> {
@@ -45,5 +35,35 @@ public class UserServiceTest {
                 })
                 .isInstanceOf(OptimisticLockingFailureException.class);
 
+    }
+
+    @Test
+    @DataSet("users.yml")
+    public void 登録時に未登録のロールを指定した場合はRoleNotFoundExceptionが発生する() {
+        Assertions
+                .assertThatThrownBy(() -> {
+                    userService.insert(new User(
+                            "jiro",
+                            "dummy",
+                            20
+                    ));
+                })
+                .isInstanceOf(UserService.RoleNotFoundException.class);
+    }
+
+    @Test
+    @DataSet("users.yml")
+    public void 更新時に未登録のロールを指定した場合はRoleNotFoundExceptionが発生する() {
+        Assertions
+                .assertThatThrownBy(() -> {
+                    userService.update(new User(
+                            1L,
+                            "jiro",
+                            "dummy",
+                            20,
+                            9L
+                    ));
+                })
+                .isInstanceOf(UserService.RoleNotFoundException.class);
     }
 }

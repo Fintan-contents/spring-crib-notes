@@ -1,9 +1,9 @@
 package keel.validation.value;
 
+import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
-import org.junit.Test;
 
 public class MailAddressTest {
 

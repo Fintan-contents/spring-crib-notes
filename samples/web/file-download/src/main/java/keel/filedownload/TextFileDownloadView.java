@@ -1,16 +1,19 @@
 package keel.filedownload;
 
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StreamUtils;
 import org.springframework.web.servlet.view.AbstractView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 // example-start
-// @Componentを設定して、コンポーネントスキャン対象にします。
+// @Componentを設定して、コンポーネントスキャン対象にします
 @Component
 public class TextFileDownloadView extends AbstractView {
 
@@ -25,17 +28,21 @@ public class TextFileDownloadView extends AbstractView {
     @Override
     protected void renderMergedOutputModel(Map<String, Object> model,
                                            HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-        final FileDownloadAttributes attributes = (FileDownloadAttributes) model.get(DOWNLOAD_FILE_INFO_KEY);
+        FileDownloadAttributes attributes = (FileDownloadAttributes) model.get(DOWNLOAD_FILE_INFO_KEY);
 
         // レスポンスヘッダを設定します
-        response.setHeader("Content-Disposition", "attachment; filename=" + attributes.getDownloadFileName());
-        response.setHeader("Content-Type", "text/plain");
+        response.setContentType("text/plain");
+        // 日本語のファイル名に対応するため、Content-DispositionはRFC6266の形式に沿って設定する
+        ContentDisposition contentDisposition = ContentDisposition
+                .attachment()
+                .filename(attributes.getDownloadFileName(), StandardCharsets.UTF_8)
+                .build();
+        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, contentDisposition.toString());
 
         // ダウンロード対象のファイルを読込み、レスポンスボディに書込みます
-        StreamUtils.copy(
-                resourceLoader.getResource(attributes.getTargetFilePath()).getInputStream(),
-                response.getOutputStream());
+        try (InputStream in = resourceLoader.getResource(attributes.getTargetFilePath()).getInputStream()) {
+            in.transferTo(response.getOutputStream());
+        }
     }
 }
 // example-end

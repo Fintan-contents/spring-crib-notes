@@ -110,6 +110,9 @@ html_show_sourcelink = False
 # Custom stylesheet
 html_style = "css/customize-rtd.css"
 
+# バージョン表記を削除するためタイトルを明示
+html_title = project
+
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
@@ -199,21 +202,20 @@ sample_app_base = 'https://github.com/Fintan-contents/spring-crib-notes/tree/' +
 
 extlinks = {
   'sample-app': (sample_app_base + '/samples/%s', None),
-  'spring-doc': ('https://docs.spring.io/spring/docs/' + '5.0.6.RELEASE' + '/%s', None),
-  'spring-framework-doc': ('https://docs.spring.io/spring-framework/docs/' + '5.0.6.RELEASE' + '/%s', None),
-  'spring-boot-doc': ('https://docs.spring.io/spring-boot/docs/' + '2.0.2.RELEASE' + '/%s', None),
-  'spring-batch-doc': ('https://docs.spring.io/spring-batch/' + '4.0.x' + '/%s', None),
-  'spring-session-doc': ('https://docs.spring.io/spring-session/docs/' + '2.0.3.RELEASE' + '/%s', None),
-  'spring-security-doc': ('https://docs.spring.io/spring-security/site/docs/' + '5.0.5.RELEASE' + '/%s', None),
-  'macchinetta-server-guideline-thymeleaf-doc': ('https://macchinetta.github.io/server-guideline-thymeleaf/' + '1.5.1.RELEASE' + '/ja/%s', None),
-  'macchinetta-cloud-guideline-doc': ('https://macchinetta.github.io/cloud-guideline/' + '1.0.1.RELEASE' + '/ja/%s', None),
-  'macchinetta-batch-guideline-doc': ('https://macchinetta.github.io/batch-guideline/' + '2.0.1.RELEASE' + '/ja/%s', None),
+  'spring-framework-doc': ('https://docs.spring.io/spring-framework/docs/' + '5.3.24' + '/%s', None),
+  'spring-boot-doc': ('https://docs.spring.io/spring-boot/docs/' + '2.7.6' + '/%s', None),
+  'spring-batch-doc': ('https://docs.spring.io/spring-batch/docs/' + '4.3.7' + '/%s', None),
+  'spring-session-doc': ('https://docs.spring.io/spring-session/reference/' + '2.7.0' + '/%s', None),
+  'spring-security-doc': ('https://docs.spring.io/spring-security/reference/' + '5.7.5' + '/%s', None),
+  'spring-cloud-aws-doc': ('https://docs.awspring.io/spring-cloud-aws/docs/' + '2.4.2' + '/%s', None),
+  'macchinetta-server-guideline-thymeleaf-doc': ('https://macchinetta.github.io/server-guideline-thymeleaf/' + '1.8.1.SP1.RELEASE' + '/ja/%s', None),
+  'macchinetta-cloud-guideline-doc': ('https://macchinetta.github.io/cloud-guideline/' + '1.2.0.RELEASE' + '/ja/%s', None),
+  'macchinetta-batch-guideline-doc': ('https://macchinetta.github.io/batch-guideline/' + '2.3.1.RELEASE' + '/ja/%s', None),
   'thymeleaf-tutorials-doc': ('https://www.thymeleaf.org/doc/tutorials/' + '3.0' + '/%s', None),
-  'doma-spring-boot-source': ('https://github.com/domaframework/doma-spring-boot/blob/' + '1.1.1' + '/%s', None),
-  'doma-doc': ('https://doma.readthedocs.io/ja/' + '2.19.2' + '/%s', None),
-  'doma-java-doc': ('https://static.javadoc.io/org.seasar.doma/doma/' + '2.19.2' + '/%s', None),
-  'doma-gen-doc': ('https://doma-gen.readthedocs.io/ja/' + '2.19.2' + '/%s', None),
-  'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '6.0' + '/%s', None)
+  'doma-spring-boot-source': ('https://github.com/domaframework/doma-spring-boot/blob/' + '1.6.0' + '/%s', None),
+  'doma-doc': ('https://doma.readthedocs.io/en/' + '2.53.0' + '/%s', None),
+  'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '6.2' + '/%s', None),
+  'nablarch-doc': ('https://nablarch.github.io/docs/' + '5u21' + '/%s', None)
 }
 
 # linkcheck option

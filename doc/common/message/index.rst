@@ -8,15 +8,19 @@
 Bean Validationを使った入力値チェックのエラーメッセージ
 ---------------------------------------------------------
 Spring Bootでは、入力値のチェックとしてBean Validationをサポートしており、実装ライブラリとして :hibernate-validator-doc:`Hibernate Validator <reference/en-US/html_single/>` を採用しています。
-デフォルトでは、Hibernate Validatorで定義されている `ValidationMessages.properties <https://github.com/hibernate/hibernate-validator/blob/master/engine/src/main/resources/org/hibernate/validator/ValidationMessages.properties>`_ からエラーメッセージが生成されます。
+デフォルトでは、Hibernate Validatorで定義されているロケール毎のValidationMessages.properties（例えば `ValidationMessages_ja.properties <https://github.com/hibernate/hibernate-validator/blob/6.2.4.Final/engine/src/main/resources/org/hibernate/validator/ValidationMessages_ja.properties>`_ ）からエラーメッセージが生成されます。
 
-デフォルトのエラーメッセージを変更したい場合は、クラスパス直下にValidationMessages.propertiesを作成してデフォルトから変更したいエラーメッセージを定義します。
+デフォルトのエラーメッセージを変更したい場合は、以下のどちらかのファイルに、デフォルトから変更したいエラーメッセージを定義します。
+
+* Springのメッセージ定義ファイル（クラスパス直下のmessages.properties）
+* Hibernate Validatorのメッセージ定義ファイル（クラスパス直下のValidationMessages.propertiesやValidationMessages_ja.properties等）
+
+エラーメッセージの解決では、まずSpringのメッセージ定義ファイルが使用されます。（エラーメッセージ解決の詳細については :spring-framework-doc:`エラーメッセージの解決 <reference/html/core.html#validation-conversion>` を参考にしてください）
+
+Springのメッセージ定義ファイルにエラーメッセージが定義されていなければ、Hibernate Validatorのメッセージ定義ファイルが使用されます。（Hibernate Validatorのエラーメッセージ解決の詳細については :hibernate-validator-doc:`エラーメッセージの補完 <reference/en-US/html_single/#chapter-message-interpolation>` を参考にしてください）
 
 エラーメッセージには、Bean ValidationやHibernate Validatorの入力チェックアノテーションで定義されている属性名を、プレースホルダとして定義できます。
 例えば、 :hibernate-validator-doc:`@Length <api/org/hibernate/validator/constraints/Length.html>` を用いて入力値チェックを実施した場合は、プレースホルダとして `{min}、{max}` が使用できます。
-
-なお、ValidationMessages.propertiesに日本語のメッセージを定義する場合はNative to Asciiを実施する必要があります。
-Native to Asciiを実施しないで日本語を扱いたい場合は、SpringのReloadableResourceBundleMessageSourceを使用してValidationMessages.propertiesをロードします。
 
 実装例
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -24,18 +28,11 @@ ValidationMessages.properties
   .. literalinclude:: ../../../samples/web/validation/src/main/resources/ValidationMessages.properties
      :language: properties
 
-Configuration
-  .. literalinclude:: ../../../samples/web/validation/src/main/java/keel/validation/ValidationApp.java
-     :language: java
-     :start-after: non-native-to-ascii-start
-     :end-before: non-native-to-ascii-end
-     :dedent: 4
-
 サンプル全体は :sample-app:`validation-sample <web/validation>` を参照してください。
 
 その他のメッセージ
 -----------------------------------------------
-Bean Validationを使った入力値チェック以外で使用するメッセージは、クラスパス直下のmessages.propertiesに定義します。
+Bean Validationを使った入力値チェック以外で使用するメッセージは、Springのメッセージ定義ファイル（クラスパス直下のmessages.properties）にメッセージを定義します。
 例えば、データベースを使用した入力値のチェックや入力値の型変換エラーが発生した場合、登録処理の完了時に使用するメッセージ等はmessages.propertiesに定義します。
 messages.propertiesに定義したメッセージは、SpringのMessageSourceを使用して取得します。
 

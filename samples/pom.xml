@@ -8,81 +8,101 @@
   <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <modules>
-    <module>web/validation</module>
+    <module>common/doma2</module>
+    <module>common/mybatis</module>
+    <module>common/sql-management</module>
+
     <module>web/doma2-optimistic-lock</module>
-    <module>web/template-engine-thymeleaf</module>
-    <module>web/error-handling</module>
-    <module>web/table-authentication</module>
-    <module>web/tomcat-access-log</module>
-    <module>web/spring-security-http-response-header</module>
     <module>web/double-submission</module>
+    <module>web/error-handling</module>
+    <module>web/file-download</module>
+    <module>web/spring-security-http-response-header</module>
+    <module>web/table-authentication</module>
+    <module>web/template-engine-thymeleaf</module>
+    <module>web/tomcat-access-log</module>
+    <module>web/validation</module>
 
     <module>api/api-error-handling</module>
 
     <module>batch/doma2-spring-batch</module>
 
-    <module>common/doma2</module>
-    <module>common/sql-management</module>
-    <module>web/file-download</module>
-
+    <module>aws/rds</module>
     <module>aws/s3</module>
     <module>aws/ses</module>
-    <module>aws/rds</module>
+
+    <module>nablarch/nablarch-validation</module>
+    <module>nablarch/nablarch-code</module>
+    <module>nablarch/nablarch-date</module>
+
+    <!-- カバレッジレポートを集約するためのプロジェクト -->
+    <module>jacoco-report</module>
   </modules>
 
+  <!-- spring-boot-version-start -->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.2.RELEASE</version>
-    <relativePath />
+    <version>2.7.6</version>
   </parent>
+  <!-- spring-boot-version-end -->
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
+    <java.version>11</java.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
-      <!-- ドキュメントへの引用のため、parentと重複するがdependencyManagementにも記載。 -->
-      <!-- spring-boot-version-start -->
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.0.2.RELEASE</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- spring-boot-version-end -->
       <!-- other-versions-start -->
       <!-- doma-starter-start -->
       <dependency>
         <groupId>org.seasar.doma.boot</groupId>
         <artifactId>doma-spring-boot-starter</artifactId>
-        <version>1.1.1</version>
+        <version>1.7.0</version>
       </dependency>
-      <!-- doma-starter-end -->
       <dependency>
         <groupId>org.seasar.doma</groupId>
-        <artifactId>doma</artifactId>
-        <version>2.19.2</version>
+        <artifactId>doma-processor</artifactId>
+        <version>2.53.1</version>
+        <optional>true</optional>
       </dependency>
       <dependency>
-        <groupId>com.github.springtestdbunit</groupId>
-        <artifactId>spring-test-dbunit</artifactId>
-        <version>1.3.0</version>
+        <groupId>org.seasar.doma</groupId>
+        <artifactId>doma-slf4j</artifactId>
+        <version>2.53.1</version>
+      </dependency>
+      <!-- doma-starter-end -->
+      <!-- mybatis-start -->
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>2.3.0</version>
+      </dependency>
+      <!-- mybatis-end -->
+      <dependency>
+        <groupId>io.awspring.cloud</groupId>
+        <artifactId>spring-cloud-aws-dependencies</artifactId>
+        <version>2.4.2</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <dependency>
-        <groupId>org.dbunit</groupId>
-        <artifactId>dbunit</artifactId>
-        <version>2.5.2</version>
+        <groupId>com.github.database-rider</groupId>
+        <artifactId>rider-spring</artifactId>
+        <version>1.35.0</version>
+        <scope>test</scope>
       </dependency>
+      <dependency>
+        <groupId>com.github.database-rider</groupId>
+        <artifactId>rider-junit5</artifactId>
+        <version>1.35.0</version>
+        <scope>test</scope>
+      </dependency>
+
       <!-- logback-access-spring-boot-version-start -->
       <dependency>
-        <groupId>net.rakugakibox.spring.boot</groupId>
+        <groupId>dev.akkinoc.spring.boot</groupId>
         <artifactId>logback-access-spring-boot-starter</artifactId>
-        <version>2.7.1</version>
+        <version>3.4.1</version>
       </dependency>
       <!-- logback-access-spring-boot-version-end -->
 
@@ -93,15 +113,31 @@
         <version>1.0.0</version>
       </dependency>
       <!-- keel-web-end -->
-      
+      <!-- other-versions-end -->
+
+      <!-- nablarch-start -->
       <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>Finchley.SR1</version>
+        <groupId>com.nablarch.profile</groupId>
+        <artifactId>nablarch-bom</artifactId>
+        <version>5u21</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- other-versions-end -->
+      <!-- nablarch-end -->
+
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>testcontainers-bom</artifactId>
+        <version>1.17.6</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>cloud.localstack</groupId>
+        <artifactId>localstack-utils</artifactId>
+        <version>0.2.21</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -110,6 +146,57 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>4.7.3.0</version>
+        <configuration>
+          <excludeFilterFile>${project.basedir}/../../tools/spotbugs/spotbugs-exclude.xml</excludeFilterFile>
+          <plugins>
+            <plugin>
+              <groupId>com.h3xstream.findsecbugs</groupId>
+              <artifactId>findsecbugs-plugin</artifactId>
+              <version>1.12.0</version>
+            </plugin>
+          </plugins>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>2.0.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.8</version>
+        <configuration>
+          <excludes>
+            <!-- Domaが自動生成するエンティティメタクラスは除外する -->
+            <exclude>**/_*</exclude>
+            <!-- DomainBeanはフィールドのアノテーションを読み取るだけなため除外する -->
+            <exclude>**/DomainBean.class</exclude>
+            <!-- メインクラスは除外する -->
+            <exclude>**/*App.class</exclude>
+            <exclude>**/*Application.class</exclude>
+          </excludes>
+        </configuration>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

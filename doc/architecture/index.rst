@@ -5,7 +5,7 @@
 ドキュメント内に記載しているアプリケーションの構成要素は以下となります。
 
 アプリケーションの構成要素
-  .. image:: images/application-stack.png
+  .. image:: images/application-stack.drawio.png
      :width: 90%
 
 .. list-table:: Web / APIの構成要素の概要
@@ -16,7 +16,7 @@
      - 構成要素
      - 概要
    * - 1
-     - :spring-doc:`Spring Web MVC <spring-framework-reference/web.html>`
+     - :spring-framework-doc:`Spring Web MVC <reference/html/web.html#spring-web>`
      - Springが提供するWeb MVCフレームワークです。
    * - 2
      - `Spring Security <https://projects.spring.io/spring-security/>`_
@@ -25,8 +25,8 @@
      - `Thymeleaf <https://www.thymeleaf.org/documentation.html>`_
      - テンプレートエンジンです。画面の作成に使用します。
    * - 4
-     - `terasoluna-gfw-web <https://github.com/terasolunaorg/terasoluna-gfw/tree/master/terasoluna-gfw-common-libraries/terasoluna-gfw-web>`_
-     - | `TERASOLUNA <http://terasolunaorg.github.io/>`_ が提供するWeb用のアプリケーションフレームワークです。
+     - `keel-spring-enhance <https://github.com/Fintan-contents/keel-spring-enhance>`_
+     - | Springの不足機能などを補うための機能を提供するライブラリです。
        | 二重送信の防止に利用します。
 
 .. list-table:: Batchの構成要素の概要
@@ -39,6 +39,17 @@
    * - 1
      - `Spring Batch <https://spring.io/projects/spring-batch>`_
      - Springが提供するBatchフレームワークです。
+
+.. list-table:: AWSの構成要素の概要
+   :widths: 5 20 75
+   :header-rows: 1
+
+   * - No
+     - 構成要素
+     - 概要
+   * - 1
+     - `Spring Cloud AWS <https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html>`_
+     - Spring Cloud傘下のプロジェクトで、Amazon Web ServicesのSDKが提供する機能をSpringに統合します。
 
 .. list-table:: 共通の構成要素の概要
    :widths: 5 20 75

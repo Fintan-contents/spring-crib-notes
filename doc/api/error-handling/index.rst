@@ -4,50 +4,48 @@
 ====================================================================================================
 
 RESTful Webサービスでの例外ハンドリング方法とレスポンスの返却方法について説明します。
-RESTful Webサービスでも、:doc:`Webの場合 </web/error-handling/index>` と同様に、発生した例外のログ出力とエラー応答を自動的に実施します。
 
-:spring-framework-doc:`Spring Web MVCがデフォルトでハンドリングする例外 <javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`
-は、アプリケーション側で設定や実装を行わなくても、適切なレスポンスがクライアントに返却されます。記載のない例外についてはデフォルトではステータスコード500が返却されます。また、全ての例外において、レスポンスボディには例外メッセージ等が出力されます。
+:spring-framework-doc:`Spring Web MVC <reference/html/web.html#spring-web>` では例外が発生した場合、例外情報をログに出力し、クライアントにエラーレスポンスを返却します。
+
+発生した例外が :spring-framework-doc:`Spring Web MVCがデフォルトでハンドリングする例外 <javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`
+であれば、アプリケーション側で設定や実装を行わなくても、適切なレスポンスが返却されます。それ以外の例外であれば、デフォルトではHTTPステータスコードに500が設定されたレスポンスが返却されます。
+
+レスポンスボディにはエラー情報が出力されます。出力する内容は ``server.error`` プロパティでカスマイズすることができます。プロパティの詳細については :spring-boot-doc:`Server Properties <reference/html/application-properties.html#appendix.application-properties.server>` を参照してください。
 
 レスポンスの例
   .. code-block:: text
 
     HTTP/1.1 500
-    Content-Type: application/json;charset=UTF-8
+    Content-Type: application/json
     Transfer-Encoding: chunked
     Date: Mon, 28 May 2018 07:20:57 GMT
-    Connection: close
+    Connection: keep-alive
 
     {
-      "timestamp": "2018-05-28T07:20:57.132+0000",
+      "timestamp": "2018-05-28T07:20:57.132+00:00",
       "status": 500,
       "error": "Internal Server Error",
-      "message": "file not found",
       "path": "/users/1"
     }
 
-このため、特定の例外メッセージをクライアントに返却したくない場合や、例外に応じてクライアントに返却するステータスコードやレスポンスボディを変更したい場合には例外ハンドリングを実装する必要があります。
+例外に応じてHTTPステータスコードやレスポンスボディをカスタマイズする場合は、例外ハンドリングを実装する必要があります。
 
 以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
 アプリケーション全体の例外ハンドリングをカスタマイズする例
 --------------------------------------------------------------------------------------
-アプリケーション全体で例外に応じた処理が決まっている場合は、:spring-doc:`@RestControllerAdvice <javadoc-api/org/springframework/web/bind/annotation/RestControllerAdvice.html>`
+アプリケーション全体で例外に応じた処理が決まっている場合は、:spring-framework-doc:`@RestControllerAdvice <javadoc-api/org/springframework/web/bind/annotation/RestControllerAdvice.html>`
 アノテーションを設定したクラスで例外ハンドリングを行います。
 
-どの例外を処理するかは、メソッドに設定された\ :spring-doc:`@ExceptionHandler <javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`\ アノテーションの情報により決まります。
-返却するステータスコードは :spring-doc:`@ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>` アノテーションに設定します。
+どの例外を処理するかは、メソッドに設定された\ :spring-framework-doc:`@ExceptionHandler <javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`\ アノテーションの情報により決まります。
+返却するステータスコードは :spring-framework-doc:`@ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>` アノテーションに設定します。
 
 .. tip::
 
-  例外クラスに設定した\ :spring-doc:`ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>`\ のreason属性を指定した場合、
+  例外クラスに設定した\ :spring-framework-doc:`ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>`\ のreason属性を指定した場合、
   レスポンスボディには、reason属性に指定した値がメッセージとして表示されます。
-  reason属性に指定した値は、\ :spring-doc:`MessageSource <javadoc-api/org/springframework/context/MessageSource.html>`\ を使用して解決されるため、
+  reason属性に指定した値は、\ :spring-framework-doc:`MessageSource <javadoc-api/org/springframework/context/MessageSource.html>`\ を使用して解決されるため、
   messages.propertiesに定義することも可能です。
-
-  Controller等のメソッドに設定したResponseStatusのreason属性を指定した場合も、
-  レスポンスボディには、reason属性に指定した値がメッセージとして表示されます。
-  ただし、reason属性に指定した値は、MessageSourceを使用して解決されません。そのため、reason属性に指定した値がそのまま出力されます。
 
 ResponseEntityExceptionHandlerを継承して例外ハンドリングクラスを作成する
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -65,13 +63,19 @@ ResponseEntityExceptionHandlerを継承したクラスを作成すると、ハ�
 * 入力値チェックでエラーが発生した場合の処理をカスタマイズしています。
 * 排他制御エラーが発生した場合に送出される例外を、:spring-framework-doc:`@ExceptionHandler <javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>` を使用してハンドリングしています。
 * 独自に作成した例外(CustomValidationException)を、:spring-framework-doc:`@ExceptionHandler <javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>` を使用してハンドリングしています。
-* 独自に作成した例外(UserNotFoundException)に :spring-doc:`ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>` を設定して、:spring-doc:`Spring Web MVC <spring-framework-reference/web.html>` に例外ハンドリングを委譲します。
+* 独自に作成した例外(UserNotFoundException)に :spring-framework-doc:`ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>` を設定して、:spring-framework-doc:`Spring Web MVC <reference/html/web.html#spring-web>` に例外ハンドリングを委譲します。
 
 GlobalExceptionHandler
   .. literalinclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/GlobalExceptionHandler.java
      :language: java
      :start-after: api-error-handling-example-start
      :end-before: api-error-handling-example-end
+
+ApiErrorResponse
+  .. literalinclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/ApiErrorResponse.java
+     :language: java
+     :start-after: api-error-model-start
+     :end-before: api-error-model-end
 
 UserNotFoundException
   .. literalinclude:: ../../../samples/api/api-error-handling/src/main/java/keel/apierrorhandling/exception/UserNotFoundException.java

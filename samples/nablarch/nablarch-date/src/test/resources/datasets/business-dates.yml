@@ -1,0 +1,5 @@
+business_date:
+  - segment_id: "00"
+    biz_date: "20220101"
+  - segment_id: "01"
+    biz_date: "20220102"

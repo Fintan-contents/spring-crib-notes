@@ -18,16 +18,23 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
-    <!-- doma-starter-start -->
     <dependency>
       <groupId>org.seasar.doma.boot</groupId>
       <artifactId>doma-spring-boot-starter</artifactId>
     </dependency>
-    <!-- doma-starter-end -->
+    <dependency>
+      <groupId>org.seasar.doma</groupId>
+      <artifactId>doma-processor</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.seasar.doma</groupId>
+      <artifactId>doma-slf4j</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
+      <scope>runtime</scope>
     </dependency>
 
     <dependency>
@@ -43,132 +50,4 @@
 
   </dependencies>
 
-  <!-- doma-gen-start -->
-  <!-- Doma-Genで生成されるEntityの出力先ディレクトリを設定します。 -->
-  <properties>
-    <entityGeneratedDir>${project.basedir}/target/generated-sources/entity</entityGeneratedDir>
-  </properties>
-
-  <build>
-    <plugins>
-      <!--
-      アプリケーションのapplication.propertiesから設定値をロードするプラグインを導入します。
-      このプラグインを使うことでデータベースの接続先情報を、application.propertiesから取得できるようになります。
-       -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>properties-maven-plugin</artifactId>
-        <version>1.0.0</version>
-        <executions>
-          <execution>
-            <phase>initialize</phase>
-            <goals>
-              <goal>read-project-properties</goal>
-            </goals>
-            <configuration>
-              <files>
-                <file>${project.basedir}/src/main/resources/application.properties</file>
-              </files>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Doma-Gen実行前にスキーマの情報を最新化するためにflywayのプラグインを導入します。 -->
-      <plugin>
-        <groupId>org.flywaydb</groupId>
-        <artifactId>flyway-maven-plugin</artifactId>
-        <version>5.0.7</version>
-        <dependencies>
-          <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.196</version>
-          </dependency>
-        </dependencies>
-        <executions>
-          <execution>
-            <id>db-migration</id>
-            <phase>generate-resources</phase>
-            <configuration>
-              <url>${spring.datasource.url}</url>
-              <user>${spring.datasource.username}</user>
-              <password>${spring.datasource.password}</password>
-            </configuration>
-            <goals>
-              <goal>migrate</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Doma-Genを使用してEntityを生成するためのantrunプラグインを導入します。 -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.8</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.seasar.doma</groupId>
-            <artifactId>doma-gen</artifactId>
-            <version>2.19.2</version>
-          </dependency>
-          <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.196</version>
-          </dependency>
-        </dependencies>
-        <executions>
-          <execution>
-            <id>generate-entity</id>
-            <phase>generate-resources</phase>
-            <configuration>
-              <target name="gen">
-                <taskdef name="gen" classname="org.seasar.doma.extension.gen.task.Gen" loaderref="loader"/>
-                <gen
-                    url="${spring.datasource.url}"
-                    user="${spring.datasource.username}"
-                    password="${spring.datasource.password}"
-                    dialectname="h2"
-                    ignoredTableNamePattern="flyway_schema_history">
-                  <entityConfig
-                      destDir="${entityGeneratedDir}"
-                      packageName="keel.entity"
-                      overwrite="true"
-                      useListener="false"
-                      showTableName="true"
-                      showColumnName="true"
-                      encoding="UTF-8">
-                  </entityConfig>
-                </gen>
-              </target>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Doma-Genを使用して生成されたソースコードディレクトリをMavenに認識させるためのプラグインを導入します。 -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>3.0.0</version>
-        <executions>
-          <execution>
-            <id>add-source</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>add-source</goal>
-            </goals>
-            <configuration>
-              <sources>
-                <source>${entityGeneratedDir}</source>
-              </sources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-  <!-- doma-gen-end -->
 </project>

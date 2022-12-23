@@ -1,0 +1,11 @@
+users:
+  - id: 1
+    name: "taro"
+    age: 25
+    version_no: 10
+    role: "admin"
+  - id: 2
+    name: "hanako"
+    age: 30
+    version_no: 10
+    role: "user"

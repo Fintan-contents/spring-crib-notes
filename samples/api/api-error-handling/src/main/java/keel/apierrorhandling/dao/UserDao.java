@@ -1,6 +1,5 @@
 package keel.apierrorhandling.dao;
 
-import keel.apierrorhandling.dao.criteria.UserCriteria;
 import keel.apierrorhandling.entity.User;
 import org.seasar.doma.Dao;
 import org.seasar.doma.Insert;
@@ -18,9 +17,6 @@ public interface UserDao {
 
     @Select
     List<User> findAllUsers();
-
-    @Select
-    List<User> findUsers(UserCriteria criteria);
 
     @Select
     Optional<User> getUser(Long id);

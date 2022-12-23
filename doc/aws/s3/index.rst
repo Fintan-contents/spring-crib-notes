@@ -1,113 +1,96 @@
-AWS S3にファイルをアップロード&S3からファイルをダウンロードする
+Amazon S3にファイルをアップロード及びAmazon S3からファイルをダウンロードする
 ================================================================================
-`Spring Cloud AWS <https://cloud.spring.io/spring-cloud-aws/>`_ を使用して、AWS S3にファイルをアップロード及びAWS S3からファイルをダウンロードする実装方法を説明します。
+:spring-cloud-aws-doc:`Spring Cloud AWS <reference/html/index.html>` を使用して、Amazon S3にファイルをアップロード及びAmazon S3からファイルをダウンロードする実装方法を説明します。
 
 サンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
 サンプル全体は :sample-app:`aws-s3 <aws/s3>` を参照してください。
 
-AWS S3を使用するための設定例
+Amazon S3を使用するための設定例
 --------------------------------------------------
 pom.xml
-  依存ライブラリにspring-cloud-starter-awsを追加する。
+  依存ライブラリにspring-cloud-starter-awsを追加します。
+  また、依存しているAWS SDKではJAXBが使用されますが、JDK 11からは標準ライブラリとして含まれていないため、依存ライブラリに追加します。
   
   .. literalinclude:: ../../../samples/aws/s3/pom.xml
     :language: xml
-    :start-after: cloud-aws-start
-    :end-before: cloud-aws-end
-    
-application.properties
-  AWSのリージョン名を設定します。
+    :start-after: spring-cloud-aws-start
+    :end-before: spring-cloud-aws-end
+
+.. tip::
+
+  ``spring-cloud-starter-aws`` の依存関係定義で ``version`` を指定していませんが、
+  サンプルではdependencyManagementに ``spring-cloud-aws-dependencies`` を指定して
+  Spring Cloud AWS関連ライブラリのバージョンを制御しています。
+
+AWSのリージョン
+  AWSのリージョンを実行環境に設定します。
+  デフォルトのリージョンはAWS SDKが提供する ``DefaultAwsRegionProviderChain`` により決定され、実行環境に設定されたAWSアカウント情報や、
+  EC2のメタデータからリージョンを取得します。
+
+  明示的に指定する場合は、 ``cloud.aws.region.static`` プロパティにリージョンを設定します。
+
+  設定可能な値の詳細については :spring-cloud-aws-doc:`Configuring region <reference/html/index.html#configuring-region>` を参照してください。
+
+AWSアカウントのクレデンシャル情報
+  AWSアカウントのクレデンシャル情報を実行環境に設定します。
+  クレデンシャル情報の設定方法はいくつかありますが、例えば環境変数を使用する方法であれば、以下の環境変数にクレデンシャル情報を設定します。
   
-  アプリケーションをEC2で動かす場合には、EC2のメタデータからリージョン名が取得できるためcloud.aws.region.autoにはtrueを設定します。
-  
-  .. literalinclude:: ../../../samples/aws/s3/src/main/resources/application-ec2.properties
-    :language: properties
-    :start-after: start
-    :end-before: end
-  
-  EC2以外(例えば、ローカルの開発環境)で動かす場合には、下の例のようにcloud.aws.region.autoをfalseとしリージョン名を設定します。
-  
+  * ``AWS_ACCESS_KEY_ID``
+  * ``AWS_SECRET_ACCESS_KEY``
+
+  クレデンシャル情報の設定方法の詳細については :spring-cloud-aws-doc:`SDK credentials configuration <reference/html/index.html#sdk-credentials-configuration>`
+  を参照してください。
+
+.. tip::
+
+  IAMによるアクセス制御を行う場合、実行環境には必要な権限を付与する必要があります。
+  必要な権限の詳細については :spring-cloud-aws-doc:`IAM Permissions <reference/html/index.html#iam-permissions-8>` を参照してください。
+
+.. _s3-upload:
+
+Amazon S3にファイルをアップロードする実装例
+--------------------------------------------------
+この例では、Springが提供する ``ResourceLoader`` を使用して指定したファイルをアップロードします。
+リソースのロケーションに ``s3`` プロトコルを使用することで、Amazon S3のリソースを扱うことができます。
+
+アップロード先のバケット名については環境によって異なることが想定されるため、ここではプロパティファイルで設定可能にします。
+
   .. literalinclude:: ../../../samples/aws/s3/src/main/resources/application-local.properties
     :language: properties
-    :start-after: start
-    :end-before: end
+    :start-after: bucket-start
+    :end-before: bucket-end
 
-環境変数
-  以下の環境変数にAWSアカウントのクレデンシャル情報を設定します。
-  
-  * AWS_ACCESS_KEY_ID
-  * AWS_SECRET_ACCESS_KEY
-  
-  AWS SDK for Javaが使用するクレデンシャル情報の推奨される設定方法などは、AWS SDK for Javaのドキュメントを参照してください。
-  
-AWS S3にファイルをアップロードする実装例
---------------------------------------------------
-* S3にファイルをアップロードする際に使用するTransferManagerをBeanとして登録します
-
-  .. literalinclude:: ../../../samples/aws/s3/src/main/java/keel/aws/s3/AwsS3Configuration.java
-    :language: java
-    :start-after: transferManager-start
-    :end-before: transferManager-end
-    
-* S3のバケット名を設定するBeanを作成します
-
-  使用するバケット名は環境によって異なることが想定されます。このため、プロパティファイルなどでバケット名を設定できるBeanを作成します。
-  
-  この例の場合には、プロパティファイルに ``s3.bucket-name=test-bucket`` のようにバケット名が設定できます。
+プロパティファイルに合わせて、プロパティ値をバインドするためのBeanを定義します。
 
   .. literalinclude:: ../../../samples/aws/s3/src/main/java/keel/aws/s3/AwsS3Properties.java
     :language: java
 
+アップロード先とするAmazon S3上のオブジェクトは、 ``ResourceLoader`` のリソースとして ``s3://<バケット名>/<オブジェクトキー名>`` の形式で指定します。
+（例えば ``s3://keel-s3-bucket-test/upload/upload.txt`` のようになります）
 
-* AWS S3にファイルをアップロードするBeanにTransferManagerをインジェクションします
+指定したリソースに対して書き込むことで、Amazon S3にファイルをアップロードします。
 
-  .. literalinclude:: ../../../samples/aws/s3/src/main/java/keel/aws/s3/AwsS3Service.java
-    :language: java
-    :start-after: injection-start
-    :end-before: injection-end
-
-* TransferManagerを使用してファイルをアップロードします
-
-  .. literalinclude:: ../../../samples/aws/s3/src/main/java/keel/aws/s3/AwsS3Service.java
+  .. literalinclude:: ../../../samples/aws/s3/src/main/java/keel/aws/s3/AwsS3UploadService.java
     :language: java
     :start-after: upload-start
     :end-before: upload-end
-    
-AWS S3からファイルをダウンロードする実装例
+
+.. tip::
+
+  ``ResourceLoader`` を使用したアップロードでは、マルチパートアップロードを使用することができません。
+  巨大なファイルをアップロードする等の理由でマルチパートアップロードを使用したい場合、AWS SDKから提供されている
+  ``TransferManager`` を使用する等の方法で実装することができます。
+  詳細については :spring-cloud-aws-doc:`Uploading with the TransferManager <reference/html/index.html#uploading-with-the-transfermanager>` を参照してください。
+
+Amazon S3からファイルをダウンロードする実装例
 --------------------------------------------------
-* S3にファイルをアップロードする際に使用するTransferManagerをBeanとして登録します
+この例では、Springが提供する ``ResourceLoader`` を使用して指定したファイルをダウンロードします。
 
-  .. literalinclude:: ../../../samples/aws/s3/src/main/java/keel/aws/s3/AwsS3Configuration.java
-    :language: java
-    :start-after: transferManager-start
-    :end-before: transferManager-end
+``ResourceLoader`` でのリソースの指定方法やバケット名の設定については、 :ref:`Amazon S3へのアップロード実装例 <s3-upload>` と同じになります。
+Amazon S3上のオブジェクトを表すリソースを指定し、リソースに対して読み込むことで、Amazon S3からファイルをダウンロードします。
 
-* AWS S3にファイルをアップロードするBeanにTransferManagerをインジェクションします
-
-  .. literalinclude:: ../../../samples/aws/s3/src/main/java/keel/aws/s3/AwsS3Service.java
-    :language: java
-    :start-after: injection-start
-    :end-before: injection-end
-
-* TransferManagerを使用してファイルをダウンロードします
-
-  この例では、S3オブジェクトの内容をローカルストレージ上に保存します。
-
-  .. literalinclude:: ../../../samples/aws/s3/src/main/java/keel/aws/s3/AwsS3Service.java
+  .. literalinclude:: ../../../samples/aws/s3/src/main/java/keel/aws/s3/AwsS3DownloadService.java
     :language: java
     :start-after: download-start
     :end-before: download-end
-    
-* TransferManagerを使用してファイルをダウンロードします
-
-  この例では、S3オブジェクトの内容をOutputStreamに移送します。
-  TransferManagerでは直接ローカルストレージのファイルに書き込むことしかできないため、ストリームに流し込みたい場合は、
-  この実装例のようにAmazonS3を使用する必要があります。
-
-  .. literalinclude:: ../../../samples/aws/s3/src/main/java/keel/aws/s3/AwsS3Service.java
-    :language: java
-    :start-after: download2-start
-    :end-before: download2-end
-    
-

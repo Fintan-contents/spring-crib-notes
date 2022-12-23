@@ -25,7 +25,7 @@
 
 <!-- example-start -->
     <dependency>
-      <groupId>net.rakugakibox.spring.boot</groupId>
+      <groupId>dev.akkinoc.spring.boot</groupId>
       <artifactId>logback-access-spring-boot-starter</artifactId>
     </dependency>
 <!-- example-end -->

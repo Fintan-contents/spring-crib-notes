@@ -1,26 +1,27 @@
 package keel.apierrorhandling.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.database.rider.core.api.configuration.DBUnit;
+import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.junit5.api.DBRider;
 import keel.apierrorhandling.ApiErrorHandlingApp;
-import keel.apierrorhandling.service.UserService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.HashMap;
 import java.util.Map;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
+@DBRider
+@DBUnit(schema = "PUBLIC")
 @SpringBootTest(classes = ApiErrorHandlingApp.class)
 @AutoConfigureMockMvc
 public class UsersController2Test {
@@ -28,28 +29,29 @@ public class UsersController2Test {
     @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private UserService service;
-
     @Autowired
     ObjectMapper objectMapper;
 
     @Test
-    public void 個別機能でMethodArgumentNotValidExceptionをハンドリングするテスト() throws Exception {
-
-        Map<String, Object> map = new HashMap<>();
-        map.put("name", "");
-        map.put("age", 1);
-        map.put("role", "admin");
-        String requestJson = objectMapper.writeValueAsString(map);
-
+    @DataSet("no-users.yml")
+    public void ユーザー登録APIでユーザーを追加できる() throws Exception {
         mockMvc
                 .perform(post("/users2")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
-                        .content(requestJson)
+                        .content(objectMapper.writeValueAsString(Map.of(
+                                "name", "piyo",
+                                "age", 1,
+                                "role", "admin"
+                        )))
                 )
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$").value("入力項目に誤りがあります。"));
+                .andExpect(status().is2xxSuccessful())
+                .andExpect(jsonPath("$.name").value("piyo"))
+                .andReturn();
+
+        // DBRiderのデータ登録ではid列のauto_incrementが進まないため、簡易的に件数のみ検証しておく
+        mockMvc
+                .perform(get("/users"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)));
     }
 }
-

@@ -1,7 +1,8 @@
+.. _web-typeMismatch:
+
 入力値の型変換エラー時に入力画面に適切なメッセージを表示する
 ===================================================================
-画面から入力された値は、\ `Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_\ を使ってチェックを行いますが、
-入力値からBeanを作成する際に(下記の ``No1`` で)型変換エラーが発生する場合があります。
+画面から入力された値は、\ `Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_\ により下記の流れで処理されますが、入力値をBeanに変換する際に型変換エラーが発生する場合があります。
 
 Bean Validationの処理の流れ
   1. 入力値をBeanに変換  
@@ -26,7 +27,7 @@ Bean Validationの処理の流れ
 入力値を受け取るBean(Form)
   入力パラメータを保持するBeanのプロパティを適切な型で宣言します。
 
-  .. literalinclude:: ../../../samples/web/validation/src/main/java/keel/validation/controller/AddUserController.java
+  .. literalinclude:: ../../../samples/web/validation/src/main/java/keel/validation/controller/Form.java
     :language: java
     :start-after: type-converter-error-start
     :end-before: type-converter-error-end

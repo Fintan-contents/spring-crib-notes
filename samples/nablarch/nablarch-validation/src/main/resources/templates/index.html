@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Nablarchバリデーション</title>
+</head>
+<body>
+<form th:action="@{/}" method="post" th:object="${validationForm}">
+  <div th:if="${successMessage}" th:text="${successMessage}" style="color: blue"></div>
+  <div style="margin-bottom: 8px">
+    ID（数値4桁）:<input type="text" name="id" th:field="*{id}">
+    <div th:if="${#fields.hasErrors('id')}" th:errors="*{id}" style="color: red"></div>
+  </div>
+  <div style="margin-bottom: 8px">
+    名前（全角文字10文字）:<input type="text" name="name" th:field="*{name}">
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></div>
+  </div>
+  <div style="margin-bottom: 8px">
+    年齢（0〜100）:<input type="text" name="age" th:field="*{age}">
+    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color: red"></div>
+  </div>
+  <div style="margin-bottom: 8px">
+    備考（システム許容文字10文字）:<input type="text" name="note" th:field="*{note}">
+    <div th:if="${#fields.hasErrors('note')}" th:errors="*{note}" style="color: red"></div>
+  </div>
+  <button type="submit">入力値をチェック</button>
+</form>
+</body>
+</html>

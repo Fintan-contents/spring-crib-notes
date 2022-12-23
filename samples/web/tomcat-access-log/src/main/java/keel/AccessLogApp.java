@@ -15,26 +15,4 @@ public class AccessLogApp {
         SpringApplication.run(AccessLogApp.class, args);
     }
 
-    @Controller
-    public static class Web {
-        @GetMapping("/")
-        public String get() {
-            return "index";
-        }
-
-        @PostMapping("/")
-        public String post() {
-            return "index";
-        }
-    }
-    
-    @RestController
-    public static class Api {
-        
-        @GetMapping("/api")
-        @ResponseBody
-        public String get() {
-            return "hello world!!!";
-        }
-    }
 }

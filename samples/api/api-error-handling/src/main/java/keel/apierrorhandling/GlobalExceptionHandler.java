@@ -1,6 +1,5 @@
 package keel.apierrorhandling;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import keel.apierrorhandling.exception.CustomValidationException;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +37,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return super.handleExceptionInternal(
+        return handleExceptionInternal(
                 ex,
                 body(ex.getBindingResult()),
                 headers,
@@ -54,7 +52,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleBindException(
             BindException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return super.handleExceptionInternal(
+        return handleExceptionInternal(
                 ex,
                 body(ex.getBindingResult()),
                 headers,
@@ -69,13 +67,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(
             HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return super.handleExceptionInternal(
+        return handleExceptionInternal(
                 ex,
-                messageSource.getMessage(
-                        "keel.api-error-handling.HttpMessageNotReadableException",
-                        new Object[0],
-                        LocaleContextHolder.getLocale()
-                ),
+                body("keel.api-error-handling.HttpMessageNotReadableException"),
                 headers,
                 status,
                 request);
@@ -109,40 +103,20 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 request);
     }
 
-    private List<ApiError> body(BindingResult bindingResult) {
+    private List<ApiErrorResponse> body(BindingResult bindingResult) {
         return bindingResult
                 .getFieldErrors()
                 .stream()
-                .map(fieldError ->
-                        new ApiError(
-                                fieldError.getField(),
-                                messageSource.getMessage(fieldError, LocaleContextHolder.getLocale())
-                        )
-                )
+                .map(fieldError -> new ApiErrorResponse(
+                        fieldError.getField(),
+                        messageSource.getMessage(fieldError, LocaleContextHolder.getLocale())))
                 .collect(Collectors.toList());
     }
-    // database-validation-end
 
-    static class ApiError implements Serializable {
-
-        @JsonInclude(JsonInclude.Include.NON_EMPTY)
-        private final String field;
-        @JsonInclude(JsonInclude.Include.NON_EMPTY)
-        private final String message;
-
-        ApiError(String field, String message) {
-            this.field = field;
-            this.message = message;
-        }
-
-        public String getField() {
-            return field;
-        }
-
-        public String getMessage() {
-            return message;
-        }
+    private ApiErrorResponse body(String code) {
+        String message = messageSource.getMessage(code, null, LocaleContextHolder.getLocale());
+        return new ApiErrorResponse(null, message);
     }
-
+    // database-validation-end
 }
 // api-error-handling-example-end

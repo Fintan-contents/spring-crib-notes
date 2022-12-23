@@ -18,12 +18,20 @@
       <artifactId>spring-boot-starter</artifactId>
     </dependency>
     
-    <!-- cloud-aws-start -->
+    <!-- spring-cloud-aws-start -->
     <dependency>
-      <groupId>org.springframework.cloud</groupId>
+      <groupId>io.awspring.cloud</groupId>
       <artifactId>spring-cloud-starter-aws</artifactId>
     </dependency>
-    <!-- cloud-aws-end -->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jaxb</groupId>
+      <artifactId>jaxb-runtime</artifactId>
+    </dependency>
+    <!-- spring-cloud-aws-end -->
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -34,6 +42,17 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>cloud.localstack</groupId>
+      <artifactId>localstack-utils</artifactId>
       <scope>test</scope>
     </dependency>
 

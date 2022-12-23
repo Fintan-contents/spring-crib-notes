@@ -26,7 +26,7 @@
 
 * Web/API
 
-  * :spring-doc:`Spring Web MVC <spring-framework-reference/web.html>` の基本的な用語を理解している
+  * :spring-framework-doc:`Spring Web MVC <reference/html/web.html#spring-web>` の基本的な用語を理解している
   * Spring Web MVCの各ステレオタイプの役割を理解している
   * Spring Web MVCの処理フローを理解している
 
@@ -36,45 +36,22 @@
   * Spring Batchの各ステレオタイプの役割を理解している
   * Spring Batchの処理フローを理解している
 
-これからSpringを初めて利用するという人は、次のような書籍やサイトを活用して学習してください。
-
-* `Getting Started · Building an Application with Spring Boot <https://spring.io/guides/gs/spring-boot/>`_
-* `はじめての Spring Boot[改訂版] <https://www.kohgakusha.co.jp/books/detail/978-4-7775-1969-9>`_
-* `Spring徹底入門 Spring FrameworkによるJavaアプリケーション開発（株式会社NTTデータ）｜翔泳社の本 <http://www.shoeisha.co.jp/book/detail/9784798142470>`_
-
+これからSpringを初めて利用するという人は、`公式ガイド <https://spring.io/guides>`_ 等を活用して学習してください。
 
 このドキュメントの使い方
 ------------------------------------
 
-.. image:: images/how-to-use-this-document.png
+.. image:: images/how-to-use-this-document.drawio.png
    :width: 70%
 
 基本的な実装方法については、Springの公式ドキュメントを参照してください。
 
 また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず `Macchinetta Framework <https://macchinetta.github.io>`_ を参照することをおすすめします。
-ただし、このドキュメントとMacchinettaでは、利用しているSpring Frameworkのバージョンが異なり、設定の記載方法も異なるため、具体的な実装例や設定例はそのままでは利用できないと考えてください。
+ただし、このドキュメントとMacchinettaでは、設定の記載方法が異なるため、具体的な実装例や設定例はそのままでは利用できないと考えてください。（このドキュメントではJava Config、MacchinettaではXML Configを使用している）
 
 * :macchinetta-server-guideline-thymeleaf-doc:`Macchinetta Server Framework Development Guideline <>`
 * :macchinetta-cloud-guideline-doc:`Macchinetta Server Framework Cloud Extension Development Guideline <>`
 * :macchinetta-batch-guideline-doc:`Macchinetta Batch Framework Development Guideline <>`
-
-.. list-table:: Macchinettaとの主な相違点
-   :widths: 25 20 35 20
-   :header-rows: 1
-   :stub-columns: 1
-
-   * -
-     - Spring
-     - Spring Boot
-     - 設定方法
-   * - このドキュメント
-     - 5.x
-     - 2.x
-     - JavaConfig
-   * - Macchinetta Framework
-     - 4.x
-     - 1.x （Cloud Extensionのみ）
-     - XML
 
 .. _test-environment-and-dependencies:
 
@@ -86,24 +63,20 @@
 .. list-table:: 実行環境
 
    * - OS
-     - CentOS 7 64bit
-   * - Docker
-     - 18.03.1-ce
-   * - Container
-     - jenkins/jenkins:2.107.3
+     - Amazon Linux 2
    * - JDK
-     - OpenJDK 8
+     - Liberica JDK 11
 
 また、明示的に依存しているのは以下のライブラリです。
 
 Spring Boot
-  Spring Bootから参照されるライブラリのバージョンは、 :spring-boot-doc:`Appendix F. Dependency versions <reference/html/appendix-dependency-versions.html>` を参照してください。
+  Spring Bootから参照されるライブラリのバージョンは、 :spring-boot-doc:`Appendix F. Dependency versions <reference/html/dependency-versions.html#appendix.dependency-versions>` を参照してください。
 
   .. literalinclude:: ../../samples/pom.xml
      :language: xml
      :start-after: spring-boot-version-start
      :end-before: spring-boot-version-end
-     :dedent: 6
+     :dedent: 2
 
 その他のライブラリ
   以下のライブラリをすべてのサンプルで利用しているわけではありません。サンプルごとに利用しているライブラリは、サンプルのpom.xmlで確認してください。
