@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>例外ハンドリング &mdash; keel-doc</title>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
@@ -31,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> keel-doc
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            keel-doc
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -200,6 +205,15 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../terms/index.html">ご利用にあたって</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../terms/index.html#id2">情報の外部送信について</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id3">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id4">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id5">情報の種類・用途</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -215,9 +229,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">RESTful Webサービス開発のノウハウ</a> &raquo;</li>
-      <li>例外ハンドリング</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">RESTful Webサービス開発のノウハウ</a></li>
+      <li class="breadcrumb-item active">例外ハンドリング</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -227,7 +241,7 @@
            <div itemprop="articleBody">
              
   <section id="api-error-handling">
-<span id="id1"></span><h1>例外ハンドリング<a class="headerlink" href="#api-error-handling" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>例外ハンドリング<a class="headerlink" href="#api-error-handling" title="この見出しへのパーマリンク"></a></h1>
 <p>RESTful Webサービスでの例外ハンドリング方法とレスポンスの返却方法について説明します。</p>
 <p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/reference/html/web.html#spring-web">Spring Web MVC</a> では例外が発生した場合、例外情報をログに出力し、クライアントにエラーレスポンスを返却します。</p>
 <p>発生した例外が <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html">Spring Web MVCがデフォルトでハンドリングする例外</a>
@@ -253,7 +267,7 @@ Connection: keep-alive
 <p>例外に応じてHTTPステータスコードやレスポンスボディをカスタマイズする場合は、例外ハンドリングを実装する必要があります。</p>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <section id="id2">
-<h2>アプリケーション全体の例外ハンドリングをカスタマイズする例<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<h2>アプリケーション全体の例外ハンドリングをカスタマイズする例<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
 <p>アプリケーション全体で例外に応じた処理が決まっている場合は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/RestControllerAdvice.html">&#64;RestControllerAdvice</a>
 アノテーションを設定したクラスで例外ハンドリングを行います。</p>
 <p>どの例外を処理するかは、メソッドに設定された<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a>アノテーションの情報により決まります。
@@ -266,7 +280,7 @@ reason属性に指定した値は、<a class="reference external" href="https://
 messages.propertiesに定義することも可能です。</p>
 </div>
 <section id="responseentityexceptionhandler">
-<h3>ResponseEntityExceptionHandlerを継承して例外ハンドリングクラスを作成する<a class="headerlink" href="#responseentityexceptionhandler" title="Permalink to this heading"></a></h3>
+<h3>ResponseEntityExceptionHandlerを継承して例外ハンドリングクラスを作成する<a class="headerlink" href="#responseentityexceptionhandler" title="この見出しへのパーマリンク"></a></h3>
 <p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandler.html">ResponseEntityExceptionHandler</a> は、Spring Web MVC内で発生する例外をハンドリングするクラスです。
 ResponseEntityExceptionHandlerを継承したクラスを作成すると、ハンドリングする例外に応じたステータスコードと空のレスポンスボディが返却されます。
 ハンドリングする例外は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html">Spring Web MVCがデフォルトでハンドリングする例外</a> と同様です。</p>
@@ -274,7 +288,7 @@ ResponseEntityExceptionHandlerを継承したクラスを作成すると、ハ�
 <p>なお、ResponseEntityExceptionHandlerを継承した場合も、&#64;RestControllerAdviceアノテーションを設定する必要があります。</p>
 </section>
 <section id="id3">
-<h3>実装例<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<h3>実装例<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h3>
 <ul class="simple">
 <li><p>入力値チェックでエラーが発生した場合の処理をカスタマイズしています。</p></li>
 <li><p>排他制御エラーが発生した場合に送出される例外を、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a> を使用してハンドリングしています。</p></li>
@@ -421,11 +435,11 @@ ResponseEntityExceptionHandlerを継承したクラスを作成すると、ハ�
 </div>
 </dd>
 </dl>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/api/api-error-handling">api-error-handling-sample</a> を参照してください。</p>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/api/api-error-handling">api-error-handling-sample</a> を参照してください。</p>
 </section>
 </section>
 <section id="controller">
-<h2>個別機能(Controller)で例外をハンドリングする例<a class="headerlink" href="#controller" title="Permalink to this heading"></a></h2>
+<h2>個別機能(Controller)で例外をハンドリングする例<a class="headerlink" href="#controller" title="この見出しへのパーマリンク"></a></h2>
 <p>アプリケーション全体ではなく個別機能(Controller)で例外をハンドリングし、メッセージを返却したい場合があります。
 <a class="reference internal" href="../../web/error-handling/index.html"><span class="doc">Webの場合</span></a> と同様に、Controller内に例外ハンドリング用のメソッドを作成します。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="cm">/**</span>
@@ -446,7 +460,7 @@ ResponseEntityExceptionHandlerを継承したクラスを作成すると、ハ�
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/api/api-error-handling">api-error-handling-sample</a> を参照してください。</p>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/api/api-error-handling">api-error-handling-sample</a> を参照してください。</p>
 </section>
 </section>
 

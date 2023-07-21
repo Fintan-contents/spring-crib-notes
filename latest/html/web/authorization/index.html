@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>認可 &mdash; keel-doc</title>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
@@ -31,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> keel-doc
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            keel-doc
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -200,6 +205,15 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../terms/index.html">ご利用にあたって</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../terms/index.html#id2">情報の外部送信について</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id3">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id4">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id5">情報の種類・用途</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -215,9 +229,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Webアプリ開発のノウハウ</a> &raquo;</li>
-      <li>認可</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Webアプリ開発のノウハウ</a></li>
+      <li class="breadcrumb-item active">認可</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -227,12 +241,12 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>認可<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1>認可<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
 <p>Webアプリケーションでの認可の方法について説明します。</p>
 <p>認可処理の実装には <a class="reference external" href="https://projects.spring.io/spring-security/">Spring Security</a> を使用します。</p>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <section id="id2">
-<h2>ユーザに対して権限を設定する<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<h2>ユーザに対して権限を設定する<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
 <p>この例では <a class="reference internal" href="../authentication/table.html"><span class="doc">テーブル認証</span></a> を使用するため、同じようにユーザ名や権限（ロール）を保持するテーブルを事前に作成します。</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
 <span class="w">  </span><span class="n">username</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"></span>
@@ -249,7 +263,7 @@
 </div>
 </section>
 <section id="id3">
-<h2>認証時にログインしたユーザの権限を保持する<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2>認証時にログインしたユーザの権限を保持する<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
 <p>認可を正しく行うために、認証時にログインしたユーザの権限を保持する必要があります。
 この例ではデータベースで認証・認可情報を管理しているため、ユーザ情報を取得する際に権限情報も取得し、ユーザ情報に設定します。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// UserDetailsServiceを実装して、ユーザ名に紐づく情報を取得するloadUserByUsernameメソッドを実装します。</span><span class="w"></span>
@@ -290,7 +304,7 @@
 </div>
 </section>
 <section id="url">
-<h2>URLパターンごとにアクセスに必要な権限を設定する<a class="headerlink" href="#url" title="Permalink to this heading"></a></h2>
+<h2>URLパターンごとにアクセスに必要な権限を設定する<a class="headerlink" href="#url" title="この見出しへのパーマリンク"></a></h2>
 <p>URLパターンごとにアクセスに必要な権限を設定します。
 この例では、 <code class="docutils literal notranslate"><span class="pre">/admin</span></code> 配下はadmin権限を持つユーザだけがアクセスできるように設定します。
 <code class="docutils literal notranslate"><span class="pre">/admin</span></code> 以外については、認証済みのユーザであればすべてのユーザがアクセスできるように設定します。</p>
@@ -339,7 +353,7 @@
 </div>
 </section>
 <section id="id4">
-<h2>アクセス権限に応じて画面上のリンクやボタンを非表示にする<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<h2>アクセス権限に応じて画面上のリンクやボタンを非表示にする<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h2>
 <p><a class="reference internal" href="../view/thymeleaf.html"><span class="doc">Thymeleaf</span></a> を使用している場合に、権限に応じて画面上にあるリンクやボタンの表示を制御する方法を説明します。</p>
 <p>ThymeleafのSpring Security用ライブラリである <a class="reference external" href="https://github.com/thymeleaf/thymeleaf-extras-springsecurity">thymeleaf-extras-springsecurity</a> を依存関係に追加します。</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">&lt;dependency&gt;</span>
@@ -360,7 +374,7 @@
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/web/table-authentication">table-authentication-sample</a> を参照してください。</p>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/web/table-authentication">table-authentication-sample</a> を参照してください。</p>
 </section>
 </section>
 

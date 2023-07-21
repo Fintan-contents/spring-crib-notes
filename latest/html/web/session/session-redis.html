@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>セッションの情報をRedisに保存する &mdash; keel-doc</title>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
@@ -31,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> keel-doc
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            keel-doc
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -200,6 +205,15 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../terms/index.html">ご利用にあたって</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../terms/index.html#id2">情報の外部送信について</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id3">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id4">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id5">情報の種類・用途</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -215,10 +229,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Webアプリ開発のノウハウ</a> &raquo;</li>
-          <li><a href="index.html">セッション管理</a> &raquo;</li>
-      <li>セッションの情報をRedisに保存する</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Webアプリ開発のノウハウ</a></li>
+          <li class="breadcrumb-item"><a href="index.html">セッション管理</a></li>
+      <li class="breadcrumb-item active">セッションの情報をRedisに保存する</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -228,7 +242,7 @@
            <div itemprop="articleBody">
              
   <section id="redis">
-<h1>セッションの情報をRedisに保存する<a class="headerlink" href="#redis" title="Permalink to this heading"></a></h1>
+<h1>セッションの情報をRedisに保存する<a class="headerlink" href="#redis" title="この見出しへのパーマリンク"></a></h1>
 <p>セッション情報を <a class="reference external" href="https://redis.io/">Redis</a> に保存する方法について説明します。</p>
 <p>セッション情報をRedisに保存することで、アプリケーションのスケールが可能となります。
 Redisへのセッション情報の保存や取得は、 <a class="reference external" href="https://projects.spring.io/spring-session/">Spring Session</a> が行ってくれるので、アプリケーション開発者が意識する必要はありません。</p>
@@ -238,11 +252,11 @@ Redisへのセッション情報の保存や取得は、 <a class="reference ext
 このためアプリケーションをスケールした場合にセッション情報が引き継がれない等の問題が発生します。</p>
 </div>
 <section id="id2">
-<h2>セッションの保存先をRedisにする<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<h2>セッションの保存先をRedisにする<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
 <p><a class="reference external" href="https://docs.spring.io/spring-session/reference/2.7.0/guides/boot-redis.html#boot-spring-configuration">Spring Session - Spring Boot Configuration</a> を参考にライブラリの追加と設定の追加を行います。</p>
 </section>
 <section id="id3">
-<h2>ローカル開発環境について<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2>ローカル開発環境について<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
 <p>Dockerの <a class="reference external" href="https://hub.docker.com/_/redis/">Redis公式イメージ</a> を使用することで簡単にRedis環境を構築出来ます。
 この場合は、ローカル開発環境とテストや本番環境でRedisの接続先の設定が変わるので、<a class="reference external" href="https://docs.spring.io/spring-boot/docs/2.7.6/reference/html/features.html#features.external-config.files.profile-specific">2.3.3. Profile Specific Files</a>で設定値を切り替える等の対応が必要となります。</p>
 <p>例えば、本番と開発PCで設定を切り替える場合には以下のような構成になります。

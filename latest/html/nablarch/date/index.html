@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nablarchの日付管理機能を使用する &mdash; keel-doc</title>
@@ -16,10 +16,12 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="ご利用にあたって" href="../../terms/index.html" />
     <link rel="prev" title="Nablarchのコード管理機能を使用する" href="../code/index.html" />
   <script defer data-domain="fintan-contents.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
 
@@ -30,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> keel-doc
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            keel-doc
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -199,6 +205,15 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../terms/index.html">ご利用にあたって</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../terms/index.html#id2">情報の外部送信について</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id3">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id4">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id5">情報の種類・用途</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -214,9 +229,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">SpringからNablarchの機能を利用する際のノウハウ</a> &raquo;</li>
-      <li>Nablarchの日付管理機能を使用する</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">SpringからNablarchの機能を利用する際のノウハウ</a></li>
+      <li class="breadcrumb-item active">Nablarchの日付管理機能を使用する</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -226,15 +241,15 @@
            <div itemprop="articleBody">
              
   <section id="nablarch">
-<h1>Nablarchの日付管理機能を使用する<a class="headerlink" href="#nablarch" title="Permalink to this heading"></a></h1>
+<h1>Nablarchの日付管理機能を使用する<a class="headerlink" href="#nablarch" title="この見出しへのパーマリンク"></a></h1>
 <p>TISでは、豊富な基幹システム構築経験から得られたナレッジを集約したJavaアプリケーション開発/実行基盤として <a class="reference external" href="https://fintan.jp/page/1868/">Nablrch</a> を提供しています。
 SpringからNablarchの機能を利用することで、Springに不足している機能を補うことができます。</p>
 <p>この例では、Nablarchの機能である <a class="reference external" href="https://nablarch.github.io/docs/5u21/doc/application_framework/application_framework/libraries/date.html">日付管理</a> を使用して、システム日時と業務日付を管理する実装方法を説明します。</p>
 <p>日付管理機能では、データベース上で区分ごとに業務日付を管理することができます。また、システム日時の取得では、テスト実行時などに任意の日時に切り替えることができます。</p>
 <p>サンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/nablarch/nablarch-date">nablarch-date</a> を参照してください。</p>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/nablarch/nablarch-date">nablarch-date</a> を参照してください。</p>
 <section id="id1">
-<h2>Nablarchを使用するための準備<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<h2>Nablarchを使用するための準備<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
 <dl>
 <dt>pom.xml</dt><dd><blockquote>
 <div><p>Nablarchのモジュールバージョンを管理するために、dependencyManagementにnablarch-bomを追加します。</p>
@@ -271,7 +286,7 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 </div>
 </section>
 <section id="id2">
-<h2>業務日付管理で使用するテーブルの作成<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<h2>業務日付管理で使用するテーブルの作成<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
 <p>業務日付管理はデータベースで行うため、テーブルを用意します。</p>
 <p>この例では、Flywayによるマイグレーションで起動時にデータベースを構築しているため、マイグレーション用のSQLファイルを作成します。
 区分ごとに異なる業務日付を取得できるように、区分を2つ用意しています。</p>
@@ -296,7 +311,7 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 </dl>
 </section>
 <section id="id3">
-<h2>データアクセス機能を動作させるための設定<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2>データアクセス機能を動作させるための設定<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
 <p>Nablarchの業務日付管理機能は、NablarchのDIコンテナ機能とデータアクセス機能を使用して動作するようになっています。Nablarchにはそれらを動作させるための設定が組み込まれていますが、Springからそのまま使用することは出来ないため、Nablarchに組み込まれている設定と同等の設定をSpring側で行います。</p>
 <p>データアクセス機能を使用できるようにするため、Springのトランザクション管理機能と統合させるためのクラスを作成します。</p>
 <dl>
@@ -494,7 +509,7 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 </div>
 </section>
 <section id="id4">
-<h2>業務日付管理機能を動作させるための設定<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<h2>業務日付管理機能を動作させるための設定<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h2>
 <p>業務日付管理では、業務日付をシステムプロパティや環境変数で上書きするための機能が提供されていますが、Springからそのまま使用することができません。
 そのため、Spring側で同等のプロパティを用意し、プロパティ値をNablarchのDIコンテナであるシステムリポジトリに登録することで上書きできるように設定します。</p>
 <p>プロパティ値をバインドするためのBeanを定義します。</p>
@@ -606,7 +621,7 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 </dl>
 </section>
 <section id="id5">
-<h2>システム日付管理機能を動作させるための設定<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<h2>システム日付管理機能を動作させるための設定<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h2>
 <p><a class="reference external" href="https://nablarch.github.io/docs/5u21/javadoc/nablarch/core/date/BasicSystemTimeProvider.html">BasicSystemTimeProvider</a> のBeanを定義します。</p>
 <dl>
 <dt>SystemTimeConfiguration</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="cm">/**</span>
@@ -667,7 +682,7 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 </dl>
 </section>
 <section id="id6">
-<h2>システム日付の使用例<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<h2>システム日付の使用例<a class="headerlink" href="#id6" title="この見出しへのパーマリンク"></a></h2>
 <p>システム日付を取得するには、 <a class="reference external" href="https://nablarch.github.io/docs/5u21/javadoc/nablarch/core/date/SystemTimeUtil.html">SystemTimeUtil</a> を使用します。</p>
 <dl>
 <dt>DateService</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="cm">/**</span>
@@ -689,7 +704,7 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 </div>
 </section>
 <section id="id7">
-<h2>業務日付の使用例<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<h2>業務日付の使用例<a class="headerlink" href="#id7" title="この見出しへのパーマリンク"></a></h2>
 <p>業務日付情報にアクセスするには、Bean定義した <a class="reference external" href="https://nablarch.github.io/docs/5u21/javadoc/nablarch/core/date/BasicBusinessDateProvider.html">BasicBusinessDateProvider</a> を使用します。</p>
 <p>デフォルト区分の業務日付は、区分を指定せずに取得することができます。</p>
 <dl>

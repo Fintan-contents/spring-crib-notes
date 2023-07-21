@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amazon SESを使ってメールを送信する &mdash; keel-doc</title>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
@@ -31,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> keel-doc
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            keel-doc
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -200,6 +205,15 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../terms/index.html">ご利用にあたって</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../terms/index.html#id2">情報の外部送信について</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id3">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id4">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id5">情報の種類・用途</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -215,9 +229,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">SpringからAWSマネージドサービスを利用する際のノウハウ</a> &raquo;</li>
-      <li>Amazon SESを使ってメールを送信する</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">SpringからAWSマネージドサービスを利用する際のノウハウ</a></li>
+      <li class="breadcrumb-item active">Amazon SESを使ってメールを送信する</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -227,12 +241,12 @@
            <div itemprop="articleBody">
              
   <section id="amazon-ses">
-<h1>Amazon SESを使ってメールを送信する<a class="headerlink" href="#amazon-ses" title="Permalink to this heading"></a></h1>
+<h1>Amazon SESを使ってメールを送信する<a class="headerlink" href="#amazon-ses" title="この見出しへのパーマリンク"></a></h1>
 <p><a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html">Spring Cloud AWS</a> を使用して、Amazon SESでメールを送信する実装方法を説明します。</p>
 <p>サンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/aws/ses">aws-ses</a> を参照してください。</p>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/aws/ses">aws-ses</a> を参照してください。</p>
 <section id="aws-ses">
-<h2>AWS SESを使用するための設定例<a class="headerlink" href="#aws-ses" title="Permalink to this heading"></a></h2>
+<h2>AWS SESを使用するための設定例<a class="headerlink" href="#aws-ses" title="この見出しへのパーマリンク"></a></h2>
 <dl>
 <dt>pom.xml</dt><dd><p>依存ライブラリにspring-cloud-starter-awsを追加します。また、Spring Bootでメールを送信するためのライブラリと、
 Amazon SES用のAWS SDKも依存ライブラリに追加します。</p>
@@ -282,7 +296,7 @@ EC2のメタデータからリージョンを取得します。</p>
 </div>
 </section>
 <section id="id1">
-<h2>メール送信の実装例<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<h2>メール送信の実装例<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
 <p>この例では、メールアドレスが環境によって異なる場合を想定し、プロパティで設定可能にする実装とします。</p>
 <blockquote>
 <div><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">mail.from</span><span class="o">=</span><span class="s">foo@test.com</span><span class="w"></span>

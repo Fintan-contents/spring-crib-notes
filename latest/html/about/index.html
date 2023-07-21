@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>このドキュメントについて &mdash; keel-doc</title>
@@ -16,6 +16,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/translations.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -31,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> keel-doc
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            keel-doc
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -200,6 +205,15 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../terms/index.html">ご利用にあたって</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../terms/index.html#id2">情報の外部送信について</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../terms/index.html#id3">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../terms/index.html#id4">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../terms/index.html#id5">情報の種類・用途</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -215,8 +229,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>このドキュメントについて</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">このドキュメントについて</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -226,11 +240,11 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>このドキュメントについて<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1>このドキュメントについて<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
 <p>このドキュメントでは <a class="reference external" href="https://spring.io/">Spring</a> を活用してアプリケーションを構築する際に必要となるノウハウを提供します。</p>
 <p>特に、アプリケーションを開発する際に公式ドキュメントやWeb上から実装方法を見つけることが難しく、躓きやすい点についての情報を中心に提供します。</p>
 <section id="target-user">
-<span id="id2"></span><h2>対象読者<a class="headerlink" href="#target-user" title="Permalink to this heading"></a></h2>
+<span id="id2"></span><h2>対象読者<a class="headerlink" href="#target-user" title="この見出しへのパーマリンク"></a></h2>
 <p>このドキュメントは、ソフトウェア開発経験のあるアーキテクトやプログラマ向けに書かれています。</p>
 <p>特に、Springについて、次のような知識・能力を持っていることを前提としています。</p>
 <ul class="simple">
@@ -265,7 +279,7 @@
 <p>これからSpringを初めて利用するという人は、<a class="reference external" href="https://spring.io/guides">公式ガイド</a> 等を活用して学習してください。</p>
 </section>
 <section id="id5">
-<h2>このドキュメントの使い方<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<h2>このドキュメントの使い方<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h2>
 <a class="reference internal image-reference" href="../_images/how-to-use-this-document.drawio.png"><img alt="../_images/how-to-use-this-document.drawio.png" src="../_images/how-to-use-this-document.drawio.png" style="width: 70%;" /></a>
 <p>基本的な実装方法については、Springの公式ドキュメントを参照してください。</p>
 <p>また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず <a class="reference external" href="https://macchinetta.github.io">Macchinetta Framework</a> を参照することをおすすめします。
@@ -277,14 +291,10 @@
 </ul>
 </section>
 <section id="test-environment-and-dependencies">
-<span id="id6"></span><h2>動作確認環境と依存ライブラリについて<a class="headerlink" href="#test-environment-and-dependencies" title="Permalink to this heading"></a></h2>
-<p>このドキュメントに含まれるサンプルコードは、 <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/">サンプルアプリケーション</a> を利用して以下の実行環境でテストしています。</p>
+<span id="id6"></span><h2>動作確認環境と依存ライブラリについて<a class="headerlink" href="#test-environment-and-dependencies" title="この見出しへのパーマリンク"></a></h2>
+<p>このドキュメントに含まれるサンプルコードは、 <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/">サンプルアプリケーション</a> を利用して以下の実行環境でテストしています。</p>
 <table class="docutils align-default" id="id7">
 <caption><span class="caption-text">実行環境</span><a class="headerlink" href="#id7" title="このテーブルへのパーマリンク"></a></caption>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>OS</p></td>
 <td><p>Amazon Linux 2</p></td>

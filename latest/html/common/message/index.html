@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>メッセージ管理 &mdash; keel-doc</title>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
@@ -31,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> keel-doc
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            keel-doc
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -200,6 +205,15 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../terms/index.html">ご利用にあたって</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../terms/index.html#id2">情報の外部送信について</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id3">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id4">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../terms/index.html#id5">情報の種類・用途</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -215,9 +229,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">アプリの種類によらないノウハウ</a> &raquo;</li>
-      <li>メッセージ管理</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">アプリの種類によらないノウハウ</a></li>
+      <li class="breadcrumb-item active">メッセージ管理</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -227,12 +241,12 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>メッセージ管理<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1>メッセージ管理<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
 <p>このページでは、メッセージの管理方法について記載します。
 メッセージは、Bean Validationを使った入力値チェックで使用するエラーメッセージと、それ以外のメッセージで管理方法が異なります。</p>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <section id="bean-validation">
-<h2>Bean Validationを使った入力値チェックのエラーメッセージ<a class="headerlink" href="#bean-validation" title="Permalink to this heading"></a></h2>
+<h2>Bean Validationを使った入力値チェックのエラーメッセージ<a class="headerlink" href="#bean-validation" title="この見出しへのパーマリンク"></a></h2>
 <p>Spring Bootでは、入力値のチェックとしてBean Validationをサポートしており、実装ライブラリとして <a class="reference external" href="https://docs.jboss.org/hibernate/validator/6.2/reference/en-US/html_single/">Hibernate Validator</a> を採用しています。
 デフォルトでは、Hibernate Validatorで定義されているロケール毎のValidationMessages.properties（例えば <a class="reference external" href="https://github.com/hibernate/hibernate-validator/blob/6.2.4.Final/engine/src/main/resources/org/hibernate/validator/ValidationMessages_ja.properties">ValidationMessages_ja.properties</a> ）からエラーメッセージが生成されます。</p>
 <p>デフォルトのエラーメッセージを変更したい場合は、以下のどちらかのファイルに、デフォルトから変更したいエラーメッセージを定義します。</p>
@@ -245,7 +259,7 @@
 <p>エラーメッセージには、Bean ValidationやHibernate Validatorの入力チェックアノテーションで定義されている属性名を、プレースホルダとして定義できます。
 例えば、 <a class="reference external" href="https://docs.jboss.org/hibernate/validator/6.2/api/org/hibernate/validator/constraints/Length.html">&#64;Length</a> を用いて入力値チェックを実施した場合は、プレースホルダとして <cite>{min}、{max}</cite> が使用できます。</p>
 <section id="id2">
-<h3>実装例<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<h3>実装例<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h3>
 <dl>
 <dt>ValidationMessages.properties</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">javax.validation.constraints.NotEmpty.message</span><span class="o">=</span><span class="s">必須項目です。</span><span class="w"></span>
 <span class="na">javax.validation.constraints.NotNull.message</span><span class="o">=</span><span class="s">必須項目です。</span><span class="w"></span>
@@ -254,18 +268,18 @@
 </div>
 </dd>
 </dl>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/web/validation">validation-sample</a> を参照してください。</p>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/web/validation">validation-sample</a> を参照してください。</p>
 </section>
 </section>
 <section id="id3">
-<h2>その他のメッセージ<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2>その他のメッセージ<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
 <p>Bean Validationを使った入力値チェック以外で使用するメッセージは、Springのメッセージ定義ファイル（クラスパス直下のmessages.properties）にメッセージを定義します。
 例えば、データベースを使用した入力値のチェックや入力値の型変換エラーが発生した場合、登録処理の完了時に使用するメッセージ等はmessages.propertiesに定義します。
 messages.propertiesに定義したメッセージは、SpringのMessageSourceを使用して取得します。</p>
 <p>messages.propertiesでは、プレースホルダを <cite>{0}、{1}</cite> のような連番で定義します。
 プレースホルダに値を埋め込みたい場合は、 <cite>MessageSource#getMessage</cite> の第二引数に埋め込む値を設定します。</p>
 <section id="id4">
-<h3>実装例<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<h3>実装例<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h3>
 <dl>
 <dt>messages.properties</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">typeMismatch.java.lang.Integer</span><span class="o">=</span><span class="s">数値で入力してください。</span><span class="w"></span>
 <span class="na">typeMismatch.keel.validation.value.MailAddress</span><span class="o">=</span><span class="s">メールアドレス形式(sample@example.com)で入力してください。</span><span class="w"></span>
@@ -291,7 +305,7 @@ messages.propertiesに定義したメッセージは、SpringのMessageSourceを
 </div>
 </dd>
 </dl>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/web/validation">validation-sample</a> を参照してください。</p>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/develop/samples/web/validation">validation-sample</a> を参照してください。</p>
 </section>
 </section>
 </section>
