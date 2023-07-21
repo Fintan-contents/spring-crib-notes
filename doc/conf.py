@@ -197,7 +197,7 @@ epub_exclude_files = ['search.html']
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-branch_name = os.getenv('BRANCH_NAME', 'develop')
+branch_name = os.getenv('BRANCH_NAME', 'master')
 sample_app_base = 'https://github.com/Fintan-contents/spring-crib-notes/tree/' + branch_name
 
 extlinks = {
