@@ -12,4 +12,3 @@ Springアプリ開発ノウハウ集
   batch/index
   aws/index
   nablarch/index
-  terms/index
