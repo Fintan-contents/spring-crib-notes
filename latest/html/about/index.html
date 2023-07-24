@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>このドキュメントについて &mdash; keel-doc</title>
@@ -16,6 +16,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/translations.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
@@ -31,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> keel-doc
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            keel-doc
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,6 +51,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#target-user">対象読者</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">このドキュメントの使い方</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#test-environment-and-dependencies">動作確認環境と依存ライブラリについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">ご利用にあたって</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">情報の種類・用途</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../architecture/index.html">アプリケーションのスタック</a></li>
@@ -215,8 +226,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>このドキュメントについて</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">このドキュメントについて</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -226,11 +237,11 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>このドキュメントについて<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1>このドキュメントについて<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
 <p>このドキュメントでは <a class="reference external" href="https://spring.io/">Spring</a> を活用してアプリケーションを構築する際に必要となるノウハウを提供します。</p>
 <p>特に、アプリケーションを開発する際に公式ドキュメントやWeb上から実装方法を見つけることが難しく、躓きやすい点についての情報を中心に提供します。</p>
 <section id="target-user">
-<span id="id2"></span><h2>対象読者<a class="headerlink" href="#target-user" title="Permalink to this heading"></a></h2>
+<span id="id2"></span><h2>対象読者<a class="headerlink" href="#target-user" title="この見出しへのパーマリンク"></a></h2>
 <p>このドキュメントは、ソフトウェア開発経験のあるアーキテクトやプログラマ向けに書かれています。</p>
 <p>特に、Springについて、次のような知識・能力を持っていることを前提としています。</p>
 <ul class="simple">
@@ -265,7 +276,7 @@
 <p>これからSpringを初めて利用するという人は、<a class="reference external" href="https://spring.io/guides">公式ガイド</a> 等を活用して学習してください。</p>
 </section>
 <section id="id5">
-<h2>このドキュメントの使い方<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<h2>このドキュメントの使い方<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h2>
 <a class="reference internal image-reference" href="../_images/how-to-use-this-document.drawio.png"><img alt="../_images/how-to-use-this-document.drawio.png" src="../_images/how-to-use-this-document.drawio.png" style="width: 70%;" /></a>
 <p>基本的な実装方法については、Springの公式ドキュメントを参照してください。</p>
 <p>また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず <a class="reference external" href="https://macchinetta.github.io">Macchinetta Framework</a> を参照することをおすすめします。
@@ -277,14 +288,10 @@
 </ul>
 </section>
 <section id="test-environment-and-dependencies">
-<span id="id6"></span><h2>動作確認環境と依存ライブラリについて<a class="headerlink" href="#test-environment-and-dependencies" title="Permalink to this heading"></a></h2>
+<span id="id6"></span><h2>動作確認環境と依存ライブラリについて<a class="headerlink" href="#test-environment-and-dependencies" title="この見出しへのパーマリンク"></a></h2>
 <p>このドキュメントに含まれるサンプルコードは、 <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/">サンプルアプリケーション</a> を利用して以下の実行環境でテストしています。</p>
-<table class="docutils align-default" id="id7">
-<caption><span class="caption-text">実行環境</span><a class="headerlink" href="#id7" title="このテーブルへのパーマリンク"></a></caption>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">実行環境</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク"></a></caption>
 <tbody>
 <tr class="row-odd"><td><p>OS</p></td>
 <td><p>Amazon Linux 2</p></td>
@@ -371,6 +378,93 @@
 </dd>
 </dl>
 <p>これらの実行環境・ライブラリのバージョンアップには可能な限り追随し、テストが失敗する場合にはドキュメント含めて修正する予定です。</p>
+</section>
+<section id="id7">
+<h2>ご利用にあたって<a class="headerlink" href="#id7" title="この見出しへのパーマリンク"></a></h2>
+<p>当サイトでは、ブラウザによる閲覧履歴等の情報を収集しております。
+以下に、情報の利用目的や各情報の具体的な用途を示します。</p>
+<section id="id8">
+<h3>情報の利用目的<a class="headerlink" href="#id8" title="この見出しへのパーマリンク"></a></h3>
+<p>取得した情報はアクセス解析に利用されます。
+ページのアクセス数等からサイトの利用状況を把握し、サイトの改善に利用します。
+アクセス情報は匿名で収集され、個人を特定することはできません。</p>
+</section>
+<section id="id9">
+<h3>情報の送信先<a class="headerlink" href="#id9" title="この見出しへのパーマリンク"></a></h3>
+<p>取得した情報は<a class="reference external" href="https://plausible.io">Plausible
+Analytics</a>に送信されます。</p>
+</section>
+<section id="id10">
+<h3>情報の種類・用途<a class="headerlink" href="#id10" title="この見出しへのパーマリンク"></a></h3>
+<p>利用する情報は以下のとおりです。</p>
+<table class="white-space-normal docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 30%" />
+<col style="width: 25%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>情報の種類</p></th>
+<th class="head"><p>例</p></th>
+<th class="head"><p>説明</p></th>
+<th class="head"><p>用途</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ページのURL</p></td>
+<td><p><a class="reference external" href="https://fintan-contents.github.io/spring-crib-notes/latest/html/index.html">https://fintan-contents.github.io/spring-crib-notes/latest/html/index.html</a></p></td>
+<td><p>当ウェブサイトのURL</p></td>
+<td><p>どのページが閲覧されたか測定するために使用されます。</p></td>
+</tr>
+<tr class="row-odd"><td><p>リファラー</p></td>
+<td><p><a class="reference external" href="https:////twitter.com/">https:////twitter.com/</a></p></td>
+<td><p>参照元ページ</p></td>
+<td><p>どのページから当サイトに到達したかを測定するために使用されます。</p></td>
+</tr>
+<tr class="row-even"><td><p>ブラウザ</p></td>
+<td><p>Chrome 86.0</p></td>
+<td><p>利用者のブラウザの種類</p></td>
+<td><p>利用者の閲覧環境を測定するために使用されます <a class="footnote-reference brackets" href="#id15" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>。</p></td>
+</tr>
+<tr class="row-odd"><td><p>OS</p></td>
+<td><p>macOS 10.15</p></td>
+<td><p>利用者のOSの種類</p></td>
+<td><p>利用者の閲覧環境を測定するために使用されます <a class="footnote-reference brackets" href="#id16" id="id12" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>。</p></td>
+</tr>
+<tr class="row-even"><td><p>デバイス種別</p></td>
+<td><p>Desktop</p></td>
+<td><p>利用者のデバイスの種類</p></td>
+<td><p>利用者の閲覧環境を測定するために使用されます <a class="footnote-reference brackets" href="#id17" id="id13" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>。</p></td>
+</tr>
+<tr class="row-odd"><td><p>国、地域、都市</p></td>
+<td><p>United Kingdom, England, London</p></td>
+<td><p>利用者の位置情報</p></td>
+<td><p>利用者の閲覧環境を測定するために使用されます <a class="footnote-reference brackets" href="#id18" id="id14" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>より詳細な情報については、<a class="reference external" href="https://plausible.io/data-policy">Plausible
+Analyticsのポリシー</a>をご参照ください。</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id15" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">1</a><span class="fn-bracket">]</span></span>
+<p>ユーザーエージェントから取得しますが、必要な情報だけを使用します。完全なユーザーエージェントは破棄されます。</p>
+</aside>
+<aside class="footnote brackets" id="id16" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">2</a><span class="fn-bracket">]</span></span>
+<p>ユーザーエージェントから取得しますが、必要な情報だけを使用します。完全なユーザーエージェントは破棄されます。</p>
+</aside>
+<aside class="footnote brackets" id="id17" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">3</a><span class="fn-bracket">]</span></span>
+<p>ユーザーエージェントから取得しますが、必要な情報だけを使用します。完全なユーザーエージェントは破棄されます。</p>
+</aside>
+<aside class="footnote brackets" id="id18" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">4</a><span class="fn-bracket">]</span></span>
+<p>IPアドレスを使用して位置情報を取得しますが、都市レベルより詳細な追跡は行いません。IPアドレスは破棄されるため、データベース等に保存されることはありません。</p>
+</aside>
+</aside>
+</section>
 </section>
 </section>
 

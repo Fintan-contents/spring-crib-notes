@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Doma2でデータベースから読み込み・書き出しする &mdash; keel-doc</title>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
@@ -31,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> keel-doc
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            keel-doc
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,6 +51,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../about/index.html#target-user">対象読者</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../about/index.html#id5">このドキュメントの使い方</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../about/index.html#test-environment-and-dependencies">動作確認環境と依存ライブラリについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#id7">ご利用にあたって</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../about/index.html#id8">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about/index.html#id9">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about/index.html#id10">情報の種類・用途</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html">アプリケーションのスタック</a></li>
@@ -215,10 +226,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">バッチアプリ開発のノウハウ</a> &raquo;</li>
-          <li><a href="index.html">データベース入出力</a> &raquo;</li>
-      <li>Doma2でデータベースから読み込み・書き出しする</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">バッチアプリ開発のノウハウ</a></li>
+          <li class="breadcrumb-item"><a href="index.html">データベース入出力</a></li>
+      <li class="breadcrumb-item active">Doma2でデータベースから読み込み・書き出しする</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -228,12 +239,12 @@
            <div itemprop="articleBody">
              
   <section id="doma2">
-<h1>Doma2でデータベースから読み込み・書き出しする<a class="headerlink" href="#doma2" title="Permalink to this heading"></a></h1>
+<h1>Doma2でデータベースから読み込み・書き出しする<a class="headerlink" href="#doma2" title="この見出しへのパーマリンク"></a></h1>
 <p>Spring Batchで <a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/">Doma2</a> を利用してデータを読み込み/書き出しする方法について説明します。</p>
 <p>データベースアクセスにDoma2を利用するための基本的な設定については、 <a class="reference internal" href="../../common/database/doma2.html"><span class="doc">データベースアクセスにDoma2を使用する</span></a> を参照してください。</p>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <section id="id1">
-<h2>データベースからの読み込み<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<h2>データベースからの読み込み<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
 <p>バッチ処理では一般的に、処理対象データをすべて読み込んでヒープ上に展開することは推奨されません。そのため、少量ずつ読み込みながら順次ヒープ上に展開するための実装が必要になります。</p>
 <p>データ読み込みに利用するDaoのメソッドは、Streamを返すように実装します。詳細については、以下の公式ドキュメントを参照してください。</p>
 <ul class="simple">
@@ -241,7 +252,7 @@
 </ul>
 <p>ItemReaderではopenでDaoからStreamを取得し、Stream自身とそのStreamから取得したIteratorをインスタンス変数として保持しておきます。 readでは保持しているIteratorの次の要素を返すようにし、 closeでは保持しているStreamを閉じるようにします。</p>
 <section id="id2">
-<h3>実装例<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<h3>実装例<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h3>
 <dl>
 <dt>Dao (Reader)</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Dao</span><span class="w"></span>
 <span class="nd">@ConfigAutowireable</span><span class="w"></span>
@@ -289,28 +300,29 @@
 <p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/batch/doma2-spring-batch">doma2-spring-batch-sample</a> を参照してください。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>PostgreSQLでは、トランザクションが終了すると自動的にカーソルが閉じられます <a class="footnote-reference brackets" href="#f1" id="id3">1</a> 。そのため、Spring BatchのChunkのように一定間隔ごとにcommitされるような場合には、1つめのチャンクは正常に完了しますが、以降のチャンクは処理できなくなってしまいます。</p>
+<p>PostgreSQLでは、トランザクションが終了すると自動的にカーソルが閉じられます <a class="footnote-reference brackets" href="#f1" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> 。そのため、Spring BatchのChunkのように一定間隔ごとにcommitされるような場合には、1つめのチャンクは正常に完了しますが、以降のチャンクは処理できなくなってしまいます。</p>
 <p>このような事象を回避するために、データベースにアクセスするItemReaderの実装クラスは、 <a class="reference external" href="https://docs.spring.io/spring-batch/docs/4.3.7/api/org/springframework/batch/item/ItemStreamReader.html">ItemStreamReader</a> を実装したクラスにしてください。サンプルでは、ItemStreamReaderを実装した <a class="reference external" href="https://docs.spring.io/spring-batch/docs/4.3.7/api/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.html">AbstractItemCountingItemStreamItemReader</a> を継承しています。</p>
 <p>ItemStreamReaderでは、openメソッドで利用されるコネクションとwriterで利用されるコネクションとは別のトランザクションに属するようになるため、上記の問題を踏まないようになっています。</p>
 </div>
-<dl class="footnote brackets">
-<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
-<dd><p><a class="reference external" href="https://jdbc.postgresql.org/documentation/query/#getting-results-based-on-a-cursor">Issuing a Query and Processing the Result の Getting results based on a cursor</a> に下記の記載があります。</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://jdbc.postgresql.org/documentation/query/#getting-results-based-on-a-cursor">Issuing a Query and Processing the Result の Getting results based on a cursor</a> に下記の記載があります。</p>
 <blockquote>
 <div><p>The backend closes cursors at the end of transactions, so in autocommit mode the backend will have closed the cursor before anything can be fetched from it.</p>
 </div></blockquote>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 <section id="id4">
-<h2>データベースへの書き出し<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<h2>データベースへの書き出し<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h2>
 <p>ItemWriterではDoma2の&#64;BatchInsertを利用して、一括でインサートします。詳細については、以下の公式ドキュメントを参照してください。</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/query/batch-insert/">バッチ挿入</a></p></li>
 </ul>
 <section id="id5">
-<h3>実装例<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<h3>実装例<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h3>
 <dl>
 <dt>Dao (Writer)</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Dao</span><span class="w"></span>
 <span class="nd">@ConfigAutowireable</span><span class="w"></span>

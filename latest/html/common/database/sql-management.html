@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DDL / DMLの管理 &mdash; keel-doc</title>
@@ -16,6 +16,7 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
@@ -31,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> keel-doc
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            keel-doc
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,6 +51,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../about/index.html#target-user">対象読者</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../about/index.html#id5">このドキュメントの使い方</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../about/index.html#test-environment-and-dependencies">動作確認環境と依存ライブラリについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../about/index.html#id7">ご利用にあたって</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../about/index.html#id8">情報の利用目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about/index.html#id9">情報の送信先</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../about/index.html#id10">情報の種類・用途</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html">アプリケーションのスタック</a></li>
@@ -215,10 +226,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">アプリの種類によらないノウハウ</a> &raquo;</li>
-          <li><a href="index.html">データベースアクセス</a> &raquo;</li>
-      <li>DDL / DMLの管理</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">アプリの種類によらないノウハウ</a></li>
+          <li class="breadcrumb-item"><a href="index.html">データベースアクセス</a></li>
+      <li class="breadcrumb-item active">DDL / DMLの管理</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -228,11 +239,11 @@
            <div itemprop="articleBody">
              
   <section id="ddl-dml">
-<h1>DDL / DMLの管理<a class="headerlink" href="#ddl-dml" title="Permalink to this heading"></a></h1>
+<h1>DDL / DMLの管理<a class="headerlink" href="#ddl-dml" title="この見出しへのパーマリンク"></a></h1>
 <p>開発時における、DDLやDMLの管理方法について記載します。</p>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <section id="ddl">
-<h2>DDLの管理<a class="headerlink" href="#ddl" title="Permalink to this heading"></a></h2>
+<h2>DDLの管理<a class="headerlink" href="#ddl" title="この見出しへのパーマリンク"></a></h2>
 <p>DDLの管理として、バージョン管理が可能なマイグレーションツールである<a class="reference external" href="https://flywaydb.org">Flyway</a>について記載します。
 Flyway の基本的な使用方法については、以下を参照してください。</p>
 <ul class="simple">
@@ -254,23 +265,24 @@ Spring BootのバージョンアップによりFlywayのバージョンが上が
 </div>
 </section>
 <section id="dml">
-<span id="sql-management-dml"></span><h2>DMLの管理<a class="headerlink" href="#dml" title="Permalink to this heading"></a></h2>
+<span id="sql-management-dml"></span><h2>DMLの管理<a class="headerlink" href="#dml" title="この見出しへのパーマリンク"></a></h2>
 <p>初期データやテストデータ等のDMLの管理として、DDLと同じようにFlywayを使用する方法があります。
 ただ、開発者がテスト時に手動や別のツール等でデータを投入するといった運用をする場合、Flywayではデータのみをクリーニングする機能が存在しないので注意が必要になります。</p>
 <p>例えば、Flywayで管理しているデータを投入する前に重複するデータを手動で投入してしまっていた場合、FlywayのMigrateコマンドが失敗してしまいます。そういった事態を避けるために、開発者が手動でデータを削除しなければいけない等、運用が煩雑になることがあります。</p>
-<p>そのような状況でDMLを管理する方法の1つとして、ここでは任意のディレクトリに格納されているSQLファイルを実行できる <a class="reference external" href="http://www.mojohaus.org/sql-maven-plugin/">SQL Maven Plugin</a> を使用する方法について記載します。<a class="footnote-reference brackets" href="#document-version" id="id1">1</a></p>
-<dl class="footnote brackets">
-<dt class="label" id="document-version"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>本サンプルアプリケーションで使用しているSQL Maven Pluginのバージョンは「1.5」ですが、参考情報のドキュメントはバージョンが「3.0.0-SNAPSHOT」の内容となります。ご注意ください。</p>
-</dd>
-</dl>
+<p>そのような状況でDMLを管理する方法の1つとして、ここでは任意のディレクトリに格納されているSQLファイルを実行できる <a class="reference external" href="http://www.mojohaus.org/sql-maven-plugin/">SQL Maven Plugin</a> を使用する方法について記載します。<a class="footnote-reference brackets" href="#document-version" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="document-version" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>本サンプルアプリケーションで使用しているSQL Maven Pluginのバージョンは「1.5」ですが、参考情報のドキュメントはバージョンが「3.0.0-SNAPSHOT」の内容となります。ご注意ください。</p>
+</aside>
+</aside>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>テストデータをFlywayで管理したい場合は、プロファイルを使用する方法等がありますので、 <a class="reference external" href="https://docs.spring.io/spring-boot/docs/2.7.6/reference/html/howto.html#howto.data-initialization.migration-tool">9.5.1. Execute Flyway Database Migrations on Startup</a> を参考にしてください。</p>
 </div>
 </section>
 <section id="flyway-maven-plugin-sql-maven-plugin">
-<h2>Flyway Maven Plugin / SQL Maven Plugin の設定例<a class="headerlink" href="#flyway-maven-plugin-sql-maven-plugin" title="Permalink to this heading"></a></h2>
+<h2>Flyway Maven Plugin / SQL Maven Plugin の設定例<a class="headerlink" href="#flyway-maven-plugin-sql-maven-plugin" title="この見出しへのパーマリンク"></a></h2>
 <dl>
 <dt>pom.xml</dt><dd><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
   <span class="nt">&lt;plugins&gt;</span>
