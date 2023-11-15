@@ -102,7 +102,7 @@
       <dependency>
         <groupId>dev.akkinoc.spring.boot</groupId>
         <artifactId>logback-access-spring-boot-starter</artifactId>
-        <version>3.4.1</version>
+        <version>4.0.0</version>
       </dependency>
       <!-- logback-access-spring-boot-version-end -->
 
