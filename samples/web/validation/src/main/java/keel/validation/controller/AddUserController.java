@@ -1,6 +1,6 @@
 package keel.validation.controller;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import keel.validation.entity.User;
 import keel.validation.service.UserService;
