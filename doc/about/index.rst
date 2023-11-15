@@ -65,7 +65,7 @@
    * - OS
      - Amazon Linux 2
    * - JDK
-     - Liberica JDK 11
+     - Liberica JDK 17
 
 また、明示的に依存しているのは以下のライブラリです。
 
