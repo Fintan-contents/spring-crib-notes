@@ -4,7 +4,7 @@ import nablarch.core.repository.SystemRepository;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
-import javax.validation.Validator;
+import jakarta.validation.Validator;
 import java.util.Map;
 
 // class-start
