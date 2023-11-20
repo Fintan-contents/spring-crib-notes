@@ -63,9 +63,8 @@ JobInstanceはジョブ名や起動パラメータから識別されるため、
 
 .. tip::
 
-  一意なパラメータを付与する設定方法としては、 ``JsrJobParametersConverter`` の他に ``RunIdIncrementer`` があります。
+  一意なパラメータを付与する設定方法としては、 ``RunIdIncrementer`` やSpring Batch 5.x から削除された ``JsrJobParametersConverter`` があります。
   ``RunIdIncrementer`` は前回起動時のパラメータを復元した上で新しいパラメータを設定するため、前回起動時に指定したパラメータを
   指定しなかった場合、そのパラメータは前回起動時の値で付与されることになります。
   そのため、特定ケースでのみパラメータを指定する等、状況によりパラメータ指定有無が変わるような状況では注意して使用する必要があります。
-  なお、``JsrJobParametersConverter`` はパラメータを復元するというような仕様はありませんが、Spring Batch 6.x で削除予定であるため、
-  それを踏まえた上で使用する必要があります。
+  ``JsrJobParametersConverter`` にはパラメータを復元するというような仕様がないため、サンプルでは Spring Batch 5.x から同クラスを流用して使用しています。
