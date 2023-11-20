@@ -32,3 +32,5 @@ TextFileDownloadView
      :language: java
      :start-after: example-start
      :end-before: example-end
+
+サンプル全体は :sample-app:`file-download <web/file-download>` を参照してください。
