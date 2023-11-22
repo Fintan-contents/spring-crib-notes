@@ -1,5 +1,6 @@
 package keel;
 
+import org.seasar.doma.jdbc.Result;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.MediaType;
@@ -23,7 +24,7 @@ public class Doma2App {
     @PostMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     public User insert() {
         final User entity = new User("name_" + System.currentTimeMillis());
-        dao.insert(entity);
-        return entity;
+        Result<User> result = dao.insert(entity);
+        return result.getEntity();
     }
 }

@@ -42,12 +42,12 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.6</version>
+    <version>3.1.5</version>
   </parent>
   <!-- spring-boot-version-end -->
 
   <properties>
-    <java.version>11</java.version>
+    <java.version>17</java.version>
   </properties>
 
   <dependencyManagement>
@@ -75,7 +75,7 @@
       <dependency>
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
-        <version>2.3.0</version>
+        <version>3.0.2</version>
       </dependency>
       <!-- mybatis-end -->
       <dependency>
@@ -102,7 +102,7 @@
       <dependency>
         <groupId>dev.akkinoc.spring.boot</groupId>
         <artifactId>logback-access-spring-boot-starter</artifactId>
-        <version>3.4.1</version>
+        <version>4.0.0</version>
       </dependency>
       <!-- logback-access-spring-boot-version-end -->
 
