@@ -1,5 +1,6 @@
 package keel.filedownload;
 
+import org.apache.commons.codec.net.QuotedPrintableCodec;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -31,13 +32,16 @@ public class UserControllerTest {
 
     @Test
     public void ファイルダウンロードのテスト() throws Exception {
+        QuotedPrintableCodec encoder = new QuotedPrintableCodec();
         mockMvc
                 .perform(get("/download"))
                 .andExpect(status().isOk())
                 .andExpect(model().hasNoErrors())
                 .andExpect(content().string("test"))
                 .andExpect(content().contentType("text/plain"))
-                .andExpect(header().string("Content-Disposition", "attachment; filename*=UTF-8''"
-                        + URLEncoder.encode("ダウンロード.txt", StandardCharsets.UTF_8)));
+                .andExpect(header().string("Content-Disposition",
+                        "attachment;" +
+                                " filename=\"=?UTF-8?Q?" + encoder.encode("ダウンロード.txt") + "?=\";" +
+                                " filename*=UTF-8''" + URLEncoder.encode("ダウンロード.txt", StandardCharsets.UTF_8)));
     }
 }
