@@ -26,7 +26,6 @@
 
     <module>batch/doma2-spring-batch</module>
 
-    <module>aws/rds</module>
     <module>aws/s3</module>
     <module>aws/ses</module>
 
