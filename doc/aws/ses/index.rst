@@ -9,8 +9,7 @@ Amazon SESを使ってメールを送信する
 AWS SESを使用するための設定例
 --------------------------------------------------
 pom.xml
-  依存ライブラリにspring-cloud-starter-awsを追加します。また、Spring Bootでメールを送信するためのライブラリと、
-  Amazon SES用のAWS SDKも依存ライブラリに追加します。
+  依存ライブラリにspring-cloud-aws-starter-sesを追加します。また、Spring Bootでメールを送信するためのライブラリも依存ライブラリに追加します。
 
   .. literalinclude:: ../../../samples/aws/ses/pom.xml
     :language: xml
@@ -18,14 +17,18 @@ pom.xml
     :end-before: cloud-aws-end
     :dedent: 4
 
-application.properties
+.. tip::
+
+  ``spring-cloud-aws-starter-s3`` の ``version`` を指定していませんが、
+  サンプルでは :spring-cloud-aws-doc:`Spring Cloud AWSが提供するBOM <reference/html/index.html#bill-of-materials>` を使用してSpring Cloud AWS関連ライブラリのバージョンを制御しています。
+
+AWSのリージョン
   AWSのリージョンを実行環境に設定します。
-  デフォルトのリージョンはAWS SDKが提供する ``DefaultAwsRegionProviderChain`` により決定され、実行環境に設定されたAWSアカウント情報や、
-  EC2のメタデータからリージョンを取得します。
+  デフォルトのリージョンはAWS SDKが提供する ``DefaultAwsRegionProviderChain`` により決定され、実行環境に設定されたAWSアカウント情報や、EC2のメタデータからリージョンを取得します。
 
-  明示的に指定する場合は、 ``cloud.aws.region.static`` プロパティにリージョンを設定します。
+  明示的に指定する場合は、 ``spring.cloud.aws.region.static`` 、または ``spring.cloud.aws.ses.region`` プロパティにリージョンを設定します。
 
-  設定可能な値の詳細については :spring-cloud-aws-doc:`Configuring region <reference/html/index.html#configuring-region>` を参照してください。
+  設定可能な値の詳細については :spring-cloud-aws-doc:`Spring Cloud AWS Core - Region <reference/html/index.html#region>` および :spring-cloud-aws-doc:`SES Integration - Configuration <reference/html/index.html#configuration-3>` を参照してください。
 
 AWSアカウントのクレデンシャル情報
   AWSアカウントのクレデンシャル情報を実行環境に設定します。
@@ -34,13 +37,12 @@ AWSアカウントのクレデンシャル情報
   * ``AWS_ACCESS_KEY_ID``
   * ``AWS_SECRET_ACCESS_KEY``
 
-  クレデンシャル情報の設定方法の詳細については :spring-cloud-aws-doc:`SDK credentials configuration <reference/html/index.html#sdk-credentials-configuration>`
-  を参照してください。
+  クレデンシャル情報の設定方法の詳細については :spring-cloud-aws-doc:`Spring Cloud AWS Core - Credentials <reference/html/index.html#credentials>` を参照してください。
 
 .. tip::
 
   IAMによるアクセス制御を行う場合、実行環境には必要な権限を付与する必要があります。
-  必要な権限の詳細については :spring-cloud-aws-doc:`IAM Permissions <reference/html/index.html#iam-permissions-7>` を参照してください。
+  必要な権限の詳細については :spring-cloud-aws-doc:`SES Integration - IAM Permissions <reference/html/index.html#iam-permissions-3>` を参照してください。
 
 メール送信の実装例
 --------------------------------------------------
