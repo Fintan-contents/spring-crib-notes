@@ -36,7 +36,7 @@ application-dev.properties(開発用)
 .. tip::
 
   Spring Boot 3.x では、Auto Configure により保存先に対応する実装がクラスパス上から自動的に選択されます。
-  （ 選択順は :spring-framework-doc:`Spring Session <reference/html/web.html#web.spring-session>` を参照してください）
+  （ 選択順は :spring-boot-doc:`Spring Session <reference/html/web.html#web.spring-session>` を参照してください）
   Redis環境を開発者全員に構築させるのが難しい場合、開発用のプロファイルでは Auto Configure の対象から除外することで無効化することも可能です。
 
   .. code-block:: properties
