@@ -34,15 +34,15 @@
 
 ### ローカル開発環境
 
-`spring.cloud.aws.s3.endpoint`プロパティで接続先をLocalStackに設定して、Sprint Bootを起動します。
+`spring.cloud.aws.endpoint`プロパティで接続先をLocalStackに設定して、Sprint Bootを起動します。
 
 ```bash
-mvn spring-boot:run -Dspring-boot.run.arguments="<アップロード対象のファイルパス> --spring.cloud.aws.s3.endpoint=http://s3.localhost.localstack.cloud:4566"
+mvn spring-boot:run -Dspring-boot.run.arguments="<アップロード対象のファイルパス> --spring.cloud.aws.endpoint=http://s3.localhost.localstack.cloud:4566"
 ```
 
 例えば、`c:\text.png` をアップロードしたい場合は、以下のように実行します。
 ```bash
-mvn spring-boot:run -Dspring-boot.run.arguments="c:\text.png --spring.cloud.aws.s3.endpoint=http://s3.localhost.localstack.cloud:4566"
+mvn spring-boot:run -Dspring-boot.run.arguments="c:\text.png --spring.cloud.aws.endpoint=http://s3.localhost.localstack.cloud:4566"
 ```
 
 実行が終了すると…
