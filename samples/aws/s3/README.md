@@ -20,12 +20,12 @@
   ```
   aws --endpoint-url=http://localhost:4566 s3 mb s3://keel-s3-bucket-test
   ```
-* `application-local.properties` の `s3.bucket-name` にアップロード対象のバケットを設定します。
+* `application.properties` の `s3.bucket-name` にアップロード対象のバケットを設定します。
 
 ### AWS環境
 
 * AWSのS3に、アップロード対象のバケットを作成します。
-* `application-ec2.properties` の `s3.bucket-name` にアップロード対象のバケット名を設定します。
+* `application.properties` の `s3.bucket-name` にアップロード対象のバケット名を設定します。
 * AWS上でアプリケーション実行環境のEC2を構築します。
   * EC2からS3へアクセスできるように設定します。
 * アプリケーション（JARファイル）をEC2上に配置します。
@@ -34,15 +34,15 @@
 
 ### ローカル開発環境
 
-プロファイルに`local`を指定して、Sprint Bootを起動します。
+`spring.cloud.aws.s3.endpoint`プロパティで接続先をLocalStackに設定して、Sprint Bootを起動します。
 
 ```bash
-mvn spring-boot:run -Dspring-boot.run.arguments=<アップロード対象のファイルパス> -Dspring-boot.run.profiles=<プロファイル>
+mvn spring-boot:run -Dspring-boot.run.arguments="<アップロード対象のファイルパス> --spring.cloud.aws.s3.endpoint=http://s3.localhost.localstack.cloud:4566"
 ```
 
 例えば、`c:\text.png` をアップロードしたい場合は、以下のように実行します。
 ```bash
-mvn spring-boot:run -Dspring-boot.run.arguments="c:\text.png" -Dspring-boot.run.profiles=local
+mvn spring-boot:run -Dspring-boot.run.arguments="c:\text.png --spring.cloud.aws.s3.endpoint=http://s3.localhost.localstack.cloud:4566"
 ```
 
 実行が終了すると…
@@ -51,9 +51,7 @@ mvn spring-boot:run -Dspring-boot.run.arguments="c:\text.png" -Dspring-boot.run.
 
 ### AWS環境
 
-プロファイルに`ec2`を指定して、Sprint Bootを起動します。
-
-引数チェックに影響するため、プロファイルは環境変数の`SPRING_PROFILES_ACTIVE`に設定します。
+Sprint Bootを起動します。
 
 ```bash
 java -jar aws-s3-0.0.1-SNAPSHOT.jar <アップロード対象のファイルパス> 
