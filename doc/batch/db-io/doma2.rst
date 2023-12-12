@@ -39,7 +39,7 @@ ItemStreamReader
 
   PostgreSQLでは、トランザクションが終了すると自動的にカーソルが閉じられます [#f1]_ 。そのため、Spring BatchのChunkのように一定間隔ごとにcommitされるような場合には、1つめのチャンクは正常に完了しますが、以降のチャンクは処理できなくなってしまいます。
 
-  このような事象を回避するために、データベースにアクセスするItemReaderの実装クラスは、 :spring-batch-doc:`ItemStreamReader <api/org/springframework/batch/item/ItemStreamReader.html>` を実装したクラスにしてください。サンプルでは、ItemStreamReaderを実装した :spring-batch-doc:`AbstractItemCountingItemStreamItemReader <api/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.html>` を継承しています。
+  このような事象を回避するために、データベースにアクセスするItemReaderの実装クラスは、 :spring-batch-javadoc:`ItemStreamReader <api/org/springframework/batch/item/ItemStreamReader.html>` を実装したクラスにしてください。サンプルでは、ItemStreamReaderを実装した :spring-batch-javadoc:`AbstractItemCountingItemStreamItemReader <api/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.html>` を継承しています。
 
   ItemStreamReaderでは、openメソッドで利用されるコネクションとwriterで利用されるコネクションとは別のトランザクションに属するようになるため、上記の問題を踏まないようになっています。
 
