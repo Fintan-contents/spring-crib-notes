@@ -54,5 +54,5 @@ mvn spring-boot:run -Dspring-boot.run.profiles=local
 
 LocalStackのSESを使用している場合は、 以下のエンドポイントへアクセスすることで送信したメールの内容を確認できます。
 ```
-GET http://localhost:4566/_localstack/ses/
+GET http://localhost:4566/_aws/ses/
 ```
