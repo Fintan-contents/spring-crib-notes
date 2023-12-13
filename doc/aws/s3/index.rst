@@ -51,7 +51,7 @@ Amazon S3にファイルをアップロードする実装例
 
 アップロード先のバケット名については環境によって異なることが想定されるため、ここではプロパティファイルで設定可能にします。
 
-  .. literalinclude:: ../../../samples/aws/s3/src/main/resources/application-local.properties
+  .. literalinclude:: ../../../samples/aws/s3/src/main/resources/application.properties
     :language: properties
     :start-after: bucket-start
     :end-before: bucket-end
