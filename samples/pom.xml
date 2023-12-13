@@ -25,6 +25,7 @@
     <module>api/api-error-handling</module>
 
     <module>batch/doma2-spring-batch</module>
+    <module>batch/multiple-jobs-batch</module>
 
     <module>aws/rds</module>
     <module>aws/s3</module>
