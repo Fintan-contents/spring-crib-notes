@@ -2,14 +2,14 @@
 ==================================================
 `Spring Batch <https://spring.io/projects/spring-batch>`_\ で作成されたバッチジョブの起動方法について説明します。
 
-実行するジョブを指定する
+ジョブを実行する
 --------------------------------------------------
 
 アプリケーションを起動すると、Bean登録されたジョブが実行されます。
 
-  .. code-block:: bash
+.. code-block:: bash
 
-    java -jar multiple-jobs-batch-0.0.1-SNAPSHOT.jar
+  java -jar multiple-jobs-batch-0.0.1-SNAPSHOT.jar
 
 もし複数のジョブを定義している場合、実行するジョブ名を指定しなければ以下のような実行時例外が発生します。
 
@@ -17,14 +17,11 @@
 
     java.lang.IllegalArgumentException: Job name must be specified in case of multiple jobs
 
-そのため、実行したいジョブ名をパラメータ( ``--spring.batch.job.name`` )で指定する必要があります。
+そのため、以下のようにパラメータ( ``--spring.batch.job.name`` )で実行するジョブ名を指定して起動します。
 
-起動例
-  この例では、multiple-jobs-batch-0.0.1-SNAPSHOT.jarに含まれるjob1が実行されます。
+.. code-block:: bash
 
-  .. code-block:: bash
-
-    java -jar multiple-jobs-batch-0.0.1-SNAPSHOT.jar --spring.batch.job.name=job1
+  java -jar multiple-jobs-batch-0.0.1-SNAPSHOT.jar --spring.batch.job.name=job1
 
 
 実行済みエラーが出る場合の対処方法
