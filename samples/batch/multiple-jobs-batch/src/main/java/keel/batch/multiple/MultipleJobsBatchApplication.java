@@ -1,11 +1,11 @@
-package keel.batch.doma2;
+package keel.batch.multiple;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Doma2SpringBatchApplication {
+public class MultipleJobsBatchApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Doma2SpringBatchApplication.class, args);
+        SpringApplication.run(MultipleJobsBatchApplication.class, args);
     }
 }

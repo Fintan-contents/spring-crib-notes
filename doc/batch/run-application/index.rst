@@ -5,17 +5,25 @@
 実行するジョブを指定する
 --------------------------------------------------
 
-アプリケーションを起動すると、Bean登録されたすべてのジョブが実行されます。
-
-実行するジョブを指定したい場合は、アプリケーション起動時に実行したいジョブ名をパラメータ(--spring.batch.job.names)で指定します。
-もし複数のジョブを実行したい場合には、カンマ(,)区切りで指定します。
-
-起動例
-  この例では、batch-application.jarに含まれるjob1とjob2が実行されます。
+アプリケーションを起動すると、Bean登録されたジョブが実行されます。
 
   .. code-block:: bash
 
-    java -jar batch-application.jar --spring.batch.job.names=job1,job2
+    java -jar multiple-jobs-batch-0.0.1-SNAPSHOT.jar
+
+もし複数のジョブを定義している場合、実行するジョブ名を指定しなければ以下のような実行時例外が発生します。
+
+.. code-block:: text
+    java.lang.IllegalArgumentException: Job name must be specified in case of multiple jobs
+
+そのため、実行したいジョブ名をパラメータ( ``--spring.batch.job.name`` )で指定する必要があります。
+
+起動例
+  この例では、multiple-jobs-batch-0.0.1-SNAPSHOT.jarに含まれるjob1が実行されます。
+
+  .. code-block:: bash
+
+    java -jar multiple-jobs-batch-0.0.1-SNAPSHOT.jar --spring.batch.job.name=job1
 
 
 実行済みエラーが出る場合の対処方法
@@ -25,22 +33,7 @@ JobInstanceはジョブ名や起動パラメータから識別されるため、
 
 .. code-block:: text
 
-	java.lang.IllegalStateException: Failed to execute ApplicationRunner
-		at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) ~[spring-boot-2.7.5.jar!/:2.7.5]
-		at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:752) ~[spring-boot-2.7.5.jar!/:2.7.5]
-		at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.7.5.jar!/:2.7.5]
-		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.5.jar!/:2.7.5]
-		at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.5.jar!/:2.7.5]
-		at keel.batch.doma2.Doma2SpringBatchApplication.main(Doma2SpringBatchApplication.java:11) ~[classes!/:0.0.1-SNAPSHOT]
-		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-		at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-		at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-		at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-		at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) ~[doma2-spring-batch-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
-		at org.springframework.boot.loader.Launcher.launch(Launcher.java:108) ~[doma2-spring-batch-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
-		at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) ~[doma2-spring-batch-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
-		at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) ~[doma2-spring-batch-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
-	Caused by: org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException: A job instance already exists and is complete for parameters={date=20221103}.  If you want to run this job again, change the parameters.
+	org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException: A job instance already exists and is complete for identifying parameters={'date':'{value=20231213, type=class java.lang.String, identifying=true}'}.  If you want to run this job again, change the parameters.
 
 このような例外が発生した場合には、ジョブ起動時に指定するパラメータを変更し、異なるJobInstanceにする必要があります。
 
@@ -50,7 +43,7 @@ JobInstanceはジョブ名や起動パラメータから識別されるため、
 .. code-block:: bash
 
   # アプリケーション起動時にパラメータにシステム日付を設定する
-  java -jar batch-application.jar --spring.batch.job.names=job1 date="`date '+%Y%m%d'`"
+  java -jar multiple-jobs-batch-0.0.1-SNAPSHOT.jar --spring.batch.job.name=job1 date="`date '+%Y%m%d'`"
 
 日付などに関係なく常に実行できるようにしたい場合には、``JsrJobParametersConverter`` をBean定義します。
 これにより起動時に ``jsr_batch_run_id`` というパラメータが付与され、実行毎に一意なパラメータとなることで、同じジョブを何度でも実行することができます。
@@ -63,9 +56,8 @@ JobInstanceはジョブ名や起動パラメータから識別されるため、
 
 .. tip::
 
-  一意なパラメータを付与する設定方法としては、 ``JsrJobParametersConverter`` の他に ``RunIdIncrementer`` があります。
+  一意なパラメータを付与する設定方法としては、 ``RunIdIncrementer`` やSpring Batch 5.x から削除された ``JsrJobParametersConverter`` があります。
   ``RunIdIncrementer`` は前回起動時のパラメータを復元した上で新しいパラメータを設定するため、前回起動時に指定したパラメータを
   指定しなかった場合、そのパラメータは前回起動時の値で付与されることになります。
   そのため、特定ケースでのみパラメータを指定する等、状況によりパラメータ指定有無が変わるような状況では注意して使用する必要があります。
-  なお、``JsrJobParametersConverter`` はパラメータを復元するというような仕様はありませんが、Spring Batch 6.x で削除予定であるため、
-  それを踏まえた上で使用する必要があります。
+  ``JsrJobParametersConverter`` にはパラメータを復元するというような仕様がないため、サンプルでは Spring Batch 5.x から同クラスを流用して使用しています。

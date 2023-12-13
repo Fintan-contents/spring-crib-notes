@@ -15,5 +15,3 @@ mvn spring-boot:run
 ### 2. ログを確認
 
 `BUILD SUCCESS` が表示され、正常に完了します。
-
-途中、Doma2が実行した`insert`文がログ出力されています。
