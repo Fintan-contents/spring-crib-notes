@@ -14,6 +14,7 @@
 もし複数のジョブを定義している場合、実行するジョブ名を指定しなければ以下のような実行時例外が発生します。
 
 .. code-block:: text
+
     java.lang.IllegalArgumentException: Job name must be specified in case of multiple jobs
 
 そのため、実行したいジョブ名をパラメータ( ``--spring.batch.job.name`` )で指定する必要があります。
