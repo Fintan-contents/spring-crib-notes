@@ -48,7 +48,7 @@ AWSアカウントのクレデンシャル情報
 --------------------------------------------------
 この例では、メールアドレスが環境によって異なる場合を想定し、プロパティで設定可能にする実装とします。
 
-  .. literalinclude:: ../../../samples/aws/ses/src/main/resources/application-local.properties
+  .. literalinclude:: ../../../samples/aws/ses/src/main/resources/application.properties
     :language: properties
     :start-after: mail-start
     :end-before: mail-end
