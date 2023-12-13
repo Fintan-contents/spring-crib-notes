@@ -7,7 +7,7 @@
 サンプルアプリケーションではPostgreSQLを使用するため、Dockerを使用して実行前に起動します。
 
 ```
-$ docker run --rm --name postgres152 -p 5432:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_DB=postgres postgres:16
+$ docker run --rm --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_DB=postgres postgres:16
 ```
 
 ### 1. アプリケーションの起動
