@@ -16,10 +16,10 @@
      - 構成要素
      - 概要
    * - 1
-     - :spring-framework-doc:`Spring Web MVC <reference/html/web.html#spring-web>`
+     - :spring-framework-doc:`Spring Web MVC <web/webmvc.html>`
      - Springが提供するWeb MVCフレームワークです。
    * - 2
-     - `Spring Security <https://projects.spring.io/spring-security/>`_
+     - `Spring Security <https://spring.io/projects/spring-security>`_
      - Springが提供する認証・認可のフレームワークです。
    * - 3
      - `Thymeleaf <https://www.thymeleaf.org/documentation.html>`_
@@ -48,7 +48,7 @@
      - 構成要素
      - 概要
    * - 1
-     - `Spring Cloud AWS <https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html>`_
+     - `Spring Cloud AWS <https://awspring.io>`_
      - Spring Cloud傘下のプロジェクトで、Amazon Web ServicesのSDKが提供する機能をSpringに統合します。
 
 .. list-table:: 共通の構成要素の概要
@@ -62,16 +62,16 @@
      - :doma-doc:`Doma2 <>`
      - 2-way SQL等を特徴としたDBアクセスフレームワークです。
    * - 2
-     - `SLF4J <https://www.slf4j.org/>`_
+     - `SLF4J <https://www.slf4j.org>`_
      - ロギングシステムのAPI(インターフェース)を提供するライブラリです。
    * - 3
-     - `logback <https://logback.qos.ch/>`_
+     - `logback <https://logback.qos.ch>`_
      - ロギングシステムのAPIを実装したライブラリです。
    * - 4
      - `Jackson <https://github.com/FasterXML/jackson>`_
      - JSONをパースするライブラリです。
    * - 5
-     - :hibernate-validator-doc:`Hibernate Validator <reference/en-US/html_single/>`
+     - `Hibernate Validator <https://hibernate.org/validator/>`_
      - Bean Validationを実装した入力値チェック用のライブラリです。
    * - 6
      - `Flyway <https://flywaydb.org>`_

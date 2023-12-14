@@ -42,7 +42,7 @@ Bean Validationの処理の流れ
   .. tip::
 
     特定の画面のみ型変換時に表示するメッセージを変更したい場合は、下のように ``typeMismatch.<項目名>`` とすることで対応できます。
-    詳細な仕様は、 :spring-framework-doc:`DefaultMessageCodesResolver <javadoc-api/org/springframework/validation/DefaultMessageCodesResolver.html>` を参照してください。
+    詳細な仕様は、 :spring-framework-javadoc:`DefaultMessageCodesResolver <javadoc-api/org/springframework/validation/DefaultMessageCodesResolver.html>` を参照してください。
 
     .. code-block:: properties
 

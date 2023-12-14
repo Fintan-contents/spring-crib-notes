@@ -2,9 +2,9 @@
 ====================================================================================================
 Webアプリケーションでの例外ハンドリング方法とレスポンスの返却方法について説明します。
 
-:spring-framework-doc:`Spring Web MVC <reference/html/web.html#spring-web>` では、発生した例外を自動的にログ出力し、クライアントにエラーを返却します。
+:spring-framework-doc:`Spring Web MVC <web/webmvc.html>` では、発生した例外を自動的にログ出力し、クライアントにエラーを返却します。
 
-:spring-framework-doc:`Spring Web MVCがデフォルトでハンドリングする例外 <javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`
+:spring-framework-javadoc:`Spring Web MVCがデフォルトでハンドリングする例外 <javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`
 であれば、アプリケーション側で設定や実装を行わなくても、レスポンスに適切なステータスコードが設定されます。記載のない例外については、デフォルトではステータスコードとして500が設定されます。
 
 エラーが返却された場合、 デフォルトで :spring-boot-doc:`Sping Bootが提供しているエラー画面が表示されます <reference/html/web.html#web.servlet.spring-mvc.error-handling>` 。エラー画面の動作については ``server.error`` プロパティでカスマイズすることができます。プロパティの詳細については :spring-boot-doc:`Server Properties <reference/html/application-properties.html#appendix.application-properties.server>` を参照してください。
@@ -20,11 +20,11 @@ Webアプリケーションでの例外ハンドリング方法とレスポン�
 
 アプリケーション全体の例外ハンドリングをカスタマイズする例
 -----------------------------------------------------------------------------
-アプリケーション全体で例外に応じた処理が決まっている場合は、\ :spring-framework-doc:`@ControllerAdvice <javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html>`
+アプリケーション全体で例外に応じた処理が決まっている場合は、\ :spring-framework-javadoc:`@ControllerAdvice <javadoc-api/org/springframework/web/bind/annotation/ControllerAdvice.html>`
 アノテーションを設定したクラスで例外ハンドリングを行います。
 
-どの例外を処理するかは、メソッドに設定された\ :spring-framework-doc:`@ExceptionHandler <javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`\ アノテーションの情報により決まります。
-また、返却するステータスコードは :spring-framework-doc:`@ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>` アノテーションに設定します。
+どの例外を処理するかは、メソッドに設定された\ :spring-framework-javadoc:`@ExceptionHandler <javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html>`\ アノテーションの情報により決まります。
+また、返却するステータスコードは :spring-framework-javadoc:`@ResponseStatus <javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html>` アノテーションに設定します。
 
 この例では、NoResultExceptionが発生した場合に対象データが存在しないことを示すステータスコード404を返します。
 クライアントには、404に対応したテンプレート(Thymeleafを使用した場合のデフォルト設定ではtemplates/error/404.html)ページが返されます。

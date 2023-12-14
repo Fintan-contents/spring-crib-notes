@@ -8,14 +8,14 @@
 Bean Validationを使った入力値チェックのエラーメッセージ
 ---------------------------------------------------------
 Spring Bootでは、入力値のチェックとしてBean Validationをサポートしており、実装ライブラリとして :hibernate-validator-doc:`Hibernate Validator <reference/en-US/html_single/>` を採用しています。
-デフォルトでは、Hibernate Validatorで定義されているロケール毎のValidationMessages.properties（例えば `ValidationMessages_ja.properties <https://github.com/hibernate/hibernate-validator/blob/6.2.4.Final/engine/src/main/resources/org/hibernate/validator/ValidationMessages_ja.properties>`_ ）からエラーメッセージが生成されます。
+デフォルトでは、Hibernate Validatorで定義されているロケール毎のValidationMessages.properties（例えば :hibernate-validator-github:`ValidationMessages_ja.properties </engine/src/main/resources/org/hibernate/validator/ValidationMessages_ja.properties>` ）からエラーメッセージが生成されます。
 
 デフォルトのエラーメッセージを変更したい場合は、以下のどちらかのファイルに、デフォルトから変更したいエラーメッセージを定義します。
 
 * Springのメッセージ定義ファイル（クラスパス直下のmessages.properties）
 * Hibernate Validatorのメッセージ定義ファイル（クラスパス直下のValidationMessages.propertiesやValidationMessages_ja.properties等）
 
-エラーメッセージの解決では、まずSpringのメッセージ定義ファイルが使用されます。（エラーメッセージ解決の詳細については :spring-framework-doc:`エラーメッセージの解決 <reference/html/core.html#validation-conversion>` を参考にしてください）
+エラーメッセージの解決では、まずSpringのメッセージ定義ファイルが使用されます。（エラーメッセージ解決の詳細については :spring-framework-doc:`エラーメッセージの解決 <core/validation/conversion.html>` を参考にしてください）
 
 Springのメッセージ定義ファイルにエラーメッセージが定義されていなければ、Hibernate Validatorのメッセージ定義ファイルが使用されます。（Hibernate Validatorのエラーメッセージ解決の詳細については :hibernate-validator-doc:`エラーメッセージの補完 <reference/en-US/html_single/#chapter-message-interpolation>` を参考にしてください）
 

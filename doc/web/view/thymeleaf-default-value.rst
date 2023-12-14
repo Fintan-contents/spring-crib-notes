@@ -25,7 +25,7 @@ checkboxやselectでデフォルト値を送信するためには、Thymeleafの
 
   対応している型については、以下のJavadocを参照してください。
 
-  * :spring-framework-doc:`WebDataBinderのJavadoc <javadoc-api/org/springframework/web/bind/WebDataBinder.html#getEmptyValue-java.lang.Class->`
+  * :spring-framework-javadoc:`WebDataBinderのJavadoc <javadoc-api/org/springframework/web/bind/WebDataBinder.html#getEmptyValue-java.lang.Class->`
 
 
 実装例

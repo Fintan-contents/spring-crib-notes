@@ -1,7 +1,7 @@
 このドキュメントについて
 ====================================
 
-このドキュメントでは `Spring <https://spring.io/>`_ を活用してアプリケーションを構築する際に必要となるノウハウを提供します。
+このドキュメントでは `Spring <https://spring.io>`_ を活用してアプリケーションを構築する際に必要となるノウハウを提供します。
 
 特に、アプリケーションを開発する際に公式ドキュメントやWeb上から実装方法を見つけることが難しく、躓きやすい点についての情報を中心に提供します。
 
@@ -16,9 +16,9 @@
 
 * 共通
 
-  * `Spring Boot <https://projects.spring.io/spring-boot/>`_ を利用して開発したことがあり、基本的な仕組みについて理解している。
-  * `Spring Framework <https://projects.spring.io/spring-framework/>`_ を利用したアプリケーションの基本的なアーキテクチャについて理解している。
-  * `Springの公式ドキュメント <https://spring.io/docs>`_ から適切な情報を検索できる。
+  * `Spring Boot <https://projects.spring.io/spring-boot>`_ を利用して開発したことがあり、基本的な仕組みについて理解している。
+  * `Spring Framework <https://spring.io/projects/spring-framework>`_ を利用したアプリケーションの基本的なアーキテクチャについて理解している。
+  * `Springの公式ドキュメント <https://spring.io/projects>`_ から適切な情報を検索できる。
   * その他、次にあげるような技術要素について、基本的な知識を持っている。
 
     * SQL
@@ -26,7 +26,7 @@
 
 * Web/API
 
-  * :spring-framework-doc:`Spring Web MVC <reference/html/web.html#spring-web>` の基本的な用語を理解している
+  * :spring-framework-doc:`Spring Web MVC <web/webmvc.html>` の基本的な用語を理解している
   * Spring Web MVCの各ステレオタイプの役割を理解している
   * Spring Web MVCの処理フローを理解している
 
@@ -36,7 +36,7 @@
   * Spring Batchの各ステレオタイプの役割を理解している
   * Spring Batchの処理フローを理解している
 
-これからSpringを初めて利用するという人は、`公式ガイド <https://spring.io/guides>`_ 等を活用して学習してください。
+これからSpringを初めて利用するという人は、 `公式ガイド <https://spring.io/guides>`_ 等を活用して学習してください。
 
 このドキュメントの使い方
 ------------------------------------
@@ -49,9 +49,6 @@
 また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず `Macchinetta Framework <https://macchinetta.github.io>`_ を参照することをおすすめします。
 ただし、このドキュメントとMacchinettaでは、設定の記載方法が異なるため、具体的な実装例や設定例はそのままでは利用できないと考えてください。（このドキュメントではJava Config、MacchinettaではXML Configを使用している）
 
-* :macchinetta-server-guideline-thymeleaf-doc:`Macchinetta Server Framework Development Guideline <>`
-* :macchinetta-cloud-guideline-doc:`Macchinetta Server Framework Cloud Extension Development Guideline <>`
-* :macchinetta-batch-guideline-doc:`Macchinetta Batch Framework Development Guideline <>`
 
 .. _test-environment-and-dependencies:
 
