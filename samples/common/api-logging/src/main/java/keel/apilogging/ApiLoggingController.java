@@ -20,13 +20,15 @@ public class ApiLoggingController {
         this.restTemplate = restTemplate;
     }
 
-    @GetMapping("/user")
+    // logbook-start
+    @GetMapping("/users")
     public User get() {
         // Logbookを設定したRestTemplateを使用する
         ResponseEntity<User> response = restTemplate.getForEntity(endpoint, User.class);
 
         return response.getBody();
     }
+    // logbook-end
 
     @PostMapping("/users")
     public User post(@RequestBody User user) {
