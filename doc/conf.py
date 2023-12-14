@@ -207,7 +207,7 @@ extlinks = {
   'spring-boot-doc': ('https://docs.spring.io/spring-boot/docs/' + '3.2.0' + '/%s', None),
   'spring-batch-javadoc': ('https://docs.spring.io/spring-batch/docs/' + '5.1.0' + '/%s', None),
   'spring-session-doc': ('https://docs.spring.io/spring-session/reference/' + '3.2' + '/%s', None),
-  'spring-security-doc': ('https://docs.spring.io/spring-security/reference/' + '6.1' + '/%s', None),
+  'spring-security-doc': ('https://docs.spring.io/spring-security/reference/' + '6.2' + '/%s', None),
   'spring-cloud-aws-doc': ('https://docs.awspring.io/spring-cloud-aws/docs/' + '3.1.0' + '/%s', None),
   'macchinetta-server-guideline-thymeleaf-doc': ('https://macchinetta.github.io/server-guideline-thymeleaf/' + '1.9.1.RELEASE' + '/ja/%s', None),
   'macchinetta-cloud-guideline-doc': ('https://macchinetta.github.io/cloud-guideline/' + '1.2.0.RELEASE' + '/ja/%s', None),
