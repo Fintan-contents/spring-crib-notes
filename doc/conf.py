@@ -211,7 +211,7 @@ extlinks = {
   'spring-cloud-aws-doc': ('https://docs.awspring.io/spring-cloud-aws/docs/' + '3.1.0' + '/%s', None),
   'thymeleaf-tutorials-doc': ('https://www.thymeleaf.org/doc/tutorials/' + '3.1' + '/%s', None),
   'doma-spring-boot-source': ('https://github.com/domaframework/doma-spring-boot/blob/' + '1.7.0' + '/%s', None),
-  'doma-doc': ('https://doma.readthedocs.io/en/' + '2.53.0' + '/%s', None),
+  'doma-doc': ('https://doma.readthedocs.io/en/' + '2.53.1' + '/%s', None),
   'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '8.0' + '/%s', None),
   'hibernate-validator-github': ('https://github.com/hibernate/hibernate-validator/blob/' + '8.0.1.Final' + '/%s', None),
   'nablarch-doc': ('https://nablarch.github.io/docs/' + '5u21' + '/%s', None)
