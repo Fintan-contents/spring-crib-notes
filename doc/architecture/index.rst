@@ -72,7 +72,7 @@
      - JSONをパースするライブラリです。
    * - 5
      - `Hibernate Validator <https://hibernate.org/validator/>`_
-     - Bean Validationを実装した入力値チェック用のライブラリです。
+     - Jakarta Bean Validationを実装した入力値チェック用のライブラリです。
    * - 6
      - `Flyway <https://flywaydb.org>`_
      - DDLの管理等を目的としたマイグレーションツールです。

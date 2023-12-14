@@ -2,13 +2,13 @@
 
 入力値の型変換エラー時に入力画面に適切なメッセージを表示する
 ===================================================================
-画面から入力された値は、\ `Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_\ により下記の流れで処理されますが、入力値をBeanに変換する際に型変換エラーが発生する場合があります。
+画面から入力された値は、\ `Jakarta Bean Validation <https://spring.io/guides/gs/validating-form-input/>`_\ により下記の流れで処理されますが、入力値をBeanに変換する際に型変換エラーが発生する場合があります。
 
-Bean Validationの処理の流れ
+Jakarta Bean Validationの処理の流れ
   1. 入力値をBeanに変換  
 
      プロパティの型がString以外の場合は、型変換が行われます。
-  2. Bean Validationの実行
+  2. Jakarta Bean Validationの実行
   3. アプリケーションは検証済みのBeanを使って処理を行う
 
 デフォルトでは、型変換時に入力画面に表示するメッセージが定義されていないため、入力画面には以下のように例外の内容がそのまま表示されてしまいます。
