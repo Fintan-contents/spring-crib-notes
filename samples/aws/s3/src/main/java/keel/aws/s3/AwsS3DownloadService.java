@@ -1,9 +1,8 @@
 package keel.aws.s3;
 
+import io.awspring.cloud.s3.S3Template;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.core.io.WritableResource;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -18,12 +17,12 @@ public class AwsS3DownloadService {
 
     private final Logger logger = LoggerFactory.getLogger(AwsS3DownloadService.class);
 
-    private final ResourceLoader resourceLoader;
+    private final S3Template s3Template;
 
     private final AwsS3Properties properties;
 
-    public AwsS3DownloadService(ResourceLoader resourceLoader, AwsS3Properties properties) {
-        this.resourceLoader = resourceLoader;
+    public AwsS3DownloadService(S3Template s3Template, AwsS3Properties properties) {
+        this.s3Template = s3Template;
         this.properties = properties;
     }
 
@@ -36,10 +35,9 @@ public class AwsS3DownloadService {
             return;
         }
 
-        WritableResource writableResource = (WritableResource) resourceLoader.getResource(createObjectLocation(path));
-        try (InputStream inputStream = writableResource.getInputStream()) {
+        try (InputStream inputStream = s3Template.download(
+                properties.getBucketName(), path.getFileName().toString()).getInputStream()) {
             Files.copy(inputStream, downloadPath);
-
             logger.info("ファイルの保存に成功しました。");
         } catch (IOException e) {
             throw new UncheckedIOException("S3からのファイルダウンロードに失敗しました。", e);
