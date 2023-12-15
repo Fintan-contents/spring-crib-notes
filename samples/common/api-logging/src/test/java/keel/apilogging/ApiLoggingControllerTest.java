@@ -15,10 +15,8 @@ import org.springframework.web.client.RestTemplate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @MockServerTest("server.url=http://localhost:${mockServerPort}")
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
-        "app.endpoint.get=${server.url}/user",
-        "app.endpoint.post=${server.url}/users"
-})
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        properties = { "app.endpoint=${server.url}/user" })
 class ApiLoggingControllerTest {
 
     @LocalServerPort
@@ -59,7 +57,7 @@ class ApiLoggingControllerTest {
         mockServerClient.when(HttpRequest
                         .request()
                         .withMethod("POST")
-                        .withPath("/users"))
+                        .withPath("/user"))
                 .respond(HttpResponse
                         .response()
                         .withStatusCode(200)
@@ -72,7 +70,7 @@ class ApiLoggingControllerTest {
                   }
                   """));
 
-        ResponseEntity<User> response = restTemplate.postForEntity("http://localhost:" + port + "/users",
+        ResponseEntity<User> response = restTemplate.postForEntity("http://localhost:" + port + "/user",
                 new User("456","fuga"), User.class);
 
         assertEquals(200, response.getStatusCode().value());

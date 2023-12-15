@@ -13,11 +13,8 @@ public class ApiLoggingController {
 
     private final RestTemplate restTemplate;
 
-    @Value("${app.endpoint.get}")
-    private String endpointForGet;
-
-    @Value("${app.endpoint.post}")
-    private String endpointForPost;
+    @Value("${app.endpoint}")
+    private String endpoint;
 
     public ApiLoggingController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
@@ -27,16 +24,16 @@ public class ApiLoggingController {
     @GetMapping("/user")
     public User get() {
         // Logbookを設定したRestTemplateを使用する
-        ResponseEntity<User> response = restTemplate.getForEntity(endpointForGet, User.class);
+        ResponseEntity<User> response = restTemplate.getForEntity(endpoint, User.class);
 
         return response.getBody();
     }
     // logbook-end
 
-    @PostMapping("/users")
+    @PostMapping("/user")
     public User post(@RequestBody User user) {
         // Logbookを設定したRestTemplateを使用する
-        ResponseEntity<User> response = restTemplate.postForEntity(endpointForPost, user, User.class);
+        ResponseEntity<User> response = restTemplate.postForEntity(endpoint, user, User.class);
 
         return response.getBody();
     }
