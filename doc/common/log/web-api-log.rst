@@ -56,7 +56,7 @@ Bean定義
 
   2023-12-14T17:18:31.790+09:00 TRACE 27798 --- [o-auto-1-exec-2] org.zalando.logbook.Logbook              : Incoming Request: 8a56e7263eb07a9e
   Remote: 127.0.0.1
-  GET http://localhost:52116/users HTTP/1.1
+  GET http://localhost:52116/user HTTP/1.1
   accept: application/json, application/*+json
   connection: keep-alive
   host: localhost:52116
@@ -105,7 +105,7 @@ Controller
 
   2023-12-14T17:18:31.791+09:00 TRACE 27798 --- [o-auto-1-exec-2] org.zalando.logbook.Logbook              : Outgoing Request: be742b576f2c3a04
   Remote: localhost
-  GET http://localhost:52110/users HTTP/1.1
+  GET http://localhost:52110/user HTTP/1.1
   Accept: application/json, application/*+json
   Content-Length: 0
 

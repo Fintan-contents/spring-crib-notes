@@ -9,16 +9,16 @@ import org.mockserver.springtest.MockServerTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @MockServerTest("server.url=http://localhost:${mockServerPort}")
-@SpringBootTest(
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-        properties = { "app.endpoint=${server.url}/users" })
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
+        "app.endpoint.get=${server.url}/user",
+        "app.endpoint.post=${server.url}/users"
+})
 class ApiLoggingControllerTest {
 
     @LocalServerPort
@@ -34,7 +34,7 @@ class ApiLoggingControllerTest {
         mockServerClient.when(HttpRequest
                 .request()
                 .withMethod("GET")
-                .withPath("/users"))
+                .withPath("/user"))
                 .respond(HttpResponse
                         .response()
                         .withStatusCode(200)
@@ -47,10 +47,11 @@ class ApiLoggingControllerTest {
                   }
                   """));
 
-        Map<String, String> response = restTemplate.getForObject("http://localhost:" + port + "/users", Map.class);
+        ResponseEntity<User> response = restTemplate.getForEntity("http://localhost:" + port + "/user", User.class);
 
-        assertEquals("123", response.get("id"));
-        assertEquals("hoge", response.get("username"));
+        assertEquals(200, response.getStatusCode().value());
+        assertEquals("123", response.getBody().id());
+        assertEquals("hoge", response.getBody().username());
     }
 
     @Test
@@ -71,10 +72,11 @@ class ApiLoggingControllerTest {
                   }
                   """));
 
-        Map<String, String> response = restTemplate.postForObject("http://localhost:" + port + "/users",
-                Map.of("id", "456", "username", "fuga"), Map.class);
+        ResponseEntity<User> response = restTemplate.postForEntity("http://localhost:" + port + "/users",
+                new User("456","fuga"), User.class);
 
-        assertEquals("456", response.get("id"));
-        assertEquals("fuga", response.get("username"));
+        assertEquals(200, response.getStatusCode().value());
+        assertEquals("456", response.getBody().id());
+        assertEquals("fuga", response.getBody().username());
     }
 }
