@@ -7,7 +7,9 @@ Logbookは、HTTPリクエストおよびレスポンスをログに出力する
 
 * 実装したAPIへのリクエストを受信したら、リクエストおよびレスポンスのログを出力する
 * 外部のAPIへリクエストを送信したら、リクエストおよびレスポンスのログを出力する
+
   * リクエスト送信にはRestTemplateを使用し、メッセージの形式にはJSONを使用する
+
 * `JsonPath <https://github.com/json-path/JsonPath>`_ を使用して、JSON形式の特定項目に対してマスク処理を行う
 
 以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
