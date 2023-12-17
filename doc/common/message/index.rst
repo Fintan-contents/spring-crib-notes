@@ -6,7 +6,7 @@
 以下のサンプルコードの動作確認環境については、 :ref:`test-environment-and-dependencies` を参照してください。
 
 Jakarta Bean Validationを使った入力値チェックのエラーメッセージ
----------------------------------------------------------
+---------------------------------------------------------------
 Spring Bootでは、入力値のチェックとしてJakarta Bean Validationをサポートしており、実装ライブラリとして :hibernate-validator-doc:`Hibernate Validator <reference/en-US/html_single/>` を採用しています。
 デフォルトでは、Hibernate Validatorで定義されているロケール毎のValidationMessages.properties（例えば :hibernate-validator-github:`ValidationMessages_ja.properties </engine/src/main/resources/org/hibernate/validator/ValidationMessages_ja.properties>` ）からエラーメッセージが生成されます。
 
