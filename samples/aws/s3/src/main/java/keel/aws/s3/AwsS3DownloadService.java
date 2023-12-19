@@ -45,9 +45,5 @@ public class AwsS3DownloadService {
             throw new UncheckedIOException("S3からのファイルダウンロードに失敗しました。", e);
         }
     }
-
-    private String createObjectLocation(Path path) {
-        return "s3://" + properties.getBucketName() + "/upload/" + path.getFileName();
-    }
 }
 // download-end
