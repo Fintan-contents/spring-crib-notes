@@ -1,15 +1,17 @@
 package keel.aws.s3;
 
-import io.awspring.cloud.s3.S3Template;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Objects;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import io.awspring.cloud.s3.S3Template;
 
 // download-start
 @Service
@@ -36,7 +38,7 @@ public class AwsS3DownloadService {
         }
 
         try (InputStream inputStream = s3Template.download(
-                properties.getBucketName(), path.getFileName().toString()).getInputStream()) {
+                properties.getBucketName(), Objects.toString(path.getFileName())).getInputStream()) {
             Files.copy(inputStream, downloadPath);
             logger.info("ファイルの保存に成功しました。");
         } catch (IOException e) {
