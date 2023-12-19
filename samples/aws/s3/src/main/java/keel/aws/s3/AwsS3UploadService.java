@@ -5,11 +5,13 @@ import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Objects;
 
-import io.awspring.cloud.s3.S3Template;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
+import io.awspring.cloud.s3.S3Template;
 
 // upload-start
 @Service
@@ -29,8 +31,8 @@ public class AwsS3UploadService {
     public void uploadFile(Path path) {
         logger.info("{}をS3にアップロードします。", path.getFileName());
 
-        try (InputStream inputStream = Files.newInputStream(path)){
-            s3Template.upload(properties.getBucketName(), path.getFileName().toString(), inputStream);
+        try (InputStream inputStream = Files.newInputStream(path)) {
+            s3Template.upload(properties.getBucketName(), Objects.toString(path.getFileName()), inputStream);
             logger.info("ファイルのアップロードに成功しました。");
         } catch (IOException e) {
             throw new UncheckedIOException("S3へのファイルアップロードに失敗しました。", e);
