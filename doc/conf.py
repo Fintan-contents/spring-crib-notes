@@ -214,7 +214,7 @@ extlinks = {
   'doma-doc': ('https://doma.readthedocs.io/en/' + '2.53.1' + '/%s', None),
   'hibernate-validator-doc': ('https://docs.jboss.org/hibernate/validator/' + '8.0' + '/%s', None),
   'hibernate-validator-github': ('https://github.com/hibernate/hibernate-validator/blob/' + '8.0.1.Final' + '/%s', None),
-  'nablarch-doc': ('https://nablarch.github.io/docs/' + '5u21' + '/%s', None)
+  'nablarch-doc': ('https://nablarch.github.io/docs/' + '6' + '/%s', None)
 }
 
 # linkcheck option
