@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>このドキュメントについて &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/translations.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -237,19 +235,19 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>このドキュメントについて<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
-<p>このドキュメントでは <a class="reference external" href="https://spring.io/">Spring</a> を活用してアプリケーションを構築する際に必要となるノウハウを提供します。</p>
+<h1>このドキュメントについて<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>このドキュメントでは <a class="reference external" href="https://spring.io">Spring</a> を活用してアプリケーションを構築する際に必要となるノウハウを提供します。</p>
 <p>特に、アプリケーションを開発する際に公式ドキュメントやWeb上から実装方法を見つけることが難しく、躓きやすい点についての情報を中心に提供します。</p>
 <section id="target-user">
-<span id="id2"></span><h2>対象読者<a class="headerlink" href="#target-user" title="この見出しへのパーマリンク"></a></h2>
+<span id="id2"></span><h2>対象読者<a class="headerlink" href="#target-user" title="Link to this heading"></a></h2>
 <p>このドキュメントは、ソフトウェア開発経験のあるアーキテクトやプログラマ向けに書かれています。</p>
 <p>特に、Springについて、次のような知識・能力を持っていることを前提としています。</p>
 <ul class="simple">
 <li><p>共通</p>
 <ul>
-<li><p><a class="reference external" href="https://projects.spring.io/spring-boot/">Spring Boot</a> を利用して開発したことがあり、基本的な仕組みについて理解している。</p></li>
-<li><p><a class="reference external" href="https://projects.spring.io/spring-framework/">Spring Framework</a> を利用したアプリケーションの基本的なアーキテクチャについて理解している。</p></li>
-<li><p><a class="reference external" href="https://spring.io/docs">Springの公式ドキュメント</a> から適切な情報を検索できる。</p></li>
+<li><p><a class="reference external" href="https://projects.spring.io/spring-boot">Spring Boot</a> を利用して開発したことがあり、基本的な仕組みについて理解している。</p></li>
+<li><p><a class="reference external" href="https://spring.io/projects/spring-framework">Spring Framework</a> を利用したアプリケーションの基本的なアーキテクチャについて理解している。</p></li>
+<li><p><a class="reference external" href="https://spring.io/projects">Springの公式ドキュメント</a> から適切な情報を検索できる。</p></li>
 <li><p>その他、次にあげるような技術要素について、基本的な知識を持っている。</p>
 <ul>
 <li><p>SQL</p></li>
@@ -260,7 +258,7 @@
 </li>
 <li><p>Web/API</p>
 <ul>
-<li><p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/reference/html/web.html#spring-web">Spring Web MVC</a> の基本的な用語を理解している</p></li>
+<li><p><a class="reference external" href="https://docs.spring.io/spring-framework/reference/6.1/web/webmvc.html">Spring Web MVC</a> の基本的な用語を理解している</p></li>
 <li><p>Spring Web MVCの各ステレオタイプの役割を理解している</p></li>
 <li><p>Spring Web MVCの処理フローを理解している</p></li>
 </ul>
@@ -273,41 +271,36 @@
 </ul>
 </li>
 </ul>
-<p>これからSpringを初めて利用するという人は、<a class="reference external" href="https://spring.io/guides">公式ガイド</a> 等を活用して学習してください。</p>
+<p>これからSpringを初めて利用するという人は、 <a class="reference external" href="https://spring.io/guides">公式ガイド</a> 等を活用して学習してください。</p>
 </section>
 <section id="id5">
-<h2>このドキュメントの使い方<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h2>
+<h2>このドキュメントの使い方<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <a class="reference internal image-reference" href="../_images/how-to-use-this-document.drawio.png"><img alt="../_images/how-to-use-this-document.drawio.png" src="../_images/how-to-use-this-document.drawio.png" style="width: 70%;" /></a>
 <p>基本的な実装方法については、Springの公式ドキュメントを参照してください。</p>
 <p>また、実装を進める中でSpringを利用したアプリケーションのアーキテクチャについてより深く理解する必要が出た場合は、まず <a class="reference external" href="https://macchinetta.github.io">Macchinetta Framework</a> を参照することをおすすめします。
 ただし、このドキュメントとMacchinettaでは、設定の記載方法が異なるため、具体的な実装例や設定例はそのままでは利用できないと考えてください。（このドキュメントではJava Config、MacchinettaではXML Configを使用している）</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://macchinetta.github.io/server-guideline-thymeleaf/1.8.1.SP1.RELEASE/ja/">Macchinetta Server Framework Development Guideline</a></p></li>
-<li><p><a class="reference external" href="https://macchinetta.github.io/cloud-guideline/1.2.0.RELEASE/ja/">Macchinetta Server Framework Cloud Extension Development Guideline</a></p></li>
-<li><p><a class="reference external" href="https://macchinetta.github.io/batch-guideline/2.3.1.RELEASE/ja/">Macchinetta Batch Framework Development Guideline</a></p></li>
-</ul>
 </section>
 <section id="test-environment-and-dependencies">
-<span id="id6"></span><h2>動作確認環境と依存ライブラリについて<a class="headerlink" href="#test-environment-and-dependencies" title="この見出しへのパーマリンク"></a></h2>
+<span id="id6"></span><h2>動作確認環境と依存ライブラリについて<a class="headerlink" href="#test-environment-and-dependencies" title="Link to this heading"></a></h2>
 <p>このドキュメントに含まれるサンプルコードは、 <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/">サンプルアプリケーション</a> を利用して以下の実行環境でテストしています。</p>
 <table class="docutils align-default" id="id19">
-<caption><span class="caption-text">実行環境</span><a class="headerlink" href="#id19" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">実行環境</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
 <tbody>
 <tr class="row-odd"><td><p>OS</p></td>
 <td><p>Amazon Linux 2</p></td>
 </tr>
 <tr class="row-even"><td><p>JDK</p></td>
-<td><p>Liberica JDK 11</p></td>
+<td><p>Liberica JDK 17</p></td>
 </tr>
 </tbody>
 </table>
 <p>また、明示的に依存しているのは以下のライブラリです。</p>
 <dl>
-<dt>Spring Boot</dt><dd><p>Spring Bootから参照されるライブラリのバージョンは、 <a class="reference external" href="https://docs.spring.io/spring-boot/docs/2.7.6/reference/html/dependency-versions.html#appendix.dependency-versions">Appendix F. Dependency versions</a> を参照してください。</p>
+<dt>Spring Boot</dt><dd><p>Spring Bootから参照されるライブラリのバージョンは、 <a class="reference external" href="https://docs.spring.io/spring-boot/docs/3.2.0/reference/html/dependency-versions.html#appendix.dependency-versions">Appendix F. Dependency versions</a> を参照してください。</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;parent&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-parent<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>2.7.6<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-parent<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>3.2.0<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/parent&gt;</span>
 </pre></div>
 </div>
@@ -315,62 +308,70 @@
 <dt>その他のライブラリ</dt><dd><p>以下のライブラリをすべてのサンプルで利用しているわけではありません。サンプルごとに利用しているライブラリは、サンプルのpom.xmlで確認してください。</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- doma-starter-start --&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.seasar.doma.boot<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>doma-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.7.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.seasar.doma.boot<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>doma-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>1.7.0<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.seasar.doma<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>doma-processor<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>2.53.1<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.seasar.doma<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>doma-processor<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>2.53.1<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.seasar.doma<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>doma-slf4j<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>2.53.1<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.seasar.doma<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>doma-slf4j<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>2.53.1<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="cm">&lt;!-- doma-starter-end --&gt;</span>
 <span class="cm">&lt;!-- mybatis-start --&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.mybatis.spring.boot<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>mybatis-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>2.3.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.mybatis.spring.boot<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>mybatis-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>3.0.3<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="cm">&lt;!-- mybatis-end --&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>io.awspring.cloud<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>spring-cloud-aws-dependencies<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>2.4.2<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
-  <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>io.awspring.cloud<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>spring-cloud-aws-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>3.1.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+<span class="w">  </span><span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>com.github.database-rider<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>rider-spring<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.35.0<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.github.database-rider<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>rider-spring<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>1.35.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>com.github.database-rider<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>rider-junit5<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.35.0<span class="nt">&lt;/version&gt;</span>
-  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.github.database-rider<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>rider-junit5<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>1.35.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 
 <span class="cm">&lt;!-- logback-access-spring-boot-version-start --&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>dev.akkinoc.spring.boot<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>logback-access-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>3.4.1<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>dev.akkinoc.spring.boot<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>logback-access-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>4.0.0<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="cm">&lt;!-- logback-access-spring-boot-version-end --&gt;</span>
 
+<span class="cm">&lt;!-- logbook-start --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.zalando<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>logbook-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>3.7.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="cm">&lt;!-- logbook-end --&gt;</span>
+
 <span class="cm">&lt;!-- keel-web-start --&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>jp.fintan.keel<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>keel-spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>jp.fintan.keel<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>keel-spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>2.0.0<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="cm">&lt;!-- keel-web-end --&gt;</span>
 </pre></div>
@@ -380,29 +381,29 @@
 <p>これらの実行環境・ライブラリのバージョンアップには可能な限り追随し、テストが失敗する場合にはドキュメント含めて修正する予定です。</p>
 </section>
 <section id="id7">
-<h2>ご利用にあたって<a class="headerlink" href="#id7" title="この見出しへのパーマリンク"></a></h2>
+<h2>ご利用にあたって<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>当サイトでは、ブラウザによる閲覧履歴等の情報を収集しております。
 以下に、情報の利用目的や各情報の具体的な用途を示します。</p>
 <section id="id8">
-<h3>情報の利用目的<a class="headerlink" href="#id8" title="この見出しへのパーマリンク"></a></h3>
+<h3>情報の利用目的<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
 <p>取得した情報はアクセス解析に利用されます。
 ページのアクセス数等からサイトの利用状況を把握し、サイトの改善に利用します。
 アクセス情報は匿名で収集され、個人を特定することはできません。</p>
 </section>
 <section id="id9">
-<h3>情報の送信先<a class="headerlink" href="#id9" title="この見出しへのパーマリンク"></a></h3>
+<h3>情報の送信先<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
 <p>取得した情報は<a class="reference external" href="https://plausible.io">Plausible
 Analytics</a>に送信されます。</p>
 </section>
 <section id="id10">
-<h3>情報の種類・用途<a class="headerlink" href="#id10" title="この見出しへのパーマリンク"></a></h3>
+<h3>情報の種類・用途<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
 <p>利用する情報は以下のとおりです。</p>
 <table class="white-space-normal docutils align-default">
 <colgroup>
-<col style="width: 15%" />
-<col style="width: 30%" />
-<col style="width: 25%" />
-<col style="width: 30%" />
+<col style="width: 15.0%" />
+<col style="width: 30.0%" />
+<col style="width: 25.0%" />
+<col style="width: 30.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>情報の種類</p></th>
@@ -447,19 +448,19 @@ Analytics</a>に送信されます。</p>
 <p>より詳細な情報については、<a class="reference external" href="https://plausible.io/data-policy">Plausible
 Analyticsのポリシー</a>をご参照ください。</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id15" role="note">
+<aside class="footnote brackets" id="id15" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">1</a><span class="fn-bracket">]</span></span>
 <p>ユーザーエージェントから取得しますが、必要な情報だけを使用します。完全なユーザーエージェントは破棄されます。</p>
 </aside>
-<aside class="footnote brackets" id="id16" role="note">
+<aside class="footnote brackets" id="id16" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">2</a><span class="fn-bracket">]</span></span>
 <p>ユーザーエージェントから取得しますが、必要な情報だけを使用します。完全なユーザーエージェントは破棄されます。</p>
 </aside>
-<aside class="footnote brackets" id="id17" role="note">
+<aside class="footnote brackets" id="id17" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">3</a><span class="fn-bracket">]</span></span>
 <p>ユーザーエージェントから取得しますが、必要な情報だけを使用します。完全なユーザーエージェントは破棄されます。</p>
 </aside>
-<aside class="footnote brackets" id="id18" role="note">
+<aside class="footnote brackets" id="id18" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">4</a><span class="fn-bracket">]</span></span>
 <p>IPアドレスを使用して位置情報を取得しますが、都市レベルより詳細な追跡は行いません。IPアドレスは破棄されるため、データベース等に保存されることはありません。</p>
 </aside>

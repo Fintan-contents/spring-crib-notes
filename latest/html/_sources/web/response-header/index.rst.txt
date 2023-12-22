@@ -13,7 +13,7 @@ Spring Securityを使用した場合、デフォルトでは全てのHTTPレス�
      X-Content-Type-Options: nosniff
      Strict-Transport-Security: max-age=31536000 ; includeSubDomains # HTTPS通信時のみ設定されます。
      X-Frame-Options: DENY
-     X-XSS-Protection: 1; mode=block
+     X-XSS-Protection: 0
 
 `X-Content-Type-Options: nosniff` が設定されるので、ブラウザはレスポンスのContent-Typeを推測しなくなります。そのため、レスポンスに正しいContent-Typeを設定しないと期待通りの動作をしなくなるので注意してください。Spring Bootのデフォルトでは適切なContent-Typeが設定されるように構成されています。
 

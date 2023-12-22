@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thymeleafを使用して各画面で共通のレイアウトを利用する &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -239,18 +237,18 @@
            <div itemprop="articleBody">
              
   <section id="thymeleaf">
-<h1>Thymeleafを使用して各画面で共通のレイアウトを利用する<a class="headerlink" href="#thymeleaf" title="この見出しへのパーマリンク"></a></h1>
+<h1>Thymeleafを使用して各画面で共通のレイアウトを利用する<a class="headerlink" href="#thymeleaf" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://www.thymeleaf.org/documentation.html">Thymeleaf</a> を使用して、共通レイアウトを作成する方法について記載します。</p>
 <p>Thymeleafの基本的な使用方法については、以下のドキュメントを参照してください。</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html">Tutorial: Using Thymeleaf</a></p></li>
-<li><p><a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html">Tutorial: Thymeleaf + Spring</a></p></li>
-<li><p><a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.0/extendingthymeleaf.html">Tutorial: Extending Thymeleaf</a></p></li>
+<li><p><a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf_ja.html">Tutorial: Using Thymeleaf</a></p></li>
+<li><p><a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.1/thymeleafspring.html">Tutorial: Thymeleaf + Spring</a></p></li>
+<li><p><a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.1/extendingthymeleaf.html">Tutorial: Extending Thymeleaf</a></p></li>
 </ul>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <section id="id2">
-<h2>実装例<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
-<p>共通レイアウトは、<a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html#フラグメント">ThymeleafのFragments</a> を使用して実現します。</p>
+<h2>実装例<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>共通レイアウトは、<a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf_ja.html#フラグメント">ThymeleafのFragments</a> を使用して実現します。</p>
 <p>例えば、</p>
 <ul class="simple">
 <li><p>&lt;head&gt;内の定義</p></li>
@@ -322,10 +320,9 @@
 <div><ul class="simple">
 <li><p>th:insert</p></li>
 <li><p>th:replace</p></li>
-<li><p>th:include</p></li>
 </ul>
 </div></blockquote>
-<p>上記の使い分けについては、 <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf_ja.html#テンプレートフラグメントのインクルード">Tutorial: Using Thymeleaf -  Including template fragments</a> を参照してください。</p>
+<p>上記の使い分けについては、 <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.1/usingthymeleaf_ja.html#テンプレートフラグメントのインクルード">Tutorial: Using Thymeleaf -  Including template fragments</a> を参照してください。</p>
 </div>
 <p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/web/template-engine-thymeleaf">template-engine-thymeleaf-sample</a> を参照してください。</p>
 </section>

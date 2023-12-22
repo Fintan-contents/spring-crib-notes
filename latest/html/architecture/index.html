@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>アプリケーションのスタック &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/translations.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -237,7 +235,7 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>アプリケーションのスタック<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
+<h1>アプリケーションのスタック<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p>このドキュメントでは、Springに関する記載を中心に各種OSSのライブラリについても言及しています。
 ドキュメント内に記載しているアプリケーションの構成要素は以下となります。</p>
 <dl>
@@ -245,11 +243,11 @@
 </dd>
 </dl>
 <table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Web / APIの構成要素の概要</span><a class="headerlink" href="#id2" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">Web / APIの構成要素の概要</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 5%" />
-<col style="width: 20%" />
-<col style="width: 75%" />
+<col style="width: 5.0%" />
+<col style="width: 20.0%" />
+<col style="width: 75.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>No</p></th>
@@ -259,11 +257,11 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>1</p></td>
-<td><p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/reference/html/web.html#spring-web">Spring Web MVC</a></p></td>
+<td><p><a class="reference external" href="https://docs.spring.io/spring-framework/reference/6.1/web/webmvc.html">Spring Web MVC</a></p></td>
 <td><p>Springが提供するWeb MVCフレームワークです。</p></td>
 </tr>
 <tr class="row-odd"><td><p>2</p></td>
-<td><p><a class="reference external" href="https://projects.spring.io/spring-security/">Spring Security</a></p></td>
+<td><p><a class="reference external" href="https://spring.io/projects/spring-security">Spring Security</a></p></td>
 <td><p>Springが提供する認証・認可のフレームワークです。</p></td>
 </tr>
 <tr class="row-even"><td><p>3</p></td>
@@ -281,11 +279,11 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id3">
-<caption><span class="caption-text">Batchの構成要素の概要</span><a class="headerlink" href="#id3" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">Batchの構成要素の概要</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 5%" />
-<col style="width: 20%" />
-<col style="width: 75%" />
+<col style="width: 5.0%" />
+<col style="width: 20.0%" />
+<col style="width: 75.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>No</p></th>
@@ -301,11 +299,11 @@
 </tbody>
 </table>
 <table class="docutils align-default" id="id4">
-<caption><span class="caption-text">AWSの構成要素の概要</span><a class="headerlink" href="#id4" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">AWSの構成要素の概要</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 5%" />
-<col style="width: 20%" />
-<col style="width: 75%" />
+<col style="width: 5.0%" />
+<col style="width: 20.0%" />
+<col style="width: 75.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>No</p></th>
@@ -315,17 +313,17 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>1</p></td>
-<td><p><a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html">Spring Cloud AWS</a></p></td>
+<td><p><a class="reference external" href="https://awspring.io">Spring Cloud AWS</a></p></td>
 <td><p>Spring Cloud傘下のプロジェクトで、Amazon Web ServicesのSDKが提供する機能をSpringに統合します。</p></td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-default" id="id5">
-<caption><span class="caption-text">共通の構成要素の概要</span><a class="headerlink" href="#id5" title="このテーブルへのパーマリンク"></a></caption>
+<caption><span class="caption-text">共通の構成要素の概要</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 5%" />
-<col style="width: 20%" />
-<col style="width: 75%" />
+<col style="width: 5.0%" />
+<col style="width: 20.0%" />
+<col style="width: 75.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>No</p></th>
@@ -335,15 +333,15 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>1</p></td>
-<td><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/">Doma2</a></p></td>
+<td><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.1/">Doma2</a></p></td>
 <td><p>2-way SQL等を特徴としたDBアクセスフレームワークです。</p></td>
 </tr>
 <tr class="row-odd"><td><p>2</p></td>
-<td><p><a class="reference external" href="https://www.slf4j.org/">SLF4J</a></p></td>
+<td><p><a class="reference external" href="https://www.slf4j.org">SLF4J</a></p></td>
 <td><p>ロギングシステムのAPI(インターフェース)を提供するライブラリです。</p></td>
 </tr>
 <tr class="row-even"><td><p>3</p></td>
-<td><p><a class="reference external" href="https://logback.qos.ch/">logback</a></p></td>
+<td><p><a class="reference external" href="https://logback.qos.ch">logback</a></p></td>
 <td><p>ロギングシステムのAPIを実装したライブラリです。</p></td>
 </tr>
 <tr class="row-odd"><td><p>4</p></td>
@@ -351,8 +349,8 @@
 <td><p>JSONをパースするライブラリです。</p></td>
 </tr>
 <tr class="row-even"><td><p>5</p></td>
-<td><p><a class="reference external" href="https://docs.jboss.org/hibernate/validator/6.2/reference/en-US/html_single/">Hibernate Validator</a></p></td>
-<td><p>Bean Validationを実装した入力値チェック用のライブラリです。</p></td>
+<td><p><a class="reference external" href="https://hibernate.org/validator/">Hibernate Validator</a></p></td>
+<td><p>Jakarta Bean Validationを実装した入力値チェック用のライブラリです。</p></td>
 </tr>
 <tr class="row-odd"><td><p>6</p></td>
 <td><p><a class="reference external" href="https://flywaydb.org">Flyway</a></p></td>

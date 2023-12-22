@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HTTPレスポンスヘッダ &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -238,23 +236,23 @@
            <div itemprop="articleBody">
              
   <section id="http">
-<h1>HTTPレスポンスヘッダ<a class="headerlink" href="#http" title="この見出しへのパーマリンク"></a></h1>
-<p><a class="reference external" href="https://docs.spring.io/spring-security/reference/5.7.5/index.html">Spring Security</a> を使用した場合に設定されるHTTPレスポンスヘッダについて説明します。</p>
-<p>Spring Securityを使用した場合、デフォルトでは全てのHTTPレスポンスに以下のヘッダが設定されます。詳細は <a class="reference external" href="https://docs.spring.io/spring-security/reference/5.7.5/servlet/exploits/headers.html#servlet-headers-default">Default Security Headers</a> を参照してください。</p>
+<h1>HTTPレスポンスヘッダ<a class="headerlink" href="#http" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://docs.spring.io/spring-security/reference/6.2/index.html">Spring Security</a> を使用した場合に設定されるHTTPレスポンスヘッダについて説明します。</p>
+<p>Spring Securityを使用した場合、デフォルトでは全てのHTTPレスポンスに以下のヘッダが設定されます。詳細は <a class="reference external" href="https://docs.spring.io/spring-security/reference/6.2/servlet/exploits/headers.html#servlet-headers-default">Default Security Headers</a> を参照してください。</p>
 <dl>
-<dt>デフォルトで設定されるレスポンスヘッダ</dt><dd><div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">Cache-Control</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no-cache, no-store, max-age=0, must-revalidate</span><span class="w"></span>
-<span class="nt">Pragma</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no-cache</span><span class="w"></span>
-<span class="nt">Expires</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
-<span class="nt">X-Content-Type-Options</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nosniff</span><span class="w"></span>
-<span class="nt">Strict-Transport-Security</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">max-age=31536000 ; includeSubDomains</span><span class="w"> </span><span class="c1"># HTTPS通信時のみ設定されます。</span><span class="w"></span>
-<span class="nt">X-Frame-Options</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DENY</span><span class="w"></span>
-<span class="nt">X-XSS-Protection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1; mode=block</span><span class="w"></span>
+<dt>デフォルトで設定されるレスポンスヘッダ</dt><dd><div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">Cache-Control</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no-cache, no-store, max-age=0, must-revalidate</span>
+<span class="nt">Pragma</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no-cache</span>
+<span class="nt">Expires</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="nt">X-Content-Type-Options</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nosniff</span>
+<span class="nt">Strict-Transport-Security</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">max-age=31536000 ; includeSubDomains</span><span class="w"> </span><span class="c1"># HTTPS通信時のみ設定されます。</span>
+<span class="nt">X-Frame-Options</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DENY</span>
+<span class="nt">X-XSS-Protection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 <p><cite>X-Content-Type-Options: nosniff</cite> が設定されるので、ブラウザはレスポンスのContent-Typeを推測しなくなります。そのため、レスポンスに正しいContent-Typeを設定しないと期待通りの動作をしなくなるので注意してください。Spring Bootのデフォルトでは適切なContent-Typeが設定されるように構成されています。</p>
-<p>また、 <cite>X-Frame-Options: DENY</cite> が設定されるため、レスポンスのHTMLを iframe などのフレーム内に表示できなくなります。フレーム内に表示する必要がある場合は、 <a class="reference external" href="https://docs.spring.io/spring-security/reference/5.7.5/servlet/exploits/headers.html#servlet-headers-frame-options">X-Frame-Options</a> を参考に SAMEORIGIN を設定してください。</p>
+<p>また、 <cite>X-Frame-Options: DENY</cite> が設定されるため、レスポンスのHTMLを iframe などのフレーム内に表示できなくなります。フレーム内に表示する必要がある場合は、 <a class="reference external" href="https://docs.spring.io/spring-security/reference/6.2/servlet/exploits/headers.html#servlet-headers-frame-options">X-Frame-Options</a> を参考に SAMEORIGIN を設定してください。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>静的リソースをキャッシュさせたい場合には、 <a class="reference internal" href="../static-resource-cache/index.html#web-static-resource-cache"><span class="std std-ref">画像やcssなどの静的なリソースをキャッシュする</span></a> を参考にしてください。</p>

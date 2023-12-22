@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>データベースアクセスにMyBatisを使用する &mdash; keel-doc</title>
+  <title>HTTPリクエストおよびレスポンスをログに出力する &mdash; keel-doc</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
 
@@ -22,8 +22,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <link rel="next" title="DDL / DMLの管理" href="sql-management.html" />
-    <link rel="prev" title="データベースアクセスにDoma2を使用する" href="doma2.html" />
+    <link rel="next" title="データベースアクセス" href="../database/index.html" />
+    <link rel="prev" title="画面やAPIでTomcatのアクセスログを出力する" href="web-access-log.html" />
   <script defer data-domain="fintan-contents.github.io,all.fintan" src=https://plausible.io/js/script.js></script>
 
 </head>
@@ -62,15 +62,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../architecture/index.html">アプリケーションのスタック</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">アプリの種類によらないノウハウ</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../log/index.html">ログ出力</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ログ出力</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">データベースアクセス</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="doma2.html">データベースアクセスにDoma2を使用する</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">データベースアクセスにMyBatisを使用する</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sql-management.html">DDL / DMLの管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/index.html">データベースアクセス</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../database/doma2.html">データベースアクセスにDoma2を使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../database/mybatis.html">データベースアクセスにMyBatisを使用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../database/sql-management.html">DDL / DMLの管理</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../message/index.html">メッセージ管理</a><ul>
@@ -226,8 +226,8 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">アプリの種類によらないノウハウ</a></li>
-          <li class="breadcrumb-item"><a href="index.html">データベースアクセス</a></li>
-      <li class="breadcrumb-item active">データベースアクセスにMyBatisを使用する</li>
+          <li class="breadcrumb-item"><a href="index.html">ログ出力</a></li>
+      <li class="breadcrumb-item active">HTTPリクエストおよびレスポンスをログに出力する</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -236,25 +236,129 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mybatis">
-<h1>データベースアクセスにMyBatisを使用する<a class="headerlink" href="#mybatis" title="Link to this heading"></a></h1>
-<p>データベースアクセスライブラリとして <a class="reference external" href="https://mybatis.org/mybatis-3/ja/">MyBatis</a> を使う方法について説明します。</p>
+  <section id="http">
+<h1>HTTPリクエストおよびレスポンスをログに出力する<a class="headerlink" href="#http" title="Link to this heading"></a></h1>
+<p>HTTPリクエストおよびレスポンスをログに出力するため、 <a class="reference external" href="https://github.com/zalando/logbook">Logbook</a> を使う方法について説明します。</p>
+<p>Logbookは、HTTPリクエストおよびレスポンスをログに出力するためのライブラリです。
+様々なメッセージ形式や出力方法に対応していますが、このページでは以下の実装について説明します。</p>
+<ul class="simple">
+<li><p>実装したAPIへのリクエストを受信したら、リクエストおよびレスポンスのログを出力する</p></li>
+<li><p>外部のAPIへリクエストを送信したら、リクエストおよびレスポンスのログを出力する</p>
+<ul>
+<li><p>リクエスト送信にはRestTemplateを使用し、メッセージの形式にはJSONを使用する</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/json-path/JsonPath">JsonPath</a> を使用して、JSON形式の特定項目に対してマスク処理を行う</p></li>
+</ul>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
-<section id="id2">
-<h2>MyBatisを使うための設定例<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="id1">
+<h2>Logbookを使うための設定例<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <dl>
-<dt>pom.xml</dt><dd><p>依存ライブラリに <a class="reference external" href="http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/">mybatis-spring-boot-starter</a> を追加します。
-これによりMyBatisとSpringを連携させる <a class="reference external" href="https://mybatis.org/spring/ja/index.html">mybatis-spring</a> が自動で構成され、MyBatis用の設定が自動的に行われます。</p>
+<dt>pom.xml</dt><dd><p>依存ライブラリに <a class="reference external" href="https://github.com/zalando/logbook/tree/main/logbook-spring-boot-starter">logbook-spring-boot-starter</a> を追加します。
+これによりLogbookが自動で構成され、よく使用される設定がデフォルトで有効になります。
+詳細は <a class="reference external" href="https://github.com/zalando/logbook?tab=readme-ov-file#spring-boot-starter">LogbookのREADME</a> を参照してください。</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
-<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.mybatis.spring.boot<span class="nt">&lt;/groupId&gt;</span>
-<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>mybatis-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">  </span><span class="nt">&lt;version&gt;</span>3.0.3<span class="nt">&lt;/version&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>org.zalando<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>logbook-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;version&gt;</span>3.7.1<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
 </dd>
+<dt>application.properties</dt><dd><p>LogbookのログはTRACEレベルで出力されるため、ログレベルを設定します。</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">logging.level.org.zalando.logbook</span><span class="o">=</span><span class="s">TRACE</span>
+</pre></div>
+</div>
+</dd>
+<dt>Bean定義</dt><dd><p>Logbookはデフォルト設定で有効化されていますが、Bean定義することでカスタマイズすることができます。
+ここでは、リクエスト/レスポンスボディの <code class="docutils literal notranslate"><span class="pre">id</span></code> 項目をマスクする設定に変更します。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Logbook</span><span class="w"> </span><span class="nf">logbook</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Logbookを生成（リクエスト/レスポンスボディの id 項目をマスクする）</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Logbook</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">bodyFilter</span><span class="p">(</span><span class="n">JsonPathBodyFilters</span><span class="p">.</span><span class="na">jsonPath</span><span class="p">(</span><span class="s">&quot;$[&#39;id&#39;]&quot;</span><span class="p">).</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;***&quot;</span><span class="p">))</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+</dd>
 </dl>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/common/mybatis">mybatis-sample</a> を参照してください。</p>
+</section>
+<section id="api">
+<h2>実装したAPIへのリクエストおよびレスポンスをログ出力する実装例<a class="headerlink" href="#api" title="Link to this heading"></a></h2>
+<p>前述の設定例に沿って設定すると、実装したAPIへのリクエストおよびレスポンスの内容がログ出力されるようになります。
+例えば、GETリクエストを受信してレスポンスを返却した場合は、以下のようなログが出力されます。</p>
+<p>リクエストのログ</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2023-12-14T17:18:31.790+09:00 TRACE 27798 --- [o-auto-1-exec-2] org.zalando.logbook.Logbook              : Incoming Request: 8a56e7263eb07a9e
+Remote: 127.0.0.1
+GET http://localhost:52116/user HTTP/1.1
+accept: application/json, application/*+json
+connection: keep-alive
+host: localhost:52116
+user-agent: Java/17.0.8
+</pre></div>
+</div>
+<p>レスポンスのログ（設定に従って <code class="docutils literal notranslate"><span class="pre">id</span></code> 項目の値はマスクして出力される）</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2023-12-14T17:18:31.793+09:00 TRACE 27798 --- [o-auto-1-exec-2] org.zalando.logbook.Logbook              : Incoming Response: be742b576f2c3a04
+Duration: 1 ms
+HTTP/1.1 200 OK
+connection: keep-alive
+content-length: 40
+Content-Type: application/json; charset=utf-8
+{&quot;id&quot;:&quot;***&quot;,&quot;username&quot;:&quot;hoge&quot;}
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>外部のAPIへのリクエストおよびレスポンスをログ出力する実装例<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>Logbookでは、様々なクライアントに登録するためのクラスが提供されています。
+ここではRestTemplate用に提供されている <code class="docutils literal notranslate"><span class="pre">LogbookClientHttpRequestInterceptor</span></code> クラスを使用します。</p>
+<dl>
+<dt>Bean定義</dt><dd><p>ここではRestTemplateを使用するため、Bean定義されているLogbookを元に <code class="docutils literal notranslate"><span class="pre">LogbookClientHttpRequestInterceptor</span></code> を生成し、RestTemplateにインターセプターとして登録します。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">RestTemplate</span><span class="w"> </span><span class="nf">restTemplate</span><span class="p">(</span><span class="n">RestTemplateBuilder</span><span class="w"> </span><span class="n">builder</span><span class="p">,</span><span class="w"> </span><span class="n">Logbook</span><span class="w"> </span><span class="n">logbook</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Logbookを設定したRestTemplateを準備する</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">builder</span>
+<span class="w">                </span><span class="p">.</span><span class="na">additionalInterceptors</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LogbookClientHttpRequestInterceptor</span><span class="p">(</span><span class="n">logbook</span><span class="p">))</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>Controller</dt><dd><p>Logbookを設定したRestTemplateを使用して、外部のAPIへリクエストを送信します。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/user&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">User</span><span class="w"> </span><span class="nf">get</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Logbookを設定したRestTemplateを使用する</span>
+<span class="w">    </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">restTemplate</span><span class="p">.</span><span class="na">getForEntity</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span><span class="w"> </span><span class="n">User</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">response</span><span class="p">.</span><span class="na">getBody</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>外部のAPIへGETリクエストを送信した場合は、以下のようなログが出力されます。</p>
+<p>リクエストのログ</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2023-12-14T17:18:31.791+09:00 TRACE 27798 --- [o-auto-1-exec-2] org.zalando.logbook.Logbook              : Outgoing Request: be742b576f2c3a04
+Remote: localhost
+GET http://localhost:52110/user HTTP/1.1
+Accept: application/json, application/*+json
+Content-Length: 0
+</pre></div>
+</div>
+<p>レスポンスのログ（設定に従って <code class="docutils literal notranslate"><span class="pre">id</span></code> 項目の値はマスクして出力される）</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2023-12-14T17:18:31.794+09:00 TRACE 27798 --- [o-auto-1-exec-2] org.zalando.logbook.Logbook              : Outgoing Response: 8a56e7263eb07a9e
+Duration: 3 ms
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: application/json
+Date: Thu, 14 Dec 2023 08:18:31 GMT
+Keep-Alive: timeout=60
+Transfer-Encoding: chunked
+{&quot;id&quot;:&quot;***&quot;,&quot;username&quot;:&quot;hoge&quot;}
+</pre></div>
+</div>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/common/api-logging">api-logging-sample</a> を参照してください。</p>
 </section>
 </section>
 

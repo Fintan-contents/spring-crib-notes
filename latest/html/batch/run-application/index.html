@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>起動方法 &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -238,67 +236,53 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>起動方法<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
+<h1>起動方法<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://spring.io/projects/spring-batch">Spring Batch</a>で作成されたバッチジョブの起動方法について説明します。</p>
 <section id="id2">
-<h2>実行するジョブを指定する<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
-<p>アプリケーションを起動すると、Bean登録されたすべてのジョブが実行されます。</p>
-<p>実行するジョブを指定したい場合は、アプリケーション起動時に実行したいジョブ名をパラメータ(--spring.batch.job.names)で指定します。
-もし複数のジョブを実行したい場合には、カンマ(,)区切りで指定します。</p>
-<dl>
-<dt>起動例</dt><dd><p>この例では、batch-application.jarに含まれるjob1とjob2が実行されます。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -jar batch-application.jar --spring.batch.job.names<span class="o">=</span>job1,job2
+<h2>ジョブを実行する<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>アプリケーションを起動すると、Bean登録されたジョブが実行されます。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java<span class="w"> </span>-jar<span class="w"> </span>multiple-jobs-batch-0.0.1-SNAPSHOT.jar
 </pre></div>
 </div>
-</dd>
-</dl>
+<p>もし複数のジョブを定義している場合、実行するジョブ名を指定しなければ以下のような実行時例外が発生します。</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>java.lang.IllegalArgumentException: Job name must be specified in case of multiple jobs
+</pre></div>
+</div>
+<p>そのため、以下のようにパラメータ( <code class="docutils literal notranslate"><span class="pre">--spring.batch.job.name</span></code> )で実行するジョブ名を指定して起動します。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java<span class="w"> </span>-jar<span class="w"> </span>multiple-jobs-batch-0.0.1-SNAPSHOT.jar<span class="w"> </span>--spring.batch.job.name<span class="o">=</span>job1
+</pre></div>
+</div>
 </section>
 <section id="id3">
-<h2>実行済みエラーが出る場合の対処方法<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
+<h2>実行済みエラーが出る場合の対処方法<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>Spring Batchでは、JobInstanceという考え方があり、同一のJobInstanceは再実行できないように制御されます。
 JobInstanceはジョブ名や起動パラメータから識別されるため、すべて同じ指定でジョブを実行すると以下のような実行時例外が発生し、ジョブが実行できなくなります。</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>java.lang.IllegalStateException: Failed to execute ApplicationRunner
-        at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:765) ~[spring-boot-2.7.5.jar!/:2.7.5]
-        at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:752) ~[spring-boot-2.7.5.jar!/:2.7.5]
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) ~[spring-boot-2.7.5.jar!/:2.7.5]
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.5.jar!/:2.7.5]
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.5.jar!/:2.7.5]
-        at keel.batch.doma2.Doma2SpringBatchApplication.main(Doma2SpringBatchApplication.java:11) ~[classes!/:0.0.1-SNAPSHOT]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
-        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-        at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
-        at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) ~[doma2-spring-batch-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
-        at org.springframework.boot.loader.Launcher.launch(Launcher.java:108) ~[doma2-spring-batch-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
-        at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) ~[doma2-spring-batch-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
-        at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65) ~[doma2-spring-batch-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
-Caused by: org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException: A job instance already exists and is complete for parameters={date=20221103}.  If you want to run this job again, change the parameters.
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException: A job instance already exists and is complete for identifying parameters={&#39;date&#39;:&#39;{value=20231213, type=class java.lang.String, identifying=true}&#39;}.  If you want to run this job again, change the parameters.
 </pre></div>
 </div>
 <p>このような例外が発生した場合には、ジョブ起動時に指定するパラメータを変更し、異なるJobInstanceにする必要があります。</p>
 <p>例えば1日に1回だけ実行したいジョブの場合、以下のように起動時に日付パラメータを指定し、値には現在日付を指定するようにします。
 これにより日付が変わる前に誤って実行した場合には実行済みエラーとなり、日付が変わった場合には新たに実行できるようになります。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># アプリケーション起動時にパラメータにシステム日付を設定する</span>
-java -jar batch-application.jar --spring.batch.job.names<span class="o">=</span>job1 <span class="nv">date</span><span class="o">=</span><span class="s2">&quot;`date &#39;+%Y%m%d&#39;`&quot;</span>
+java<span class="w"> </span>-jar<span class="w"> </span>multiple-jobs-batch-0.0.1-SNAPSHOT.jar<span class="w"> </span>--spring.batch.job.name<span class="o">=</span>job1<span class="w"> </span><span class="nv">date</span><span class="o">=</span><span class="s2">&quot;`date &#39;+%Y%m%d&#39;`&quot;</span>
 </pre></div>
 </div>
 <p>日付などに関係なく常に実行できるようにしたい場合には、<code class="docutils literal notranslate"><span class="pre">JsrJobParametersConverter</span></code> をBean定義します。
 これにより起動時に <code class="docutils literal notranslate"><span class="pre">jsr_batch_run_id</span></code> というパラメータが付与され、実行毎に一意なパラメータとなることで、同じジョブを何度でも実行することができます。</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Bean</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="n">JsrJobParametersConverter</span><span class="w"> </span><span class="nf">jsrJobParametersConverter</span><span class="p">(</span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 起動時に一意のパラメータ(jsr_batch_run_id)を設定する</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JsrJobParametersConverter</span><span class="p">(</span><span class="n">dataSource</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Bean</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">JsrJobParametersConverter</span><span class="w"> </span><span class="nf">jsrJobParametersConverter</span><span class="p">(</span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 起動時に一意のパラメータ(jsr_batch_run_id)を設定する</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JsrJobParametersConverter</span><span class="p">(</span><span class="n">dataSource</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>一意なパラメータを付与する設定方法としては、 <code class="docutils literal notranslate"><span class="pre">JsrJobParametersConverter</span></code> の他に <code class="docutils literal notranslate"><span class="pre">RunIdIncrementer</span></code> があります。
+<p>一意なパラメータを付与する設定方法としては、 <code class="docutils literal notranslate"><span class="pre">RunIdIncrementer</span></code> やSpring Batch 5.x から削除された <code class="docutils literal notranslate"><span class="pre">JsrJobParametersConverter</span></code> があります。
 <code class="docutils literal notranslate"><span class="pre">RunIdIncrementer</span></code> は前回起動時のパラメータを復元した上で新しいパラメータを設定するため、前回起動時に指定したパラメータを
 指定しなかった場合、そのパラメータは前回起動時の値で付与されることになります。
 そのため、特定ケースでのみパラメータを指定する等、状況によりパラメータ指定有無が変わるような状況では注意して使用する必要があります。
-なお、<code class="docutils literal notranslate"><span class="pre">JsrJobParametersConverter</span></code> はパラメータを復元するというような仕様はありませんが、Spring Batch 6.x で削除予定であるため、
-それを踏まえた上で使用する必要があります。</p>
+<code class="docutils literal notranslate"><span class="pre">JsrJobParametersConverter</span></code> にはパラメータを復元するというような仕様がないため、サンプルでは Spring Batch 5.x から同クラスを流用して使用しています。</p>
 </div>
 </section>
 </section>

@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amazon S3にファイルをアップロード及びAmazon S3からファイルをダウンロードする &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -238,43 +236,32 @@
            <div itemprop="articleBody">
              
   <section id="amazon-s3amazon-s3">
-<h1>Amazon S3にファイルをアップロード及びAmazon S3からファイルをダウンロードする<a class="headerlink" href="#amazon-s3amazon-s3" title="この見出しへのパーマリンク"></a></h1>
-<p><a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html">Spring Cloud AWS</a> を使用して、Amazon S3にファイルをアップロード及びAmazon S3からファイルをダウンロードする実装方法を説明します。</p>
+<h1>Amazon S3にファイルをアップロード及びAmazon S3からファイルをダウンロードする<a class="headerlink" href="#amazon-s3amazon-s3" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/3.1.0/reference/html/index.html">Spring Cloud AWS</a> を使用して、Amazon S3にファイルをアップロード及びAmazon S3からファイルをダウンロードする実装方法を説明します。</p>
 <p>サンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/aws/s3">aws-s3</a> を参照してください。</p>
 <section id="amazon-s3">
-<h2>Amazon S3を使用するための設定例<a class="headerlink" href="#amazon-s3" title="この見出しへのパーマリンク"></a></h2>
+<h2>Amazon S3を使用するための設定例<a class="headerlink" href="#amazon-s3" title="Link to this heading"></a></h2>
 <dl>
-<dt>pom.xml</dt><dd><p>依存ライブラリにspring-cloud-starter-awsを追加します。
-また、依存しているAWS SDKではJAXBが使用されますが、JDK 11からは標準ライブラリとして含まれていないため、依存ライブラリに追加します。</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">&lt;dependency&gt;</span>
-      <span class="nt">&lt;groupId&gt;</span>io.awspring.cloud<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-aws<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-      <span class="nt">&lt;groupId&gt;</span>javax.xml.bind<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>jaxb-api<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-      <span class="nt">&lt;groupId&gt;</span>org.glassfish.jaxb<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>jaxb-runtime<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
+<dt>pom.xml</dt><dd><p>依存ライブラリにspring-cloud-aws-starter-s3を追加します。</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">      </span><span class="nt">&lt;groupId&gt;</span>io.awspring.cloud<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">      </span><span class="nt">&lt;artifactId&gt;</span>spring-cloud-aws-starter-s3<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><code class="docutils literal notranslate"><span class="pre">spring-cloud-starter-aws</span></code> の依存関係定義で <code class="docutils literal notranslate"><span class="pre">version</span></code> を指定していませんが、
-サンプルではdependencyManagementに <code class="docutils literal notranslate"><span class="pre">spring-cloud-aws-dependencies</span></code> を指定して
-Spring Cloud AWS関連ライブラリのバージョンを制御しています。</p>
+<p><code class="docutils literal notranslate"><span class="pre">spring-cloud-aws-starter-s3</span></code> の <code class="docutils literal notranslate"><span class="pre">version</span></code> を指定していませんが、
+サンプルでは <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/3.1.0/reference/html/index.html#bill-of-materials">Spring Cloud AWSが提供するBOM</a> を使用してSpring Cloud AWS関連ライブラリのバージョンを制御しています。</p>
 </div>
 <dl>
 <dt>AWSのリージョン</dt><dd><p>AWSのリージョンを実行環境に設定します。
-デフォルトのリージョンはAWS SDKが提供する <code class="docutils literal notranslate"><span class="pre">DefaultAwsRegionProviderChain</span></code> により決定され、実行環境に設定されたAWSアカウント情報や、
-EC2のメタデータからリージョンを取得します。</p>
-<p>明示的に指定する場合は、 <code class="docutils literal notranslate"><span class="pre">cloud.aws.region.static</span></code> プロパティにリージョンを設定します。</p>
-<p>設定可能な値の詳細については <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html#configuring-region">Configuring region</a> を参照してください。</p>
+デフォルトのリージョンはAWS SDKが提供する <code class="docutils literal notranslate"><span class="pre">DefaultAwsRegionProviderChain</span></code> により決定され、実行環境に設定されたAWSアカウント情報や、EC2のメタデータからリージョンを取得します。</p>
+<p>明示的に指定する場合は、 <code class="docutils literal notranslate"><span class="pre">spring.cloud.aws.region.static</span></code> 、または <code class="docutils literal notranslate"><span class="pre">spring.cloud.aws.s3.region</span></code> プロパティにリージョンを設定します。</p>
+<p>設定可能な値の詳細については <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/3.1.0/reference/html/index.html#region">Spring Cloud AWS Core - Region</a> および <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/3.1.0/reference/html/index.html#configuration-2">S3 Integration - Configuration</a> を参照してください。</p>
 </dd>
 <dt>AWSアカウントのクレデンシャル情報</dt><dd><p>AWSアカウントのクレデンシャル情報を実行環境に設定します。
 クレデンシャル情報の設定方法はいくつかありますが、例えば環境変数を使用する方法であれば、以下の環境変数にクレデンシャル情報を設定します。</p>
@@ -282,139 +269,116 @@ EC2のメタデータからリージョンを取得します。</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">AWS_ACCESS_KEY_ID</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AWS_SECRET_ACCESS_KEY</span></code></p></li>
 </ul>
-<p>クレデンシャル情報の設定方法の詳細については <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html#sdk-credentials-configuration">SDK credentials configuration</a>
-を参照してください。</p>
+<p>クレデンシャル情報の設定方法の詳細については <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/3.1.0/reference/html/index.html#credentials">Spring Cloud AWS Core - Credentials</a> を参照してください。</p>
 </dd>
 </dl>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>IAMによるアクセス制御を行う場合、実行環境には必要な権限を付与する必要があります。
-必要な権限の詳細については <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html#iam-permissions-8">IAM Permissions</a> を参照してください。</p>
+必要な権限の詳細については <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/3.1.0/reference/html/index.html#iam-permissions-2">SES Integration - IAM Permissions</a> を参照してください。</p>
 </div>
 </section>
 <section id="s3-upload">
-<span id="id1"></span><h2>Amazon S3にファイルをアップロードする実装例<a class="headerlink" href="#s3-upload" title="この見出しへのパーマリンク"></a></h2>
-<p>この例では、Springが提供する <code class="docutils literal notranslate"><span class="pre">ResourceLoader</span></code> を使用して指定したファイルをアップロードします。
-リソースのロケーションに <code class="docutils literal notranslate"><span class="pre">s3</span></code> プロトコルを使用することで、Amazon S3のリソースを扱うことができます。</p>
+<span id="id1"></span><h2>Amazon S3にファイルをアップロードする実装例<a class="headerlink" href="#s3-upload" title="Link to this heading"></a></h2>
+<p>この例では、 <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/3.1.0/reference/html/index.html#using-s3template">Spring Cloud AWSが提供する S3Template</a>  を使用して指定したファイルをアップロードします。</p>
 <p>アップロード先のバケット名については環境によって異なることが想定されるため、ここではプロパティファイルで設定可能にします。</p>
 <blockquote>
-<div><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">s3.bucket-name</span><span class="o">=</span><span class="s">keel-s3-bucket-test</span><span class="w"></span>
+<div><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">s3.bucket-name</span><span class="o">=</span><span class="s">keel-s3-bucket-test</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>プロパティファイルに合わせて、プロパティ値をバインドするためのBeanを定義します。</p>
 <blockquote>
-<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">keel.aws.s3</span><span class="p">;</span><span class="w"></span>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">keel.aws.s3</span><span class="p">;</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.context.properties.ConfigurationProperties</span><span class="p">;</span><span class="w"></span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Component</span><span class="p">;</span><span class="w"></span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.boot.context.properties.ConfigurationProperties</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.stereotype.Component</span><span class="p">;</span>
 
-<span class="nd">@Component</span><span class="w"></span>
-<span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;s3&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AwsS3Properties</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="nd">@Component</span>
+<span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;s3&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AwsS3Properties</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">bucketName</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">bucketName</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getBucketName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bucketName</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getBucketName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bucketName</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setBucketName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">bucketName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">bucketName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bucketName</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setBucketName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">bucketName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">bucketName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bucketName</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p>アップロード先とするAmazon S3上のオブジェクトは、 <code class="docutils literal notranslate"><span class="pre">ResourceLoader</span></code> のリソースとして <code class="docutils literal notranslate"><span class="pre">s3://&lt;バケット名&gt;/&lt;オブジェクトキー名&gt;</span></code> の形式で指定します。
-（例えば <code class="docutils literal notranslate"><span class="pre">s3://keel-s3-bucket-test/upload/upload.txt</span></code> のようになります）</p>
-<p>指定したリソースに対して書き込むことで、Amazon S3にファイルをアップロードします。</p>
+<p><code class="docutils literal notranslate"><span class="pre">S3Template</span></code> を使用してAmazon S3にファイルをアップロードします。</p>
 <blockquote>
-<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Service</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AwsS3UploadService</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Service</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AwsS3UploadService</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">AwsS3UploadService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">AwsS3UploadService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ResourceLoader</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">S3Template</span><span class="w"> </span><span class="n">s3Template</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">AwsS3Properties</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">AwsS3Properties</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AwsS3UploadService</span><span class="p">(</span><span class="n">ResourceLoader</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">,</span><span class="w"> </span><span class="n">AwsS3Properties</span><span class="w"> </span><span class="n">properties</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">resourceLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AwsS3UploadService</span><span class="p">(</span><span class="n">S3Template</span><span class="w"> </span><span class="n">s3Template</span><span class="p">,</span><span class="w"> </span><span class="n">AwsS3Properties</span><span class="w"> </span><span class="n">properties</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">s3Template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s3Template</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">uploadFile</span><span class="p">(</span><span class="n">Path</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;{}をS3にアップロードします。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="na">getFileName</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">uploadFile</span><span class="p">(</span><span class="n">Path</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;{}をS3にアップロードします。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="na">getFileName</span><span class="p">());</span>
 
-<span class="w">        </span><span class="n">WritableResource</span><span class="w"> </span><span class="n">writableResource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">WritableResource</span><span class="p">)</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">.</span><span class="na">getResource</span><span class="p">(</span><span class="n">createObjectLocation</span><span class="p">(</span><span class="n">path</span><span class="p">));</span><span class="w"></span>
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">OutputStream</span><span class="w"> </span><span class="n">outputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">writableResource</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">Files</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">outputStream</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;ファイルのアップロードに成功しました。&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UncheckedIOException</span><span class="p">(</span><span class="s">&quot;S3へのファイルアップロードに失敗しました。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">createObjectLocation</span><span class="p">(</span><span class="n">Path</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;s3://&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">properties</span><span class="p">.</span><span class="na">getBucketName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/upload/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="na">getFileName</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">InputStream</span><span class="w"> </span><span class="n">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Files</span><span class="p">.</span><span class="na">newInputStream</span><span class="p">(</span><span class="n">path</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">s3Template</span><span class="p">.</span><span class="na">upload</span><span class="p">(</span><span class="n">properties</span><span class="p">.</span><span class="na">getBucketName</span><span class="p">(),</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="na">getFileName</span><span class="p">()),</span><span class="w"> </span><span class="n">inputStream</span><span class="p">);</span>
+<span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;ファイルのアップロードに成功しました。&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UncheckedIOException</span><span class="p">(</span><span class="s">&quot;S3へのファイルアップロードに失敗しました。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><code class="docutils literal notranslate"><span class="pre">ResourceLoader</span></code> を使用したアップロードでは、マルチパートアップロードを使用することができません。
-巨大なファイルをアップロードする等の理由でマルチパートアップロードを使用したい場合、AWS SDKから提供されている
-<code class="docutils literal notranslate"><span class="pre">TransferManager</span></code> を使用する等の方法で実装することができます。
-詳細については <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html#uploading-with-the-transfermanager">Uploading with the TransferManager</a> を参照してください。</p>
-</div>
 </section>
 <section id="id2">
-<h2>Amazon S3からファイルをダウンロードする実装例<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
-<p>この例では、Springが提供する <code class="docutils literal notranslate"><span class="pre">ResourceLoader</span></code> を使用して指定したファイルをダウンロードします。</p>
-<p><code class="docutils literal notranslate"><span class="pre">ResourceLoader</span></code> でのリソースの指定方法やバケット名の設定については、 <a class="reference internal" href="#s3-upload"><span class="std std-ref">Amazon S3へのアップロード実装例</span></a> と同じになります。
-Amazon S3上のオブジェクトを表すリソースを指定し、リソースに対して読み込むことで、Amazon S3からファイルをダウンロードします。</p>
+<h2>Amazon S3からファイルをダウンロードする実装例<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>この例では、Spring Cloud AWSが提供する <code class="docutils literal notranslate"><span class="pre">S3Template</span></code> を使用して指定したファイルをダウンロードします。</p>
+<p>バケット名の設定については、 <a class="reference internal" href="#s3-upload"><span class="std std-ref">Amazon S3へのアップロード実装例</span></a> と同じになります。</p>
 <blockquote>
-<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Service</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AwsS3DownloadService</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Service</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AwsS3DownloadService</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">AwsS3DownloadService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">AwsS3DownloadService</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ResourceLoader</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">S3Template</span><span class="w"> </span><span class="n">s3Template</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">AwsS3Properties</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">AwsS3Properties</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AwsS3DownloadService</span><span class="p">(</span><span class="n">ResourceLoader</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">,</span><span class="w"> </span><span class="n">AwsS3Properties</span><span class="w"> </span><span class="n">properties</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">resourceLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AwsS3DownloadService</span><span class="p">(</span><span class="n">S3Template</span><span class="w"> </span><span class="n">s3Template</span><span class="p">,</span><span class="w"> </span><span class="n">AwsS3Properties</span><span class="w"> </span><span class="n">properties</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">s3Template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s3Template</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">properties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">properties</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">downloadFile</span><span class="p">(</span><span class="n">Path</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">Path</span><span class="w"> </span><span class="n">downloadPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;download-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="na">getFileName</span><span class="p">());</span><span class="w"></span>
-<span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;アップロードされた{}をダウンロードし、{}に保存します。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="na">getFileName</span><span class="p">(),</span><span class="w"> </span><span class="n">downloadPath</span><span class="p">.</span><span class="na">getFileName</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">downloadFile</span><span class="p">(</span><span class="n">Path</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Path</span><span class="w"> </span><span class="n">downloadPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;download-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="na">getFileName</span><span class="p">());</span>
+<span class="w">        </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;アップロードされた{}をダウンロードし、{}に保存します。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="na">getFileName</span><span class="p">(),</span><span class="w"> </span><span class="n">downloadPath</span><span class="p">.</span><span class="na">getFileName</span><span class="p">());</span>
 
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Files</span><span class="p">.</span><span class="na">exists</span><span class="p">(</span><span class="n">downloadPath</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;既に{}が存在するためファイルの保存をスキップします。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">downloadPath</span><span class="p">.</span><span class="na">getFileName</span><span class="p">());</span><span class="w"></span>
-<span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Files</span><span class="p">.</span><span class="na">exists</span><span class="p">(</span><span class="n">downloadPath</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;既に{}が存在するためファイルの保存をスキップします。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">downloadPath</span><span class="p">.</span><span class="na">getFileName</span><span class="p">());</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="n">WritableResource</span><span class="w"> </span><span class="n">writableResource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">WritableResource</span><span class="p">)</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">.</span><span class="na">getResource</span><span class="p">(</span><span class="n">createObjectLocation</span><span class="p">(</span><span class="n">path</span><span class="p">));</span><span class="w"></span>
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">InputStream</span><span class="w"> </span><span class="n">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">writableResource</span><span class="p">.</span><span class="na">getInputStream</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">Files</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">inputStream</span><span class="p">,</span><span class="w"> </span><span class="n">downloadPath</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;ファイルの保存に成功しました。&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UncheckedIOException</span><span class="p">(</span><span class="s">&quot;S3からのファイルダウンロードに失敗しました。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">createObjectLocation</span><span class="p">(</span><span class="n">Path</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;s3://&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">properties</span><span class="p">.</span><span class="na">getBucketName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;/upload/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">path</span><span class="p">.</span><span class="na">getFileName</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">InputStream</span><span class="w"> </span><span class="n">inputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s3Template</span><span class="p">.</span><span class="na">download</span><span class="p">(</span>
+<span class="w">                </span><span class="n">properties</span><span class="p">.</span><span class="na">getBucketName</span><span class="p">(),</span><span class="w"> </span><span class="n">Objects</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="na">getFileName</span><span class="p">())).</span><span class="na">getInputStream</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Files</span><span class="p">.</span><span class="na">copy</span><span class="p">(</span><span class="n">inputStream</span><span class="p">,</span><span class="w"> </span><span class="n">downloadPath</span><span class="p">);</span>
+<span class="w">            </span><span class="n">logger</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;ファイルの保存に成功しました。&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UncheckedIOException</span><span class="p">(</span><span class="s">&quot;S3からのファイルダウンロードに失敗しました。&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div></blockquote>

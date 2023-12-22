@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>メッセージ管理 &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">アプリの種類によらないノウハウ</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -238,29 +236,29 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>メッセージ管理<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
+<h1>メッセージ管理<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p>このページでは、メッセージの管理方法について記載します。
-メッセージは、Bean Validationを使った入力値チェックで使用するエラーメッセージと、それ以外のメッセージで管理方法が異なります。</p>
+メッセージは、Jakarta Bean Validationを使った入力値チェックで使用するエラーメッセージと、それ以外のメッセージで管理方法が異なります。</p>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
-<section id="bean-validation">
-<h2>Bean Validationを使った入力値チェックのエラーメッセージ<a class="headerlink" href="#bean-validation" title="この見出しへのパーマリンク"></a></h2>
-<p>Spring Bootでは、入力値のチェックとしてBean Validationをサポートしており、実装ライブラリとして <a class="reference external" href="https://docs.jboss.org/hibernate/validator/6.2/reference/en-US/html_single/">Hibernate Validator</a> を採用しています。
-デフォルトでは、Hibernate Validatorで定義されているロケール毎のValidationMessages.properties（例えば <a class="reference external" href="https://github.com/hibernate/hibernate-validator/blob/6.2.4.Final/engine/src/main/resources/org/hibernate/validator/ValidationMessages_ja.properties">ValidationMessages_ja.properties</a> ）からエラーメッセージが生成されます。</p>
+<section id="jakarta-bean-validation">
+<h2>Jakarta Bean Validationを使った入力値チェックのエラーメッセージ<a class="headerlink" href="#jakarta-bean-validation" title="Link to this heading"></a></h2>
+<p>Spring Bootでは、入力値のチェックとしてJakarta Bean Validationをサポートしており、実装ライブラリとして <a class="reference external" href="https://docs.jboss.org/hibernate/validator/8.0/reference/en-US/html_single/">Hibernate Validator</a> を採用しています。
+デフォルトでは、Hibernate Validatorで定義されているロケール毎のValidationMessages.properties（例えば <a class="reference external" href="https://github.com/hibernate/hibernate-validator/blob/8.0.1.Final//engine/src/main/resources/org/hibernate/validator/ValidationMessages_ja.properties">ValidationMessages_ja.properties</a> ）からエラーメッセージが生成されます。</p>
 <p>デフォルトのエラーメッセージを変更したい場合は、以下のどちらかのファイルに、デフォルトから変更したいエラーメッセージを定義します。</p>
 <ul class="simple">
 <li><p>Springのメッセージ定義ファイル（クラスパス直下のmessages.properties）</p></li>
 <li><p>Hibernate Validatorのメッセージ定義ファイル（クラスパス直下のValidationMessages.propertiesやValidationMessages_ja.properties等）</p></li>
 </ul>
-<p>エラーメッセージの解決では、まずSpringのメッセージ定義ファイルが使用されます。（エラーメッセージ解決の詳細については <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/reference/html/core.html#validation-conversion">エラーメッセージの解決</a> を参考にしてください）</p>
-<p>Springのメッセージ定義ファイルにエラーメッセージが定義されていなければ、Hibernate Validatorのメッセージ定義ファイルが使用されます。（Hibernate Validatorのエラーメッセージ解決の詳細については <a class="reference external" href="https://docs.jboss.org/hibernate/validator/6.2/reference/en-US/html_single/#chapter-message-interpolation">エラーメッセージの補完</a> を参考にしてください）</p>
-<p>エラーメッセージには、Bean ValidationやHibernate Validatorの入力チェックアノテーションで定義されている属性名を、プレースホルダとして定義できます。
-例えば、 <a class="reference external" href="https://docs.jboss.org/hibernate/validator/6.2/api/org/hibernate/validator/constraints/Length.html">&#64;Length</a> を用いて入力値チェックを実施した場合は、プレースホルダとして <cite>{min}、{max}</cite> が使用できます。</p>
+<p>エラーメッセージの解決では、まずSpringのメッセージ定義ファイルが使用されます。（エラーメッセージ解決の詳細については <a class="reference external" href="https://docs.spring.io/spring-framework/reference/6.1/core/validation/conversion.html">エラーメッセージの解決</a> を参考にしてください）</p>
+<p>Springのメッセージ定義ファイルにエラーメッセージが定義されていなければ、Hibernate Validatorのメッセージ定義ファイルが使用されます。（Hibernate Validatorのエラーメッセージ解決の詳細については <a class="reference external" href="https://docs.jboss.org/hibernate/validator/8.0/reference/en-US/html_single/#chapter-message-interpolation">エラーメッセージの補完</a> を参考にしてください）</p>
+<p>エラーメッセージには、Jakarta Bean ValidationやHibernate Validatorの入力チェックアノテーションで定義されている属性名を、プレースホルダとして定義できます。
+例えば、 <a class="reference external" href="https://docs.jboss.org/hibernate/validator/8.0/api/org/hibernate/validator/constraints/Length.html">&#64;Length</a> を用いて入力値チェックを実施した場合は、プレースホルダとして <cite>{min}、{max}</cite> が使用できます。</p>
 <section id="id2">
-<h3>実装例<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h3>
+<h3>実装例<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <dl>
-<dt>ValidationMessages.properties</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">javax.validation.constraints.NotEmpty.message</span><span class="o">=</span><span class="s">必須項目です。</span><span class="w"></span>
-<span class="na">javax.validation.constraints.NotNull.message</span><span class="o">=</span><span class="s">必須項目です。</span><span class="w"></span>
-<span class="na">org.hibernate.validator.constraints.Length.message</span><span class="o">=</span><span class="s">{max}文字以内で入力してください。</span><span class="w"></span>
+<dt>ValidationMessages.properties</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">javax.validation.constraints.NotEmpty.message</span><span class="o">=</span><span class="s">必須項目です。</span>
+<span class="na">javax.validation.constraints.NotNull.message</span><span class="o">=</span><span class="s">必須項目です。</span>
+<span class="na">org.hibernate.validator.constraints.Length.message</span><span class="o">=</span><span class="s">{max}文字以内で入力してください。</span>
 </pre></div>
 </div>
 </dd>
@@ -269,35 +267,35 @@
 </section>
 </section>
 <section id="id3">
-<h2>その他のメッセージ<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
-<p>Bean Validationを使った入力値チェック以外で使用するメッセージは、Springのメッセージ定義ファイル（クラスパス直下のmessages.properties）にメッセージを定義します。
+<h2>その他のメッセージ<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>Jakarta Bean Validationを使った入力値チェック以外で使用するメッセージは、Springのメッセージ定義ファイル（クラスパス直下のmessages.properties）にメッセージを定義します。
 例えば、データベースを使用した入力値のチェックや入力値の型変換エラーが発生した場合、登録処理の完了時に使用するメッセージ等はmessages.propertiesに定義します。
 messages.propertiesに定義したメッセージは、SpringのMessageSourceを使用して取得します。</p>
 <p>messages.propertiesでは、プレースホルダを <cite>{0}、{1}</cite> のような連番で定義します。
 プレースホルダに値を埋め込みたい場合は、 <cite>MessageSource#getMessage</cite> の第二引数に埋め込む値を設定します。</p>
 <section id="id4">
-<h3>実装例<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h3>
+<h3>実装例<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <dl>
-<dt>messages.properties</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">typeMismatch.java.lang.Integer</span><span class="o">=</span><span class="s">数値で入力してください。</span><span class="w"></span>
-<span class="na">typeMismatch.keel.validation.value.MailAddress</span><span class="o">=</span><span class="s">メールアドレス形式(sample@example.com)で入力してください。</span><span class="w"></span>
-<span class="na">role.notFound</span><span class="o">=</span><span class="s">ロールにはadmin以外登録出来ません。</span><span class="w"></span>
-<span class="na">mailAddress.duplicated</span><span class="o">=</span><span class="s">入力されたメールアドレスは登録済みです。</span><span class="w"></span>
-<span class="na">add.success</span><span class="o">=</span><span class="s">{0}の登録を完了しました。</span><span class="w"></span>
+<dt>messages.properties</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">typeMismatch.java.lang.Integer</span><span class="o">=</span><span class="s">数値で入力してください。</span>
+<span class="na">typeMismatch.keel.validation.value.MailAddress</span><span class="o">=</span><span class="s">メールアドレス形式(sample@example.com)で入力してください。</span>
+<span class="na">role.notFound</span><span class="o">=</span><span class="s">ロールにはadmin以外登録出来ません。</span>
+<span class="na">mailAddress.duplicated</span><span class="o">=</span><span class="s">入力されたメールアドレスは登録済みです。</span>
+<span class="na">add.success</span><span class="o">=</span><span class="s">{0}の登録を完了しました。</span>
 </pre></div>
 </div>
 </dd>
-<dt>MessageSourceを使用したメッセージの取得</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MessageSource</span><span class="w"> </span><span class="n">messageSource</span><span class="p">;</span><span class="w"></span>
+<dt>MessageSourceを使用したメッセージの取得</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MessageSource</span><span class="w"> </span><span class="n">messageSource</span><span class="p">;</span>
 
-<span class="kd">public</span><span class="w"> </span><span class="nf">AddUserController</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">,</span><span class="w"> </span><span class="n">MessageSource</span><span class="w"> </span><span class="n">messageSource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">userService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">messageSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">messageSource</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kd">public</span><span class="w"> </span><span class="nf">AddUserController</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">,</span><span class="w"> </span><span class="n">MessageSource</span><span class="w"> </span><span class="n">messageSource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">userService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">messageSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">messageSource</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// MessageSourceから完了メッセージを取得して、Flashスコープに設定します。</span><span class="w"></span>
-<span class="c1">// プレースホルダに、「ユーザ」を設定します。</span><span class="w"></span>
-<span class="n">redirectAttributes</span><span class="p">.</span><span class="na">addFlashAttribute</span><span class="p">(</span><span class="s">&quot;successMessage&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span><span class="s">&quot;add.success&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="p">{</span><span class="s">&quot;ユーザ&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">()));</span><span class="w"></span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// MessageSourceから完了メッセージを取得して、Flashスコープに設定します。</span>
+<span class="c1">// プレースホルダに、「ユーザ」を設定します。</span>
+<span class="n">redirectAttributes</span><span class="p">.</span><span class="na">addFlashAttribute</span><span class="p">(</span><span class="s">&quot;successMessage&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span><span class="s">&quot;add.success&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="p">{</span><span class="s">&quot;ユーザ&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">()));</span>
 </pre></div>
 </div>
 </dd>

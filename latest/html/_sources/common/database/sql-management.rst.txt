@@ -11,7 +11,7 @@ DDLの管理
 DDLの管理として、バージョン管理が可能なマイグレーションツールである\ `Flyway <https://flywaydb.org>`_\ について記載します。
 Flyway の基本的な使用方法については、以下を参照してください。
 
-* `Flyway Documentation <https://flywaydb.org/documentation/>`_
+* `Flyway Documentation <https://documentation.red-gate.com/flyway>`_
 
 Spring BootはFlywayをサポートしており、アプリケーションの起動時に `FlywayのMigrateコマンド <https://flywaydb.org/documentation/command/migrate>`_ を自動実行します。
 Flywayのその他のコマンドや、 アプリケーションの起動時ではなく任意のタイミングでFlywayのMigrateコマンドを実行したい場合は、`FlywayのMaven Plugin <https://flywaydb.org/documentation/usage/maven/>`_\ を使用する事で実行が可能です。
@@ -19,7 +19,7 @@ Flywayのその他のコマンドや、 アプリケーションの起動時で�
 参考情報
 
 * :spring-boot-doc:`9.5.1. Execute Flyway Database Migrations on Startup <reference/html/howto.html#howto.data-initialization.migration-tool>`
-* `Flyway Documentation - Maven Plugin <https://flywaydb.org/documentation/usage/maven/>`_
+* `Flyway Documentation - Maven Plugin <https://documentation.red-gate.com/fd/maven-goal-184127408.html>`_
 
 .. warning::
 

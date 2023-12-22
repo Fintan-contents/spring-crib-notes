@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>セッションの情報をRedisに保存する &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -239,7 +237,7 @@
            <div itemprop="articleBody">
              
   <section id="redis">
-<h1>セッションの情報をRedisに保存する<a class="headerlink" href="#redis" title="この見出しへのパーマリンク"></a></h1>
+<h1>セッションの情報をRedisに保存する<a class="headerlink" href="#redis" title="Link to this heading"></a></h1>
 <p>セッション情報を <a class="reference external" href="https://redis.io/">Redis</a> に保存する方法について説明します。</p>
 <p>セッション情報をRedisに保存することで、アプリケーションのスケールが可能となります。
 Redisへのセッション情報の保存や取得は、 <a class="reference external" href="https://projects.spring.io/spring-session/">Spring Session</a> が行ってくれるので、アプリケーション開発者が意識する必要はありません。</p>
@@ -249,29 +247,32 @@ Redisへのセッション情報の保存や取得は、 <a class="reference ext
 このためアプリケーションをスケールした場合にセッション情報が引き継がれない等の問題が発生します。</p>
 </div>
 <section id="id2">
-<h2>セッションの保存先をRedisにする<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
-<p><a class="reference external" href="https://docs.spring.io/spring-session/reference/2.7.0/guides/boot-redis.html#boot-spring-configuration">Spring Session - Spring Boot Configuration</a> を参考にライブラリの追加と設定の追加を行います。</p>
+<h2>セッションの保存先をRedisにする<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://docs.spring.io/spring-session/reference/3.2/guides/boot-redis.html#boot-spring-configuration">Spring Session - Spring Boot Configuration</a> を参考にライブラリの追加と設定の追加を行います。</p>
 </section>
 <section id="id3">
-<h2>ローカル開発環境について<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
+<h2>ローカル開発環境について<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <p>Dockerの <a class="reference external" href="https://hub.docker.com/_/redis/">Redis公式イメージ</a> を使用することで簡単にRedis環境を構築出来ます。
-この場合は、ローカル開発環境とテストや本番環境でRedisの接続先の設定が変わるので、<a class="reference external" href="https://docs.spring.io/spring-boot/docs/2.7.6/reference/html/features.html#features.external-config.files.profile-specific">2.3.3. Profile Specific Files</a>で設定値を切り替える等の対応が必要となります。</p>
+この場合は、ローカル開発環境とテストや本番環境でRedisの接続先の設定が変わるので、<a class="reference external" href="https://docs.spring.io/spring-boot/docs/3.2.0/reference/html/features.html#features.external-config.files.profile-specific">2.3.3. Profile Specific Files</a>で設定値を切り替える等の対応が必要となります。</p>
 <p>例えば、本番と開発PCで設定を切り替える場合には以下のような構成になります。
-接続先の設定については、 <a class="reference external" href="https://docs.spring.io/spring-session/reference/2.7.0/guides/boot-redis.html#boot-redis-configuration">Configuring the Redis Connection</a> を参照してください。</p>
+接続先の設定については、 <a class="reference external" href="https://docs.spring.io/spring-session/reference/3.2/guides/boot-redis.html#boot-redis-configuration">Configuring the Redis Connection</a> を参照してください。</p>
 <dl>
-<dt>application.properties(本番用)</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">spring.redis.host</span><span class="o">=</span><span class="s">redis.server</span><span class="w"></span>
+<dt>application.properties(本番用)</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">spring.redis.host</span><span class="o">=</span><span class="s">redis.server</span>
 </pre></div>
 </div>
 </dd>
-<dt>application-dev.properties(開発用)</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">spring.redis.host</span><span class="o">=</span><span class="s">localhost</span><span class="w"></span>
+<dt>application-dev.properties(開発用)</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">spring.redis.host</span><span class="o">=</span><span class="s">localhost</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Redis環境を開発者全員に構築させるのが面倒な場合には、下のようにSpring Session機能を無効化することで対応も可能です。</p>
-<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">spring.session.store-type</span><span class="o">=</span><span class="s">none</span><span class="w"></span>
+<p>Spring Boot 3.x では、Auto Configure により保存先に対応する実装がクラスパス上から自動的に選択されます。
+（ 選択順は <a class="reference external" href="https://docs.spring.io/spring-boot/docs/3.2.0/reference/html/web.html#web.spring-session">Spring Session</a> を参照してください）
+Redis環境を開発者全員に構築させるのが難しい場合、開発用のプロファイルでは Auto Configure の対象から除外することで無効化することも可能です。</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="c1"># Redis用の spring-session-data-redis を使用している場合</span>
+<span class="na">spring.autoconfigure.exclude</span><span class="o">=</span><span class="s">org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration</span>
 </pre></div>
 </div>
 </div>

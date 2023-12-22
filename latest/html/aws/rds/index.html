@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amazon RDSにアクセスする &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -238,85 +236,13 @@
            <div itemprop="articleBody">
              
   <section id="amazon-rds">
-<h1>Amazon RDSにアクセスする<a class="headerlink" href="#amazon-rds" title="この見出しへのパーマリンク"></a></h1>
-<p><a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html">Spring Cloud AWS</a> を使用して、Amazon RDSを使用するための実装方法を説明します。</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Spring Bootのデータソース設定に接続情報を設定するだけでもAmazon RDSへ接続することができますが、
-Spring Cloud AWSを使用することで、リードレプリカの自動検出やフェイルオーバー中の再試行といった機能を使用することができます。
-詳細については <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html">JDBC によるデータアクセス</a> を参照してください。</p>
+<h1>Amazon RDSにアクセスする<a class="headerlink" href="#amazon-rds" title="Link to this heading"></a></h1>
+<div class="admonition important">
+<p class="admonition-title">重要</p>
+<p><a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/3.1.0/reference/html/index.html">Spring Cloud AWS</a> では、2.x までRDSへアクセスする機能が提供されていましたが、3.x から削除されています。</p>
+<p>代替として、主にAurora向けではありますがAWSから提供されているJDBCの機能を拡張した <a class="reference external" href="https://github.com/awslabs/aws-advanced-jdbc-wrapper">AWS JDBC Driver</a> が挙げられます。フェイルオーバー処理やリードレプリカへのアクセス切り替えが実現できるため、Auroraを使用される場合は参考にしてください。
+（ <a class="reference external" href="https://github.com/awspring/spring-cloud-aws/issues/322">Spring Cloud AWSのIssue</a> でも言及されております）</p>
 </div>
-<p>サンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
-<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/aws/rds">aws-rds</a> を参照してください。</p>
-<section id="id1">
-<h2>Amazon RDSを使用するための設定例<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
-<dl>
-<dt>pom.xml</dt><dd><p>依存ライブラリに spring-cloud-starter-aws-jdbc を追加します。</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>io.awspring.cloud<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>spring-cloud-starter-aws-jdbc<span class="nt">&lt;/artifactId&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</pre></div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>このサンプルでは、データベースアクセスには <a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/">Doma2</a> を使用しています。
-Spring BootでDoma2を使用する実装例については <a class="reference internal" href="../../common/database/doma2.html#database-doma2"><span class="std std-ref">データベースアクセスにDoma2を使用する</span></a> を参照してください。</p>
-</div>
-</dd>
-<dt>application.properties</dt><dd><p>AWSのリージョン名とデータベースの接続先を設定します。</p>
-<p>デフォルトのリージョンはAWS SDKが提供する <code class="docutils literal notranslate"><span class="pre">DefaultAwsRegionProviderChain</span></code> により決定され、実行環境に設定されたAWSアカウント情報や、EC2のメタデータからリージョンを取得します。
-明示的に指定する場合は、 <code class="docutils literal notranslate"><span class="pre">cloud.aws.region.static</span></code> プロパティにリージョンを設定します。</p>
-<p>接続先の情報は <code class="docutils literal notranslate"><span class="pre">cloud.aws.rds.instances[x]</span></code> プロパティに設定します。
-接続先は複数設定することができるため、 <code class="docutils literal notranslate"><span class="pre">cloud.aws.rds.instances[0]</span></code> のようにインデックスを指定します。
-リードレプリカがサポートされているデータベースを使用する場合は、 <code class="docutils literal notranslate"><span class="pre">cloud.aws.rds.instances[x].readReplicaSupport</span></code> の値を <code class="docutils literal notranslate"><span class="pre">true</span></code> に設定することで、読み取り専用トランザクションでのアクセス先をリードレプリカに向けることができます。</p>
-<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">cloud.aws.rds.instances[0].dbInstanceIdentifier</span><span class="o">=</span><span class="s">springpj-rds-postgres</span><span class="w"></span>
-<span class="na">cloud.aws.rds.instances[0].database-name</span><span class="o">=</span><span class="s">keel</span><span class="w"></span>
-<span class="na">cloud.aws.rds.instances[0].password</span><span class="o">=</span><span class="s">keel_password</span><span class="w"></span>
-<span class="na">cloud.aws.rds.instances[0].readReplicaSupport</span><span class="o">=</span><span class="s">true</span><span class="w"></span>
-</pre></div>
-</div>
-<p>なお、このサンプルではローカル開発環境からはRDSではなく別途用意したデータベースに接続する実装としています。
-コストやテスト容易性を考慮してローカル開発環境ではRDSを使用しない場合も多いと考えられるため、このような実装としています。
-そのため、 <code class="docutils literal notranslate"><span class="pre">application-local.properties</span></code> では <code class="docutils literal notranslate"><span class="pre">cloud.aws.rds.instances[x]</span></code> プロパティを使用せず、
-Spring Bootのデータソース設定である <code class="docutils literal notranslate"><span class="pre">spring.datasource</span></code> プロパティを使用しています。</p>
-<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">spring.datasource.url</span><span class="o">=</span><span class="s">jdbc:postgresql://localhost:5432/postgres</span><span class="w"></span>
-<span class="na">spring.datasource.username</span><span class="o">=</span><span class="s">postgres</span><span class="w"></span>
-<span class="na">spring.datasource.password</span><span class="o">=</span><span class="s">password</span><span class="w"></span>
-</pre></div>
-</div>
-</dd>
-<dt>AWSアカウントのクレデンシャル情報</dt><dd><p>AWSアカウントのクレデンシャル情報を実行環境に設定します。
-クレデンシャル情報の設定方法はいくつかありますが、例えば環境変数を使用する方法であれば、以下の環境変数にクレデンシャル情報を設定します。</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">AWS_ACCESS_KEY_ID</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AWS_SECRET_ACCESS_KEY</span></code></p></li>
-</ul>
-<p>クレデンシャル情報の設定方法の詳細については <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html#sdk-credentials-configuration">SDK credentials configuration</a>
-を参照してください。</p>
-</dd>
-</dl>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>IAMによるアクセス制御を行う場合、実行環境には必要な権限を付与する必要があります。
-必要な権限の詳細については <a class="reference external" href="https://docs.awspring.io/spring-cloud-aws/docs/2.4.2/reference/html/index.html#iam-permissions-6">IAM Permissions</a> を参照してください。</p>
-</div>
-</section>
-<section id="id2">
-<h2>実装例<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
-<p>Spring Cloud AWSを使用していても、前述のプロパティ以外で特別な実装はありません。
-一般的なデータベースにアクセスする際のクラスやSQLの実装方法に差異はありません。</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>リードレプリカに対してSQLを発行したい場合には、以下のように読み取り専用トランザクションを設定します。</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Transactional</span><span class="p">(</span><span class="n">readOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">UsersEntity</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findAll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">userDao</span><span class="p">.</span><span class="na">findAll</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</div>
-</section>
 </section>
 
 

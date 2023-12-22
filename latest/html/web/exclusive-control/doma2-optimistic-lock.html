@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Doma2の楽観ロックで排他制御する &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -239,18 +237,18 @@
            <div itemprop="articleBody">
              
   <section id="doma2">
-<h1>Doma2の楽観ロックで排他制御する<a class="headerlink" href="#doma2" title="この見出しへのパーマリンク"></a></h1>
-<p>Doma2の<a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/entity/#version">&#64;Versionアノテーション</a>を使用した楽観ロック方式で実現します。</p>
+<h1>Doma2の楽観ロックで排他制御する<a class="headerlink" href="#doma2" title="Link to this heading"></a></h1>
+<p>Doma2の<a class="reference external" href="https://doma.readthedocs.io/en/2.53.1/entity/#version">&#64;Versionアノテーション</a>を使用した楽観ロック方式で実現します。</p>
 <p>Doma2の楽観ロックについては、以下の公式ドキュメントを参照してください。</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/query/update/">更新</a></p></li>
-<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/query/delete/">削除</a></p></li>
-<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/query/batch-update/">バッチ更新</a></p></li>
-<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/query/batch-delete/">バッチ削除</a></p></li>
+<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.1/query/update/">更新</a></p></li>
+<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.1/query/delete/">削除</a></p></li>
+<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.1/query/batch-update/">バッチ更新</a></p></li>
+<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.1/query/batch-delete/">バッチ削除</a></p></li>
 </ul>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <section id="id1">
-<h2>処理フロー<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
+<h2>処理フロー<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>初期表示</p>
 <ul>
@@ -272,49 +270,49 @@
 </ul>
 </section>
 <section id="id2">
-<h2>実装例<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
+<h2>実装例<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>Controllerでの <code class="docutils literal notranslate"><span class="pre">userService.update(User)</span></code> の実行時にDoma2の楽観排他制御が行われます。楽観排他に失敗した場合は、Doma2がOptimisticLockExceptionを送出します。
 OptimisticLockExceptionは、 <code class="docutils literal notranslate"><span class="pre">doma-spring-boot-starter</span></code> がSpringのOptimisticLockingFailureExceptionに変換して再送出します。
 詳細は、 <a class="reference internal" href="../../common/database/doma2.html#doma2-exception-translator"><span class="std std-ref">Doma2が送出する例外の変換</span></a> を参照してください。</p>
 <p>送出されたOptimisticLockingFailureExceptionはアプリケーション全体で横断的に処理することで、個別の機能で例外処理する必要がなくなります。詳細は、 <a class="reference internal" href="../error-handling/index.html"><span class="doc">例外ハンドリング</span></a> を参照してください。</p>
 <dl>
-<dt>Controller</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Controller</span><span class="w"></span>
-<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/user&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="nd">@SessionAttributes</span><span class="p">(</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;form&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Formクラスをセッションに格納します</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserUpdateController</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<dt>Controller</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="p">(</span><span class="s">&quot;/user&quot;</span><span class="p">)</span>
+<span class="nd">@SessionAttributes</span><span class="p">(</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;form&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// Formクラスをセッションに格納します</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserUpdateController</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">UserUpdateController</span><span class="p">(</span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">userService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">UserUpdateController</span><span class="p">(</span><span class="n">UserService</span><span class="w"> </span><span class="n">userService</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">userService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userService</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@ModelAttribute</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;form&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">UserUpdateForm</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserUpdateForm</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@ModelAttribute</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;form&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">UserUpdateForm</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserUpdateForm</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/edit&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">edit</span><span class="p">(</span><span class="nd">@ModelAttribute</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;form&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">UserUpdateForm</span><span class="w"> </span><span class="n">form</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userService</span><span class="p">.</span><span class="na">find</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// セッションに格納されているFormクラスに取得した情報を設定します</span><span class="w"></span>
-<span class="w">        </span><span class="n">form</span><span class="p">.</span><span class="na">setUserId</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">userId</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">form</span><span class="p">.</span><span class="na">setUserName</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">userName</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">form</span><span class="p">.</span><span class="na">setVersionNo</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">versionNo</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;user/edit&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/edit&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">edit</span><span class="p">(</span><span class="nd">@ModelAttribute</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;form&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">UserUpdateForm</span><span class="w"> </span><span class="n">form</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">userService</span><span class="p">.</span><span class="na">find</span><span class="p">();</span>
+<span class="w">        </span><span class="c1">// セッションに格納されているFormクラスに取得した情報を設定します</span>
+<span class="w">        </span><span class="n">form</span><span class="p">.</span><span class="na">setUserId</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">userId</span><span class="p">);</span>
+<span class="w">        </span><span class="n">form</span><span class="p">.</span><span class="na">setUserName</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">userName</span><span class="p">);</span>
+<span class="w">        </span><span class="n">form</span><span class="p">.</span><span class="na">setVersionNo</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="na">versionNo</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;user/edit&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/update&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="nd">@ModelAttribute</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;form&quot;</span><span class="p">)</span><span class="w"> </span><span class="nd">@Validated</span><span class="w"> </span><span class="n">UserUpdateForm</span><span class="w"> </span><span class="n">form</span><span class="p">,</span><span class="w"> </span><span class="n">BindingResult</span><span class="w"> </span><span class="n">bindingResult</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bindingResult</span><span class="p">.</span><span class="na">hasErrors</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;user/edit&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 画面の入力値と、セッションに格納されている情報を使用してデータを更新します</span><span class="w"></span>
-<span class="w">        </span><span class="n">userService</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">UserDto</span><span class="p">(</span><span class="n">form</span><span class="p">.</span><span class="na">getUserId</span><span class="p">(),</span><span class="w"> </span><span class="n">form</span><span class="p">.</span><span class="na">getUserName</span><span class="p">(),</span><span class="w"> </span><span class="n">form</span><span class="p">.</span><span class="na">getVersionNo</span><span class="p">()));</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// データ更新に成功した場合は、初期表示にリダイレクトします</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;redirect:/user/edit?success&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@PostMapping</span><span class="p">(</span><span class="s">&quot;/update&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="nd">@ModelAttribute</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;form&quot;</span><span class="p">)</span><span class="w"> </span><span class="nd">@Validated</span><span class="w"> </span><span class="n">UserUpdateForm</span><span class="w"> </span><span class="n">form</span><span class="p">,</span><span class="w"> </span><span class="n">BindingResult</span><span class="w"> </span><span class="n">bindingResult</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">bindingResult</span><span class="p">.</span><span class="na">hasErrors</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;user/edit&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// 画面の入力値と、セッションに格納されている情報を使用してデータを更新します</span>
+<span class="w">        </span><span class="n">userService</span><span class="p">.</span><span class="na">update</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">UserDto</span><span class="p">(</span><span class="n">form</span><span class="p">.</span><span class="na">getUserId</span><span class="p">(),</span><span class="w"> </span><span class="n">form</span><span class="p">.</span><span class="na">getUserName</span><span class="p">(),</span><span class="w"> </span><span class="n">form</span><span class="p">.</span><span class="na">getVersionNo</span><span class="p">()));</span>
+<span class="w">        </span><span class="c1">// データ更新に成功した場合は、初期表示にリダイレクトします</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;redirect:/user/edit?success&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
@@ -325,34 +323,34 @@ OptimisticLockExceptionは、 <code class="docutils literal notranslate"><span c
 <span class="cm"> * なお、サンプルアプリケーションでは{@link org.springframework.web.bind.annotation.ControllerAdvice}を使用して、</span>
 <span class="cm"> * 全てのControllerを横断したエラーハンドリングを実施しています。</span>
 <span class="cm"> * @see keel.controller.ErrorControllerAdvice</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="nd">@Update</span><span class="w"></span>
-<span class="n">Result</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="p">);</span><span class="w"></span>
+<span class="cm"> */</span>
+<span class="nd">@Update</span>
+<span class="n">Result</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="p">);</span>
 </pre></div>
 </div>
 </dd>
-<dt>Entity</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 楽観ロック用のバージョンカラムには、@Versionを付与します。</span><span class="w"></span>
-<span class="nd">@Version</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">versionNo</span><span class="p">;</span><span class="w"></span>
+<dt>Entity</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 楽観ロック用のバージョンカラムには、@Versionを付与します。</span>
+<span class="nd">@Version</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="n">versionNo</span><span class="p">;</span>
 </pre></div>
 </div>
 </dd>
-<dt>ControllerAdvice</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@ControllerAdvice</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ErrorControllerAdvice</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<dt>ControllerAdvice</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@ControllerAdvice</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ErrorControllerAdvice</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">LOGGER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">ErrorControllerAdvice</span><span class="p">.</span><span class="na">class</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Logger</span><span class="w"> </span><span class="n">LOGGER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LoggerFactory</span><span class="p">.</span><span class="na">getLogger</span><span class="p">(</span><span class="n">ErrorControllerAdvice</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * 楽観ロック例外が発生した場合は、HTTPステータスコードに409を設定します。</span>
 <span class="cm">     *</span>
 <span class="cm">     * @param e 楽観ロック例外</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">OptimisticLockingFailureException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@ResponseStatus</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">CONFLICT</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;楽観排他エラー&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">optimisticLockingFailureExceptionHandler</span><span class="p">(</span><span class="n">OptimisticLockingFailureException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">LOGGER</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="s">&quot;排他制御エラーが発生しました&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">OptimisticLockingFailureException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@ResponseStatus</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">CONFLICT</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;楽観排他エラー&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">optimisticLockingFailureExceptionHandler</span><span class="p">(</span><span class="n">OptimisticLockingFailureException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">LOGGER</span><span class="p">.</span><span class="na">debug</span><span class="p">(</span><span class="s">&quot;排他制御エラーが発生しました&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>

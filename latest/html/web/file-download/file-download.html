@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ファイルをダウンロードする &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -239,18 +237,18 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>ファイルをダウンロードする<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h1>
+<h1>ファイルをダウンロードする<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p>このページでは、ファイルをダウンロードする方法について説明します。</p>
-<p>ファイルのダウンロード処理は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/view/AbstractView.html">AbstractView</a> を継承したカスタムViewクラスで実施します。
-AbstractViewを継承したクラスをSpringのDIコンテナに登録しておくと、 <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/view/BeanNameViewResolver.html">BeanNameViewResolver</a> が
+<p>ファイルのダウンロード処理は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/servlet/view/AbstractView.html">AbstractView</a> を継承したカスタムViewクラスで実施します。
+AbstractViewを継承したクラスをSpringのDIコンテナに登録しておくと、 <a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/servlet/view/BeanNameViewResolver.html">BeanNameViewResolver</a> が
 Controllerから返却されたBean名と一致する場合に、Viewとして選択してくれます。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Spring Web MVCやThymeleafでは、Controllerから返却された値に対応するViewを解決するため、いくつかのViewResolverが提供されています。Spring Bootを使用する場合、これらのViewResolverは自動で構成され、優先度の高いViewResolverから使用されます。Spring Web MVCが提供しているものについては <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/reference/html/web.html#mvc-viewresolver">View Resolution</a> を、Thymeleafが提供しているものについては <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html#views-and-view-resolvers">Views and View Resolvers</a> を参照してください。</p>
+<p>Spring Web MVCやThymeleafでは、Controllerから返却された値に対応するViewを解決するため、いくつかのViewResolverが提供されています。Spring Bootを使用する場合、これらのViewResolverは自動で構成され、優先度の高いViewResolverから使用されます。Spring Web MVCが提供しているものについては <a class="reference external" href="https://docs.spring.io/spring-framework/reference/6.1/web/webmvc/mvc-servlet/viewresolver.html">View Resolution</a> を、Thymeleafが提供しているものについては <a class="reference external" href="https://www.thymeleaf.org/doc/tutorials/3.1/thymeleafspring.html#views-and-view-resolvers">Views and View Resolvers</a> を参照してください。</p>
 </div>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <section id="id2">
-<h2>処理フロー<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
+<h2>処理フロー<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Controllerはファイルのダウンロード処理を実施するカスタムViewクラスのBean名を返却します。(このサンプルではテキストファイルのダウンロード処理を実施するBean名を返却します。)</p></li>
 <li><p>BeanNameViewResolverは、Controllerから返却されたBean名に一致するカスタムViewクラスを選択します。</p></li>
@@ -258,58 +256,59 @@ Controllerから返却されたBean名と一致する場合に、Viewとして�
 </ol>
 </section>
 <section id="id3">
-<h2>実装例<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h2>
+<h2>実装例<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <dl>
-<dt>Controller</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/download&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<dt>Controller</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@GetMapping</span><span class="p">(</span><span class="s">&quot;/download&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="n">Model</span><span class="w"> </span><span class="n">model</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="c1">// Viewで使用するダウンロードファイルパスをModelに設定します</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// （もしユーザが画面で入力したファイルパス等を使用する場合は、ディレクトリトラバーサル攻撃への対策も考慮してください）</span><span class="w"></span>
-<span class="w">    </span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="n">TextFileDownloadView</span><span class="p">.</span><span class="na">DOWNLOAD_FILE_INFO_KEY</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">FileDownloadAttributes</span><span class="p">(</span><span class="n">targetFilePath</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ダウンロード.txt&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Viewで使用するダウンロードファイルパスをModelに設定します</span>
+<span class="w">    </span><span class="c1">// （もしユーザが画面で入力したファイルパス等を使用する場合は、ディレクトリトラバーサル攻撃への対策も考慮してください）</span>
+<span class="w">    </span><span class="n">model</span><span class="p">.</span><span class="na">addAttribute</span><span class="p">(</span><span class="n">TextFileDownloadView</span><span class="p">.</span><span class="na">DOWNLOAD_FILE_INFO_KEY</span><span class="p">,</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">FileDownloadAttributes</span><span class="p">(</span><span class="n">targetFilePath</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ダウンロード.txt&quot;</span><span class="p">));</span>
 
-<span class="w">    </span><span class="c1">// ViewのBean名を返します</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;textFileDownloadView&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ViewのBean名を返します</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;textFileDownloadView&quot;</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
-<dt>TextFileDownloadView</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// @Componentを設定して、コンポーネントスキャン対象にします</span><span class="w"></span>
-<span class="nd">@Component</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TextFileDownloadView</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractView</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<dt>TextFileDownloadView</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// @Componentを設定して、コンポーネントスキャン対象にします</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TextFileDownloadView</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractView</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">DOWNLOAD_FILE_INFO_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;fileInfo&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">DOWNLOAD_FILE_INFO_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;fileInfo&quot;</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ResourceLoader</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ResourceLoader</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">TextFileDownloadView</span><span class="p">(</span><span class="n">ResourceLoader</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">resourceLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">TextFileDownloadView</span><span class="p">(</span><span class="n">ResourceLoader</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">resourceLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">renderMergedOutputModel</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                           </span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">FileDownloadAttributes</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">FileDownloadAttributes</span><span class="p">)</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">DOWNLOAD_FILE_INFO_KEY</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">renderMergedOutputModel</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">model</span><span class="p">,</span>
+<span class="w">                                           </span><span class="n">HttpServletRequest</span><span class="w"> </span><span class="n">request</span><span class="p">,</span><span class="w"> </span><span class="n">HttpServletResponse</span><span class="w"> </span><span class="n">response</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">FileDownloadAttributes</span><span class="w"> </span><span class="n">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">FileDownloadAttributes</span><span class="p">)</span><span class="w"> </span><span class="n">model</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">DOWNLOAD_FILE_INFO_KEY</span><span class="p">);</span>
 
-<span class="w">        </span><span class="c1">// レスポンスヘッダを設定します</span><span class="w"></span>
-<span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/plain&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 日本語のファイル名に対応するため、Content-DispositionはRFC6266の形式に沿って設定する</span><span class="w"></span>
-<span class="w">        </span><span class="n">ContentDisposition</span><span class="w"> </span><span class="n">contentDisposition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ContentDisposition</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">attachment</span><span class="p">()</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">filename</span><span class="p">(</span><span class="n">attributes</span><span class="p">.</span><span class="na">getDownloadFileName</span><span class="p">(),</span><span class="w"> </span><span class="n">StandardCharsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">)</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="n">HttpHeaders</span><span class="p">.</span><span class="na">CONTENT_DISPOSITION</span><span class="p">,</span><span class="w"> </span><span class="n">contentDisposition</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// レスポンスヘッダを設定します</span>
+<span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">setContentType</span><span class="p">(</span><span class="s">&quot;text/plain&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// 日本語のファイル名に対応するため、Content-DispositionはRFC6266の形式に沿って設定する</span>
+<span class="w">        </span><span class="n">ContentDisposition</span><span class="w"> </span><span class="n">contentDisposition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ContentDisposition</span>
+<span class="w">                </span><span class="p">.</span><span class="na">attachment</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">filename</span><span class="p">(</span><span class="n">attributes</span><span class="p">.</span><span class="na">getDownloadFileName</span><span class="p">(),</span><span class="w"> </span><span class="n">StandardCharsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<span class="w">        </span><span class="n">response</span><span class="p">.</span><span class="na">setHeader</span><span class="p">(</span><span class="n">HttpHeaders</span><span class="p">.</span><span class="na">CONTENT_DISPOSITION</span><span class="p">,</span><span class="w"> </span><span class="n">contentDisposition</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
 
-<span class="w">        </span><span class="c1">// ダウンロード対象のファイルを読込み、レスポンスボディに書込みます</span><span class="w"></span>
-<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">InputStream</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">.</span><span class="na">getResource</span><span class="p">(</span><span class="n">attributes</span><span class="p">.</span><span class="na">getTargetFilePath</span><span class="p">()).</span><span class="na">getInputStream</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">in</span><span class="p">.</span><span class="na">transferTo</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">());</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// ダウンロード対象のファイルを読込み、レスポンスボディに書込みます</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">(</span><span class="n">InputStream</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resourceLoader</span><span class="p">.</span><span class="na">getResource</span><span class="p">(</span><span class="n">attributes</span><span class="p">.</span><span class="na">getTargetFilePath</span><span class="p">()).</span><span class="na">getInputStream</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">in</span><span class="p">.</span><span class="na">transferTo</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="na">getOutputStream</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
 </dl>
+<p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/web/file-download">file-download</a> を参照してください。</p>
 </section>
 </section>
 

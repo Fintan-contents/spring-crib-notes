@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nablarchのコード管理機能を使用する &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul class="current">
@@ -238,25 +236,25 @@
            <div itemprop="articleBody">
              
   <section id="nablarch">
-<h1>Nablarchのコード管理機能を使用する<a class="headerlink" href="#nablarch" title="この見出しへのパーマリンク"></a></h1>
+<h1>Nablarchのコード管理機能を使用する<a class="headerlink" href="#nablarch" title="Link to this heading"></a></h1>
 <p>TISでは、豊富な基幹システム構築経験から得られたナレッジを集約したJavaアプリケーション開発/実行基盤として <a class="reference external" href="https://fintan.jp/page/1868/">Nablrch</a> を提供しています。
 SpringからNablarchの機能を利用することで、Springに不足している機能を補うことができます。</p>
-<p>この例では、Nablarchの機能である <a class="reference external" href="https://nablarch.github.io/docs/5u21/doc/application_framework/application_framework/libraries/code.html">コード管理</a> を使用して、コード情報を管理する実装方法を説明します。</p>
+<p>この例では、Nablarchの機能である <a class="reference external" href="https://nablarch.github.io/docs/6/doc/application_framework/application_framework/libraries/code.html">コード管理</a> を使用して、コード情報を管理する実装方法を説明します。</p>
 <p>コード管理機能ではデータベース上でコード情報を管理し、言語毎の名称取得や、コード値をバリデーションすることができます。</p>
 <p>サンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/nablarch/nablarch-code">nablarch-code</a> を参照してください。</p>
 <section id="id1">
-<h2>Nablarchを使用するための準備<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
+<h2>Nablarchを使用するための準備<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <dl>
 <dt>pom.xml</dt><dd><blockquote>
 <div><p>Nablarchのモジュールバージョンを管理するために、dependencyManagementにnablarch-bomを追加します。</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>  <span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>com.nablarch.profile<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>nablarch-bom<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>5u21<span class="nt">&lt;/version&gt;</span>
-    <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
-    <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
-  <span class="nt">&lt;/dependency&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>com.nablarch.profile<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>nablarch-bom<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>6<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+<span class="w">    </span><span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -264,12 +262,12 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <blockquote>
 <div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Nablarch：コード管理 --&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>nablarch-common-code<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>nablarch-common-code<span class="nt">&lt;/artifactId&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 <span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>nablarch-common-code-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;groupId&gt;</span>com.nablarch.framework<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">  </span><span class="nt">&lt;artifactId&gt;</span>nablarch-common-code-jdbc<span class="nt">&lt;/artifactId&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
@@ -279,159 +277,159 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Nablarchでは独自のログ出力機能を提供していますが、別のログライブラリを使用するためのアダプタが提供されています。この例では、SLF4Jを使用するためのアダプタである nablarch-slf4j-adaptor を使用しています。
-詳細は <a class="reference external" href="https://nablarch.github.io/docs/5u21/doc/application_framework/adaptors/log_adaptor.html">logアダプタ</a> を参照してください。</p>
+詳細は <a class="reference external" href="https://nablarch.github.io/docs/6/doc/application_framework/adaptors/log_adaptor.html">logアダプタ</a> を参照してください。</p>
 </div>
 </section>
 <section id="id2">
-<h2>コード管理で使用するテーブルの作成<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
+<h2>コード管理で使用するテーブルの作成<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <p>コード管理はデータベースで行うため、コードパターンテーブルとコード名称テーブルを用意します。</p>
 <p>この例では、Flywayによるマイグレーションで起動時にデータベースを構築しているため、マイグレーション用のSQLファイルを作成します。
 同じコード値でもパターンを切り替えることで表示内容を切り替えることができるように、1つのコード値に対してパターンを2つ用意しています。</p>
-<p>テーブル構造の詳細については <a class="reference external" href="https://nablarch.github.io/docs/5u21/doc/application_framework/application_framework/libraries/code.html#code-setup-table">コード管理機能を使用する為の初期設定を行う</a> を参照してください。</p>
+<p>テーブル構造の詳細については <a class="reference external" href="https://nablarch.github.io/docs/6/doc/application_framework/application_framework/libraries/code.html#code-setup-table">コード管理機能を使用する為の初期設定を行う</a> を参照してください。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>テーブル名やカラム名はあくまで一例であり、スキーマ情報を保持するBeanを定義する際に任意のカラム名を設定することができます。</p>
 </div>
 <dl>
-<dt>V001__create_code_table.sql</dt><dd><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">code_pattern</span><span class="w"></span>
-<span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="n">code_id</span><span class="w">    </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">code_value</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern01</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern02</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern03</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern04</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern05</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern06</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern07</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern08</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern09</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern10</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern11</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern12</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern13</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern14</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern15</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern16</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern17</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern18</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern19</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">pattern20</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">)</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<dt>V001__create_code_table.sql</dt><dd><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">code_pattern</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="n">code_id</span><span class="w">    </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">code_value</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pattern01</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">pattern02</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern03</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern04</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern05</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern06</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern07</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern08</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern09</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern10</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern11</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern12</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern13</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern14</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern15</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern16</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern17</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern18</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern19</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">pattern20</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+<span class="w">    </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">)</span>
+<span class="p">);</span>
 
-<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">code_name</span><span class="w"></span>
-<span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="n">code_id</span><span class="w">    </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">code_value</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">lang</span><span class="w">       </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">sort_order</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">code_name</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="n">short_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">option01</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">option02</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">option03</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">option04</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">option05</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">option06</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">option07</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">option08</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">option09</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="n">option10</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span><span class="w"></span>
-<span class="w">    </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">lang</span><span class="p">)</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">code_name</span>
+<span class="p">(</span>
+<span class="w">    </span><span class="n">code_id</span><span class="w">    </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">code_value</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">lang</span><span class="w">       </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">sort_order</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">code_name</span><span class="w">  </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">    </span><span class="n">short_name</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="w">    </span><span class="n">option01</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="n">option02</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="n">option03</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="n">option04</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="n">option05</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="n">option06</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="n">option07</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="n">option08</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="n">option09</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="n">option10</span><span class="w">   </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span>
+<span class="w">    </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">lang</span><span class="p">)</span>
+<span class="p">);</span>
 
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_pattern</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">pattern01</span><span class="p">,</span><span class="w"> </span><span class="n">pattern02</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MALE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_pattern</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">pattern01</span><span class="p">,</span><span class="w"> </span><span class="n">pattern02</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FEMALE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_pattern</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">pattern01</span><span class="p">,</span><span class="w"> </span><span class="n">pattern02</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;OTHER&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_pattern</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">pattern01</span><span class="p">,</span><span class="w"> </span><span class="n">pattern02</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MALE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_pattern</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">pattern01</span><span class="p">,</span><span class="w"> </span><span class="n">pattern02</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FEMALE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_pattern</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">pattern01</span><span class="p">,</span><span class="w"> </span><span class="n">pattern02</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;OTHER&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">);</span>
 
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_name</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">lang</span><span class="p">,</span><span class="w"> </span><span class="n">sort_order</span><span class="p">,</span><span class="w"> </span><span class="n">code_name</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MALE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ja&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;男性&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_name</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">lang</span><span class="p">,</span><span class="w"> </span><span class="n">sort_order</span><span class="p">,</span><span class="w"> </span><span class="n">code_name</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FEMALE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ja&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;女性&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_name</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">lang</span><span class="p">,</span><span class="w"> </span><span class="n">sort_order</span><span class="p">,</span><span class="w"> </span><span class="n">code_name</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;OTHER&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ja&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;その他&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_name</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">lang</span><span class="p">,</span><span class="w"> </span><span class="n">sort_order</span><span class="p">,</span><span class="w"> </span><span class="n">code_name</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MALE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ja&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;男性&#39;</span><span class="p">);</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_name</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">lang</span><span class="p">,</span><span class="w"> </span><span class="n">sort_order</span><span class="p">,</span><span class="w"> </span><span class="n">code_name</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FEMALE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ja&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;女性&#39;</span><span class="p">);</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">code_name</span><span class="w"> </span><span class="p">(</span><span class="n">code_id</span><span class="p">,</span><span class="w"> </span><span class="n">code_value</span><span class="p">,</span><span class="w"> </span><span class="n">lang</span><span class="p">,</span><span class="w"> </span><span class="n">sort_order</span><span class="p">,</span><span class="w"> </span><span class="n">code_name</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CODE01&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;OTHER&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ja&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;その他&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 </section>
 <section id="nablarch-dao-settings">
-<span id="id3"></span><h2>データアクセス機能を動作させるための設定<a class="headerlink" href="#nablarch-dao-settings" title="この見出しへのパーマリンク"></a></h2>
+<span id="id3"></span><h2>データアクセス機能を動作させるための設定<a class="headerlink" href="#nablarch-dao-settings" title="Link to this heading"></a></h2>
 <p>Nablarchのコード管理機能は、NablarchのDIコンテナ機能とデータアクセス機能を使用して動作するようになっています。Nablarchにはそれらを動作させるための設定が組み込まれていますが、Springからそのまま使用することは出来ないため、Nablarchに組み込まれている設定と同等の設定をSpring側で行います。</p>
 <p>データアクセス機能を使用できるようにするため、Springのトランザクション管理機能と統合させるためのクラスを作成します。</p>
 <dl>
 <dt>UnmanagedSimpleDbTransactionManager</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * Springのトランザクション管理機能と統合するSimpleDbTransactionManagerサブクラス。</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UnmanagedSimpleDbTransactionManager</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">SimpleDbTransactionManager</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UnmanagedSimpleDbTransactionManager</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">SimpleDbTransactionManager</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * トランザクション名</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">DB_TRANSACTION_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TransactionContext</span><span class="p">.</span><span class="na">DEFAULT_TRANSACTION_CONTEXT_KEY</span><span class="p">;</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">DB_TRANSACTION_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TransactionContext</span><span class="p">.</span><span class="na">DEFAULT_TRANSACTION_CONTEXT_KEY</span><span class="p">;</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * ConnectionFactory</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ConnectionFactory</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">;</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ConnectionFactory</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">;</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * Springのトランザクションマネージャ</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">;</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">;</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * トランザクションの状態を保持するスレッドローカル</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">TransactionStatus</span><span class="o">&gt;</span><span class="w"> </span><span class="n">transactionStatusHolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;</span><span class="n">TransactionStatus</span><span class="o">&gt;</span><span class="w"> </span><span class="n">transactionStatusHolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ThreadLocal</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * コンストラクタ。</span>
 <span class="cm">     * </span>
 <span class="cm">     * @param connectionFactory ConnectionFactory</span>
 <span class="cm">     * @param transactionManager Springのトランザクションマネージャ</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">UnmanagedSimpleDbTransactionManager</span><span class="p">(</span><span class="n">ConnectionFactory</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">connectionFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">transactionManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">UnmanagedSimpleDbTransactionManager</span><span class="p">(</span><span class="n">ConnectionFactory</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">,</span>
+<span class="w">            </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">connectionFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">transactionManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beginTransaction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// トランザクションを開始、または既存トランザクションへ参加し、状態をスレッドローカルへ保存する</span><span class="w"></span>
-<span class="w">        </span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">transactionStatusHolder</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">status</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">beginTransaction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// トランザクションを開始、または既存トランザクションへ参加し、状態をスレッドローカルへ保存する</span>
+<span class="w">        </span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">.</span><span class="na">getTransaction</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">        </span><span class="n">transactionStatusHolder</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
 
-<span class="w">        </span><span class="c1">// Nablarchで使用するためAppDbConnectionを作成してDbConnectionContextへセット</span><span class="w"></span>
-<span class="w">        </span><span class="n">AppDbConnection</span><span class="w"> </span><span class="n">dbConnection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">DB_TRANSACTION_NAME</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">DbConnectionContext</span><span class="p">.</span><span class="na">setConnection</span><span class="p">(</span><span class="n">DB_TRANSACTION_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">dbConnection</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Nablarchで使用するためAppDbConnectionを作成してDbConnectionContextへセット</span>
+<span class="w">        </span><span class="n">AppDbConnection</span><span class="w"> </span><span class="n">dbConnection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">.</span><span class="na">getConnection</span><span class="p">(</span><span class="n">DB_TRANSACTION_NAME</span><span class="p">);</span>
+<span class="w">        </span><span class="n">DbConnectionContext</span><span class="p">.</span><span class="na">setConnection</span><span class="p">(</span><span class="n">DB_TRANSACTION_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">dbConnection</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">commitTransaction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// トランザクションを開始した場合はコミットを行う。</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 既存トランザクションへ参加した場合は何も行わない。</span><span class="w"></span>
-<span class="w">        </span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transactionStatusHolder</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">status</span><span class="p">.</span><span class="na">isNewTransaction</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">transactionManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">status</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">commitTransaction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// トランザクションを開始した場合はコミットを行う。</span>
+<span class="w">        </span><span class="c1">// 既存トランザクションへ参加した場合は何も行わない。</span>
+<span class="w">        </span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transactionStatusHolder</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">status</span><span class="p">.</span><span class="na">isNewTransaction</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">transactionManager</span><span class="p">.</span><span class="na">commit</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">rollbackTransaction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// トランザクションを開始した場合はロールバックを行う。</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 既存トランザクションへ参加した場合は何も行わない。</span><span class="w"></span>
-<span class="w">        </span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transactionStatusHolder</span><span class="p">.</span><span class="na">get</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">status</span><span class="p">.</span><span class="na">isNewTransaction</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">transactionManager</span><span class="p">.</span><span class="na">rollback</span><span class="p">(</span><span class="n">status</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">rollbackTransaction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// トランザクションを開始した場合はロールバックを行う。</span>
+<span class="w">        </span><span class="c1">// 既存トランザクションへ参加した場合は何も行わない。</span>
+<span class="w">        </span><span class="n">TransactionStatus</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transactionStatusHolder</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">status</span><span class="p">.</span><span class="na">isNewTransaction</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">transactionManager</span><span class="p">.</span><span class="na">rollback</span><span class="p">(</span><span class="n">status</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">endTransaction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">transactionStatusHolder</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">DbConnectionContext</span><span class="p">.</span><span class="na">removeConnection</span><span class="p">(</span><span class="n">DB_TRANSACTION_NAME</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">endTransaction</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">transactionStatusHolder</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span>
+<span class="w">        </span><span class="n">DbConnectionContext</span><span class="p">.</span><span class="na">removeConnection</span><span class="p">(</span><span class="n">DB_TRANSACTION_NAME</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
@@ -440,8 +438,8 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <dl>
 <dt>DbAccessConfiguration</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * Nablarchのデータアクセス機能を使用するための設定。</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DbAccessConfiguration</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DbAccessConfiguration</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * SimpleDbTransactionManagerを構築する。</span>
@@ -449,35 +447,35 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <span class="cm">     * @param connectionFactory ConnectionFactory</span>
 <span class="cm">     * @param transactionManager PlatformTransactionManager</span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">SimpleDbTransactionManager</span><span class="w"> </span><span class="nf">dbManager</span><span class="p">(</span><span class="n">ConnectionFactory</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                                </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UnmanagedSimpleDbTransactionManager</span><span class="p">(</span><span class="n">connectionFactory</span><span class="p">,</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">SimpleDbTransactionManager</span><span class="w"> </span><span class="nf">dbManager</span><span class="p">(</span><span class="n">ConnectionFactory</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">,</span>
+<span class="w">                                                </span><span class="n">PlatformTransactionManager</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UnmanagedSimpleDbTransactionManager</span><span class="p">(</span><span class="n">connectionFactory</span><span class="p">,</span><span class="w"> </span><span class="n">transactionManager</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * BasicSqlStatementExceptionFactoryを構築する。</span>
 <span class="cm">     * </span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicSqlStatementExceptionFactory</span><span class="w"> </span><span class="nf">sqlStatementExceptionFactory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicSqlStatementExceptionFactory</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicSqlStatementExceptionFactory</span><span class="w"> </span><span class="nf">sqlStatementExceptionFactory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicSqlStatementExceptionFactory</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * BasicSqlParameterParserFactoryを構築する。</span>
 <span class="cm">     * </span>
 <span class="cm">     * @param sqlConvertors SqlConvertorのリスト</span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicSqlParameterParserFactory</span><span class="w"> </span><span class="nf">sqlParameterParserFactory</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">SqlConvertor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sqlConvertors</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">BasicSqlParameterParserFactory</span><span class="w"> </span><span class="n">sqlParameterParserFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicSqlParameterParserFactory</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">sqlParameterParserFactory</span><span class="p">.</span><span class="na">setSqlConvertors</span><span class="p">(</span><span class="n">sqlConvertors</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sqlParameterParserFactory</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicSqlParameterParserFactory</span><span class="w"> </span><span class="nf">sqlParameterParserFactory</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">SqlConvertor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sqlConvertors</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BasicSqlParameterParserFactory</span><span class="w"> </span><span class="n">sqlParameterParserFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicSqlParameterParserFactory</span><span class="p">();</span>
+<span class="w">        </span><span class="n">sqlParameterParserFactory</span><span class="p">.</span><span class="na">setSqlConvertors</span><span class="p">(</span><span class="n">sqlConvertors</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sqlParameterParserFactory</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * BasicStatementFactoryを構築する。</span>
@@ -485,37 +483,37 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <span class="cm">     * @param sqlStatementExceptionFactory SqlStatementExceptionFactory</span>
 <span class="cm">     * @param sqlParameterParserFactory SqlParameterParserFactory</span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;nablarch.db.statement-factory&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicStatementFactory</span><span class="w"> </span><span class="nf">statementFactory</span><span class="p">(</span><span class="n">SqlStatementExceptionFactory</span><span class="w"> </span><span class="n">sqlStatementExceptionFactory</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                                  </span><span class="n">SqlParameterParserFactory</span><span class="w"> </span><span class="n">sqlParameterParserFactory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">BasicStatementFactory</span><span class="w"> </span><span class="n">statementFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicStatementFactory</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">statementFactory</span><span class="p">.</span><span class="na">setSqlStatementExceptionFactory</span><span class="p">(</span><span class="n">sqlStatementExceptionFactory</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">statementFactory</span><span class="p">.</span><span class="na">setUpdatePreHookObjectHandlerList</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">());</span><span class="w"></span>
-<span class="w">        </span><span class="n">statementFactory</span><span class="p">.</span><span class="na">setSqlParameterParserFactory</span><span class="p">(</span><span class="n">sqlParameterParserFactory</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">statementFactory</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;nablarch.db.statement-factory&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicStatementFactory</span><span class="w"> </span><span class="nf">statementFactory</span><span class="p">(</span><span class="n">SqlStatementExceptionFactory</span><span class="w"> </span><span class="n">sqlStatementExceptionFactory</span><span class="p">,</span>
+<span class="w">                                                  </span><span class="n">SqlParameterParserFactory</span><span class="w"> </span><span class="n">sqlParameterParserFactory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BasicStatementFactory</span><span class="w"> </span><span class="n">statementFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicStatementFactory</span><span class="p">();</span>
+<span class="w">        </span><span class="n">statementFactory</span><span class="p">.</span><span class="na">setSqlStatementExceptionFactory</span><span class="p">(</span><span class="n">sqlStatementExceptionFactory</span><span class="p">);</span>
+<span class="w">        </span><span class="n">statementFactory</span><span class="p">.</span><span class="na">setUpdatePreHookObjectHandlerList</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">());</span>
+<span class="w">        </span><span class="n">statementFactory</span><span class="p">.</span><span class="na">setSqlParameterParserFactory</span><span class="p">(</span><span class="n">sqlParameterParserFactory</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">statementFactory</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * BasicDbAccessExceptionFactoryを構築する。</span>
 <span class="cm">     * </span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicDbAccessExceptionFactory</span><span class="w"> </span><span class="nf">dbAccessExceptionFactory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicDbAccessExceptionFactory</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicDbAccessExceptionFactory</span><span class="w"> </span><span class="nf">dbAccessExceptionFactory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicDbAccessExceptionFactory</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * H2のDialectを構築する。</span>
 <span class="cm">     *</span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">H2Dialect</span><span class="w"> </span><span class="nf">dialect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">H2Dialect</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">H2Dialect</span><span class="w"> </span><span class="nf">dialect</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">H2Dialect</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * BasicDbConnectionFactoryForDataSourceを構築する。</span>
@@ -525,22 +523,22 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <span class="cm">     * @param dbAccessExceptionFactory DbAccessExceptionFactory</span>
 <span class="cm">     * @param dialect Dialect</span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;nablarch.db.connection-factory&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicDbConnectionFactoryForDataSource</span><span class="w"> </span><span class="nf">connectionFactory</span><span class="p">(</span><span class="w"></span>
-<span class="w">            </span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">StatementFactory</span><span class="w"> </span><span class="n">statementFactory</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">DbAccessExceptionFactory</span><span class="w"> </span><span class="n">dbAccessExceptionFactory</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">Dialect</span><span class="w"> </span><span class="n">dialect</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">BasicDbConnectionFactoryForDataSource</span><span class="w"> </span><span class="n">connectionFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicDbConnectionFactoryForDataSource</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">connectionFactory</span><span class="p">.</span><span class="na">setDataSource</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TransactionAwareDataSourceProxy</span><span class="p">(</span><span class="n">dataSource</span><span class="p">));</span><span class="w"></span>
-<span class="w">        </span><span class="n">connectionFactory</span><span class="p">.</span><span class="na">setStatementFactory</span><span class="p">(</span><span class="n">statementFactory</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">connectionFactory</span><span class="p">.</span><span class="na">setDbAccessExceptionFactory</span><span class="p">(</span><span class="n">dbAccessExceptionFactory</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">connectionFactory</span><span class="p">.</span><span class="na">setDialect</span><span class="p">(</span><span class="n">dialect</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;nablarch.db.connection-factory&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicDbConnectionFactoryForDataSource</span><span class="w"> </span><span class="nf">connectionFactory</span><span class="p">(</span>
+<span class="w">            </span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="p">,</span>
+<span class="w">            </span><span class="n">StatementFactory</span><span class="w"> </span><span class="n">statementFactory</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DbAccessExceptionFactory</span><span class="w"> </span><span class="n">dbAccessExceptionFactory</span><span class="p">,</span>
+<span class="w">            </span><span class="n">Dialect</span><span class="w"> </span><span class="n">dialect</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BasicDbConnectionFactoryForDataSource</span><span class="w"> </span><span class="n">connectionFactory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicDbConnectionFactoryForDataSource</span><span class="p">();</span>
+<span class="w">        </span><span class="n">connectionFactory</span><span class="p">.</span><span class="na">setDataSource</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TransactionAwareDataSourceProxy</span><span class="p">(</span><span class="n">dataSource</span><span class="p">));</span>
+<span class="w">        </span><span class="n">connectionFactory</span><span class="p">.</span><span class="na">setStatementFactory</span><span class="p">(</span><span class="n">statementFactory</span><span class="p">);</span>
+<span class="w">        </span><span class="n">connectionFactory</span><span class="p">.</span><span class="na">setDbAccessExceptionFactory</span><span class="p">(</span><span class="n">dbAccessExceptionFactory</span><span class="p">);</span>
+<span class="w">        </span><span class="n">connectionFactory</span><span class="p">.</span><span class="na">setDialect</span><span class="p">(</span><span class="n">dialect</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">connectionFactory</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
@@ -552,7 +550,7 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 </div>
 </section>
 <section id="id4">
-<h2>コード管理機能を動作させるための設定<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h2>
+<h2>コード管理機能を動作させるための設定<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>コード管理で使用するために用意したテーブル定義に合わせて、スキーマ情報を保持するBeanを定義します。前述のテーブル定義に合わせて、テーブル名やカラム名を設定します。</p>
 <dl>
 <dt>CodeManagementConfiguration</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="cm">/**</span>
@@ -560,51 +558,51 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <span class="cm">     * テーブル名やカラム名など、プロジェクトに合わせてカスタマイズすること。</span>
 <span class="cm">     * </span>
 <span class="cm">     * @return 構築されたインスタンス。</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CodePatternSchema</span><span class="w"> </span><span class="nf">codePatternSchema</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">CodePatternSchema</span><span class="w"> </span><span class="n">codePatternSchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CodePatternSchema</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">codePatternSchema</span><span class="p">.</span><span class="na">setTableName</span><span class="p">(</span><span class="s">&quot;code_pattern&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codePatternSchema</span><span class="p">.</span><span class="na">setIdColumnName</span><span class="p">(</span><span class="s">&quot;code_id&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codePatternSchema</span><span class="p">.</span><span class="na">setValueColumnName</span><span class="p">(</span><span class="s">&quot;code_value&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codePatternSchema</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">setPatternColumnNames</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="s">&quot;pattern01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern02&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern03&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern04&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern05&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern06&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern07&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="s">&quot;pattern08&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern09&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern10&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern11&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern12&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern13&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern14&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="s">&quot;pattern15&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern16&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern17&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern18&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern19&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern20&quot;</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CodePatternSchema</span><span class="w"> </span><span class="nf">codePatternSchema</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">CodePatternSchema</span><span class="w"> </span><span class="n">codePatternSchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CodePatternSchema</span><span class="p">();</span>
+<span class="w">        </span><span class="n">codePatternSchema</span><span class="p">.</span><span class="na">setTableName</span><span class="p">(</span><span class="s">&quot;code_pattern&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codePatternSchema</span><span class="p">.</span><span class="na">setIdColumnName</span><span class="p">(</span><span class="s">&quot;code_id&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codePatternSchema</span><span class="p">.</span><span class="na">setValueColumnName</span><span class="p">(</span><span class="s">&quot;code_value&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codePatternSchema</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setPatternColumnNames</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="s">&quot;pattern01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern02&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern03&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern04&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern05&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern06&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern07&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s">&quot;pattern08&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern09&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern10&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern11&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern12&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern13&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern14&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s">&quot;pattern15&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern16&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern17&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern18&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern19&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pattern20&quot;</span>
 
-<span class="w">                </span><span class="p">});</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">codePatternSchema</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">});</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">codePatternSchema</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * CodeNameSchemaを構築する。</span>
 <span class="cm">     * テーブル名やカラム名など、プロジェクトに合わせてカスタマイズすること。</span>
 <span class="cm">     * </span>
 <span class="cm">     * @return 構築されたインスタンス。</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CodeNameSchema</span><span class="w"> </span><span class="nf">codeNameSchema</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">CodeNameSchema</span><span class="w"> </span><span class="n">codeNameSchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CodeNameSchema</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setTableName</span><span class="p">(</span><span class="s">&quot;code_name&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setIdColumnName</span><span class="p">(</span><span class="s">&quot;code_id&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setValueColumnName</span><span class="p">(</span><span class="s">&quot;code_value&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setLangColumnName</span><span class="p">(</span><span class="s">&quot;lang&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setSortOrderColumnName</span><span class="p">(</span><span class="s">&quot;sort_order&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setNameColumnName</span><span class="p">(</span><span class="s">&quot;code_name&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setShortNameColumnName</span><span class="p">(</span><span class="s">&quot;short_name&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeNameSchema</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">setOptionNameColumnNames</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                        </span><span class="s">&quot;option01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option02&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option03&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option04&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option05&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option06&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option07&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option08&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                        </span><span class="s">&quot;option09&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option10&quot;</span><span class="w"></span>
-<span class="w">                </span><span class="p">});</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">codeNameSchema</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CodeNameSchema</span><span class="w"> </span><span class="nf">codeNameSchema</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">CodeNameSchema</span><span class="w"> </span><span class="n">codeNameSchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CodeNameSchema</span><span class="p">();</span>
+<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setTableName</span><span class="p">(</span><span class="s">&quot;code_name&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setIdColumnName</span><span class="p">(</span><span class="s">&quot;code_id&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setValueColumnName</span><span class="p">(</span><span class="s">&quot;code_value&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setLangColumnName</span><span class="p">(</span><span class="s">&quot;lang&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setSortOrderColumnName</span><span class="p">(</span><span class="s">&quot;sort_order&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setNameColumnName</span><span class="p">(</span><span class="s">&quot;code_name&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codeNameSchema</span><span class="p">.</span><span class="na">setShortNameColumnName</span><span class="p">(</span><span class="s">&quot;short_name&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codeNameSchema</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setOptionNameColumnNames</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="s">&quot;option01&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option02&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option03&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option04&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option05&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option06&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option07&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option08&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s">&quot;option09&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;option10&quot;</span>
+<span class="w">                </span><span class="p">});</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">codeNameSchema</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 </pre></div>
 </div>
 </dd>
 </dl>
-<p>スキーマ情報のBeanとやデータアクセス機能のBeanを使用して、データベースからコードをロードするための <a class="reference external" href="https://nablarch.github.io/docs/5u21/javadoc/nablarch/common/code/BasicCodeLoader.html">BasicCodeLoader</a> をBean定義します。 BasicCodeLoaderには初期化用のメソッドがあるため、Bean初期化時に呼び出すように設定しておきます。</p>
+<p>スキーマ情報のBeanとやデータアクセス機能のBeanを使用して、データベースからコードをロードするための <a class="reference external" href="https://nablarch.github.io/docs/6/javadoc/nablarch/common/code/BasicCodeLoader.html">BasicCodeLoader</a> をBean定義します。 BasicCodeLoaderには初期化用のメソッドがあるため、Bean初期化時に呼び出すように設定しておきます。</p>
 <dl>
 <dt>CodeManagementConfiguration</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * BasicCodeLoaderを構築する。</span>
@@ -613,50 +611,50 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <span class="cm">     * @param codeNameSchema CodeNameSchema</span>
 <span class="cm">     * @param dbManager SimpleDbTransactionManager</span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="p">(</span><span class="n">initMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;initialize&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicCodeLoader</span><span class="w"> </span><span class="nf">codeLoader</span><span class="p">(</span><span class="w"></span>
-<span class="w">            </span><span class="n">CodePatternSchema</span><span class="w"> </span><span class="n">codePatternSchema</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">CodeNameSchema</span><span class="w"> </span><span class="n">codeNameSchema</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="n">SimpleDbTransactionManager</span><span class="w"> </span><span class="n">dbManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">BasicCodeLoader</span><span class="w"> </span><span class="n">codeLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicCodeLoader</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeLoader</span><span class="p">.</span><span class="na">setCodeNameSchema</span><span class="p">(</span><span class="n">codeNameSchema</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeLoader</span><span class="p">.</span><span class="na">setCodePatternSchema</span><span class="p">(</span><span class="n">codePatternSchema</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeLoader</span><span class="p">.</span><span class="na">setDbManager</span><span class="p">(</span><span class="n">dbManager</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">codeLoader</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span><span class="p">(</span><span class="n">initMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;initialize&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicCodeLoader</span><span class="w"> </span><span class="nf">codeLoader</span><span class="p">(</span>
+<span class="w">            </span><span class="n">CodePatternSchema</span><span class="w"> </span><span class="n">codePatternSchema</span><span class="p">,</span>
+<span class="w">            </span><span class="n">CodeNameSchema</span><span class="w"> </span><span class="n">codeNameSchema</span><span class="p">,</span>
+<span class="w">            </span><span class="n">SimpleDbTransactionManager</span><span class="w"> </span><span class="n">dbManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BasicCodeLoader</span><span class="w"> </span><span class="n">codeLoader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicCodeLoader</span><span class="p">();</span>
+<span class="w">        </span><span class="n">codeLoader</span><span class="p">.</span><span class="na">setCodeNameSchema</span><span class="p">(</span><span class="n">codeNameSchema</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codeLoader</span><span class="p">.</span><span class="na">setCodePatternSchema</span><span class="p">(</span><span class="n">codePatternSchema</span><span class="p">);</span>
+<span class="w">        </span><span class="n">codeLoader</span><span class="p">.</span><span class="na">setDbManager</span><span class="p">(</span><span class="n">dbManager</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">codeLoader</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 </pre></div>
 </div>
 </dd>
 </dl>
-<p>コード情報にアクセスする際に使用する <a class="reference external" href="https://nablarch.github.io/docs/5u21/javadoc/nablarch/common/code/BasicCodeManager.html">BasicCodeManager</a> をBean定義します。</p>
+<p>コード情報にアクセスする際に使用する <a class="reference external" href="https://nablarch.github.io/docs/6/javadoc/nablarch/common/code/BasicCodeManager.html">BasicCodeManager</a> をBean定義します。</p>
 <dl>
 <dt>CodeManagementConfiguration</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * BasicStaticDataCacheを構築する。</span>
 <span class="cm">     * </span>
 <span class="cm">     * @param loader BasicCodeLoader</span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="p">(</span><span class="n">initMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;initialize&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;nablarch.code.code-definition-cache&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicStaticDataCache</span><span class="o">&lt;</span><span class="n">Code</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">codeDefinitionCache</span><span class="p">(</span><span class="n">BasicCodeLoader</span><span class="w"> </span><span class="n">loader</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">BasicStaticDataCache</span><span class="o">&lt;</span><span class="n">Code</span><span class="o">&gt;</span><span class="w"> </span><span class="n">basicStaticDataCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicStaticDataCache</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">basicStaticDataCache</span><span class="p">.</span><span class="na">setLoader</span><span class="p">(</span><span class="n">loader</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">basicStaticDataCache</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span><span class="p">(</span><span class="n">initMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;initialize&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@ConfigurationProperties</span><span class="p">(</span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;nablarch.code.code-definition-cache&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicStaticDataCache</span><span class="o">&lt;</span><span class="n">Code</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">codeDefinitionCache</span><span class="p">(</span><span class="n">BasicCodeLoader</span><span class="w"> </span><span class="n">loader</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BasicStaticDataCache</span><span class="o">&lt;</span><span class="n">Code</span><span class="o">&gt;</span><span class="w"> </span><span class="n">basicStaticDataCache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicStaticDataCache</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">basicStaticDataCache</span><span class="p">.</span><span class="na">setLoader</span><span class="p">(</span><span class="n">loader</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">basicStaticDataCache</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * BasicCodeManagerを構築する。</span>
 <span class="cm">     * </span>
 <span class="cm">     * @param codeDefinitionCache BasicStaticDataCache</span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicCodeManager</span><span class="w"> </span><span class="nf">codeManager</span><span class="p">(</span><span class="n">BasicStaticDataCache</span><span class="o">&lt;</span><span class="n">Code</span><span class="o">&gt;</span><span class="w"> </span><span class="n">codeDefinitionCache</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">BasicCodeManager</span><span class="w"> </span><span class="n">codeManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicCodeManager</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">codeManager</span><span class="p">.</span><span class="na">setCodeDefinitionCache</span><span class="p">(</span><span class="n">codeDefinitionCache</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">codeManager</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BasicCodeManager</span><span class="w"> </span><span class="nf">codeManager</span><span class="p">(</span><span class="n">BasicStaticDataCache</span><span class="o">&lt;</span><span class="n">Code</span><span class="o">&gt;</span><span class="w"> </span><span class="n">codeDefinitionCache</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BasicCodeManager</span><span class="w"> </span><span class="n">codeManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BasicCodeManager</span><span class="p">();</span>
+<span class="w">        </span><span class="n">codeManager</span><span class="p">.</span><span class="na">setCodeDefinitionCache</span><span class="p">(</span><span class="n">codeDefinitionCache</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">codeManager</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 </pre></div>
 </div>
 </dd>
@@ -668,54 +666,54 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <span class="cm">     * </span>
 <span class="cm">     * @param codeManager BasicCodeManager</span>
 <span class="cm">     * @return 構築されたインスタンス</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Bean</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CodeManagementSystemRepositoryLoader</span><span class="w"> </span><span class="nf">codeManagementSystemRepositoryLoader</span><span class="p">(</span><span class="n">CodeManager</span><span class="w"> </span><span class="n">codeManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CodeManagementSystemRepositoryLoader</span><span class="p">(</span><span class="n">codeManager</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Bean</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CodeManagementSystemRepositoryLoader</span><span class="w"> </span><span class="nf">codeManagementSystemRepositoryLoader</span><span class="p">(</span><span class="n">CodeManager</span><span class="w"> </span><span class="n">codeManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CodeManagementSystemRepositoryLoader</span><span class="p">(</span><span class="n">codeManager</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 </pre></div>
 </div>
 </dd>
 <dt>CodeManagementSystemRepositoryLoader</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * コード管理機能に必要なインスタンスを{@link SystemRepository}へ登録するクラス。</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CodeManagementSystemRepositoryLoader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">InitializingBean</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CodeManagementSystemRepositoryLoader</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">InitializingBean</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * CodeManager</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">CodeManager</span><span class="w"> </span><span class="n">codeManager</span><span class="p">;</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">CodeManager</span><span class="w"> </span><span class="n">codeManager</span><span class="p">;</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * コンストラクタ。</span>
 <span class="cm">     * </span>
 <span class="cm">     * @param codeManager CodeManager</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">CodeManagementSystemRepositoryLoader</span><span class="p">(</span><span class="n">CodeManager</span><span class="w"> </span><span class="n">codeManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">codeManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">codeManager</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">CodeManagementSystemRepositoryLoader</span><span class="p">(</span><span class="n">CodeManager</span><span class="w"> </span><span class="n">codeManager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">codeManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">codeManager</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">afterPropertiesSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">SystemRepository</span><span class="p">.</span><span class="na">load</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;codeManager&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">codeManager</span><span class="p">));</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">afterPropertiesSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SystemRepository</span><span class="p">.</span><span class="na">load</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;codeManager&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">codeManager</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 </section>
 <section id="id5">
-<h2>ドメインバリデーションを動作させるための設定<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h2>
+<h2>ドメインバリデーションを動作させるための設定<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
 <p>ドメインバリデーションを動作させるための設定については、 <a class="reference internal" href="../validation/index.html#nablarch-validation"><span class="std std-ref">Nablarchのドメインバリデーションを使用して入力値をチェックする</span></a> を参照してください。</p>
 </section>
 <section id="id6">
-<h2>コード値バリデーションの使用例<a class="headerlink" href="#id6" title="この見出しへのパーマリンク"></a></h2>
+<h2>コード値バリデーションの使用例<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
 <p>Nablarchが提供するバリデーターでは、各種エラーに対応するメッセージを定義する必要がありますので、使用するバリデーターに合わせてメッセージを定義します。</p>
-<p>使用するプロパティ名については、Nablarchのデフォルト設定として定義されています。Nablarchのデフォルト設定の詳細については <a class="reference external" href="https://nablarch.github.io/docs/5u21/doc/application_framework/application_framework/configuration/index.html">デフォルト設定一覧</a> を参照してください。</p>
+<p>使用するプロパティ名については、Nablarchのデフォルト設定として定義されています。Nablarchのデフォルト設定の詳細については <a class="reference external" href="https://nablarch.github.io/docs/6/doc/application_framework/application_framework/configuration/index.html">デフォルト設定一覧</a> を参照してください。</p>
 <dl>
-<dt>message.properties</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">nablarch.core.validation.ee.Required.message</span><span class="o">=</span><span class="s">入力してください。</span><span class="w"></span>
-<span class="na">nablarch.common.code.validator.ee.CodeValue.message</span><span class="o">=</span><span class="s">不正な値が指定されました。</span><span class="w"></span>
+<dt>message.properties</dt><dd><div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">nablarch.core.validation.ee.Required.message</span><span class="o">=</span><span class="s">入力してください。</span>
+<span class="na">nablarch.common.code.validator.ee.CodeValue.message</span><span class="o">=</span><span class="s">不正な値が指定されました。</span>
 </pre></div>
 </div>
 </dd>
@@ -724,49 +722,49 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <dl>
 <dt>DomainBean</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * ドメインのバリデーションルール。</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DomainBean</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DomainBean</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="nd">@CodeValue</span><span class="p">(</span><span class="n">codeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CODE01&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pattern01&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">codePattern01</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@CodeValue</span><span class="p">(</span><span class="n">codeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CODE01&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pattern01&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">codePattern01</span><span class="p">;</span>
 
-<span class="w">    </span><span class="nd">@CodeValue</span><span class="p">(</span><span class="n">codeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CODE01&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pattern02&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">codePattern02</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@CodeValue</span><span class="p">(</span><span class="n">codeId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CODE01&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pattern02&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">codePattern02</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 <p>Controllerで受け取るBeanのプロパティに対して、 <code class="docutils literal notranslate"><span class="pre">&#64;Domain</span></code> アノテーションで対応するドメイン名を指定します。Springでバリデーションが実行される際、ドメインBeanに設定したバリデーションルールに従ってバリデーションが実行されます。</p>
 <dl>
-<dt>CodeManagementForm</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CodeManagementForm</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<dt>CodeManagementForm</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CodeManagementForm</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="nd">@Required</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Domain</span><span class="p">(</span><span class="s">&quot;codePattern01&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">codePattern01</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Required</span>
+<span class="w">    </span><span class="nd">@Domain</span><span class="p">(</span><span class="s">&quot;codePattern01&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">codePattern01</span><span class="p">;</span>
 
-<span class="w">    </span><span class="nd">@Domain</span><span class="p">(</span><span class="s">&quot;codePattern02&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">codePattern02</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Domain</span><span class="p">(</span><span class="s">&quot;codePattern02&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">codePattern02</span><span class="p">;</span>
 
-<span class="w">    </span><span class="c1">// （アクセサの記載は省略します）</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// （アクセサの記載は省略します）</span>
 </pre></div>
 </div>
 </dd>
 </dl>
 </section>
 <section id="id7">
-<h2>画面での使用例<a class="headerlink" href="#id7" title="この見出しへのパーマリンク"></a></h2>
+<h2>画面での使用例<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
 <p>Bean定義したBasicCodeManagerを使用することで、コード情報にアクセスすることができるため、Thymeleafから使用するためのヘルパークラスを作成します。</p>
 <dl>
 <dt>CodeViewHelper</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * コード値に関するViewHelper。</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="nd">@Component</span><span class="w"></span>
-<span class="nd">@Transactional</span><span class="p">(</span><span class="n">readOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CodeViewHelper</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="cm"> */</span>
+<span class="nd">@Component</span>
+<span class="nd">@Transactional</span><span class="p">(</span><span class="n">readOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CodeViewHelper</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="nd">@Autowired</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">CodeManager</span><span class="w"> </span><span class="n">codeManager</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Autowired</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">CodeManager</span><span class="w"> </span><span class="n">codeManager</span><span class="p">;</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * {@link CodeManager#getName(String, String)}を呼び出す。</span>
@@ -776,10 +774,10 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <span class="cm">     * @return 対応するコード名称</span>
 <span class="cm">     * @throws IllegalArgumentException 指定したコードIDが存在しないか、</span>
 <span class="cm">     *                                   対象のコード値または言語に対応するデータが存在しない場合</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">codeId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">StringUtils</span><span class="p">.</span><span class="na">hasText</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">codeManager</span><span class="p">.</span><span class="na">getName</span><span class="p">(</span><span class="n">codeId</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">codeId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">StringUtils</span><span class="p">.</span><span class="na">hasText</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">codeManager</span><span class="p">.</span><span class="na">getName</span><span class="p">(</span><span class="n">codeId</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * {@link CodeManager#getValues(String, String)}を呼び出す。</span>
@@ -789,11 +787,11 @@ SpringからNablarchの機能を利用することで、Springに不足してい
 <span class="cm">     * @return コードIDとパターンに紐付くコード値</span>
 <span class="cm">     * @throws IllegalArgumentException 指定したコードIDが存在しないか、</span>
 <span class="cm">     *                                   パターンまたは言語に対応するデータが存在しない場合</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getValues</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">codeId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">pattern</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">codeManager</span><span class="p">.</span><span class="na">getValues</span><span class="p">(</span><span class="n">codeId</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getValues</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">codeId</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">pattern</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">codeManager</span><span class="p">.</span><span class="na">getValues</span><span class="p">(</span><span class="n">codeId</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>

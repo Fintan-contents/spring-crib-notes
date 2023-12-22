@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>例外ハンドリング &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">RESTful Webサービス開発のノウハウ</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../batch/run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../batch/run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -238,12 +236,12 @@
            <div itemprop="articleBody">
              
   <section id="api-error-handling">
-<span id="id1"></span><h1>例外ハンドリング<a class="headerlink" href="#api-error-handling" title="この見出しへのパーマリンク"></a></h1>
+<span id="id1"></span><h1>例外ハンドリング<a class="headerlink" href="#api-error-handling" title="Link to this heading"></a></h1>
 <p>RESTful Webサービスでの例外ハンドリング方法とレスポンスの返却方法について説明します。</p>
-<p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/reference/html/web.html#spring-web">Spring Web MVC</a> では例外が発生した場合、例外情報をログに出力し、クライアントにエラーレスポンスを返却します。</p>
-<p>発生した例外が <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html">Spring Web MVCがデフォルトでハンドリングする例外</a>
+<p><a class="reference external" href="https://docs.spring.io/spring-framework/reference/6.1/web/webmvc.html">Spring Web MVC</a> では例外が発生した場合、例外情報をログに出力し、クライアントにエラーレスポンスを返却します。</p>
+<p>発生した例外が <a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html">Spring Web MVCがデフォルトでハンドリングする例外</a>
 であれば、アプリケーション側で設定や実装を行わなくても、適切なレスポンスが返却されます。それ以外の例外であれば、デフォルトではHTTPステータスコードに500が設定されたレスポンスが返却されます。</p>
-<p>レスポンスボディにはエラー情報が出力されます。出力する内容は <code class="docutils literal notranslate"><span class="pre">server.error</span></code> プロパティでカスマイズすることができます。プロパティの詳細については <a class="reference external" href="https://docs.spring.io/spring-boot/docs/2.7.6/reference/html/application-properties.html#appendix.application-properties.server">Server Properties</a> を参照してください。</p>
+<p>レスポンスボディにはエラー情報が出力されます。出力する内容は <code class="docutils literal notranslate"><span class="pre">server.error</span></code> プロパティでカスマイズすることができます。プロパティの詳細については <a class="reference external" href="https://docs.spring.io/spring-boot/docs/3.2.0/reference/html/application-properties.html#appendix.application-properties.server">Server Properties</a> を参照してください。</p>
 <dl>
 <dt>レスポンスの例</dt><dd><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>HTTP/1.1 500
 Content-Type: application/json
@@ -264,157 +262,142 @@ Connection: keep-alive
 <p>例外に応じてHTTPステータスコードやレスポンスボディをカスタマイズする場合は、例外ハンドリングを実装する必要があります。</p>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <section id="id2">
-<h2>アプリケーション全体の例外ハンドリングをカスタマイズする例<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
-<p>アプリケーション全体で例外に応じた処理が決まっている場合は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/RestControllerAdvice.html">&#64;RestControllerAdvice</a>
+<h2>アプリケーション全体の例外ハンドリングをカスタマイズする例<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>アプリケーション全体で例外に応じた処理が決まっている場合は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/bind/annotation/RestControllerAdvice.html">&#64;RestControllerAdvice</a>
 アノテーションを設定したクラスで例外ハンドリングを行います。</p>
-<p>どの例外を処理するかは、メソッドに設定された<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a>アノテーションの情報により決まります。
-返却するステータスコードは <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html">&#64;ResponseStatus</a> アノテーションに設定します。</p>
+<p>どの例外を処理するかは、メソッドに設定された<a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a>アノテーションの情報により決まります。
+返却するステータスコードは <a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html">&#64;ResponseStatus</a> アノテーションに設定します。</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>例外クラスに設定した<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html">ResponseStatus</a>のreason属性を指定した場合、
+<p>例外クラスに設定した<a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html">ResponseStatus</a>のreason属性を指定した場合、
 レスポンスボディには、reason属性に指定した値がメッセージとして表示されます。
-reason属性に指定した値は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/context/MessageSource.html">MessageSource</a>を使用して解決されるため、
+reason属性に指定した値は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/context/MessageSource.html">MessageSource</a>を使用して解決されるため、
 messages.propertiesに定義することも可能です。</p>
 </div>
 <section id="responseentityexceptionhandler">
-<h3>ResponseEntityExceptionHandlerを継承して例外ハンドリングクラスを作成する<a class="headerlink" href="#responseentityexceptionhandler" title="この見出しへのパーマリンク"></a></h3>
-<p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandler.html">ResponseEntityExceptionHandler</a> は、Spring Web MVC内で発生する例外をハンドリングするクラスです。
+<h3>ResponseEntityExceptionHandlerを継承して例外ハンドリングクラスを作成する<a class="headerlink" href="#responseentityexceptionhandler" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandler.html">ResponseEntityExceptionHandler</a> は、Spring Web MVC内で発生する例外をハンドリングするクラスです。
 ResponseEntityExceptionHandlerを継承したクラスを作成すると、ハンドリングする例外に応じたステータスコードと空のレスポンスボディが返却されます。
-ハンドリングする例外は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html">Spring Web MVCがデフォルトでハンドリングする例外</a> と同様です。</p>
+ハンドリングする例外は、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html">Spring Web MVCがデフォルトでハンドリングする例外</a> と同様です。</p>
 <p>全ての例外を&#64;ExceptionHandlerアノテーションで1つずつハンドリングしていくのは大変なので、基本的な例外ハンドリングはResponseEntityExceptionHandlerに委譲して、それ以外の例外を&#64;ExceptionHandlerアノテーションでハンドリングする使用方法をお薦めします。</p>
 <p>なお、ResponseEntityExceptionHandlerを継承した場合も、&#64;RestControllerAdviceアノテーションを設定する必要があります。</p>
 </section>
 <section id="id3">
-<h3>実装例<a class="headerlink" href="#id3" title="この見出しへのパーマリンク"></a></h3>
+<h3>実装例<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>入力値チェックでエラーが発生した場合の処理をカスタマイズしています。</p></li>
-<li><p>排他制御エラーが発生した場合に送出される例外を、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a> を使用してハンドリングしています。</p></li>
-<li><p>独自に作成した例外(CustomValidationException)を、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a> を使用してハンドリングしています。</p></li>
-<li><p>独自に作成した例外(UserNotFoundException)に <a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html">ResponseStatus</a> を設定して、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/5.3.24/reference/html/web.html#spring-web">Spring Web MVC</a> に例外ハンドリングを委譲します。</p></li>
+<li><p>排他制御エラーが発生した場合に送出される例外を、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a> を使用してハンドリングしています。</p></li>
+<li><p>独自に作成した例外(CustomValidationException)を、<a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/bind/annotation/ExceptionHandler.html">&#64;ExceptionHandler</a> を使用してハンドリングしています。</p></li>
+<li><p>独自に作成した例外(UserNotFoundException)に <a class="reference external" href="https://docs.spring.io/spring-framework/docs/6.1.1/javadoc-api/org/springframework/web/bind/annotation/ResponseStatus.html">ResponseStatus</a> を設定して、<a class="reference external" href="https://docs.spring.io/spring-framework/reference/6.1/web/webmvc.html">Spring Web MVC</a> に例外ハンドリングを委譲します。</p></li>
 </ul>
 <dl>
-<dt>GlobalExceptionHandler</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RestControllerAdvice</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GlobalExceptionHandler</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ResponseEntityExceptionHandler</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<dt>GlobalExceptionHandler</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@RestControllerAdvice</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GlobalExceptionHandler</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ResponseEntityExceptionHandler</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MessageSource</span><span class="w"> </span><span class="n">messageSource</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">MessageSource</span><span class="w"> </span><span class="n">messageSource</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">GlobalExceptionHandler</span><span class="p">(</span><span class="n">MessageSource</span><span class="w"> </span><span class="n">messageSource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">messageSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">messageSource</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">GlobalExceptionHandler</span><span class="p">(</span><span class="n">MessageSource</span><span class="w"> </span><span class="n">messageSource</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">messageSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">messageSource</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * リクエストボディに設定された値に対する入力値チェック時に、エラーが発生した場合のハンドリングを実施します。</span>
-<span class="cm">     * レスポンスボディには、{@link BindingResult}から取得したフィールド名と、メッセージをを出力します。</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleMethodArgumentNotValid</span><span class="p">(</span><span class="w"></span>
-<span class="w">            </span><span class="n">MethodArgumentNotValidException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatus</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">handleExceptionInternal</span><span class="p">(</span><span class="w"></span>
-<span class="w">                </span><span class="n">ex</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="na">getBindingResult</span><span class="p">()),</span><span class="w"></span>
-<span class="w">                </span><span class="n">headers</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">status</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">request</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">    </span><span class="cm">/**</span>
-<span class="cm">     * クエリパラメータに対する入力値チェック時に、エラーが発生した場合のハンドリングを実施します。</span>
-<span class="cm">     * レスポンスボディには、{@link BindingResult}から取得したフィールド名と、メッセージをを出力します。</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleBindException</span><span class="p">(</span><span class="w"></span>
-<span class="w">            </span><span class="n">BindException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatus</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">handleExceptionInternal</span><span class="p">(</span><span class="w"></span>
-<span class="w">                </span><span class="n">ex</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="na">getBindingResult</span><span class="p">()),</span><span class="w"></span>
-<span class="w">                </span><span class="n">headers</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">status</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">request</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     * レスポンスボディには、{@link BindingResult}から取得したフィールド名と、メッセージを出力します。</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleMethodArgumentNotValid</span><span class="p">(</span>
+<span class="w">            </span><span class="n">MethodArgumentNotValidException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatusCode</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">handleExceptionInternal</span><span class="p">(</span>
+<span class="w">                </span><span class="n">ex</span><span class="p">,</span>
+<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="na">getBindingResult</span><span class="p">()),</span>
+<span class="w">                </span><span class="n">headers</span><span class="p">,</span>
+<span class="w">                </span><span class="n">status</span><span class="p">,</span>
+<span class="w">                </span><span class="n">request</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * 入力形式に誤りがあった場合のハンドリングを実施します。</span>
 <span class="cm">     * レスポンスボディには、固定のメッセージを出力します。</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleHttpMessageNotReadable</span><span class="p">(</span><span class="w"></span>
-<span class="w">            </span><span class="n">HttpMessageNotReadableException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatus</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">handleExceptionInternal</span><span class="p">(</span><span class="w"></span>
-<span class="w">                </span><span class="n">ex</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="s">&quot;keel.api-error-handling.HttpMessageNotReadableException&quot;</span><span class="p">),</span><span class="w"></span>
-<span class="w">                </span><span class="n">headers</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">status</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">request</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleHttpMessageNotReadable</span><span class="p">(</span>
+<span class="w">            </span><span class="n">HttpMessageNotReadableException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="w"> </span><span class="n">headers</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatusCode</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">handleExceptionInternal</span><span class="p">(</span>
+<span class="w">                </span><span class="n">ex</span><span class="p">,</span>
+<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="s">&quot;keel.api-error-handling.HttpMessageNotReadableException&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">headers</span><span class="p">,</span>
+<span class="w">                </span><span class="n">status</span><span class="p">,</span>
+<span class="w">                </span><span class="n">request</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="c1">//optimistic-lock-example-start</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//optimistic-lock-example-start</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * {@link ResponseEntityExceptionHandler}がハンドリングしない例外については、{@link ExceptionHandler}を使用してハンドリングします。</span>
 <span class="cm">     * 楽観ロック例外が発生した場合は、HTTPステータスコードに409を設定します。</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">OptimisticLockingFailureException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@ResponseStatus</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">CONFLICT</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handleOptimisticLockingFailureException</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="c1">//optimistic-lock-example-end</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">OptimisticLockingFailureException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="w">    </span><span class="nd">@ResponseStatus</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">CONFLICT</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">handleOptimisticLockingFailureException</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">//optimistic-lock-example-end</span>
 
-<span class="w">    </span><span class="c1">// database-validation-start</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// database-validation-start</span>
 
 <span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * {@link ResponseEntityExceptionHandler} がハンドリングしない例外については、 {@link ExceptionHandler} を使用してハンドリングします。</span>
 <span class="cm">     * 独自に作成した {@link CustomValidationException} が発生した場合は、HTTPステータスコードに400を設定し、エラー内容を返却しています。</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">CustomValidationException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleCustomValidationException</span><span class="p">(</span><span class="n">CustomValidationException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kd">super</span><span class="p">.</span><span class="na">handleExceptionInternal</span><span class="p">(</span><span class="w"></span>
-<span class="w">                </span><span class="n">ex</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="na">getBindingResult</span><span class="p">()),</span><span class="w"></span>
-<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="p">(),</span><span class="w"></span>
-<span class="w">                </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">BAD_REQUEST</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="n">request</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">CustomValidationException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">handleCustomValidationException</span><span class="p">(</span><span class="n">CustomValidationException</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="n">WebRequest</span><span class="w"> </span><span class="n">request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kd">super</span><span class="p">.</span><span class="na">handleExceptionInternal</span><span class="p">(</span>
+<span class="w">                </span><span class="n">ex</span><span class="p">,</span>
+<span class="w">                </span><span class="n">body</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="na">getBindingResult</span><span class="p">()),</span>
+<span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">HttpHeaders</span><span class="p">(),</span>
+<span class="w">                </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">BAD_REQUEST</span><span class="p">,</span>
+<span class="w">                </span><span class="n">request</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ApiErrorResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">body</span><span class="p">(</span><span class="n">BindingResult</span><span class="w"> </span><span class="n">bindingResult</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bindingResult</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">getFieldErrors</span><span class="p">()</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">stream</span><span class="p">()</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">fieldError</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiErrorResponse</span><span class="p">(</span><span class="w"></span>
-<span class="w">                        </span><span class="n">fieldError</span><span class="p">.</span><span class="na">getField</span><span class="p">(),</span><span class="w"></span>
-<span class="w">                        </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span><span class="n">fieldError</span><span class="p">,</span><span class="w"> </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">())))</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ApiErrorResponse</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">body</span><span class="p">(</span><span class="n">BindingResult</span><span class="w"> </span><span class="n">bindingResult</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">bindingResult</span>
+<span class="w">                </span><span class="p">.</span><span class="na">getFieldErrors</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">fieldError</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiErrorResponse</span><span class="p">(</span>
+<span class="w">                        </span><span class="n">fieldError</span><span class="p">.</span><span class="na">getField</span><span class="p">(),</span>
+<span class="w">                        </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span><span class="n">fieldError</span><span class="p">,</span><span class="w"> </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">())))</span>
+<span class="w">                </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ApiErrorResponse</span><span class="w"> </span><span class="nf">body</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">());</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiErrorResponse</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// database-validation-end</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ApiErrorResponse</span><span class="w"> </span><span class="nf">body</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">code</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">());</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ApiErrorResponse</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// database-validation-end</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
-<dt>ApiErrorResponse</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ApiErrorResponse</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<dt>ApiErrorResponse</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ApiErrorResponse</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_EMPTY</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">field</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_EMPTY</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">field</span><span class="p">;</span>
 
-<span class="w">    </span><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_EMPTY</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@JsonInclude</span><span class="p">(</span><span class="n">JsonInclude</span><span class="p">.</span><span class="na">Include</span><span class="p">.</span><span class="na">NON_EMPTY</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
 
-<span class="w">    </span><span class="n">ApiErrorResponse</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">ApiErrorResponse</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">field</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getField</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">field</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getField</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">field</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getMessage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">message</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getMessage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">message</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
@@ -424,10 +407,10 @@ ResponseEntityExceptionHandlerを継承したクラスを作成すると、ハ�
 <span class="cm"> * &lt;p&gt;</span>
 <span class="cm"> * {@code reason} に指定した文字列は、 {@code messages.properties} でキーとして定義されている場合は対応するメッセージに変換されます。</span>
 <span class="cm"> * そうでない場合はそのまま表示されます。</span>
-<span class="cm"> */</span><span class="w"></span>
-<span class="nd">@ResponseStatus</span><span class="p">(</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">NOT_FOUND</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;keel.api-error-handling.user-not-found&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserNotFoundException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RuntimeException</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="cm"> */</span>
+<span class="nd">@ResponseStatus</span><span class="p">(</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">NOT_FOUND</span><span class="p">,</span><span class="w"> </span><span class="n">reason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;keel.api-error-handling.user-not-found&quot;</span><span class="p">)</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UserNotFoundException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RuntimeException</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
@@ -436,25 +419,25 @@ ResponseEntityExceptionHandlerを継承したクラスを作成すると、ハ�
 </section>
 </section>
 <section id="controller">
-<h2>個別機能(Controller)で例外をハンドリングする例<a class="headerlink" href="#controller" title="この見出しへのパーマリンク"></a></h2>
+<h2>個別機能(Controller)で例外をハンドリングする例<a class="headerlink" href="#controller" title="Link to this heading"></a></h2>
 <p>アプリケーション全体ではなく個別機能(Controller)で例外をハンドリングし、メッセージを返却したい場合があります。
 <a class="reference internal" href="../../web/error-handling/index.html"><span class="doc">Webの場合</span></a> と同様に、Controller内に例外ハンドリング用のメソッドを作成します。</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="cm">/**</span>
 <span class="cm">     * {@link MethodArgumentNotValidException}を補足して、当画面固有のメッセージをリクエストボディに出力します。</span>
 <span class="cm">     * ステータスコードは、400を返却します。</span>
-<span class="cm">     */</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">MethodArgumentNotValidException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">methodArgumentNotValidExceptionHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">BAD_REQUEST</span><span class="p">)</span><span class="w"></span>
-<span class="w">                </span><span class="p">.</span><span class="na">body</span><span class="p">(</span><span class="w"></span>
-<span class="w">                        </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span><span class="w"></span>
-<span class="w">                                </span><span class="s">&quot;keel.api-error-handling.MethodArgumentNotValidException&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
-<span class="w">                                </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">()</span><span class="w"></span>
-<span class="w">                        </span><span class="p">)</span><span class="w"></span>
-<span class="w">                </span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="nd">@ExceptionHandler</span><span class="p">(</span><span class="n">MethodArgumentNotValidException</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">methodArgumentNotValidExceptionHandler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ResponseEntity</span>
+<span class="w">                </span><span class="p">.</span><span class="na">status</span><span class="p">(</span><span class="n">HttpStatus</span><span class="p">.</span><span class="na">BAD_REQUEST</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">body</span><span class="p">(</span>
+<span class="w">                        </span><span class="n">messageSource</span><span class="p">.</span><span class="na">getMessage</span><span class="p">(</span>
+<span class="w">                                </span><span class="s">&quot;keel.api-error-handling.MethodArgumentNotValidException&quot;</span><span class="p">,</span>
+<span class="w">                                </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+<span class="w">                                </span><span class="n">LocaleContextHolder</span><span class="p">.</span><span class="na">getLocale</span><span class="p">()</span>
+<span class="w">                        </span><span class="p">)</span>
+<span class="w">                </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 </pre></div>
 </div>
 <p>サンプル全体は <a class="reference external" href="https://github.com/Fintan-contents/spring-crib-notes/tree/master/samples/api/api-error-handling">api-error-handling-sample</a> を参照してください。</p>

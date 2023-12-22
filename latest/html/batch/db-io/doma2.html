@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="ja" >
+<html class="writer-html5" lang="ja" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Doma2でデータベースから読み込み・書き出しする &mdash; keel-doc</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/customize-rtd.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8e8a900e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/customize-rtd.css?v=a53fa7f7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/translations.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=144c8c96"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -63,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../common/index.html">アプリの種類によらないノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../common/log/index.html">ログ出力</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../common/log/web-access-log.html">画面やAPIでTomcatのアクセスログを出力する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/log/web-api-log.html">HTTPリクエストおよびレスポンスをログに出力する</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/database/index.html">データベースアクセス</a><ul>
@@ -72,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../common/message/index.html">メッセージ管理</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#bean-validation">Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#jakarta-bean-validation">Jakarta Bean Validationを使った入力値チェックのエラーメッセージ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../common/message/index.html#id3">その他のメッセージ</a></li>
 </ul>
 </li>
@@ -134,7 +136,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">RESTful Webサービス開発のノウハウ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/validation/index.html">入力値チェック</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やBean Validationで発生する例外</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/validation/bean-validation.html">入力値の型変換やJakarta Bean Validationで発生する例外</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/validation/database-validation.html">データベースを使用して入力値をチェックする</a></li>
 </ul>
 </li>
@@ -156,7 +158,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../run-application/index.html">起動方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../run-application/index.html#id2">実行するジョブを指定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../run-application/index.html#id2">ジョブを実行する</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../run-application/index.html#id3">実行済みエラーが出る場合の対処方法</a></li>
 </ul>
 </li>
@@ -174,11 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../aws/ses/index.html#id1">メール送信の実装例</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id1">Amazon RDSを使用するための設定例</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../aws/rds/index.html#id2">実装例</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../../aws/rds/index.html">Amazon RDSにアクセスする</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../nablarch/index.html">SpringからNablarchの機能を利用する際のノウハウ</a><ul>
@@ -239,60 +237,60 @@
            <div itemprop="articleBody">
              
   <section id="doma2">
-<h1>Doma2でデータベースから読み込み・書き出しする<a class="headerlink" href="#doma2" title="この見出しへのパーマリンク"></a></h1>
-<p>Spring Batchで <a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/">Doma2</a> を利用してデータを読み込み/書き出しする方法について説明します。</p>
+<h1>Doma2でデータベースから読み込み・書き出しする<a class="headerlink" href="#doma2" title="Link to this heading"></a></h1>
+<p>Spring Batchで <a class="reference external" href="https://doma.readthedocs.io/en/2.53.1/">Doma2</a> を利用してデータを読み込み/書き出しする方法について説明します。</p>
 <p>データベースアクセスにDoma2を利用するための基本的な設定については、 <a class="reference internal" href="../../common/database/doma2.html"><span class="doc">データベースアクセスにDoma2を使用する</span></a> を参照してください。</p>
 <p>以下のサンプルコードの動作確認環境については、 <a class="reference internal" href="../../about/index.html#test-environment-and-dependencies"><span class="std std-ref">動作確認環境と依存ライブラリについて</span></a> を参照してください。</p>
 <section id="id1">
-<h2>データベースからの読み込み<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
+<h2>データベースからの読み込み<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>バッチ処理では一般的に、処理対象データをすべて読み込んでヒープ上に展開することは推奨されません。そのため、少量ずつ読み込みながら順次ヒープ上に展開するための実装が必要になります。</p>
 <p>データ読み込みに利用するDaoのメソッドは、Streamを返すように実装します。詳細については、以下の公式ドキュメントを参照してください。</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/query/select/#return-the-return-value">ストリーム検索 - 戻り値で戻す方法</a></p></li>
+<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.1/query/select/#return-the-return-value">ストリーム検索 - 戻り値で戻す方法</a></p></li>
 </ul>
 <p>ItemReaderではopenでDaoからStreamを取得し、Stream自身とそのStreamから取得したIteratorをインスタンス変数として保持しておきます。 readでは保持しているIteratorの次の要素を返すようにし、 closeでは保持しているStreamを閉じるようにします。</p>
 <section id="id2">
-<h3>実装例<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h3>
+<h3>実装例<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <dl>
-<dt>Dao (Reader)</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Dao</span><span class="w"></span>
-<span class="nd">@ConfigAutowireable</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">EmployeeBonusDao</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Select</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@Suppress</span><span class="p">(</span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Message</span><span class="p">.</span><span class="na">DOMA4274</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">EmployeeBonus</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">selectEmployeeBonus</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<dt>Dao (Reader)</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Dao</span>
+<span class="nd">@ConfigAutowireable</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">EmployeeBonusDao</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Select</span>
+<span class="w">    </span><span class="nd">@Suppress</span><span class="p">(</span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Message</span><span class="p">.</span><span class="na">DOMA4274</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">EmployeeBonus</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">selectEmployeeBonus</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
-<dt>ItemStreamReader</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Component</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EmployeeBonusReader</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractItemCountingItemStreamItemReader</span><span class="o">&lt;</span><span class="n">EmployeeBonus</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<dt>ItemStreamReader</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Component</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EmployeeBonusReader</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractItemCountingItemStreamItemReader</span><span class="o">&lt;</span><span class="n">EmployeeBonus</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">EmployeeBonusDao</span><span class="w"> </span><span class="n">dao</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">EmployeeBonus</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stream</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">EmployeeBonus</span><span class="o">&gt;</span><span class="w"> </span><span class="n">iterator</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">EmployeeBonusDao</span><span class="w"> </span><span class="n">dao</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">EmployeeBonus</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stream</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">EmployeeBonus</span><span class="o">&gt;</span><span class="w"> </span><span class="n">iterator</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">EmployeeBonusReader</span><span class="p">(</span><span class="n">EmployeeBonusDao</span><span class="w"> </span><span class="n">dao</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">());</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">EmployeeBonusReader</span><span class="p">(</span><span class="n">EmployeeBonusDao</span><span class="w"> </span><span class="n">dao</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">super</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">());</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">EmployeeBonus</span><span class="w"> </span><span class="nf">doRead</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">iterator</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">iterator</span><span class="p">.</span><span class="na">next</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">EmployeeBonus</span><span class="w"> </span><span class="nf">doRead</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">iterator</span><span class="p">.</span><span class="na">hasNext</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">iterator</span><span class="p">.</span><span class="na">next</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doOpen</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">.</span><span class="na">selectEmployeeBonus</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="n">iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stream</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doOpen</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">.</span><span class="na">selectEmployeeBonus</span><span class="p">();</span>
+<span class="w">        </span><span class="n">iterator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stream</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span>
 
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doClose</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">stream</span><span class="p">.</span><span class="na">close</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">doClose</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">stream</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
@@ -301,11 +299,11 @@
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>PostgreSQLでは、トランザクションが終了すると自動的にカーソルが閉じられます <a class="footnote-reference brackets" href="#f1" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> 。そのため、Spring BatchのChunkのように一定間隔ごとにcommitされるような場合には、1つめのチャンクは正常に完了しますが、以降のチャンクは処理できなくなってしまいます。</p>
-<p>このような事象を回避するために、データベースにアクセスするItemReaderの実装クラスは、 <a class="reference external" href="https://docs.spring.io/spring-batch/docs/4.3.7/api/org/springframework/batch/item/ItemStreamReader.html">ItemStreamReader</a> を実装したクラスにしてください。サンプルでは、ItemStreamReaderを実装した <a class="reference external" href="https://docs.spring.io/spring-batch/docs/4.3.7/api/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.html">AbstractItemCountingItemStreamItemReader</a> を継承しています。</p>
+<p>このような事象を回避するために、データベースにアクセスするItemReaderの実装クラスは、 <a class="reference external" href="https://docs.spring.io/spring-batch/docs/5.1.0/api/org/springframework/batch/item/ItemStreamReader.html">ItemStreamReader</a> を実装したクラスにしてください。サンプルでは、ItemStreamReaderを実装した <a class="reference external" href="https://docs.spring.io/spring-batch/docs/5.1.0/api/org/springframework/batch/item/support/AbstractItemCountingItemStreamItemReader.html">AbstractItemCountingItemStreamItemReader</a> を継承しています。</p>
 <p>ItemStreamReaderでは、openメソッドで利用されるコネクションとwriterで利用されるコネクションとは別のトランザクションに属するようになるため、上記の問題を踏まないようになっています。</p>
 </div>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="f1" role="note">
+<aside class="footnote brackets" id="f1" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">1</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://jdbc.postgresql.org/documentation/query/#getting-results-based-on-a-cursor">Issuing a Query and Processing the Result の Getting results based on a cursor</a> に下記の記載があります。</p>
 <blockquote>
@@ -316,37 +314,37 @@
 </section>
 </section>
 <section id="id4">
-<h2>データベースへの書き出し<a class="headerlink" href="#id4" title="この見出しへのパーマリンク"></a></h2>
+<h2>データベースへの書き出し<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <p>ItemWriterではDoma2の&#64;BatchInsertを利用して、一括でインサートします。詳細については、以下の公式ドキュメントを参照してください。</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.0/query/batch-insert/">バッチ挿入</a></p></li>
+<li><p><a class="reference external" href="https://doma.readthedocs.io/en/2.53.1/query/batch-insert/">バッチ挿入</a></p></li>
 </ul>
 <section id="id5">
-<h3>実装例<a class="headerlink" href="#id5" title="この見出しへのパーマリンク"></a></h3>
+<h3>実装例<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <dl>
-<dt>Dao (Writer)</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Dao</span><span class="w"></span>
-<span class="nd">@ConfigAutowireable</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">BonusDao</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nd">@BatchInsert</span><span class="w"></span>
-<span class="w">    </span><span class="n">BatchResult</span><span class="o">&lt;</span><span class="n">Bonus</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Bonus</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bonuses</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<dt>Dao (Writer)</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Dao</span>
+<span class="nd">@ConfigAutowireable</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">BonusDao</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@BatchInsert</span>
+<span class="w">    </span><span class="n">BatchResult</span><span class="o">&lt;</span><span class="n">Bonus</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Bonus</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bonuses</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
-<dt>ItemWriter</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Component</span><span class="w"></span>
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BonusWriter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemWriter</span><span class="o">&lt;</span><span class="n">Bonus</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<dt>ItemWriter</dt><dd><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Component</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BonusWriter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ItemWriter</span><span class="o">&lt;</span><span class="n">Bonus</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">BonusDao</span><span class="w"> </span><span class="n">dao</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">BonusDao</span><span class="w"> </span><span class="n">dao</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">BonusWriter</span><span class="p">(</span><span class="n">BonusDao</span><span class="w"> </span><span class="n">dao</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">BonusWriter</span><span class="p">(</span><span class="n">BonusDao</span><span class="w"> </span><span class="n">dao</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dao</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="nd">@Override</span><span class="w"></span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Bonus</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">dao</span><span class="p">.</span><span class="na">insert</span><span class="p">((</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Bonus</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="n">items</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="n">Chunk</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Bonus</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">dao</span><span class="p">.</span><span class="na">insert</span><span class="p">((</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Bonus</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="na">getItems</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </dd>
