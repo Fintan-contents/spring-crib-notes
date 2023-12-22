@@ -44,9 +44,7 @@ Thymeleafの基本的な使用方法については、以下のドキュメン�
 
     * th:insert
     * th:replace
-    * th:include
 
   上記の使い分けについては、 :thymeleaf-tutorials-doc:`Tutorial: Using Thymeleaf -  Including template fragments <usingthymeleaf_ja.html#テンプレートフラグメントのインクルード>` を参照してください。
 
 サンプル全体は :sample-app:`template-engine-thymeleaf-sample <web/template-engine-thymeleaf>` を参照してください。
-

@@ -1,6 +1,6 @@
 package keel.controller.form;
 
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 
 public class UserUpdateForm {
     private long userId;

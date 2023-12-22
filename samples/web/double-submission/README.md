@@ -10,7 +10,7 @@ mvn spring-boot:run
 
 ### 2. ユーザ情報を入力して確認ボタン押下
 
-`http://localhost:8080/user/` にアクセスします。
+`http://localhost:8080/user` にアクセスします。
 
 ユーザ情報を入力して、確認ボタンを押下します。
 

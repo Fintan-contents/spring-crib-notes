@@ -4,16 +4,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.test.JobLauncherTestUtils;
+import org.springframework.batch.test.context.SpringBatchTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.TestPropertySource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = {Doma2SpringBatchApplication.class, Doma2SpringBatchApplicationTest.BatchTestConfig.class})
+@SpringBatchTest
+@SpringBootTest(classes = Doma2SpringBatchApplication.class)
 @TestPropertySource("classpath:application-test.properties")
 public class Doma2SpringBatchApplicationTest {
 
@@ -32,14 +32,5 @@ public class Doma2SpringBatchApplicationTest {
         Integer count = template.queryForObject("select count(*) from bonus;", Integer.class);
         assertThat(count)
                 .isEqualTo(11);
-    }
-
-    @Configuration
-    static class BatchTestConfig {
-
-        @Bean
-        JobLauncherTestUtils jobLauncherTestUtils() {
-            return new JobLauncherTestUtils();
-        }
     }
 }

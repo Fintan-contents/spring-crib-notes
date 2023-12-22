@@ -55,7 +55,7 @@ public class SpringSecurityResponseHeaderTest {
                             .isEqualTo("DENY");
                     softly
                             .assertThat(response.getHeader("X-XSS-Protection"))
-                            .isEqualTo("1; mode=block");
+                            .isEqualTo("0");
                 });
     }
 
@@ -95,7 +95,7 @@ public class SpringSecurityResponseHeaderTest {
                             .isEqualTo("DENY");
                     softly
                             .assertThat(response.getHeader("X-XSS-Protection"))
-                            .isEqualTo("1; mode=block");
+                            .isEqualTo("0");
                 });
     }
 }

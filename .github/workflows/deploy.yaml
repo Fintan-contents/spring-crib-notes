@@ -1,0 +1,56 @@
+# ドキュメントをビルドしてgh-pagesブランチへコミット・プッシュするワークフローです。
+#
+# ソースブランチとgh-pagesブランチをそれぞれ異なるパスへチェックアウトし、
+# ソースブランチでビルドした結果をgh-pagesブランチへ出力し、コミット・プッシュしています。
+#
+# また前提として、実行されるジョブの中でコミット・プッシュする必要があるため、
+# 以下の設定項目で「Read and write permissions」を選択する必要があります。
+#
+#   Settings > Actions > General > Workflow permissions
+#
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    if: contains(github.event.head_commit.message, '[skip ci]') == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          path: src
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          path: dist
+          ref: gh-pages
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Setup Sphinx
+        run: |-
+          pip3 install sphinx_rtd_theme
+
+      - name: Build document
+        run: |-
+          rm -fr dist/latest
+          cd src/doc
+          make html BUILDDIR=../../dist/latest SPHINXOPTS="-d _build/doctrees"
+
+      - name: Commit and push
+        run: |-
+          cd dist
+          git config user.email "keel@tis.co.jp"
+          git config user.name "keel-dev"
+          git add latest
+          git commit -m '[skip ci] publish new version'
+          git push origin gh-pages
