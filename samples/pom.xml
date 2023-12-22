@@ -119,7 +119,7 @@
       <dependency>
         <groupId>jp.fintan.keel</groupId>
         <artifactId>keel-spring-boot-starter-web</artifactId>
-        <version>2.0.0-SNAPSHOT</version>
+        <version>2.0.0</version>
       </dependency>
       <!-- keel-web-end -->
       <!-- other-versions-end -->
@@ -128,7 +128,7 @@
       <dependency>
         <groupId>com.nablarch.profile</groupId>
         <artifactId>nablarch-bom</artifactId>
-        <version>6-NEXT-SNAPSHOT</version>
+        <version>6</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
