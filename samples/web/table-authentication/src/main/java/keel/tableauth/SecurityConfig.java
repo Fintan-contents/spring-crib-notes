@@ -42,9 +42,7 @@ public class SecurityConfig {
     public RoleHierarchy roleHierarchy() {
         // 権限の階層構造の設定をします。
         // admin権限は、user権限を含む権限となります。
-        RoleHierarchyImpl hierarchy = new RoleHierarchyImpl();
-        hierarchy.setHierarchy("ROLE_admin > ROLE_user");
-        return hierarchy;
+        return RoleHierarchyImpl.fromHierarchy("ROLE_admin > ROLE_user");
     }
     // role-end
 

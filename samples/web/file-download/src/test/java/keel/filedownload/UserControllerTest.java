@@ -1,9 +1,8 @@
 package keel.filedownload;
 
-import org.apache.commons.codec.net.QuotedPrintableCodec;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -32,7 +31,10 @@ public class UserControllerTest {
 
     @Test
     public void ファイルダウンロードのテスト() throws Exception {
-        QuotedPrintableCodec encoder = new QuotedPrintableCodec();
+        // Spring Framework 6系まではfilenameをRFC 2047形式（=?UTF-8?Q?...?=）で符号化していたが、
+        // 7系ではRFC 6266に従い、filenameはASCIIのみのフォールバック（非ASCII文字は"_"に置換）とし、
+        // 実際のファイル名はRFC 5987形式のfilename*で表現するよう変更された。
+        String asciiFallbackFileName = "_".repeat("ダウンロード".length()) + ".txt";
         mockMvc
                 .perform(get("/download"))
                 .andExpect(status().isOk())
@@ -41,7 +43,7 @@ public class UserControllerTest {
                 .andExpect(content().contentType("text/plain"))
                 .andExpect(header().string("Content-Disposition",
                         "attachment;" +
-                                " filename=\"=?UTF-8?Q?" + encoder.encode("ダウンロード.txt") + "?=\";" +
+                                " filename=\"" + asciiFallbackFileName + "\";" +
                                 " filename*=UTF-8''" + URLEncoder.encode("ダウンロード.txt", StandardCharsets.UTF_8)));
     }
 }

@@ -2,8 +2,8 @@ package keel.batch.doma2.writer;
 
 import keel.batch.doma2.dao.BonusDao;
 import keel.batch.doma2.entity.Bonus;
-import org.springframework.batch.item.Chunk;
-import org.springframework.batch.item.ItemWriter;
+import org.springframework.batch.infrastructure.item.Chunk;
+import org.springframework.batch.infrastructure.item.ItemWriter;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

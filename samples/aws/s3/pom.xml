@@ -23,6 +23,12 @@
       <groupId>io.awspring.cloud</groupId>
       <artifactId>spring-cloud-aws-starter-s3</artifactId>
     </dependency>
+    <!-- spring-cloud-aws 4系のS3ObjectConverter（S3Templateの前提となるBean）は
+         Jacksonがクラスパスに在ることを条件に構成されるため、明示的に追加する -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jackson</artifactId>
+    </dependency>
     <!-- spring-cloud-aws-end -->
 
     <dependency>
@@ -44,12 +50,12 @@
     </dependency>
     <dependency>
       <groupId>org.testcontainers</groupId>
-      <artifactId>junit-jupiter</artifactId>
+      <artifactId>testcontainers-junit-jupiter</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.testcontainers</groupId>
-      <artifactId>localstack</artifactId>
+      <artifactId>testcontainers-localstack</artifactId>
       <scope>test</scope>
     </dependency>
 
