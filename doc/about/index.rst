@@ -67,7 +67,7 @@
 また、明示的に依存しているのは以下のライブラリです。
 
 Spring Boot
-  Spring Bootから参照されるライブラリのバージョンは、 :spring-boot-doc:`Appendix F. Dependency versions <reference/html/dependency-versions.html#appendix.dependency-versions>` を参照してください。
+  Spring Bootから参照されるライブラリのバージョンは、 :spring-boot-doc:`Appendix F. Dependency versions <appendix/dependency-versions/index.html>` を参照してください。
 
   .. literalinclude:: ../../samples/pom.xml
      :language: xml

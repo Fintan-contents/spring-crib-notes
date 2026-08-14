@@ -2,7 +2,7 @@ package keel.batch.doma2.reader;
 
 import keel.batch.doma2.dao.EmployeeBonusDao;
 import keel.batch.doma2.entity.EmployeeBonus;
-import org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader;
+import org.springframework.batch.infrastructure.item.support.AbstractItemCountingItemStreamItemReader;
 import org.springframework.stereotype.Component;
 
 import java.util.Iterator;

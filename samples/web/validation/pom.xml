@@ -39,9 +39,10 @@
       <artifactId>doma-slf4j</artifactId>
     </dependency>
 
+    <!-- Spring Boot 4系ではFlywayの自動設定がspring-boot-flywayへ分離されたため、starter経由で依存を宣言する -->
     <dependency>
-      <groupId>org.flywaydb</groupId>
-      <artifactId>flyway-core</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-flyway</artifactId>
     </dependency>
     
     <dependency>
@@ -52,7 +53,7 @@
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
+      <artifactId>spring-boot-starter-webmvc-test</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>

@@ -27,15 +27,15 @@ import javax.sql.DataSource;
 import java.util.Map;
 import java.util.Properties;
 
-import org.springframework.batch.core.JobParameter;
-import org.springframework.batch.core.JobParameters;
-import org.springframework.batch.core.JobParametersBuilder;
+import org.springframework.batch.core.job.parameters.JobParameter;
+import org.springframework.batch.core.job.parameters.JobParameters;
+import org.springframework.batch.core.job.parameters.JobParametersBuilder;
 import org.springframework.batch.core.converter.JobParametersConverter;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.repository.dao.AbstractJdbcBatchMetadataDao;
-import org.springframework.batch.item.database.support.DataFieldMaxValueIncrementerFactory;
-import org.springframework.batch.item.database.support.DefaultDataFieldMaxValueIncrementerFactory;
-import org.springframework.batch.support.DatabaseType;
+import org.springframework.batch.infrastructure.item.database.support.DataFieldMaxValueIncrementerFactory;
+import org.springframework.batch.infrastructure.item.database.support.DefaultDataFieldMaxValueIncrementerFactory;
+import org.springframework.batch.infrastructure.support.DatabaseType;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.jdbc.support.incrementer.DataFieldMaxValueIncrementer;
 import org.springframework.lang.Nullable;
@@ -116,7 +116,7 @@ public class JsrJobParametersConverter implements JobParametersConverter, Initia
     }
 
     /* (non-Javadoc)
-     * @see org.springframework.batch.core.converter.JobParametersConverter#getProperties(org.springframework.batch.core.JobParameters)
+     * @see org.springframework.batch.core.converter.JobParametersConverter#getProperties(org.springframework.batch.core.job.parameters.JobParameters)
      */
     @Override
     public Properties getProperties(@Nullable JobParameters params) {
@@ -124,12 +124,12 @@ public class JsrJobParametersConverter implements JobParametersConverter, Initia
         boolean runIdFound = false;
 
         if(params != null) {
-            for(Map.Entry<String, JobParameter<?>> curParameter: params.getParameters().entrySet()) {
-                if(curParameter.getKey().equals(JOB_RUN_ID)) {
+            for(JobParameter<?> curParameter: params.parameters()) {
+                if(curParameter.name().equals(JOB_RUN_ID)) {
                     runIdFound = true;
                 }
 
-                properties.setProperty(curParameter.getKey(), curParameter.getValue().getValue().toString());
+                properties.setProperty(curParameter.name(), curParameter.value().toString());
             }
         }
 

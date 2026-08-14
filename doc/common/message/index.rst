@@ -15,7 +15,7 @@ Spring Bootでは、入力値のチェックとしてJakarta Bean Validationを�
 * Springのメッセージ定義ファイル（クラスパス直下のmessages.properties）
 * Hibernate Validatorのメッセージ定義ファイル（クラスパス直下のValidationMessages.propertiesやValidationMessages_ja.properties等）
 
-エラーメッセージの解決では、まずSpringのメッセージ定義ファイルが使用されます。（エラーメッセージ解決の詳細については :spring-framework-doc:`エラーメッセージの解決 <core/validation/conversion.html>` を参考にしてください）
+エラーメッセージの解決では、まずSpringのメッセージ定義ファイルが使用されます。（エラーメッセージ解決の詳細については :spring-framework-doc:`エラーメッセージの解決 <core/validation/convert.html>` を参考にしてください）
 
 Springのメッセージ定義ファイルにエラーメッセージが定義されていなければ、Hibernate Validatorのメッセージ定義ファイルが使用されます。（Hibernate Validatorのエラーメッセージ解決の詳細については :hibernate-validator-doc:`エラーメッセージの補完 <reference/en-US/html_single/#chapter-message-interpolation>` を参考にしてください）
 

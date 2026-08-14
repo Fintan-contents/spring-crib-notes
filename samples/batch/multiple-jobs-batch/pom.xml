@@ -17,6 +17,12 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-batch</artifactId>
     </dependency>
+    <!-- Spring Boot 4系ではspring-boot-starter-batchがspring-boot-starter-jdbcを
+         推移的に含まなくなったため、DataSource／トランザクションマネージャの自動設定のために明示的に追加する -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>org.postgresql</groupId>

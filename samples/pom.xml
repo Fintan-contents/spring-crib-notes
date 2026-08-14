@@ -43,12 +43,19 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.2.0</version>
+    <version>4.1.0</version>
   </parent>
   <!-- spring-boot-version-end -->
 
   <properties>
     <java.version>17</java.version>
+    <!--
+      Spring Bootが管理するjson-pathのバージョンを引き上げる。
+      logbook 4.1.0はJackson 3を利用するためjson-path 3.0.0以上を必要とするが、
+      Spring Boot 4.1.0が管理する2.10.0にはJackson 3向けのJsonProviderが含まれず、
+      実行時にNoClassDefFoundErrorとなるため。
+    -->
+    <json-path.version>3.0.0</json-path.version>
   </properties>
 
   <dependencyManagement>
@@ -58,44 +65,44 @@
       <dependency>
         <groupId>org.seasar.doma.boot</groupId>
         <artifactId>doma-spring-boot-starter</artifactId>
-        <version>1.7.0</version>
+        <version>3.0.0</version>
       </dependency>
       <dependency>
         <groupId>org.seasar.doma</groupId>
         <artifactId>doma-processor</artifactId>
-        <version>2.53.1</version>
+        <version>3.11.1</version>
         <optional>true</optional>
       </dependency>
       <dependency>
         <groupId>org.seasar.doma</groupId>
         <artifactId>doma-slf4j</artifactId>
-        <version>2.53.1</version>
+        <version>3.11.1</version>
       </dependency>
       <!-- doma-starter-end -->
       <!-- mybatis-start -->
       <dependency>
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
-        <version>3.0.3</version>
+        <version>4.1.0</version>
       </dependency>
       <!-- mybatis-end -->
       <dependency>
         <groupId>io.awspring.cloud</groupId>
         <artifactId>spring-cloud-aws-dependencies</artifactId>
-        <version>3.1.0</version>
+        <version>4.1.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.github.database-rider</groupId>
         <artifactId>rider-spring</artifactId>
-        <version>1.35.0</version>
+        <version>1.44.0</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>com.github.database-rider</groupId>
         <artifactId>rider-junit5</artifactId>
-        <version>1.35.0</version>
+        <version>1.44.0</version>
         <scope>test</scope>
       </dependency>
 
@@ -103,7 +110,7 @@
       <dependency>
         <groupId>dev.akkinoc.spring.boot</groupId>
         <artifactId>logback-access-spring-boot-starter</artifactId>
-        <version>4.0.0</version>
+        <version>5.1.0</version>
       </dependency>
       <!-- logback-access-spring-boot-version-end -->
 
@@ -111,7 +118,7 @@
       <dependency>
         <groupId>org.zalando</groupId>
         <artifactId>logbook-spring-boot-starter</artifactId>
-        <version>3.7.1</version>
+        <version>4.1.0</version>
       </dependency>
       <!-- logbook-end -->
 
@@ -119,7 +126,7 @@
       <dependency>
         <groupId>jp.fintan.keel</groupId>
         <artifactId>keel-spring-boot-starter-web</artifactId>
-        <version>2.0.0</version>
+        <version>3.0.0</version>
       </dependency>
       <!-- keel-web-end -->
       <!-- other-versions-end -->
@@ -133,14 +140,6 @@
         <scope>import</scope>
       </dependency>
       <!-- nablarch-end -->
-
-      <dependency>
-        <groupId>org.testcontainers</groupId>
-        <artifactId>testcontainers-bom</artifactId>
-        <version>1.19.3</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
 
       <dependency>
         <groupId>org.mock-server</groupId>

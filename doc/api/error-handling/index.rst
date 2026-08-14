@@ -10,7 +10,7 @@ RESTful Webサービスでの例外ハンドリング方法とレスポンスの
 発生した例外が :spring-framework-javadoc:`Spring Web MVCがデフォルトでハンドリングする例外 <javadoc-api/org/springframework/web/servlet/mvc/support/DefaultHandlerExceptionResolver.html>`
 であれば、アプリケーション側で設定や実装を行わなくても、適切なレスポンスが返却されます。それ以外の例外であれば、デフォルトではHTTPステータスコードに500が設定されたレスポンスが返却されます。
 
-レスポンスボディにはエラー情報が出力されます。出力する内容は ``server.error`` プロパティでカスマイズすることができます。プロパティの詳細については :spring-boot-doc:`Server Properties <reference/html/application-properties.html#appendix.application-properties.server>` を参照してください。
+レスポンスボディにはエラー情報が出力されます。出力する内容は ``server.error`` プロパティでカスマイズすることができます。プロパティの詳細については :spring-boot-doc:`Server Properties <appendix/application-properties/index.html#appendix.application-properties.server>` を参照してください。
 
 レスポンスの例
   .. code-block:: text

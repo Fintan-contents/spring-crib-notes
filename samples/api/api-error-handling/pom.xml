@@ -47,14 +47,15 @@
       <scope>runtime</scope>
     </dependency>
 
+    <!-- Spring Boot 4系ではFlywayの自動設定がspring-boot-flywayへ分離されたため、starter経由で依存を宣言する -->
     <dependency>
-      <groupId>org.flywaydb</groupId>
-      <artifactId>flyway-core</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-flyway</artifactId>
     </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
+      <artifactId>spring-boot-starter-webmvc-test</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -70,5 +71,24 @@
     </dependency>
 
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <!--
+            database-rider（1.44.0時点）のJUnit5拡張はJUnit 6を前提としておらず、
+            同一JVMで複数のテストクラスを続けて実行すると、クラス内で最初に実行される
+            テストメソッドへ@DataSetが適用されないことがある。
+            テストクラスごとにJVMを分けることで、データセットが確実に適用されるようにする。
+            database-rider側がJUnit 6へ対応したら、この設定は削除してよい。
+          -->
+          <reuseForks>false</reuseForks>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

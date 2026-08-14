@@ -51,9 +51,16 @@
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
+      <artifactId>spring-boot-starter-webmvc-test</artifactId>
       <scope>test</scope>
     </dependency>
 
+    <!-- Spring Boot 4系ではTestRestTemplateがspring-boot-restclientのRestTemplateBuilderを必要とするため、
+         テストスコープで明示的に依存を追加する -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-restclient</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>

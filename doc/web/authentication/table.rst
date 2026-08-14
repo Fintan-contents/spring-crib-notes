@@ -30,7 +30,7 @@ Spring Securityに対する設定
      :end-before: example-end
 
 ユーザ情報を取得するため、Doma2を使用してユーザ情報を取得するためのDaoとServiceを作成します。
-ServiceではSpring Securityが提供している :spring-security-doc:`UserDetailService <servlet/authentication/passwords/user-details-service.html#servlet-authentication-userdetailsservice>` を実装し、Bean定義することで、Spring Securityから呼び出されます。
+ServiceではSpring Securityが提供している :spring-security-doc:`UserDetailService <servlet/authentication/passwords/user-details-service.html>` を実装し、Bean定義することで、Spring Securityから呼び出されます。
 
 Dao
   .. literalinclude:: ../../../samples/web/table-authentication/src/main/java/keel/tableauth/UserDao.java
